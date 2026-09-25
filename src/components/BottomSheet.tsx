@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { useTranslation } from '../i18n';
 import { colors, radius, spacing } from '../theme';
 import { IconButton } from './Buttons';
 import { Typography } from './Typography';
@@ -22,15 +23,16 @@ export function BottomSheet({
   footer?: ReactNode;
 }) {
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose} statusBarTranslucent>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={styles.root}>
-        <Pressable style={styles.backdrop} onPress={onClose} accessibilityRole="button" accessibilityLabel="Kapat" />
+        <Pressable style={styles.backdrop} onPress={onClose} accessibilityRole="button" accessibilityLabel={t('common.close')} />
         <View style={[styles.sheet, { paddingBottom: Math.max(insets.bottom, spacing.md) }]}>
           <View style={styles.grabber} />
           <View style={styles.header}>
             <Typography variant="h2">{title}</Typography>
-            <IconButton icon={X} accessibilityLabel="Kapat" onPress={onClose} />
+            <IconButton icon={X} accessibilityLabel={t('common.close')} onPress={onClose} />
           </View>
           <ScrollView style={styles.scroll} contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
             {children}
@@ -66,8 +68,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingLeft: spacing.lg,
-    paddingRight: spacing.xs,
+    paddingStart: spacing.lg,
+    paddingEnd: spacing.xs,
     paddingTop: spacing.xs,
   },
   scroll: { flexGrow: 0 },

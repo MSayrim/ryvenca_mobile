@@ -21,7 +21,7 @@ export function idsFromKey(key: string): number[] {
   );
 }
 
-/** Random positive 31-bit seed for "Yeniden Öner". */
+/** Random positive 31-bit seed for "Suggest Again". */
 export function randomSeed(): number {
   return Math.floor(Math.random() * 2_147_483_646) + 1;
 }

@@ -5,6 +5,7 @@ import { Pressable, StyleSheet, View, type StyleProp, type ViewStyle } from 'rea
 import type { Garment } from '../api/types';
 import { useMeta } from '../hooks/useMeta';
 import { useToggleGarmentFavorite } from '../hooks/mutations';
+import { useTranslation } from '../i18n';
 import { colors, radius, spacing } from '../theme';
 import { GarmentPhoto } from './GarmentPhoto';
 import { Typography } from './Typography';
@@ -19,15 +20,19 @@ export function GarmentCard({
   onPress: () => void;
   style?: StyleProp<ViewStyle>;
 }) {
+  const { t } = useTranslation();
   const { labels } = useMeta();
   const favorite = useToggleGarmentFavorite();
-  const subtitle = `${labels.subcategory(garment.subcategory, garment.category)} · ${labels.color(garment.color)}`;
+  const subtitle = t('garment.subtitle', {
+    subcategory: labels.subcategory(garment.subcategory, garment.category),
+    color: labels.color(garment.color),
+  });
 
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
-      accessibilityLabel={`${garment.displayName}, ${subtitle}`}
+      accessibilityLabel={t('garment.cardA11y', { name: garment.displayName, details: subtitle })}
       style={({ pressed }) => [styles.card, pressed && styles.pressed, style]}
     >
       <View>
@@ -36,7 +41,7 @@ export function GarmentCard({
           onPress={() => favorite.mutate(garment)}
           hitSlop={8}
           accessibilityRole="button"
-          accessibilityLabel={garment.favorite ? 'Favorilerden çıkar' : 'Favorilere ekle'}
+          accessibilityLabel={garment.favorite ? t('common.removeFromFavorites') : t('common.addToFavorites')}
           accessibilityState={{ selected: garment.favorite }}
           style={styles.heart}
         >
@@ -98,7 +103,7 @@ const styles = StyleSheet.create({
   heart: {
     position: 'absolute',
     top: 8,
-    right: 8,
+    end: 8,
     width: 36,
     height: 36,
     borderRadius: 999,

@@ -86,7 +86,15 @@ export interface ColorMeta extends LabeledCode<ColorName> {
   hex: string;
 }
 
+/** `GET /api/meta` → `languages` (native labels). Optional: older servers do not send it. */
+export interface LanguageMeta {
+  code: string;
+  label: string;
+  rtl: boolean;
+}
+
 export interface Meta {
+  languages?: LanguageMeta[];
   wardrobeTypes: LabeledCode<WardrobeType>[];
   styles: StyleMeta[];
   categories: CategoryMeta[];
@@ -102,6 +110,8 @@ export interface User {
   email: string;
   displayName: string;
   wardrobeType: WardrobeType | null;
+  /** Preferred UI language code (e.g. "tr", "ar"); null/absent when never set. */
+  language?: string | null;
   stylePreferences: StylePreference[];
   onboardingCompleted: boolean;
   createdAt: string;
@@ -130,6 +140,7 @@ export interface UpdateMeRequest {
   wardrobeType?: WardrobeType | null;
   stylePreferences?: StylePreference[] | null;
   onboardingCompleted?: boolean | null;
+  language?: string | null;
 }
 
 // ---------- Images ----------

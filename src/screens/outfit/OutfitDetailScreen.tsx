@@ -33,9 +33,11 @@ import {
 } from '../../components';
 import { useToggleSaveOutfit } from '../../hooks/mutations';
 import { useEvaluateOutfit, useSimilarOutfits } from '../../hooks/queries';
+import { useFormatters, useTranslation } from '../../i18n';
 import type { RootScreenProps } from '../../navigation/types';
 import { colors, fonts, radius, spacing } from '../../theme';
 import { notify } from '../../utils/confirm';
+import { clampScore } from '../../utils/labels';
 import { outfitGarmentIds, sortIds } from '../../utils/outfit';
 
 const REASON_ICONS: Record<string, LucideIcon> = {
@@ -47,6 +49,8 @@ const REASON_ICONS: Record<string, LucideIcon> = {
 };
 
 export function OutfitDetailScreen({ navigation, route }: RootScreenProps<'OutfitDetail'>) {
+  const { t } = useTranslation();
+  const format = useFormatters();
   const ids = useMemo(() => sortIds(route.params.ids), [route.params.ids]);
   const outfitQuery = useEvaluateOutfit(ids);
   const outfit = outfitQuery.data;
@@ -63,7 +67,12 @@ export function OutfitDetailScreen({ navigation, route }: RootScreenProps<'Outfi
     try {
       await Share.share({
         title: o.title,
-        message: `${o.title} — Uyum Skoru ${o.score}\n${o.description}\n\n${pieces}\n\nRYVENCA ile kendi dolabımdan oluşturdum.`,
+        message: t('outfit.share.message', {
+          title: o.title,
+          score: clampScore(o.score),
+          description: o.description,
+          pieces,
+        }),
       });
     } catch {
       // user dismissed / not supported
@@ -76,20 +85,20 @@ export function OutfitDetailScreen({ navigation, route }: RootScreenProps<'Outfi
   };
 
   const onToggleSave = (o: Outfit) =>
-    toggle.mutate(o, { onError: (e) => notify('İşlem tamamlanamadı', errorMessage(e)) });
+    toggle.mutate(o, { onError: (e) => notify(t('outfit.detail.actionFailed'), errorMessage(e)) });
 
   return (
     <Screen>
       <ScreenHeader
-        title="Kombin Detayı"
+        title={t('outfit.detail.title')}
         onBack={() => navigation.goBack()}
         right={
           outfit ? (
             <>
-              <IconButton icon={Share2} accessibilityLabel="Paylaş" onPress={() => void onShare(outfit)} />
+              <IconButton icon={Share2} accessibilityLabel={t('outfit.detail.share')} onPress={() => void onShare(outfit)} />
               <IconButton
                 icon={Bookmark}
-                accessibilityLabel={outfit.saved ? 'Kaydedilenlerden çıkar' : 'Kombini kaydet'}
+                accessibilityLabel={outfit.saved ? t('outfit.unsave') : t('outfit.save')}
                 selected={outfit.saved}
                 fill={outfit.saved ? colors.ink : 'none'}
                 disabled={toggle.isPending}
@@ -106,7 +115,7 @@ export function OutfitDetailScreen({ navigation, route }: RootScreenProps<'Outfi
           <Skeleton height={undefined} radius={radius.lg} style={styles.collageSkeleton} />
         </View>
       ) : outfitQuery.isError || !outfit ? (
-        <ErrorState error={outfitQuery.error} title="Kombin yüklenemedi" onRetry={() => void outfitQuery.refetch()} />
+        <ErrorState error={outfitQuery.error} title={t('outfit.detail.loadFailed')} onRetry={() => void outfitQuery.refetch()} />
       ) : (
         <ScrollView ref={scrollRef} contentContainerStyle={styles.content}>
           {/* Summary */}
@@ -135,19 +144,19 @@ export function OutfitDetailScreen({ navigation, route }: RootScreenProps<'Outfi
             onPressItem={(item) => navigation.push('GarmentDetail', { id: item.garment.id })}
           />
           <Typography variant="caption" align="center">
-            Parçaya dokunarak detayını görebilirsin
+            {t('outfit.detail.tapHint')}
           </Typography>
 
           {/* Breakdown */}
           <View style={styles.card}>
-            <SectionHeader title="Skor Dağılımı" />
+            <SectionHeader title={t('outfit.detail.breakdown')} />
             <ScoreBreakdown items={outfit.breakdown} />
           </View>
 
           {/* Reasons */}
           {outfit.reasons.length > 0 ? (
             <View style={styles.section}>
-              <SectionHeader title="Neden Uyumlu?" />
+              <SectionHeader title={t('outfit.detail.why')} />
               {outfit.reasons.map((reason) => (
                 <ReasonCard key={`${reason.code}-${reason.title}`} reason={reason} />
               ))}
@@ -157,7 +166,7 @@ export function OutfitDetailScreen({ navigation, route }: RootScreenProps<'Outfi
           {/* Venues */}
           {outfit.venues.length > 0 ? (
             <View style={styles.section}>
-              <SectionHeader title="Uygun Ortamlar" />
+              <SectionHeader title={t('outfit.detail.venues')} />
               <View style={styles.wrap}>
                 {outfit.venues.map((v) => (
                   <Chip key={v} static label={v} tone="outline" />
@@ -170,9 +179,9 @@ export function OutfitDetailScreen({ navigation, route }: RootScreenProps<'Outfi
           {outfit.palette.length > 0 ? (
             <View style={styles.section}>
               <View style={styles.paletteHead}>
-                <Typography variant="h2">Renk Paleti</Typography>
+                <Typography variant="h2">{t('outfit.detail.palette')}</Typography>
                 {outfit.paletteName ? (
-                  <Typography style={styles.smallCaps}>{outfit.paletteName.toLocaleUpperCase('tr-TR')}</Typography>
+                  <Typography style={styles.smallCaps}>{format.upper(outfit.paletteName)}</Typography>
                 ) : null}
               </View>
               <View style={styles.palette}>
@@ -191,13 +200,13 @@ export function OutfitDetailScreen({ navigation, route }: RootScreenProps<'Outfi
           {/* Actions */}
           <View style={styles.actions}>
             <PrimaryButton
-              label={outfit.saved ? 'Kaydedildi' : 'Kombini Kaydet'}
+              label={outfit.saved ? t('common.saved') : t('outfit.detail.saveOutfit')}
               icon={outfit.saved ? BookmarkCheck : Bookmark}
               onPress={() => onToggleSave(outfit)}
               loading={toggle.isPending}
               fullWidth
             />
-            <SecondaryButton label="Benzer Kombinler" icon={Layers} onPress={onSimilar} fullWidth />
+            <SecondaryButton label={t('outfit.detail.similar')} icon={Layers} onPress={onSimilar} fullWidth />
           </View>
 
           {/* Similar */}
@@ -209,7 +218,7 @@ export function OutfitDetailScreen({ navigation, route }: RootScreenProps<'Outfi
           >
             {showSimilar ? (
               <>
-                <SectionHeader title="Benzer Kombinler" />
+                <SectionHeader title={t('outfit.detail.similar')} />
                 {similar.isLoading ? (
                   <View style={styles.similarLoading}>
                     <ActivityIndicator color={colors.softBrown} />
@@ -217,7 +226,7 @@ export function OutfitDetailScreen({ navigation, route }: RootScreenProps<'Outfi
                 ) : similar.isError ? (
                   <ErrorState compact error={similar.error} onRetry={() => void similar.refetch()} />
                 ) : (similar.data?.outfits.length ?? 0) === 0 ? (
-                  <Typography variant="small">Şimdilik benzer bir kombin bulamadık.</Typography>
+                  <Typography variant="small">{t('outfit.detail.noSimilar')}</Typography>
                 ) : (
                   <FlatList
                     horizontal

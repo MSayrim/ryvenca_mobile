@@ -1,5 +1,6 @@
 import { API_BASE_URL, REQUEST_TIMEOUT_MS } from '../config';
-import { ApiError, NETWORK_ERROR_MESSAGE, TIMEOUT_MESSAGE, parseApiError } from './errors';
+import { currentLanguage } from '../i18n/i18n';
+import { ApiError, networkErrorMessage, parseApiError, timeoutMessage, unexpectedResponseMessage } from './errors';
 
 type QueryValue = string | number | boolean | null | undefined | readonly (string | number)[];
 
@@ -55,7 +56,8 @@ export function buildUrl(path: string, query?: Record<string, QueryValue>): stri
 export async function request<T>(path: string, options: RequestOptions = {}): Promise<T> {
   const { method = 'GET', query, body, formData, auth = true, timeoutMs = REQUEST_TIMEOUT_MS } = options;
 
-  const headers: Record<string, string> = { Accept: 'application/json' };
+  // The server localizes everything it renders (labels, outfit texts, error messages) for this language.
+  const headers: Record<string, string> = { Accept: 'application/json', 'Accept-Language': currentLanguage() };
   if (auth && authToken) headers.Authorization = `Bearer ${authToken}`;
 
   let payload: BodyInit | undefined;
@@ -84,8 +86,8 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
       signal: controller.signal,
     });
   } catch {
-    if (timedOut) throw new ApiError(0, 'TIMEOUT', TIMEOUT_MESSAGE);
-    throw new ApiError(0, 'NETWORK_ERROR', NETWORK_ERROR_MESSAGE);
+    if (timedOut) throw new ApiError(0, 'TIMEOUT', timeoutMessage());
+    throw new ApiError(0, 'NETWORK_ERROR', networkErrorMessage());
   } finally {
     clearTimeout(timer);
     options.signal?.removeEventListener('abort', externalAbort);
@@ -105,6 +107,6 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
   try {
     return JSON.parse(text) as T;
   } catch {
-    throw new ApiError(response.status, 'INTERNAL_ERROR', 'Sunucudan beklenmeyen bir yanıt geldi.');
+    throw new ApiError(response.status, 'INTERNAL_ERROR', unexpectedResponseMessage());
   }
 }

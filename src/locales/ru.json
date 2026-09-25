@@ -1,0 +1,379 @@
+{
+  "brand": {
+    "tagline": "Style what you already own"
+  },
+  "accents": {
+    "sameYouBetterOutfits": "Same you, better outfits ♡",
+    "noStudioNeeded": "No studio shots needed. Your own photo is enough! ♡"
+  },
+  "common": {
+    "retry": "Try Again",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "save": "Save",
+    "saved": "Saved",
+    "edit": "Edit",
+    "delete": "Delete",
+    "seeAll": "See All",
+    "all": "All",
+    "addPiece": "Add a Piece",
+    "addFirstPiece": "Add your first piece",
+    "required": "Required",
+    "notSelected": "Not selected",
+    "later": "Later",
+    "addToFavorites": "Add to favorites",
+    "removeFromFavorites": "Remove from favorites"
+  },
+  "errors": {
+    "title": "Something went wrong",
+    "network": "Couldn't reach the server. Check your internet connection and try again.",
+    "timeout": "The request timed out. Please try again.",
+    "generic": "Something went wrong. Please try again.",
+    "unexpectedResponse": "The server sent an unexpected response.",
+    "validation": "The information you sent is invalid.",
+    "unauthorized": "Your session has expired. Please sign in again.",
+    "forbidden": "You don't have permission to do this.",
+    "notFound": "We couldn't find what you were looking for.",
+    "conflict": "This action conflicts with existing records.",
+    "payloadTooLarge": "The photo is too large. You can upload up to {{maxMb}} MB.",
+    "server": "Something went wrong on the server. Please try again in a moment.",
+    "connectionFailed": "Couldn't connect"
+  },
+  "language": {
+    "title": "Language",
+    "choose": "Choose language",
+    "buttonA11y": "Language: {{language}}. Tap to change.",
+    "restart": {
+      "title": "Restart required",
+      "message": "The app will restart to switch the layout direction.",
+      "confirm": "Restart now"
+    }
+  },
+  "tabs": {
+    "home": "Home",
+    "wardrobe": "My Wardrobe",
+    "upload": "Upload",
+    "uploadA11y": "Upload a piece",
+    "suggestions": "Suggestions",
+    "profile": "Profile"
+  },
+  "header": {
+    "wardrobeA11y": "My Wardrobe",
+    "searchA11y": "Search your wardrobe"
+  },
+  "auth": {
+    "headline": "Before buying new clothes, rediscover what's already in your wardrobe.",
+    "modes": {
+      "login": "Sign In",
+      "register": "Sign Up"
+    },
+    "fields": {
+      "nameLabel": "Your name",
+      "namePlaceholder": "e.g. Emma",
+      "emailLabel": "Email",
+      "emailPlaceholder": "name@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholderRegister": "At least {{min}} characters",
+      "passwordPlaceholderLogin": "Your password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
+    },
+    "validation": {
+      "nameRequired": "Enter your name",
+      "emailInvalid": "Enter a valid email address",
+      "passwordTooShort": "Password must be at least {{min}} characters",
+      "passwordRequired": "Enter your password"
+    },
+    "submit": {
+      "login": "Sign In",
+      "register": "Create Account"
+    },
+    "switch": {
+      "noAccount": "Don't have an account?",
+      "toRegister": "Sign up",
+      "hasAccount": "Already have an account?",
+      "toLogin": "Sign in"
+    }
+  },
+  "onboarding": {
+    "greeting": "Hi {{name}}",
+    "greetingAnonymous": "Hi",
+    "signOut": "Sign out",
+    "stepProgressA11y": "Step {{current}} of {{total}}",
+    "wardrobeTypeText": "Categories and suggestions are tailored to this. You can change it later in your profile.",
+    "stylesText": "You can pick more than one. Choose at least one style.",
+    "continue": "Continue"
+  },
+  "preferences": {
+    "wardrobeTypeQuestion": "Who should we organize your wardrobe for?",
+    "styleQuestion": "How would you describe your style?",
+    "atLeastOneStyle": "Choose at least one style."
+  },
+  "howItWorks": {
+    "title": "How does it work?",
+    "stepLabel": "Step {{number}}",
+    "headline": "Make better use of what you own.",
+    "intro": "Before buying new clothes, make better use of the pieces already in your wardrobe. RYVENCA suggests outfits only from your own pieces and explains each one with a Match Score and the reasons behind it.",
+    "steps": {
+      "photo": {
+        "title": "Take a photo",
+        "text": "On a hanger, on the bed or on the sofa — a regular phone photo is enough."
+      },
+      "organize": {
+        "title": "Get organized",
+        "text": "We detect the color automatically; with category and season, your wardrobe organizes itself."
+      },
+      "discover": {
+        "title": "Discover your outfits",
+        "text": "Outfits made only from your own pieces, with a Match Score and an explanation."
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "What should I wear today?",
+      "text": "Let us suggest the best outfits from the real pieces in your wardrobe.",
+      "cta": "Suggest an Outfit",
+      "recentA11y": "Your recently added pieces"
+    },
+    "stats": {
+      "garments": "My Pieces",
+      "readyOutfits": "Ready Outfits",
+      "favorites": "Favorites",
+      "a11y": "{{label}}: {{value}}"
+    },
+    "wardrobe": {
+      "title": "My Wardrobe",
+      "emptyCategory": "No pieces in this category yet.",
+      "empty": "Your wardrobe is empty. Start by adding your first piece."
+    },
+    "today": {
+      "title": "Today's Suggestions",
+      "notReady": "Add a few more pieces so we can suggest outfits.",
+      "empty": "No suggestions for today. Check the Suggestions tab for new ideas."
+    }
+  },
+  "readiness": {
+    "title": "Add {{min}}–{{max}} pieces to get outfit suggestions",
+    "almostThere": "Almost ready for suggestions",
+    "progress": "{{current}}/{{total}}"
+  },
+  "wardrobe": {
+    "title": "My Wardrobe",
+    "count_one": "{{count}} piece",
+    "count_other": "{{count}} pieces",
+    "searchPlaceholder": "Search your wardrobe (e.g. blazer)",
+    "clearSearch": "Clear search",
+    "filter": "Filter",
+    "filterWithCount": "Filter · {{count}}",
+    "filterActiveA11y_one": "Filter, {{count}} filter active",
+    "filterActiveA11y_other": "Filter, {{count}} filters active",
+    "noResults": {
+      "title": "No results",
+      "text": "No pieces match these filters. Try changing them.",
+      "action": "Clear Filters"
+    },
+    "empty": {
+      "title": "Your wardrobe is waiting",
+      "text": "Take photos of your clothes and your wardrobe organizes itself."
+    },
+    "filterSheet": {
+      "title": "Filter",
+      "clear": "Clear",
+      "apply": "Apply",
+      "color": "Color",
+      "season": "Season",
+      "occasion": "Occasion",
+      "favoritesOnly": "Favorites only"
+    }
+  },
+  "garment": {
+    "subtitle": "{{subcategory}} · {{color}}",
+    "cardA11y": "{{name}}, {{details}}",
+    "patterned": "Patterned",
+    "detail": {
+      "title": "Piece Details"
+    },
+    "delete": {
+      "title": "Delete this piece?",
+      "message": "Saved outfits that include this piece will also be deleted.",
+      "done": "Piece deleted",
+      "failed": "Couldn't delete"
+    },
+    "pairings": {
+      "eyebrow": "Key feature",
+      "title": "What Goes With It?",
+      "text": "The pieces in your wardrobe that match this one best.",
+      "noMatches": "No matching pieces found for this one.",
+      "outfitsTitle": "Outfits with this piece",
+      "noOutfits": "We couldn't build an outfit with this piece yet.",
+      "notReady": "Add a few more pieces so we can build outfits."
+    }
+  },
+  "upload": {
+    "title": "Upload a Piece",
+    "subtitle": "Add a new piece to your wardrobe and discover better outfits.",
+    "recent": "Recently Added",
+    "added": {
+      "toast": "Added to your wardrobe",
+      "title": "Added to your wardrobe",
+      "text": "Great! Your new piece is now part of your outfit suggestions.",
+      "addAnother": "Add another piece",
+      "viewPiece": "View piece"
+    },
+    "edit": {
+      "title": "Edit Piece",
+      "savedToast": "Changes saved"
+    },
+    "cameraPermission": {
+      "title": "Camera access needed",
+      "message": "To take photos of your clothes, allow camera access in Settings.",
+      "openSettings": "Open Settings"
+    },
+    "uploadFailed": "The photo couldn't be uploaded. Please try again.",
+    "saveFailed": "Couldn't save",
+    "photo": {
+      "selectedA11y": "Selected photo",
+      "preparing": "Preparing photo…",
+      "analyzing": "Analyzing color…",
+      "addTitle": "Add a photo of your piece",
+      "helper": "A regular phone photo is enough. Capture the whole piece in good light, ideally on a plain surface.",
+      "camera": "Take Photo",
+      "library": "Choose from Library"
+    },
+    "form": {
+      "category": "Category",
+      "subcategory": "Subcategory",
+      "chooseCategoryFirst": "Choose a category first.",
+      "color": "Color",
+      "autoDetected": "✦ Auto-detected · {{confidence}}",
+      "confidence": {
+        "high": "high confidence",
+        "medium": "medium confidence",
+        "low": "low confidence"
+      },
+      "manual": "Selected manually",
+      "measuredTone": "Detected tone",
+      "otherCandidates": "Other possibilities:",
+      "patternedHint": "Patterns such as stripes, plaid or florals",
+      "season": "Season",
+      "seasonHint": "Leave empty and we'll choose based on the piece.",
+      "allSeasons": "All Seasons",
+      "occasion": "Occasion",
+      "occasionHint": "You can pick more than one.",
+      "name": "Name (optional)",
+      "namePlaceholder": "e.g. My favorite beige blazer",
+      "generatedName": "{{color}} {{subcategory}}"
+    },
+    "submit": {
+      "create": "Save to Wardrobe",
+      "edit": "Save Changes"
+    },
+    "missing": {
+      "uploading": "Uploading photo…",
+      "photo": "Add a photo of your piece first.",
+      "category": "Choose a category.",
+      "subcategory": "Choose a subcategory.",
+      "color": "Choose a color."
+    }
+  },
+  "suggestions": {
+    "title": "Suggestions",
+    "subtitle": "Outfits made from the photos in your wardrobe.",
+    "summary_one": "{{count}} outfit · {{season}}",
+    "summary_other": "{{count}} outfits · {{season}}",
+    "shuffle": "Suggest Again",
+    "shuffleHint": "Fetches new outfit suggestions",
+    "loading": "Preparing outfits…",
+    "notReady": {
+      "title": "Let's add a few pieces first",
+      "text": "To suggest outfits we need at least one top, one bottom (or a dress) and one pair of shoes."
+    },
+    "empty": {
+      "title": "No outfits match these filters",
+      "text": "Try choosing a different occasion or season.",
+      "action": "See All Outfits"
+    }
+  },
+  "outfit": {
+    "scorePill": "Match {{percent}}",
+    "scoreRingLabel": "Match Score",
+    "scoreRingA11y": "{{label}} {{score}}",
+    "cardA11y": "{{title}}, {{score}}",
+    "collageA11y": "{{title}} collage",
+    "collageItemsA11y_one": "Outfit collage, {{count}} piece",
+    "collageItemsA11y_other": "Outfit collage, {{count}} pieces",
+    "save": "Save outfit",
+    "unsave": "Remove from saved",
+    "saveThis": "Save This Outfit",
+    "viewDetail": "View Details",
+    "breakdownA11y": "{{label}}, weight {{weight}}, score {{score}}",
+    "detail": {
+      "title": "Outfit Details",
+      "share": "Share",
+      "loadFailed": "Couldn't load the outfit",
+      "tapHint": "Tap a piece to see its details",
+      "breakdown": "Score Breakdown",
+      "why": "Why It Works",
+      "venues": "Where to Wear It",
+      "palette": "Color Palette",
+      "saveOutfit": "Save Outfit",
+      "similar": "Similar Outfits",
+      "noSimilar": "We couldn't find a similar outfit for now.",
+      "actionFailed": "Couldn't complete the action"
+    },
+    "share": {
+      "message": "{{title}} — Match Score {{score}}\n{{description}}\n\n{{pieces}}\n\nCreated from my own wardrobe with RYVENCA."
+    }
+  },
+  "favorites": {
+    "title": "Favorites",
+    "tabs": {
+      "outfits": "Saved Outfits",
+      "garments": "Favorite Pieces"
+    },
+    "emptyOutfits": {
+      "title": "No saved outfits yet",
+      "text": "Save the outfits you like and they'll be waiting for you here.",
+      "action": "Browse Suggestions"
+    },
+    "emptyGarments": {
+      "title": "No favorite pieces",
+      "text": "Tap the heart on pieces in your wardrobe to add them to your favorites.",
+      "action": "Go to My Wardrobe"
+    }
+  },
+  "profile": {
+    "avatarA11y": "Profile picture of {{name}}",
+    "preferences": "My Preferences",
+    "wardrobeType": "Wardrobe",
+    "style": "Style",
+    "links": {
+      "favorites": "My Favorites",
+      "stats": "Wardrobe statistics",
+      "language": "Language"
+    },
+    "logout": {
+      "action": "Sign Out",
+      "confirm": "Do you want to sign out?"
+    },
+    "deleteAccount": {
+      "action": "Delete Account",
+      "title": "Are you sure you want to delete your account?",
+      "message": "Your account, all pieces in your wardrobe, photos and saved outfits will be permanently deleted. This can't be undone.",
+      "failed": "Couldn't delete the account"
+    },
+    "editPreferences": {
+      "title": "My Preferences",
+      "updatedToast": "Your preferences were updated"
+    },
+    "stats": {
+      "title": "Wardrobe Statistics",
+      "total": "Total pieces",
+      "favorites": "Favorite pieces",
+      "categoryA11y": "{{category}}: {{count}}"
+    }
+  }
+}

@@ -1,7 +1,8 @@
 import { forwardRef, useState, type ReactNode } from 'react';
 import { Platform, StyleSheet, TextInput, View, type TextInputProps } from 'react-native';
 
-import { colors, fonts, radius, spacing } from '../theme';
+import { useLanguage } from '../i18n';
+import { colors, fonts, radius, resolveTextStyle, spacing } from '../theme';
 import { Typography } from './Typography';
 
 export interface TextFieldProps extends TextInputProps {
@@ -12,6 +13,7 @@ export interface TextFieldProps extends TextInputProps {
 
 export const TextField = forwardRef<TextInput, TextFieldProps>(function TextField({ label, error, right, style, ...rest }, ref) {
   const [focused, setFocused] = useState(false);
+  const { typography } = useLanguage();
   return (
     <View style={styles.wrap}>
       {label ? (
@@ -34,7 +36,7 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
             setFocused(false);
             rest.onBlur?.(e);
           }}
-          style={[styles.input, style]}
+          style={resolveTextStyle([styles.input, style], typography)}
         />
         {right}
       </View>

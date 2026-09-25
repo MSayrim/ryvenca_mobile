@@ -1,6 +1,7 @@
-import { StyleSheet, Text, type TextProps, type TextStyle } from 'react-native';
+import { Platform, StyleSheet, Text, type TextProps, type TextStyle } from 'react-native';
 
-import { colors, fonts, typeScale } from '../theme';
+import { toUpperLocale, useLanguage } from '../i18n';
+import { colors, fonts, resolveTextStyle, typeScale, typographyProfile } from '../theme';
 
 export type TextVariant =
   | 'display'
@@ -21,21 +22,39 @@ export interface TypographyProps extends TextProps {
   variant?: TextVariant;
   color?: string;
   align?: TextStyle['textAlign'];
+  /** Language of the text when it differs from the UI language (e.g. native names in the language picker). */
+  lang?: string;
 }
 
-export function Typography({ variant = 'body', color, align, style, children, ...rest }: TypographyProps) {
-  // Eyebrows are upper-cased in JS with the Turkish locale (CSS/native textTransform would turn "i" into "I").
-  const content = variant === 'eyebrow' && typeof children === 'string' ? children.toLocaleUpperCase('tr-TR') : children;
+/**
+ * All app text goes through here: variant styles + language-aware fonts (system fonts for scripts the
+ * brand fonts do not cover, taller line heights for tall scripts; see theme/typography.ts).
+ */
+export function Typography({ variant = 'body', color, align, lang, style, children, ...rest }: TypographyProps) {
+  const ui = useLanguage();
+  const language = lang ?? ui.language;
+  const typography = lang ? typographyProfile(lang) : ui.typography;
+  // Eyebrows are upper-cased in JS with the UI locale (native textTransform would turn Turkish "i" into "I").
+  const content = variant === 'eyebrow' && typeof children === 'string' ? toUpperLocale(children, language) : children;
+  // Native aligns 'auto' text to the layout direction; react-native-web infers it per string (dir="auto"),
+  // which would e.g. left-align Latin words in an RTL layout. Align web text to the layout start instead.
+  const webStart = Platform.OS === 'web' && !align ? (ui.isRTL ? WEB_START_RTL : WEB_START_LTR) : null;
   return (
     <Text
       maxFontSizeMultiplier={1.4}
       {...rest}
-      style={[styles[variant], color ? { color } : null, align ? { textAlign: align } : null, style]}
+      style={resolveTextStyle(
+        [styles[variant], webStart, color ? { color } : null, align ? { textAlign: align } : null, style],
+        typography,
+      )}
     >
       {content}
     </Text>
   );
 }
+
+const WEB_START_LTR: TextStyle = { textAlign: 'left' };
+const WEB_START_RTL: TextStyle = { textAlign: 'right' };
 
 const styles = StyleSheet.create({
   display: { fontFamily: fonts.display, ...typeScale.display, color: colors.ink, letterSpacing: -0.4 },

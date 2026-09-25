@@ -3,15 +3,19 @@ import { useMemo } from 'react';
 
 import { api, queryKeys } from '../api';
 import type { Meta } from '../api/types';
+import { useLanguage } from '../i18n';
 import { buildLabels, type MetaLabels } from '../utils/labels';
 
-/** `/api/meta` — fetched once per app session and cached forever. */
+/** `/api/meta` — fetched once per language per app session and cached forever. */
 export function useMetaQuery() {
+  const { language } = useLanguage();
   return useQuery<Meta>({
-    queryKey: queryKeys.meta,
+    queryKey: queryKeys.meta(language),
     queryFn: api.getMeta,
     staleTime: Infinity,
     gcTime: Infinity,
+    // While the new language loads, keep showing the previous labels instead of skeletons.
+    placeholderData: (previous) => previous,
   });
 }
 

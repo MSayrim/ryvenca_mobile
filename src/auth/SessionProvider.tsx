@@ -3,11 +3,12 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 
 import { ApiError, api, errorMessage, queryKeys, setAuthToken, setUnauthorizedHandler } from '../api';
 import type { AuthResponse, User } from '../api/types';
+import { useLanguage } from '../i18n';
 import { clearSession, loadSession, saveSession } from './tokenStorage';
 
 export type SessionStatus = 'restoring' | 'signedOut' | 'signedIn' | 'error';
 
-/** Tab to open right after onboarding ("İlk parçanı ekle" → Upload). */
+/** Tab to open right after onboarding ("Add your first piece" → Upload). */
 export type LandingTab = 'Home' | 'Upload';
 
 interface SessionContextValue {
@@ -38,10 +39,11 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   const [landingTab, setLandingTab] = useState<LandingTab>('Home');
   const [restoreAttempt, setRestoreAttempt] = useState(0);
   const signingOut = useRef(false);
+  const { applyAccountLanguage } = useLanguage();
 
   const clearUserQueries = useCallback(() => {
     // Keep the public meta cache; drop everything user-specific.
-    queryClient.removeQueries({ predicate: (q) => q.queryKey[0] !== queryKeys.meta[0] });
+    queryClient.removeQueries({ predicate: (q) => q.queryKey[0] !== 'meta' });
   }, [queryClient]);
 
   const signOut = useCallback(async () => {
@@ -59,6 +61,31 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     }
   }, [clearUserQueries]);
 
+  const setUser = useCallback(
+    (next: User) => {
+      queryClient.setQueryData(queryKeys.me, next);
+      setUserState(next);
+    },
+    [queryClient],
+  );
+
+  /**
+   * Language after login/restore: an explicit pick on this device wins (and is written back to the
+   * account on an explicit login); otherwise `user.language` is applied when set.
+   */
+  const syncLanguage = useCallback(
+    async (account: User, explicitLogin: boolean) => {
+      const push = await applyAccountLanguage(account, explicitLogin);
+      if (!push) return;
+      try {
+        setUser(await api.updateMe({ language: push }));
+      } catch {
+        // Non-fatal: the local choice still applies; it is synced again on the next login.
+      }
+    },
+    [applyAccountLanguage, setUser],
+  );
+
   const signIn = useCallback(
     async (auth: AuthResponse) => {
       setAuthToken(auth.token);
@@ -68,16 +95,9 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       setUserState(auth.user);
       setRestoreError(null);
       setStatus('signedIn');
+      void syncLanguage(auth.user, true);
     },
-    [clearUserQueries, queryClient],
-  );
-
-  const setUser = useCallback(
-    (next: User) => {
-      queryClient.setQueryData(queryKeys.me, next);
-      setUserState(next);
-    },
-    [queryClient],
+    [clearUserQueries, queryClient, syncLanguage],
   );
 
   // Any 401 on an authenticated request → log out (navigation falls back to the auth screen).
@@ -107,6 +127,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         queryClient.setQueryData(queryKeys.me, me);
         setUserState(me);
         setStatus('signedIn');
+        void syncLanguage(me, false);
       } catch (error) {
         if (cancelled) return;
         if (error instanceof ApiError && (error.status === 401 || error.status === 403 || error.status === 404)) {
@@ -122,7 +143,8 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, [queryClient, restoreAttempt]);
+    // syncLanguage is stable (all of its dependencies are), so this still runs on launch / retry only.
+  }, [queryClient, restoreAttempt, syncLanguage]);
 
   const retryRestore = useCallback(() => setRestoreAttempt((n) => n + 1), []);
 

@@ -1,10 +1,16 @@
 import { StyleSheet, View } from 'react-native';
 
+import { useTranslation } from '../i18n';
 import { colors } from '../theme';
 
 export function ProgressDots({ count, index }: { count: number; index: number }) {
+  const { t } = useTranslation();
   return (
-    <View style={styles.row} accessibilityLabel={`Adım ${index + 1} / ${count}`} accessibilityRole="progressbar">
+    <View
+      style={styles.row}
+      accessibilityLabel={t('onboarding.stepProgressA11y', { current: index + 1, total: count })}
+      accessibilityRole="progressbar"
+    >
       {Array.from({ length: count }, (_, i) => (
         <View key={i} style={[styles.dot, i === index && styles.active, i < index && styles.done]} />
       ))}

@@ -19,6 +19,7 @@ import {
 import { useSuggestions } from '../../hooks/queries';
 import { usePullToRefresh } from '../../hooks/usePullToRefresh';
 import { useMeta } from '../../hooks/useMeta';
+import { useTranslation } from '../../i18n';
 import type { TabScreenProps } from '../../navigation/types';
 import { colors, spacing } from '../../theme';
 import { outfitGarmentIds, randomSeed } from '../../utils/outfit';
@@ -26,12 +27,13 @@ import { outfitGarmentIds, randomSeed } from '../../utils/outfit';
 const LIMIT = 10;
 
 export function SuggestionsScreen({ navigation, route }: TabScreenProps<'Suggestions'>) {
+  const { t } = useTranslation();
   const { meta, labels } = useMeta();
   const [occasion, setOccasion] = useState<Occasion | null>(route.params?.occasion ?? null);
   const [season, setSeason] = useState<Season | null>(null);
   const [seed, setSeed] = useState<number | null>(route.params?.seed ?? null);
 
-  // "Kombin Öner →" from Home passes a fresh random seed (adjust state when params change).
+  // "Suggest an Outfit →" from Home passes a fresh random seed (adjust state when params change).
   const paramSeed = route.params?.seed;
   const paramOccasion = route.params?.occasion;
   const [seenParams, setSeenParams] = useState({ seed: paramSeed, occasion: paramOccasion });
@@ -52,16 +54,16 @@ export function SuggestionsScreen({ navigation, route }: TabScreenProps<'Suggest
       <View style={styles.titleRow}>
         <View style={styles.flex}>
           <Typography variant="h1" accessibilityRole="header">
-            Öneriler
+            {t('suggestions.title')}
           </Typography>
           <Typography variant="body" color={colors.textSecondary}>
-            Dolabındaki fotoğraflarla hazırlanan kombinler.
+            {t('suggestions.subtitle')}
           </Typography>
         </View>
       </View>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.bleed} contentContainerStyle={styles.chips}>
-        <Chip label="Tümü" selected={occasion === null} onPress={() => setOccasion(null)} />
+        <Chip label={t('common.all')} selected={occasion === null} onPress={() => setOccasion(null)} />
         {(meta?.occasions ?? []).map((o) => (
           <Chip key={o.code} label={o.label} selected={occasion === o.code} onPress={() => setOccasion(o.code)} />
         ))}
@@ -75,24 +77,24 @@ export function SuggestionsScreen({ navigation, route }: TabScreenProps<'Suggest
       />
       <View style={styles.controls}>
         <Typography variant="small" style={styles.flex}>
-          {data ? `${data.outfits.length} kombin · ${labels.season(data.season)}` : ' '}
+          {data ? t('suggestions.summary', { count: data.outfits.length, season: labels.season(data.season) }) : ' '}
         </Typography>
         <SecondaryButton
-          label="Yeniden Öner"
+          label={t('suggestions.shuffle')}
           icon={Shuffle}
           size="sm"
           onPress={() => setSeed(randomSeed())}
-          accessibilityHint="Yeni kombin önerileri getirir"
+          accessibilityHint={t('suggestions.shuffleHint')}
         />
       </View>
       {suggestions.isFetching && !suggestions.isLoading ? (
         <View style={styles.fetching}>
           <ActivityIndicator size="small" color={colors.softBrown} />
-          <Typography variant="caption">Kombinler hazırlanıyor…</Typography>
+          <Typography variant="caption">{t('suggestions.loading')}</Typography>
         </View>
       ) : null}
       {readiness && !readiness.ready ? (
-        <ReadinessBanner readiness={readiness} onAdd={() => navigation.navigate('Upload', undefined)} title="Önerilere az kaldı" />
+        <ReadinessBanner readiness={readiness} onAdd={() => navigation.navigate('Upload', undefined)} title={t('readiness.almostThere')} />
       ) : null}
     </View>
   );
@@ -129,16 +131,16 @@ export function SuggestionsScreen({ navigation, route }: TabScreenProps<'Suggest
             <ErrorState error={suggestions.error} onRetry={() => void suggestions.refetch()} />
           ) : readiness && !readiness.ready ? (
             <EmptyState
-              title="Önce birkaç parça ekleyelim"
-              text="Kombin önerebilmemiz için en az bir üst, bir alt (ya da elbise) ve bir ayakkabı gerekiyor."
-              actionLabel="Parça Ekle"
+              title={t('suggestions.notReady.title')}
+              text={t('suggestions.notReady.text')}
+              actionLabel={t('common.addPiece')}
               onAction={() => navigation.navigate('Upload', undefined)}
             />
           ) : (
             <EmptyState
-              title="Bu filtrelere uygun kombin yok"
-              text="Farklı bir kullanım alanı ya da mevsim seçmeyi dene."
-              actionLabel="Tüm Kombinleri Gör"
+              title={t('suggestions.empty.title')}
+              text={t('suggestions.empty.text')}
+              actionLabel={t('suggestions.empty.action')}
               onAction={() => {
                 setOccasion(null);
                 setSeason(null);

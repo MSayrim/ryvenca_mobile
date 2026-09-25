@@ -1,24 +1,29 @@
-import { ArrowRight, Bookmark, BookmarkCheck, Heart } from 'lucide-react-native';
+import { Bookmark, BookmarkCheck, Heart } from 'lucide-react-native';
 import { Pressable, StyleSheet, View, useWindowDimensions, type StyleProp, type ViewStyle } from 'react-native';
 
 import type { Outfit } from '../api/types';
 import { useToggleSaveOutfit } from '../hooks/mutations';
+import { useFormatters, useTranslation } from '../i18n';
+import { clampScore } from '../utils/labels';
 import { colors, radius, shadow, spacing } from '../theme';
 import { PrimaryButton, SecondaryButton } from './Buttons';
 import { OutfitCollage } from './OutfitCollage';
 import { ScorePill } from './ScorePill';
 import { Typography } from './Typography';
+import { useDirection } from './useDirection';
 
 export interface OutfitCardProps {
   outfit: Outfit;
   onPress: () => void;
-  /** compact: home carousel card · editorial: large Öneriler card. */
+  /** compact: home carousel card · editorial: large Suggestions card. */
   variant?: 'compact' | 'editorial';
   width?: number;
   style?: StyleProp<ViewStyle>;
 }
 
 export function OutfitCard({ outfit, onPress, variant = 'compact', width, style }: OutfitCardProps) {
+  const { t } = useTranslation();
+  const format = useFormatters();
   const toggle = useToggleSaveOutfit();
   const busy = toggle.isPending;
   const onToggleSave = () => {
@@ -33,7 +38,10 @@ export function OutfitCard({ outfit, onPress, variant = 'compact', width, style 
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
-      accessibilityLabel={`${outfit.title}, Uyum %${outfit.score}`}
+      accessibilityLabel={t('outfit.cardA11y', {
+        title: outfit.title,
+        score: t('outfit.scorePill', { percent: format.percent(clampScore(outfit.score)) }),
+      })}
       style={({ pressed }) => [styles.compact, width ? { width } : null, pressed && styles.pressed, style]}
     >
       <View>
@@ -45,7 +53,7 @@ export function OutfitCard({ outfit, onPress, variant = 'compact', width, style 
           onPress={onToggleSave}
           hitSlop={8}
           accessibilityRole="button"
-          accessibilityLabel={outfit.saved ? 'Kaydedilenlerden çıkar' : 'Kombini kaydet'}
+          accessibilityLabel={outfit.saved ? t('outfit.unsave') : t('outfit.save')}
           accessibilityState={{ selected: outfit.saved, busy }}
           style={styles.heart}
         >
@@ -66,7 +74,7 @@ export function OutfitCard({ outfit, onPress, variant = 'compact', width, style 
         </Typography>
         <SecondaryButton
           size="sm"
-          label={outfit.saved ? 'Kaydedildi' : 'Bu Kombini Kaydet'}
+          label={outfit.saved ? t('common.saved') : t('outfit.saveThis')}
           icon={outfit.saved ? BookmarkCheck : Bookmark}
           onPress={onToggleSave}
           loading={busy}
@@ -90,6 +98,8 @@ function EditorialCard({
   busy: boolean;
   style?: StyleProp<ViewStyle>;
 }) {
+  const { t } = useTranslation();
+  const { ForwardArrow } = useDirection();
   const { width } = useWindowDimensions();
   const sideBySide = width >= 640;
   return (
@@ -97,7 +107,7 @@ function EditorialCard({
       <Pressable
         onPress={onPress}
         accessibilityRole="button"
-        accessibilityLabel={`${outfit.title} kolajı`}
+        accessibilityLabel={t('outfit.collageA11y', { title: outfit.title })}
         style={sideBySide ? styles.editorialCollageSide : undefined}
       >
         <OutfitCollage items={outfit.items} heightRatio={sideBySide ? 1.15 : 1} />
@@ -118,9 +128,9 @@ function EditorialCard({
           {outfit.description}
         </Typography>
         <View style={styles.actions}>
-          <PrimaryButton label="Detayı Gör" iconRight={ArrowRight} size="sm" onPress={onPress} style={styles.flex} />
+          <PrimaryButton label={t('outfit.viewDetail')} iconEnd={ForwardArrow} size="sm" onPress={onPress} style={styles.flex} />
           <SecondaryButton
-            label={outfit.saved ? 'Kaydedildi' : 'Kaydet'}
+            label={outfit.saved ? t('common.saved') : t('common.save')}
             icon={outfit.saved ? BookmarkCheck : Bookmark}
             size="sm"
             onPress={onToggleSave}
@@ -146,7 +156,7 @@ const styles = StyleSheet.create({
   heart: {
     position: 'absolute',
     top: 10,
-    right: 10,
+    end: 10,
     width: 36,
     height: 36,
     borderRadius: 999,
@@ -155,7 +165,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   compactBody: { paddingHorizontal: spacing.xs, paddingTop: spacing.sm, paddingBottom: spacing.xxs, gap: 6 },
-  pillOverlay: { position: 'absolute', left: 10, bottom: 10 },
+  pillOverlay: { position: 'absolute', start: 10, bottom: 10 },
   flex: { flex: 1 },
   saveButton: { marginTop: spacing.xxs },
   editorial: {

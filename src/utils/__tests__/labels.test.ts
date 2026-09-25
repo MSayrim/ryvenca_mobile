@@ -2,12 +2,10 @@ import type { Meta } from '../../api/types';
 import {
   buildLabels,
   clampScore,
-  confidenceLabel,
   confidenceLevel,
   humanizeCode,
   initialOf,
   readinessProgress,
-  scoreLabel,
   subcategoriesFor,
   toggleInList,
 } from '../labels';
@@ -68,20 +66,17 @@ describe('helpers', () => {
     expect(subcategoriesFor(meta, null)).toEqual([]);
   });
 
-  it('confidence levels and Turkish labels', () => {
+  it('confidence levels', () => {
     expect(confidenceLevel(0.82)).toBe('high');
     expect(confidenceLevel(0.7)).toBe('high');
     expect(confidenceLevel(0.5)).toBe('medium');
     expect(confidenceLevel(0.2)).toBe('low');
     expect(confidenceLevel(NaN)).toBe('low');
-    expect(confidenceLabel(0.9)).toBe('yüksek güven');
-    expect(confidenceLabel(0.45)).toBe('orta güven');
-    expect(confidenceLabel(0.1)).toBe('düşük güven');
+    expect(confidenceLevel(0.45)).toBe('medium');
   });
 
-  it('score formatting clamps and rounds', () => {
-    expect(scoreLabel(92)).toBe('Uyum %92');
-    expect(scoreLabel(91.6)).toBe('Uyum %92');
+  it('clampScore clamps and rounds', () => {
+    expect(clampScore(91.6)).toBe(92);
     expect(clampScore(140)).toBe(100);
     expect(clampScore(-3)).toBe(0);
   });
@@ -92,10 +87,12 @@ describe('helpers', () => {
     expect(readinessProgress(0, 0)).toBe(1);
   });
 
-  it('initialOf uses Turkish upper-casing', () => {
-    expect(initialOf('ayşe')).toBe('A');
-    expect(initialOf('ipek')).toBe('İ');
-    expect(initialOf('  ')).toBe('R');
+  it('initialOf upper-cases with the UI locale', () => {
+    expect(initialOf('ayşe', 'tr')).toBe('A');
+    expect(initialOf('ipek', 'tr')).toBe('İ');
+    expect(initialOf('ipek', 'en')).toBe('I');
+    expect(initialOf('علي', 'ar')).toBe('ع');
+    expect(initialOf('  ', 'en')).toBe('R');
   });
 
   it('toggleInList adds and removes', () => {

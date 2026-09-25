@@ -19,6 +19,7 @@ import {
 } from '../../components';
 import { useUpdateMe } from '../../hooks/mutations';
 import { useMeta } from '../../hooks/useMeta';
+import { useTranslation } from '../../i18n';
 import type { RootScreenProps } from '../../navigation/types';
 import { colors, spacing } from '../../theme';
 import { toggleInList } from '../../utils/labels';
@@ -26,6 +27,7 @@ import { toggleInList } from '../../utils/labels';
 /** Edit wardrobe type + style preferences (same controls as onboarding) and display name. */
 export function EditPreferencesScreen({ navigation }: RootScreenProps<'EditPreferences'>) {
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   const user = useCurrentUser();
   const { meta, isLoading, isError, refetch } = useMeta();
   const updateMe = useUpdateMe();
@@ -42,7 +44,7 @@ export function EditPreferencesScreen({ navigation }: RootScreenProps<'EditPrefe
       { displayName: displayName.trim(), wardrobeType, stylePreferences: stylePrefs },
       {
         onSuccess: () => {
-          toast.show('Tercihlerin güncellendi');
+          toast.show(t('profile.editPreferences.updatedToast'));
           navigation.goBack();
         },
       },
@@ -50,7 +52,7 @@ export function EditPreferencesScreen({ navigation }: RootScreenProps<'EditPrefe
 
   return (
     <Screen>
-      <ScreenHeader title="Tercihlerim" onBack={() => navigation.goBack()} />
+      <ScreenHeader title={t('profile.editPreferences.title')} onBack={() => navigation.goBack()} />
       {isLoading ? (
         <View style={styles.content}>
           <Skeleton height={92} />
@@ -60,14 +62,14 @@ export function EditPreferencesScreen({ navigation }: RootScreenProps<'EditPrefe
         <ErrorState error={null} onRetry={refetch} />
       ) : (
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
-          <TextField label="Adın" value={displayName} onChangeText={setDisplayName} autoCapitalize="words" />
+          <TextField label={t('auth.fields.nameLabel')} value={displayName} onChangeText={setDisplayName} autoCapitalize="words" />
           <View style={styles.group}>
-            <Typography variant="h2">Dolabını kime göre düzenleyelim?</Typography>
+            <Typography variant="h2">{t('preferences.wardrobeTypeQuestion')}</Typography>
             <WardrobeTypePicker options={meta.wardrobeTypes} value={wardrobeType} onChange={setWardrobeType} />
           </View>
           <View style={styles.group}>
-            <Typography variant="h2">Stilini nasıl tanımlarsın?</Typography>
-            <Typography variant="small">En az bir stil seç.</Typography>
+            <Typography variant="h2">{t('preferences.styleQuestion')}</Typography>
+            <Typography variant="small">{t('preferences.atLeastOneStyle')}</Typography>
             <StylePicker options={meta.styles} value={stylePrefs} onToggle={(c) => setStylePrefs((l) => toggleInList(l, c))} />
           </View>
         </ScrollView>
@@ -78,7 +80,7 @@ export function EditPreferencesScreen({ navigation }: RootScreenProps<'EditPrefe
             {errorMessage(updateMe.error)}
           </Typography>
         ) : null}
-        <PrimaryButton label="Kaydet" onPress={onSave} disabled={!canSave} loading={updateMe.isPending} fullWidth />
+        <PrimaryButton label={t('common.save')} onPress={onSave} disabled={!canSave} loading={updateMe.isPending} fullWidth />
       </View>
     </Screen>
   );

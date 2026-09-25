@@ -4,6 +4,7 @@ import { ActivityIndicator, Pressable, StyleSheet, View, type StyleProp, type Vi
 
 import { TOUCH_TARGET, colors, fonts, radius, spacing } from '../theme';
 import { Typography } from './Typography';
+import { useDirection } from './useDirection';
 
 interface BaseButtonProps {
   label: string;
@@ -11,7 +12,8 @@ interface BaseButtonProps {
   disabled?: boolean;
   loading?: boolean;
   icon?: LucideIcon;
-  iconRight?: LucideIcon;
+  /** Trailing icon (after the label: right in LTR, left in RTL). Pass a direction-aware icon for arrows. */
+  iconEnd?: LucideIcon;
   style?: StyleProp<ViewStyle>;
   size?: 'md' | 'sm';
   accessibilityHint?: string;
@@ -24,7 +26,7 @@ function ButtonBase({
   disabled,
   loading,
   icon: Icon,
-  iconRight: IconRight,
+  iconEnd: IconEnd,
   style,
   size = 'md',
   accessibilityHint,
@@ -64,7 +66,7 @@ function ButtonBase({
           >
             {label}
           </Typography>
-          {IconRight ? <IconRight size={size === 'sm' ? 16 : 18} color={foreground} strokeWidth={1.5} /> : null}
+          {IconEnd ? <IconEnd size={size === 'sm' ? 16 : 18} color={foreground} strokeWidth={1.5} /> : null}
         </View>
       )}
     </Pressable>
@@ -139,18 +141,22 @@ export function IconButton({
   );
 }
 
-/** Inline text action, e.g. "Tümünü Gör →". */
+/** Inline text action, e.g. "See All →" (`arrow` appends a direction-aware arrow). */
 export function TextLink({
   label,
   onPress,
   color = colors.ink,
   style,
+  arrow = false,
 }: {
   label: string;
   onPress: () => void;
   color?: string;
   style?: StyleProp<ViewStyle>;
+  arrow?: boolean;
 }) {
+  const direction = useDirection();
+  const text = arrow ? `${label} ${direction.arrow}` : label;
   return (
     <Pressable
       onPress={onPress}
@@ -160,7 +166,7 @@ export function TextLink({
       style={({ pressed }) => [styles.link, pressed && styles.pressed, style]}
     >
       <Typography variant="smallMedium" color={color}>
-        {label}
+        {text}
       </Typography>
     </Pressable>
   );

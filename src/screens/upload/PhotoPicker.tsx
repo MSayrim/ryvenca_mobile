@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
 
 import { GarmentPhoto, HangerIcon, OutlineButton, PrimaryButton, SecondaryButton, Typography } from '../../components';
+import { useLanguage, useTranslation } from '../../i18n';
 import { colors, radius, spacing } from '../../theme';
 
 export type UploadStatus = 'idle' | 'preparing' | 'uploading' | 'done' | 'error';
@@ -23,14 +24,17 @@ export function PhotoPicker({
   onLibrary: () => void;
   onRetry?: () => void;
 }) {
+  const { t } = useTranslation();
   const busy = status === 'preparing' || status === 'uploading';
   return (
     <View style={styles.card}>
       <View style={styles.previewWrap}>
         {previewUri ? (
           <View>
-            <GarmentPhoto uri={previewUri} radius={radius.lg} priority="high" accessibilityLabel="Seçilen fotoğraf" />
-            {busy ? <AnalyzingOverlay label={status === 'preparing' ? 'Fotoğraf hazırlanıyor…' : 'Renk analiz ediliyor…'} /> : null}
+            <GarmentPhoto uri={previewUri} radius={radius.lg} priority="high" accessibilityLabel={t('upload.photo.selectedA11y')} />
+            {busy ? (
+              <AnalyzingOverlay label={status === 'preparing' ? t('upload.photo.preparing') : t('upload.photo.analyzing')} />
+            ) : null}
           </View>
         ) : (
           <View style={styles.placeholder}>
@@ -38,10 +42,10 @@ export function PhotoPicker({
               <HangerIcon size={40} color={colors.softBrown} strokeWidth={1.3} />
             </View>
             <Typography variant="h3" align="center">
-              Kıyafetinin fotoğrafını ekle
+              {t('upload.photo.addTitle')}
             </Typography>
             <Typography variant="small" align="center" style={styles.helper}>
-              Normal telefon fotoğrafın yeterli. Kıyafetinin tümünü, iyi ışıkta ve mümkünse düz bir zeminde çek.
+              {t('upload.photo.helper')}
             </Typography>
           </View>
         )}
@@ -52,22 +56,23 @@ export function PhotoPicker({
           <Typography variant="small" color={colors.danger} style={styles.flex}>
             {errorText}
           </Typography>
-          {onRetry ? <OutlineButton label="Tekrar Dene" icon={RefreshCw} size="sm" onPress={onRetry} /> : null}
+          {onRetry ? <OutlineButton label={t('common.retry')} icon={RefreshCw} size="sm" onPress={onRetry} /> : null}
         </View>
       ) : null}
 
       <View style={styles.buttons}>
-        <PrimaryButton label="Kameradan Çek" icon={Camera} onPress={onCamera} disabled={busy} style={styles.flex} size="sm" />
-        <SecondaryButton label="Galeriden Seç" icon={ImagePlus} onPress={onLibrary} disabled={busy} style={styles.flex} size="sm" />
+        <PrimaryButton label={t('upload.photo.camera')} icon={Camera} onPress={onCamera} disabled={busy} style={styles.flex} size="sm" />
+        <SecondaryButton label={t('upload.photo.library')} icon={ImagePlus} onPress={onLibrary} disabled={busy} style={styles.flex} size="sm" />
       </View>
       <Typography variant="script" align="center">
-        Stüdyo çekimi gerekmez. Kendi fotoğrafın yeterli! ♡
+        {t('accents.noStudioNeeded')}
       </Typography>
     </View>
   );
 }
 
 function AnalyzingOverlay({ label }: { label: string }) {
+  const { isRTL } = useLanguage();
   const [x] = useState(() => new Animated.Value(0));
   useEffect(() => {
     const loop = Animated.loop(
@@ -76,7 +81,8 @@ function AnalyzingOverlay({ label }: { label: string }) {
     loop.start();
     return () => loop.stop();
   }, [x]);
-  const translateX = x.interpolate({ inputRange: [0, 1], outputRange: [-260, 420] });
+  // The shimmer sweeps in the reading direction.
+  const translateX = x.interpolate({ inputRange: [0, 1], outputRange: isRTL ? [420, -260] : [-260, 420] });
   return (
     <View style={[StyleSheet.absoluteFill, styles.overlay]} accessibilityLiveRegion="polite" accessibilityLabel={label}>
       <Animated.View style={[styles.shimmer, { transform: [{ translateX }, { skewX: '-18deg' }] }]} />

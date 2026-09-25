@@ -5,6 +5,7 @@ import type { Category, Garment } from '../../api/types';
 import { ErrorState, Screen, ScreenHeader, Skeleton, Typography } from '../../components';
 import { useGarments } from '../../hooks/queries';
 import { useMeta } from '../../hooks/useMeta';
+import { useFormatters, useTranslation } from '../../i18n';
 import type { RootScreenProps } from '../../navigation/types';
 import { TOUCH_TARGET, colors, radius, spacing } from '../../theme';
 
@@ -16,8 +17,10 @@ export function countByCategory(garments: readonly Garment[]): Partial<Record<Ca
   return counts;
 }
 
-/** "Dolap istatistikleri": counts per category (computed from GET /api/garments). */
+/** Wardrobe statistics: counts per category (computed from GET /api/garments). */
 export function WardrobeStatsScreen({ navigation }: RootScreenProps<'WardrobeStats'>) {
+  const { t } = useTranslation();
+  const format = useFormatters();
   const { meta } = useMeta();
   const garments = useGarments(ALL);
   const counts = useMemo(() => countByCategory(garments.data ?? []), [garments.data]);
@@ -27,7 +30,7 @@ export function WardrobeStatsScreen({ navigation }: RootScreenProps<'WardrobeSta
 
   return (
     <Screen>
-      <ScreenHeader title="Dolap İstatistikleri" onBack={() => navigation.goBack()} />
+      <ScreenHeader title={t('profile.stats.title')} onBack={() => navigation.goBack()} />
       {garments.isLoading ? (
         <View style={styles.content}>
           {[0, 1, 2, 3].map((i) => (
@@ -40,12 +43,12 @@ export function WardrobeStatsScreen({ navigation }: RootScreenProps<'WardrobeSta
         <ScrollView contentContainerStyle={styles.content}>
           <View style={styles.totals}>
             <View style={styles.total}>
-              <Typography variant="display">{total}</Typography>
-              <Typography variant="small">Toplam parça</Typography>
+              <Typography variant="display">{format.number(total)}</Typography>
+              <Typography variant="small">{t('profile.stats.total')}</Typography>
             </View>
             <View style={styles.total}>
-              <Typography variant="display">{favorites}</Typography>
-              <Typography variant="small">Favori parça</Typography>
+              <Typography variant="display">{format.number(favorites)}</Typography>
+              <Typography variant="small">{t('profile.stats.favorites')}</Typography>
             </View>
           </View>
           <View style={styles.card}>
@@ -56,13 +59,13 @@ export function WardrobeStatsScreen({ navigation }: RootScreenProps<'WardrobeSta
                   key={c.code}
                   onPress={() => navigation.navigate('Main', { screen: 'Wardrobe', params: { category: c.code, nonce: Date.now() } })}
                   accessibilityRole="button"
-                  accessibilityLabel={`${c.pluralLabel}: ${n}`}
+                  accessibilityLabel={t('profile.stats.categoryA11y', { category: c.pluralLabel, count: n })}
                   style={({ pressed }) => [styles.row, pressed && styles.pressed]}
                 >
                   <View style={styles.rowHead}>
                     <Typography variant="bodyMedium">{c.pluralLabel}</Typography>
                     <Typography variant="bodySemiBold" color={colors.ink}>
-                      {n}
+                      {format.number(n)}
                     </Typography>
                   </View>
                   <View style={styles.track}>

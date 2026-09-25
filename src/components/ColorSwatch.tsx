@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   hint: {
     position: 'absolute',
     top: 1,
-    right: 1,
+    end: 1,
     width: 9,
     height: 9,
     borderRadius: 999,

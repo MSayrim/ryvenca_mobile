@@ -6,10 +6,19 @@ import type { ConfigContext, ExpoConfig } from 'expo/config';
  * - API base URL is read at runtime from `EXPO_PUBLIC_API_BASE_URL` (see src/config.ts).
  * - Cleartext HTTP (http://localhost:8080, http://10.0.2.2:8080, LAN IPs) is allowed unless
  *   `APP_ENV=production` so the app can talk to the local Spring Boot backend during development.
+ * - 16 UI languages (see src/i18n/languages.ts). iOS permission texts are localized through
+ *   `locales` (src/locales/native/<code>.json); the Info.plist base strings below are English.
  */
 const IS_PRODUCTION = process.env.APP_ENV === 'production';
 
 const BRAND_BACKGROUND = '#FAF7F2';
+
+/** Keep in sync with LANGUAGE_CODES in src/i18n/languages.ts. */
+const LANGUAGES = ['tr', 'en', 'zh', 'hi', 'es', 'ar', 'fr', 'bn', 'pt', 'ru', 'id', 'ur', 'de', 'ja', 'vi', 'ko'];
+
+const CAMERA_PERMISSION = 'RYVENCA uses your camera so you can photograph your clothes and add them to your wardrobe.';
+const PHOTOS_PERMISSION =
+  'RYVENCA accesses your photos so you can choose pictures of your clothes and add them to your wardrobe.';
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
@@ -22,14 +31,14 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   userInterfaceStyle: 'light',
   backgroundColor: BRAND_BACKGROUND,
   primaryColor: '#2A201B',
+  // iOS: localized InfoPlist strings (permission texts) per language.
+  locales: Object.fromEntries(LANGUAGES.map((code) => [code, `./src/locales/native/${code}.json`])),
   ios: {
     bundleIdentifier: 'com.ryvenca.app',
     supportsTablet: true,
     infoPlist: {
-      NSCameraUsageDescription:
-        'RYVENCA, kıyafetlerinin fotoğrafını çekip dolabına ekleyebilmen için kamerana erişir.',
-      NSPhotoLibraryUsageDescription:
-        'RYVENCA, galerindeki kıyafet fotoğraflarını seçip dolabına ekleyebilmen için fotoğraflarına erişir.',
+      NSCameraUsageDescription: CAMERA_PERMISSION,
+      NSPhotoLibraryUsageDescription: PHOTOS_PERMISSION,
       ...(IS_PRODUCTION
         ? {}
         : {
@@ -67,14 +76,25 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     [
       'expo-image-picker',
       {
-        photosPermission:
-          'RYVENCA, galerindeki kıyafet fotoğraflarını seçip dolabına ekleyebilmen için fotoğraflarına erişir.',
-        cameraPermission:
-          'RYVENCA, kıyafetlerinin fotoğrafını çekip dolabına ekleyebilmen için kamerana erişir.',
+        photosPermission: PHOTOS_PERMISSION,
+        cameraPermission: CAMERA_PERMISSION,
         microphonePermission: false,
       },
     ],
     'expo-secure-store',
+    [
+      'expo-localization',
+      {
+        // Lists the app languages for the OS per-app language settings (iOS Settings, Android 13+).
+        supportedLocales: { ios: LANGUAGES, android: LANGUAGES },
+        // supportsRTL / forcesRTL are deliberately NOT set: those native options re-apply the *device*
+        // direction on every launch (iOS: forceRTL(isRTLPreferredForCurrentLocale)), which would fight
+        // the in-app language choice (e.g. Arabic UI on an English phone). The JS side sets
+        // I18nManager.allowRTL/forceRTL from the chosen language and reloads when it changes
+        // (src/i18n/direction.ts).
+      },
+    ],
+    'expo-updates',
     'expo-image',
     'expo-font',
     [

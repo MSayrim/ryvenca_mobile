@@ -1,3 +1,4 @@
+import { t } from '../i18n/i18n';
 import type { ApiErrorBody, ApiErrorCode } from './types';
 
 /** Error thrown by the API client for any non-2xx response or network failure. */
@@ -28,17 +29,22 @@ export class ApiError extends Error {
   }
 }
 
-export const NETWORK_ERROR_MESSAGE = 'Sunucuya ulaşılamadı. İnternet bağlantını kontrol edip tekrar dene.';
-export const TIMEOUT_MESSAGE = 'İstek zaman aşımına uğradı. Lütfen tekrar dene.';
-export const GENERIC_ERROR_MESSAGE = 'Bir şeyler ters gitti. Lütfen tekrar dene.';
+/** Client-side fallback messages (in the current UI language). Server messages are already localized. */
+export const networkErrorMessage = () => t('errors.network');
+export const timeoutMessage = () => t('errors.timeout');
+export const genericErrorMessage = () => t('errors.generic');
+export const unexpectedResponseMessage = () => t('errors.unexpectedResponse');
 
-const FALLBACK_BY_STATUS: Record<number, { code: ApiErrorCode; message: string }> = {
-  400: { code: 'VALIDATION_ERROR', message: 'Gönderilen bilgiler geçersiz.' },
-  401: { code: 'UNAUTHORIZED', message: 'Oturumun sona erdi. Lütfen tekrar giriş yap.' },
-  403: { code: 'FORBIDDEN', message: 'Bu işlem için yetkin yok.' },
-  404: { code: 'NOT_FOUND', message: 'Aradığın içerik bulunamadı.' },
-  409: { code: 'CONFLICT', message: 'Bu işlem mevcut kayıtlarla çakışıyor.' },
-  413: { code: 'PAYLOAD_TOO_LARGE', message: 'Fotoğraf çok büyük. En fazla 15 MB yükleyebilirsin.' },
+/** Maximum photo size accepted by the backend (see API.md). */
+const MAX_UPLOAD_MB = 15;
+
+const FALLBACK_BY_STATUS: Record<number, { code: ApiErrorCode; message: () => string }> = {
+  400: { code: 'VALIDATION_ERROR', message: () => t('errors.validation') },
+  401: { code: 'UNAUTHORIZED', message: () => t('errors.unauthorized') },
+  403: { code: 'FORBIDDEN', message: () => t('errors.forbidden') },
+  404: { code: 'NOT_FOUND', message: () => t('errors.notFound') },
+  409: { code: 'CONFLICT', message: () => t('errors.conflict') },
+  413: { code: 'PAYLOAD_TOO_LARGE', message: () => t('errors.payloadTooLarge', { maxMb: MAX_UPLOAD_MB }) },
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -56,7 +62,7 @@ function toFieldErrors(value: unknown): Record<string, string> {
 
 /**
  * Builds an ApiError from an HTTP status and raw response text.
- * Tolerates empty / non-JSON bodies (proxies, HTML error pages) and falls back to Turkish defaults.
+ * Tolerates empty / non-JSON bodies (proxies, HTML error pages) and falls back to localized defaults.
  */
 export function parseApiError(status: number, rawBody: string | null | undefined): ApiError {
   let body: Partial<ApiErrorBody> | null = null;
@@ -72,12 +78,12 @@ export function parseApiError(status: number, rawBody: string | null | undefined
   const fallback =
     FALLBACK_BY_STATUS[status] ??
     (status >= 500
-      ? { code: 'INTERNAL_ERROR' as const, message: 'Sunucuda bir sorun oluştu. Lütfen biraz sonra tekrar dene.' }
-      : { code: 'INTERNAL_ERROR' as const, message: GENERIC_ERROR_MESSAGE });
+      ? { code: 'INTERNAL_ERROR' as const, message: () => t('errors.server') }
+      : { code: 'INTERNAL_ERROR' as const, message: genericErrorMessage });
 
   const code = typeof body?.error === 'string' && body.error ? body.error : fallback.code;
   const message =
-    typeof body?.message === 'string' && body.message.trim() ? body.message : fallback.message;
+    typeof body?.message === 'string' && body.message.trim() ? body.message : fallback.message();
   const effectiveStatus = typeof body?.status === 'number' ? body.status : status;
 
   return new ApiError(effectiveStatus, code, message, toFieldErrors(body?.fieldErrors));
@@ -86,8 +92,7 @@ export function parseApiError(status: number, rawBody: string | null | undefined
 /** User-presentable message for any thrown value. */
 export function errorMessage(error: unknown): string {
   if (error instanceof ApiError) return error.message;
-  if (error instanceof Error && error.message) return GENERIC_ERROR_MESSAGE;
-  return GENERIC_ERROR_MESSAGE;
+  return genericErrorMessage();
 }
 
 /** First field error (if any) — handy for forms that show a single inline message. */

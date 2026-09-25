@@ -3,19 +3,20 @@ import { useMutation, useQueryClient, type QueryClient } from '@tanstack/react-q
 import { api, queryKeys } from '../api';
 import type { Garment, GarmentRequest, Outfit, UpdateMeRequest } from '../api/types';
 import { useSession } from '../auth/SessionProvider';
+import { useLanguage } from '../i18n';
 import { outfitGarmentIds, patchGarmentsInData, patchOutfitsInData } from '../utils/outfit';
 
 /** Invalidate everything derived from the wardrobe (after garment create/update/delete). */
 export function invalidateWardrobe(queryClient: QueryClient) {
   return Promise.all([
     queryClient.invalidateQueries({ queryKey: queryKeys.garments.all }),
-    queryClient.invalidateQueries({ queryKey: queryKeys.home }),
+    queryClient.invalidateQueries({ queryKey: queryKeys.homeAll }),
     queryClient.invalidateQueries({ queryKey: queryKeys.outfits.all }),
   ]);
 }
 
 function patchOutfitEverywhere(queryClient: QueryClient, key: string, patch: Partial<Outfit>) {
-  for (const root of [queryKeys.outfits.all, queryKeys.home, queryKeys.garments.all]) {
+  for (const root of [queryKeys.outfits.all, queryKeys.homeAll, queryKeys.garments.all]) {
     queryClient.setQueriesData({ queryKey: root }, (data: unknown) => patchOutfitsInData(data, key, patch));
   }
 }
@@ -44,8 +45,8 @@ export function useToggleSaveOutfit() {
       patchOutfitEverywhere(queryClient, outfit.key, { saved: outfit.saved, savedId: outfit.savedId });
     },
     onSettled: () => {
-      void queryClient.invalidateQueries({ queryKey: queryKeys.outfits.saved });
-      void queryClient.invalidateQueries({ queryKey: queryKeys.home });
+      void queryClient.invalidateQueries({ queryKey: queryKeys.outfits.savedAll });
+      void queryClient.invalidateQueries({ queryKey: queryKeys.homeAll });
     },
   });
 }
@@ -54,7 +55,7 @@ export function useToggleSaveOutfit() {
 export function useToggleGarmentFavorite() {
   const queryClient = useQueryClient();
   const patchAll = (id: number, patch: Partial<Garment>) => {
-    for (const root of [queryKeys.garments.all, queryKeys.home, queryKeys.outfits.all]) {
+    for (const root of [queryKeys.garments.all, queryKeys.homeAll, queryKeys.outfits.all]) {
       queryClient.setQueriesData({ queryKey: root }, (data: unknown) => patchGarmentsInData(data, id, patch));
     }
   };
@@ -64,18 +65,19 @@ export function useToggleGarmentFavorite() {
     onSuccess: (updated) => patchAll(updated.id, updated),
     onError: (_e, garment) => patchAll(garment.id, { favorite: garment.favorite }),
     onSettled: () => {
-      void queryClient.invalidateQueries({ queryKey: queryKeys.home });
-      void queryClient.invalidateQueries({ queryKey: ['garments', 'list'] });
+      void queryClient.invalidateQueries({ queryKey: queryKeys.homeAll });
+      void queryClient.invalidateQueries({ queryKey: queryKeys.garments.lists });
     },
   });
 }
 
 export function useCreateGarment() {
   const queryClient = useQueryClient();
+  const { language } = useLanguage();
   return useMutation({
     mutationFn: (body: GarmentRequest) => api.createGarment(body),
     onSuccess: (garment) => {
-      queryClient.setQueryData(queryKeys.garments.detail(garment.id), garment);
+      queryClient.setQueryData(queryKeys.garments.detail(garment.id, language), garment);
       void invalidateWardrobe(queryClient);
     },
   });
@@ -83,10 +85,11 @@ export function useCreateGarment() {
 
 export function useUpdateGarment(id: number) {
   const queryClient = useQueryClient();
+  const { language } = useLanguage();
   return useMutation({
     mutationFn: (body: GarmentRequest) => api.updateGarment(id, body),
     onSuccess: (garment) => {
-      queryClient.setQueryData(queryKeys.garments.detail(garment.id), garment);
+      queryClient.setQueryData(queryKeys.garments.detail(garment.id, language), garment);
       void invalidateWardrobe(queryClient);
     },
   });
@@ -97,8 +100,8 @@ export function useDeleteGarment() {
   return useMutation({
     mutationFn: (id: number) => api.deleteGarment(id),
     onSuccess: (_void, id) => {
-      queryClient.removeQueries({ queryKey: queryKeys.garments.detail(id) });
-      queryClient.removeQueries({ queryKey: ['garments', 'pairings', id] });
+      queryClient.removeQueries({ queryKey: queryKeys.garments.detailAll(id) });
+      queryClient.removeQueries({ queryKey: queryKeys.garments.pairingsAll(id) });
       void invalidateWardrobe(queryClient);
     },
   });
@@ -113,7 +116,7 @@ export function useUpdateMe() {
       setUser(user);
       // Style preferences influence scoring → refresh suggestions.
       void queryClient.invalidateQueries({ queryKey: queryKeys.outfits.all });
-      void queryClient.invalidateQueries({ queryKey: queryKeys.home });
+      void queryClient.invalidateQueries({ queryKey: queryKeys.homeAll });
     },
   });
 }

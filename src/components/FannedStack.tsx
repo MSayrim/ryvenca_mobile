@@ -1,14 +1,20 @@
 import { StyleSheet, View } from 'react-native';
 
 import type { Garment } from '../api/types';
+import { useLanguage, useTranslation } from '../i18n';
 import { colors, radius } from '../theme';
 import { GarmentPhoto } from './GarmentPhoto';
 import { HangerIllustration } from './HangerIllustration';
 
-const ROTATIONS = ['-6deg', '0deg', '5deg'] as const;
+const ROTATIONS = [-6, 0, 5] as const;
 
-/** Overlapping stack of the user's own recent garments (white photo borders, soft shadow). */
+/**
+ * Overlapping stack of the user's own recent garments (white photo borders, soft shadow).
+ * Offsets use `start` and the rotations are negated in RTL so the fan is mirrored.
+ */
 export function FannedStack({ garments, width = 120 }: { garments: Garment[]; width?: number }) {
+  const { t } = useTranslation();
+  const { isRTL } = useLanguage();
   const items = garments.slice(0, 3);
   if (items.length === 0) {
     return (
@@ -20,7 +26,7 @@ export function FannedStack({ garments, width = 120 }: { garments: Garment[]; wi
   const cardWidth = width * 0.64;
   const offsets = items.length === 1 ? [0.18] : items.length === 2 ? [0.06, 0.3] : [0, 0.18, 0.36];
   return (
-    <View style={{ width, height: cardWidth * 1.25 + 26 }} accessibilityLabel="Son eklediğin parçalar">
+    <View style={{ width, height: cardWidth * 1.25 + 26 }} accessibilityLabel={t('home.hero.recentA11y')}>
       {items.map((g, i) => (
         <View
           key={g.id}
@@ -28,9 +34,9 @@ export function FannedStack({ garments, width = 120 }: { garments: Garment[]; wi
             styles.card,
             {
               width: cardWidth,
-              left: width * (offsets[i] ?? 0),
+              start: width * (offsets[i] ?? 0),
               top: i === 1 ? 0 : 12,
-              transform: [{ rotate: ROTATIONS[items.length === 1 ? 1 : i] ?? '0deg' }],
+              transform: [{ rotate: `${(ROTATIONS[items.length === 1 ? 1 : i] ?? 0) * (isRTL ? -1 : 1)}deg` }],
               zIndex: i === 1 ? 3 : i === 2 ? 2 : 1,
             },
           ]}

@@ -17,7 +17,7 @@ export interface GarmentPhotoProps {
   bordered?: boolean;
   /** Garment colorHex → small dot with a white ring in the corner. */
   colorHex?: string | null;
-  dotPosition?: 'bottomLeft' | 'topLeft' | 'bottomRight';
+  dotPosition?: 'bottomStart' | 'topStart' | 'bottomEnd';
   style?: StyleProp<ViewStyle>;
   accessibilityLabel?: string;
   priority?: 'low' | 'normal' | 'high';
@@ -36,7 +36,7 @@ export function GarmentPhoto({
   radius = radii.md,
   bordered = true,
   colorHex,
-  dotPosition = 'bottomLeft',
+  dotPosition = 'bottomStart',
   style,
   accessibilityLabel,
   priority = 'normal',
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
 });
 
 const dotStyles = StyleSheet.create({
-  bottomLeft: { left: 8, bottom: 8 },
-  topLeft: { left: 8, top: 8 },
-  bottomRight: { right: 8, bottom: 8 },
+  bottomStart: { start: 8, bottom: 8 },
+  topStart: { start: 8, top: 8 },
+  bottomEnd: { end: 8, bottom: 8 },
 });

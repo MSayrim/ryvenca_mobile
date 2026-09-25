@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, View, type LayoutChangeEvent, type StyleProp, type ViewStyle } from 'react-native';
 
 import type { OutfitItem } from '../api/types';
+import { useTranslation } from '../i18n';
 import { colors, radius } from '../theme';
 import { computeCollageLayout } from '../utils/collageLayout';
 import { GarmentPhoto } from './GarmentPhoto';
@@ -20,8 +21,9 @@ export interface OutfitCollageProps {
 }
 
 /**
- * Editorial "mood board" of 1–7 outfit items: hero (OUTERWEAR › DRESS › TOP) on the left ~60%,
- * remaining pieces stacked on the right, and a second row under the hero block for 5+ items.
+ * Editorial "mood board" of 1–7 outfit items: hero (OUTERWEAR › DRESS › TOP) on the leading side ~60%
+ * (left in LTR, right in RTL), remaining pieces stacked on the trailing side, and a second row under the
+ * hero block for 5+ items. Tiles are positioned with `start` so the board mirrors in RTL.
  * The frame reserves its height via aspectRatio, so there is no layout shift while measuring.
  */
 export function OutfitCollage({
@@ -33,6 +35,7 @@ export function OutfitCollage({
   highRes = false,
   showColorDots = false,
 }: OutfitCollageProps) {
+  const { t } = useTranslation();
   const [width, setWidth] = useState(0);
   const height = width * heightRatio;
   const onLayout = (e: LayoutChangeEvent) => {
@@ -46,7 +49,7 @@ export function OutfitCollage({
     <View
       onLayout={onLayout}
       style={[styles.frame, { aspectRatio: 1 / heightRatio }, style]}
-      accessibilityLabel={`Kombin kolajı, ${items.length} parça`}
+      accessibilityLabel={t('outfit.collageItemsA11y', { count: items.length })}
     >
       {rects.map((rect) => {
         const item = items[rect.index];
@@ -63,7 +66,7 @@ export function OutfitCollage({
             priority={rect.isHero ? 'high' : 'normal'}
           />
         );
-        const pos = { left: rect.x, top: rect.y, width: rect.width, height: rect.height };
+        const pos = { start: rect.x, top: rect.y, width: rect.width, height: rect.height };
         return onPressItem ? (
           <Pressable
             key={`${g.id}-${rect.index}`}

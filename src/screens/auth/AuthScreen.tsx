@@ -10,17 +10,20 @@ import { useSession } from '../../auth/SessionProvider';
 import {
   FannedStack,
   IconButton,
+  LanguageButton,
   PrimaryButton,
   Segmented,
   TextField,
   Typography,
   Wordmark,
 } from '../../components';
+import { t as translate, useTranslation } from '../../i18n';
 import { colors, radius, spacing } from '../../theme';
 
 type Mode = 'login' | 'register';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MIN_PASSWORD_LENGTH = 8;
 
 interface FormErrors {
   displayName?: string;
@@ -30,15 +33,18 @@ interface FormErrors {
 
 function validate(mode: Mode, displayName: string, email: string, password: string): FormErrors {
   const errors: FormErrors = {};
-  if (mode === 'register' && !displayName.trim()) errors.displayName = 'Adını yaz';
-  if (!EMAIL_RE.test(email.trim())) errors.email = 'Geçerli bir e-posta gir';
-  if (mode === 'register' && password.length < 8) errors.password = 'Şifre en az 8 karakter olmalı';
-  if (mode === 'login' && !password) errors.password = 'Şifreni yaz';
+  if (mode === 'register' && !displayName.trim()) errors.displayName = translate('auth.validation.nameRequired');
+  if (!EMAIL_RE.test(email.trim())) errors.email = translate('auth.validation.emailInvalid');
+  if (mode === 'register' && password.length < MIN_PASSWORD_LENGTH) {
+    errors.password = translate('auth.validation.passwordTooShort', { min: MIN_PASSWORD_LENGTH });
+  }
+  if (mode === 'login' && !password) errors.password = translate('auth.validation.passwordRequired');
   return errors;
 }
 
 export function AuthScreen() {
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   const { signIn } = useSession();
   const [mode, setMode] = useState<Mode>('login');
   const [displayName, setDisplayName] = useState('');
@@ -82,17 +88,18 @@ export function AuthScreen() {
     <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView
         style={styles.flex}
-        contentContainerStyle={[styles.content, { paddingTop: insets.top + spacing.xl, paddingBottom: insets.bottom + spacing.xl }]}
+        contentContainerStyle={[styles.content, { paddingTop: insets.top + spacing.sm, paddingBottom: insets.bottom + spacing.xl }]}
         keyboardShouldPersistTaps="handled"
       >
+        <LanguageButton style={styles.language} />
         <View style={styles.hero}>
           <View style={styles.heroText}>
-            <Wordmark size={26} align="left" />
+            <Wordmark size={26} align="start" />
             <Typography variant="eyebrow" style={styles.tagline}>
-              Style what you already own
+              {t('brand.tagline')}
             </Typography>
             <Typography variant="display" style={styles.headline}>
-              Yeni kıyafet almadan önce, dolabındakileri yeniden keşfet.
+              {t('auth.headline')}
             </Typography>
           </View>
           <View style={styles.heroArt} pointerEvents="none">
@@ -103,8 +110,8 @@ export function AuthScreen() {
         <View style={styles.card}>
           <Segmented<Mode>
             options={[
-              { value: 'login', label: 'Giriş Yap' },
-              { value: 'register', label: 'Kayıt Ol' },
+              { value: 'login', label: t('auth.modes.login') },
+              { value: 'register', label: t('auth.modes.register') },
             ]}
             value={mode}
             onChange={switchMode}
@@ -113,8 +120,8 @@ export function AuthScreen() {
           <View style={styles.fields}>
             {mode === 'register' ? (
               <TextField
-                label="Adın"
-                placeholder="Örn. Ayşe"
+                label={t('auth.fields.nameLabel')}
+                placeholder={t('auth.fields.namePlaceholder')}
                 value={displayName}
                 onChangeText={setDisplayName}
                 autoCapitalize="words"
@@ -127,8 +134,8 @@ export function AuthScreen() {
             ) : null}
             <TextField
               ref={emailRef}
-              label="E-posta"
-              placeholder="ornek@eposta.com"
+              label={t('auth.fields.emailLabel')}
+              placeholder={t('auth.fields.emailPlaceholder')}
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
@@ -142,8 +149,12 @@ export function AuthScreen() {
             />
             <TextField
               ref={passwordRef}
-              label="Şifre"
-              placeholder={mode === 'register' ? 'En az 8 karakter' : 'Şifren'}
+              label={t('auth.fields.passwordLabel')}
+              placeholder={
+                mode === 'register'
+                  ? t('auth.fields.passwordPlaceholderRegister', { min: MIN_PASSWORD_LENGTH })
+                  : t('auth.fields.passwordPlaceholderLogin')
+              }
               value={password}
               onChangeText={setPassword}
               secureTextEntry={!showPassword}
@@ -158,7 +169,7 @@ export function AuthScreen() {
                   icon={showPassword ? EyeOff : Eye}
                   iconSize={20}
                   color={colors.textSecondary}
-                  accessibilityLabel={showPassword ? 'Şifreyi gizle' : 'Şifreyi göster'}
+                  accessibilityLabel={showPassword ? t('auth.fields.hidePassword') : t('auth.fields.showPassword')}
                   onPress={() => setShowPassword((v) => !v)}
                   style={styles.eye}
                 />
@@ -175,13 +186,13 @@ export function AuthScreen() {
           ) : null}
 
           <PrimaryButton
-            label={mode === 'register' ? 'Hesap Oluştur' : 'Giriş Yap'}
+            label={mode === 'register' ? t('auth.submit.register') : t('auth.submit.login')}
             onPress={submit}
             loading={mutation.isPending}
             fullWidth
           />
           <Typography variant="small" align="center">
-            {mode === 'login' ? 'Hesabın yok mu? ' : 'Zaten hesabın var mı? '}
+            {mode === 'login' ? t('auth.switch.noAccount') : t('auth.switch.hasAccount')}{' '}
             <Typography
               variant="smallMedium"
               color={colors.ink}
@@ -189,13 +200,13 @@ export function AuthScreen() {
               accessibilityRole="link"
               style={styles.underline}
             >
-              {mode === 'login' ? 'Kayıt ol' : 'Giriş yap'}
+              {mode === 'login' ? t('auth.switch.toRegister') : t('auth.switch.toLogin')}
             </Typography>
           </Typography>
         </View>
 
         <Typography variant="script" align="center" style={styles.script}>
-          Aynı sen, daha iyi kombinler ♡
+          {t('accents.sameYouBetterOutfits')}
         </Typography>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -205,6 +216,7 @@ export function AuthScreen() {
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.background },
   content: { paddingHorizontal: spacing.lg, gap: spacing.xl, flexGrow: 1, maxWidth: 520, width: '100%', alignSelf: 'center' },
+  language: { marginBottom: -spacing.md },
   hero: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.sm },
   heroText: { flex: 1, gap: spacing.xs },
   tagline: { marginTop: 2 },
@@ -219,7 +231,7 @@ const styles = StyleSheet.create({
     gap: spacing.lg,
   },
   fields: { gap: spacing.md },
-  eye: { marginRight: -spacing.xs },
+  eye: { marginEnd: -spacing.xs },
   errorBox: { backgroundColor: '#F6E6E2', borderRadius: radius.sm, padding: spacing.sm },
   underline: { textDecorationLine: 'underline' },
   script: { marginTop: 'auto' },

@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronLeft, Plus } from 'lucide-react-native';
+import { Plus } from 'lucide-react-native';
 import { useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -19,9 +19,11 @@ import {
   Typography,
   WardrobeTypePicker,
   Wordmark,
+  useDirection,
 } from '../../components';
 import { useUpdateMe } from '../../hooks/mutations';
 import { useMeta } from '../../hooks/useMeta';
+import { useTranslation } from '../../i18n';
 import { colors, radius, spacing } from '../../theme';
 import { toggleInList } from '../../utils/labels';
 
@@ -29,6 +31,8 @@ const STEP_COUNT = 3;
 
 export function OnboardingScreen() {
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
+  const { BackChevron, ForwardArrow } = useDirection();
   const { user, setLandingTab, signOut } = useSession();
   const { meta, isLoading, isError, refetch } = useMeta();
   const updateMe = useUpdateMe();
@@ -54,12 +58,12 @@ export function OnboardingScreen() {
       <View style={styles.topBar}>
         <View style={styles.side}>
           {step > 0 ? (
-            <IconButton icon={ChevronLeft} iconSize={26} accessibilityLabel="Geri" onPress={() => setStep((s) => s - 1)} />
+            <IconButton icon={BackChevron} iconSize={26} accessibilityLabel={t('common.back')} onPress={() => setStep((s) => s - 1)} />
           ) : null}
         </View>
         <Wordmark size={17} />
-        <View style={[styles.side, styles.sideRight]}>
-          <TextLink label="Çıkış" color={colors.textSecondary} onPress={() => void signOut()} />
+        <View style={[styles.side, styles.sideEnd]}>
+          <TextLink label={t('onboarding.signOut')} color={colors.textSecondary} onPress={() => void signOut()} />
         </View>
       </View>
       <View style={styles.dots}>
@@ -78,10 +82,14 @@ export function OnboardingScreen() {
           <ErrorState error={null} onRetry={refetch} />
         ) : step === 0 ? (
           <View style={styles.gap}>
-            <Typography variant="eyebrow">{`Merhaba ${user?.displayName ?? ''}`.trim()}</Typography>
-            <Typography variant="display">Dolabını kime göre düzenleyelim?</Typography>
+            <Typography variant="eyebrow">
+              {user?.displayName?.trim()
+                ? t('onboarding.greeting', { name: user.displayName.trim() })
+                : t('onboarding.greetingAnonymous')}
+            </Typography>
+            <Typography variant="display">{t('preferences.wardrobeTypeQuestion')}</Typography>
             <Typography variant="body" color={colors.textSecondary}>
-              Kategoriler ve öneriler buna göre şekillenir. Sonra profilinden değiştirebilirsin.
+              {t('onboarding.wardrobeTypeText')}
             </Typography>
             <View style={styles.block}>
               <WardrobeTypePicker options={meta.wardrobeTypes} value={wardrobeType} onChange={setWardrobeType} />
@@ -89,9 +97,9 @@ export function OnboardingScreen() {
           </View>
         ) : step === 1 ? (
           <View style={styles.gap}>
-            <Typography variant="display">Stilini nasıl tanımlarsın?</Typography>
+            <Typography variant="display">{t('preferences.styleQuestion')}</Typography>
             <Typography variant="body" color={colors.textSecondary}>
-              Birden fazla seçebilirsin. En az bir stil seç.
+              {t('onboarding.stylesText')}
             </Typography>
             <View style={styles.block}>
               <StylePicker options={meta.styles} value={styles_} onToggle={(c) => setStyles((l) => toggleInList(l, c))} />
@@ -99,8 +107,8 @@ export function OnboardingScreen() {
           </View>
         ) : (
           <View style={styles.gap}>
-            <Typography variant="display">Nasıl çalışır?</Typography>
-            <Typography variant="script">Stüdyo çekimi gerekmez. Kendi fotoğrafın yeterli! ♡</Typography>
+            <Typography variant="display">{t('howItWorks.title')}</Typography>
+            <Typography variant="script">{t('accents.noStudioNeeded')}</Typography>
             <View style={styles.block}>
               <HowItWorksSteps />
             </View>
@@ -116,8 +124,8 @@ export function OnboardingScreen() {
         ) : null}
         {step < STEP_COUNT - 1 ? (
           <PrimaryButton
-            label="Devam Et"
-            iconRight={ArrowRight}
+            label={t('onboarding.continue')}
+            iconEnd={ForwardArrow}
             disabled={!canContinue}
             onPress={() => setStep((s) => s + 1)}
             fullWidth
@@ -125,7 +133,7 @@ export function OnboardingScreen() {
         ) : (
           <>
             <PrimaryButton
-              label="İlk parçanı ekle"
+              label={t('common.addFirstPiece')}
               icon={Plus}
               onPress={() => finish('Upload')}
               loading={pending === 'Upload'}
@@ -133,7 +141,7 @@ export function OnboardingScreen() {
               fullWidth
             />
             <SecondaryButton
-              label="Daha sonra"
+              label={t('common.later')}
               onPress={() => finish('Home')}
               loading={pending === 'Home'}
               disabled={pending !== null}
@@ -150,7 +158,7 @@ const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.background },
   topBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: spacing.xs },
   side: { width: 80, flexDirection: 'row' },
-  sideRight: { justifyContent: 'flex-end', paddingRight: spacing.xs },
+  sideEnd: { justifyContent: 'flex-end', paddingEnd: spacing.xs },
   dots: { alignItems: 'center', paddingVertical: spacing.sm },
   content: { paddingHorizontal: spacing.lg, paddingBottom: spacing.xl, maxWidth: 560, width: '100%', alignSelf: 'center' },
   gap: { gap: spacing.sm },

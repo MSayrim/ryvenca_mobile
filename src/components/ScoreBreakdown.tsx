@@ -1,26 +1,33 @@
 import { StyleSheet, View } from 'react-native';
 
 import type { ScoreBreakdownItem } from '../api/types';
+import { useFormatters, useTranslation } from '../i18n';
 import { colors, spacing } from '../theme';
 import { clampScore } from '../utils/labels';
 import { Typography } from './Typography';
 
 /** Thin bars: label · weight % · score. */
 export function ScoreBreakdown({ items }: { items: ScoreBreakdownItem[] }) {
+  const { t } = useTranslation();
+  const format = useFormatters();
   return (
     <View style={styles.list}>
       {items.map((item) => {
         const value = clampScore(item.score);
         return (
-          <View key={item.code} style={styles.row} accessibilityLabel={`${item.label}, ağırlık %${item.weight}, skor ${value}`}>
+          <View
+            key={item.code}
+            style={styles.row}
+            accessibilityLabel={t('outfit.breakdownA11y', { label: item.label, weight: format.percent(item.weight), score: value })}
+          >
             <View style={styles.labels}>
               <Typography variant="smallMedium">{item.label}</Typography>
               <Typography variant="caption" style={styles.weight}>
-                %{item.weight}
+                {format.percent(item.weight)}
               </Typography>
               <View style={styles.flex} />
               <Typography variant="smallMedium" color={colors.ink}>
-                {value}
+                {format.number(value)}
               </Typography>
             </View>
             <View style={styles.track}>

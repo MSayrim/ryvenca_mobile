@@ -1,0 +1,379 @@
+{
+  "brand": {
+    "tagline": "Style what you already own"
+  },
+  "accents": {
+    "sameYouBetterOutfits": "Aynı sen, daha iyi kombinler ♡",
+    "noStudioNeeded": "Stüdyo çekimi gerekmez. Kendi fotoğrafın yeterli! ♡"
+  },
+  "common": {
+    "retry": "Tekrar Dene",
+    "confirm": "Onayla",
+    "cancel": "Vazgeç",
+    "close": "Kapat",
+    "back": "Geri",
+    "save": "Kaydet",
+    "saved": "Kaydedildi",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "seeAll": "Tümünü Gör",
+    "all": "Tümü",
+    "addPiece": "Parça Ekle",
+    "addFirstPiece": "İlk parçanı ekle",
+    "required": "Zorunlu",
+    "notSelected": "Seçilmedi",
+    "later": "Daha sonra",
+    "addToFavorites": "Favorilere ekle",
+    "removeFromFavorites": "Favorilerden çıkar"
+  },
+  "errors": {
+    "title": "Bir sorun oluştu",
+    "network": "Sunucuya ulaşılamadı. İnternet bağlantını kontrol edip tekrar dene.",
+    "timeout": "İstek zaman aşımına uğradı. Lütfen tekrar dene.",
+    "generic": "Bir şeyler ters gitti. Lütfen tekrar dene.",
+    "unexpectedResponse": "Sunucudan beklenmeyen bir yanıt geldi.",
+    "validation": "Gönderilen bilgiler geçersiz.",
+    "unauthorized": "Oturumun sona erdi. Lütfen tekrar giriş yap.",
+    "forbidden": "Bu işlem için yetkin yok.",
+    "notFound": "Aradığın içerik bulunamadı.",
+    "conflict": "Bu işlem mevcut kayıtlarla çakışıyor.",
+    "payloadTooLarge": "Fotoğraf çok büyük. En fazla {{maxMb}} MB yükleyebilirsin.",
+    "server": "Sunucuda bir sorun oluştu. Lütfen biraz sonra tekrar dene.",
+    "connectionFailed": "Bağlantı kurulamadı"
+  },
+  "language": {
+    "title": "Dil",
+    "choose": "Dil seç",
+    "buttonA11y": "Dil: {{language}}. Değiştirmek için dokun.",
+    "restart": {
+      "title": "Yeniden başlatma gerekli",
+      "message": "Yazı yönünü değiştirmek için uygulama yeniden başlatılacak.",
+      "confirm": "Şimdi yeniden başlat"
+    }
+  },
+  "tabs": {
+    "home": "Ana Sayfa",
+    "wardrobe": "Dolabım",
+    "upload": "Yükle",
+    "uploadA11y": "Kıyafet Yükle",
+    "suggestions": "Öneriler",
+    "profile": "Profil"
+  },
+  "header": {
+    "wardrobeA11y": "Dolabım",
+    "searchA11y": "Dolabında ara"
+  },
+  "auth": {
+    "headline": "Yeni kıyafet almadan önce, dolabındakileri yeniden keşfet.",
+    "modes": {
+      "login": "Giriş Yap",
+      "register": "Kayıt Ol"
+    },
+    "fields": {
+      "nameLabel": "Adın",
+      "namePlaceholder": "Örn. Ayşe",
+      "emailLabel": "E-posta",
+      "emailPlaceholder": "ornek@eposta.com",
+      "passwordLabel": "Şifre",
+      "passwordPlaceholderRegister": "En az {{min}} karakter",
+      "passwordPlaceholderLogin": "Şifren",
+      "showPassword": "Şifreyi göster",
+      "hidePassword": "Şifreyi gizle"
+    },
+    "validation": {
+      "nameRequired": "Adını yaz",
+      "emailInvalid": "Geçerli bir e-posta gir",
+      "passwordTooShort": "Şifre en az {{min}} karakter olmalı",
+      "passwordRequired": "Şifreni yaz"
+    },
+    "submit": {
+      "login": "Giriş Yap",
+      "register": "Hesap Oluştur"
+    },
+    "switch": {
+      "noAccount": "Hesabın yok mu?",
+      "toRegister": "Kayıt ol",
+      "hasAccount": "Zaten hesabın var mı?",
+      "toLogin": "Giriş yap"
+    }
+  },
+  "onboarding": {
+    "greeting": "Merhaba {{name}}",
+    "greetingAnonymous": "Merhaba",
+    "signOut": "Çıkış",
+    "stepProgressA11y": "Adım {{current}} / {{total}}",
+    "wardrobeTypeText": "Kategoriler ve öneriler buna göre şekillenir. Sonra profilinden değiştirebilirsin.",
+    "stylesText": "Birden fazla seçebilirsin. En az bir stil seç.",
+    "continue": "Devam Et"
+  },
+  "preferences": {
+    "wardrobeTypeQuestion": "Dolabını kime göre düzenleyelim?",
+    "styleQuestion": "Stilini nasıl tanımlarsın?",
+    "atLeastOneStyle": "En az bir stil seç."
+  },
+  "howItWorks": {
+    "title": "Nasıl çalışır?",
+    "stepLabel": "Adım {{number}}",
+    "headline": "Dolabındakini daha iyi kullan.",
+    "intro": "Yeni kıyafet satın almadan önce, dolabındaki parçaları daha iyi kullan. RYVENCA yalnızca senin parçalarından kombin önerir ve her kombin için bir Uyum Skoru ile nedenini açıklar.",
+    "steps": {
+      "photo": {
+        "title": "Fotoğrafını çek",
+        "text": "Askıda, yatakta ya da koltukta — normal telefon fotoğrafı yeterli."
+      },
+      "organize": {
+        "title": "Dolabın düzenlensin",
+        "text": "Rengi otomatik algılarız; kategori ve mevsimle dolabın kendiliğinden düzenlenir."
+      },
+      "discover": {
+        "title": "Kombinini keşfet",
+        "text": "Sadece kendi parçalarından, Uyum Skoru ve açıklamasıyla kombinler."
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Bugün ne giysem?",
+      "text": "Dolabındaki gerçek parçalarla sana en uygun kombinleri önerelim.",
+      "cta": "Kombin Öner",
+      "recentA11y": "Son eklediğin parçalar"
+    },
+    "stats": {
+      "garments": "Ürünlerim",
+      "readyOutfits": "Hazır Kombin",
+      "favorites": "Favoriler",
+      "a11y": "{{label}}: {{value}}"
+    },
+    "wardrobe": {
+      "title": "Dolabım",
+      "emptyCategory": "Bu kategoride henüz parça yok.",
+      "empty": "Dolabın henüz boş. İlk parçanı ekleyerek başla."
+    },
+    "today": {
+      "title": "Bugünün Önerileri",
+      "notReady": "Kombin önerebilmemiz için birkaç parça daha ekle.",
+      "empty": "Bugün için öneri bulunamadı. Yeni öneriler için Öneriler sekmesine göz at."
+    }
+  },
+  "readiness": {
+    "title": "Kombin önerileri için {{min}}–{{max}} parça ekle",
+    "almostThere": "Önerilere az kaldı",
+    "progress": "{{current}}/{{total}}"
+  },
+  "wardrobe": {
+    "title": "Dolabım",
+    "count_one": "{{count}} parça",
+    "count_other": "{{count}} parça",
+    "searchPlaceholder": "Dolabında ara (ör. blazer)",
+    "clearSearch": "Aramayı temizle",
+    "filter": "Filtrele",
+    "filterWithCount": "Filtrele · {{count}}",
+    "filterActiveA11y_one": "Filtrele, {{count}} filtre aktif",
+    "filterActiveA11y_other": "Filtrele, {{count}} filtre aktif",
+    "noResults": {
+      "title": "Sonuç bulunamadı",
+      "text": "Bu filtrelere uyan bir parça yok. Filtreleri değiştirmeyi dene.",
+      "action": "Filtreleri Temizle"
+    },
+    "empty": {
+      "title": "Dolabın seni bekliyor",
+      "text": "Kıyafetlerinin fotoğrafını çek, dolabın kendiliğinden düzenlensin."
+    },
+    "filterSheet": {
+      "title": "Filtrele",
+      "clear": "Temizle",
+      "apply": "Uygula",
+      "color": "Renk",
+      "season": "Mevsim",
+      "occasion": "Kullanım alanı",
+      "favoritesOnly": "Sadece favoriler"
+    }
+  },
+  "garment": {
+    "subtitle": "{{subcategory}} · {{color}}",
+    "cardA11y": "{{name}}, {{details}}",
+    "patterned": "Desenli",
+    "detail": {
+      "title": "Parça Detayı"
+    },
+    "delete": {
+      "title": "Bu parçayı silmek istiyor musun?",
+      "message": "Bu parçayı içeren kayıtlı kombinler de silinecek.",
+      "done": "Parça silindi",
+      "failed": "Silinemedi"
+    },
+    "pairings": {
+      "eyebrow": "Anahtar özellik",
+      "title": "Bununla Ne Gider?",
+      "text": "Dolabındaki parçalardan bu parçayla en iyi eşleşenler.",
+      "noMatches": "Bu parçaya uygun eşleşme bulunamadı.",
+      "outfitsTitle": "Bu parçayla kombinler",
+      "noOutfits": "Bu parçayla henüz kombin oluşturamadık.",
+      "notReady": "Kombin oluşturabilmemiz için birkaç parça daha ekle."
+    }
+  },
+  "upload": {
+    "title": "Kıyafet Yükle",
+    "subtitle": "Dolabına yeni bir parça ekle, daha güzel kombinler keşfet.",
+    "recent": "Son Eklenenler",
+    "added": {
+      "toast": "Dolabına eklendi",
+      "title": "Dolabına eklendi",
+      "text": "Harika! Yeni parçan artık kombin önerilerinde.",
+      "addAnother": "Bir parça daha ekle",
+      "viewPiece": "Parçayı gör"
+    },
+    "edit": {
+      "title": "Parçayı Düzenle",
+      "savedToast": "Değişiklikler kaydedildi"
+    },
+    "cameraPermission": {
+      "title": "Kamera izni gerekli",
+      "message": "Kıyafetinin fotoğrafını çekebilmek için Ayarlar’dan kamera iznini açabilirsin.",
+      "openSettings": "Ayarları Aç"
+    },
+    "uploadFailed": "Fotoğraf yüklenemedi. Lütfen tekrar dene.",
+    "saveFailed": "Kaydedilemedi",
+    "photo": {
+      "selectedA11y": "Seçilen fotoğraf",
+      "preparing": "Fotoğraf hazırlanıyor…",
+      "analyzing": "Renk analiz ediliyor…",
+      "addTitle": "Kıyafetinin fotoğrafını ekle",
+      "helper": "Normal telefon fotoğrafın yeterli. Kıyafetinin tümünü, iyi ışıkta ve mümkünse düz bir zeminde çek.",
+      "camera": "Kameradan Çek",
+      "library": "Galeriden Seç"
+    },
+    "form": {
+      "category": "Kategori",
+      "subcategory": "Alt kategori",
+      "chooseCategoryFirst": "Önce bir kategori seç.",
+      "color": "Renk",
+      "autoDetected": "✦ Otomatik algılandı · {{confidence}}",
+      "confidence": {
+        "high": "yüksek güven",
+        "medium": "orta güven",
+        "low": "düşük güven"
+      },
+      "manual": "Manuel seçildi",
+      "measuredTone": "Algılanan ton",
+      "otherCandidates": "Diğer olasılıklar:",
+      "patternedHint": "Çizgili, ekose, çiçekli gibi desenler",
+      "season": "Mevsim",
+      "seasonHint": "Boş bırakırsan parçaya göre otomatik seçilir.",
+      "allSeasons": "Tüm Mevsimler",
+      "occasion": "Kullanım alanı",
+      "occasionHint": "Birden fazla seçebilirsin.",
+      "name": "İsim (isteğe bağlı)",
+      "namePlaceholder": "Örn. Favori bej blazerım",
+      "generatedName": "{{color}} {{subcategory}}"
+    },
+    "submit": {
+      "create": "Dolaba Kaydet",
+      "edit": "Değişiklikleri Kaydet"
+    },
+    "missing": {
+      "uploading": "Fotoğraf yükleniyor…",
+      "photo": "Önce kıyafetinin fotoğrafını ekle.",
+      "category": "Bir kategori seç.",
+      "subcategory": "Bir alt kategori seç.",
+      "color": "Bir renk seç."
+    }
+  },
+  "suggestions": {
+    "title": "Öneriler",
+    "subtitle": "Dolabındaki fotoğraflarla hazırlanan kombinler.",
+    "summary_one": "{{count}} kombin · {{season}}",
+    "summary_other": "{{count}} kombin · {{season}}",
+    "shuffle": "Yeniden Öner",
+    "shuffleHint": "Yeni kombin önerileri getirir",
+    "loading": "Kombinler hazırlanıyor…",
+    "notReady": {
+      "title": "Önce birkaç parça ekleyelim",
+      "text": "Kombin önerebilmemiz için en az bir üst, bir alt (ya da elbise) ve bir ayakkabı gerekiyor."
+    },
+    "empty": {
+      "title": "Bu filtrelere uygun kombin yok",
+      "text": "Farklı bir kullanım alanı ya da mevsim seçmeyi dene.",
+      "action": "Tüm Kombinleri Gör"
+    }
+  },
+  "outfit": {
+    "scorePill": "Uyum {{percent}}",
+    "scoreRingLabel": "Uyum Skoru",
+    "scoreRingA11y": "{{label}} {{score}}",
+    "cardA11y": "{{title}}, {{score}}",
+    "collageA11y": "{{title}} kolajı",
+    "collageItemsA11y_one": "Kombin kolajı, {{count}} parça",
+    "collageItemsA11y_other": "Kombin kolajı, {{count}} parça",
+    "save": "Kombini kaydet",
+    "unsave": "Kaydedilenlerden çıkar",
+    "saveThis": "Bu Kombini Kaydet",
+    "viewDetail": "Detayı Gör",
+    "breakdownA11y": "{{label}}, ağırlık {{weight}}, skor {{score}}",
+    "detail": {
+      "title": "Kombin Detayı",
+      "share": "Paylaş",
+      "loadFailed": "Kombin yüklenemedi",
+      "tapHint": "Parçaya dokunarak detayını görebilirsin",
+      "breakdown": "Skor Dağılımı",
+      "why": "Neden Uyumlu?",
+      "venues": "Uygun Ortamlar",
+      "palette": "Renk Paleti",
+      "saveOutfit": "Kombini Kaydet",
+      "similar": "Benzer Kombinler",
+      "noSimilar": "Şimdilik benzer bir kombin bulamadık.",
+      "actionFailed": "İşlem tamamlanamadı"
+    },
+    "share": {
+      "message": "{{title}} — Uyum Skoru {{score}}\n{{description}}\n\n{{pieces}}\n\nRYVENCA ile kendi dolabımdan oluşturdum."
+    }
+  },
+  "favorites": {
+    "title": "Favoriler",
+    "tabs": {
+      "outfits": "Kaydedilen Kombinler",
+      "garments": "Favori Parçalar"
+    },
+    "emptyOutfits": {
+      "title": "Henüz kayıtlı kombin yok",
+      "text": "Beğendiğin kombinleri kaydet, burada seni beklesin.",
+      "action": "Önerilere Göz At"
+    },
+    "emptyGarments": {
+      "title": "Favori parçan yok",
+      "text": "Dolabındaki parçalarda kalbe dokunarak favorilerine ekleyebilirsin.",
+      "action": "Dolabıma Git"
+    }
+  },
+  "profile": {
+    "avatarA11y": "{{name}} profil resmi",
+    "preferences": "Tercihlerim",
+    "wardrobeType": "Dolap",
+    "style": "Stil",
+    "links": {
+      "favorites": "Favorilerim",
+      "stats": "Dolap istatistikleri",
+      "language": "Dil"
+    },
+    "logout": {
+      "action": "Çıkış Yap",
+      "confirm": "Çıkış yapmak istiyor musun?"
+    },
+    "deleteAccount": {
+      "action": "Hesabı Sil",
+      "title": "Hesabını silmek istediğine emin misin?",
+      "message": "Hesabın, dolabındaki tüm parçalar, fotoğraflar ve kayıtlı kombinlerin kalıcı olarak silinecek. Bu işlem geri alınamaz.",
+      "failed": "Hesap silinemedi"
+    },
+    "editPreferences": {
+      "title": "Tercihlerim",
+      "updatedToast": "Tercihlerin güncellendi"
+    },
+    "stats": {
+      "title": "Dolap İstatistikleri",
+      "total": "Toplam parça",
+      "favorites": "Favori parça",
+      "categoryA11y": "{{category}}: {{count}}"
+    }
+  }
+}

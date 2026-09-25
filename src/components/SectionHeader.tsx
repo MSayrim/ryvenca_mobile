@@ -25,7 +25,7 @@ export function SectionHeader({
           {title}
         </Typography>
       </View>
-      {actionLabel && onAction ? <TextLink label={actionLabel} onPress={onAction} /> : null}
+      {actionLabel && onAction ? <TextLink label={actionLabel} onPress={onAction} arrow /> : null}
     </View>
   );
 }

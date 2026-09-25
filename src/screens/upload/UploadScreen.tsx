@@ -27,19 +27,21 @@ import {
 import { useCreateGarment, useUpdateGarment } from '../../hooks/mutations';
 import { useGarment, useHome } from '../../hooks/queries';
 import { useMeta } from '../../hooks/useMeta';
+import { useTranslation } from '../../i18n';
 import type { RootScreenProps, TabScreenProps } from '../../navigation/types';
 import { colors, radius, spacing } from '../../theme';
 import { confirm, notify } from '../../utils/confirm';
 import { prepareImageForUpload } from '../../utils/image';
-import { confidenceLabel, subcategoriesFor, toggleInList } from '../../utils/labels';
+import { confidenceLevel, subcategoriesFor, toggleInList } from '../../utils/labels';
 import { PhotoPicker, type UploadStatus } from './PhotoPicker';
 
 // ---------------------------------------------------------------------------
 // Screens
 // ---------------------------------------------------------------------------
 
-/** Tab: "Kıyafet Yükle" (create mode). */
+/** Tab: "Upload a piece" (create mode). */
 export function UploadScreen({ navigation }: TabScreenProps<'Upload'>) {
+  const { t } = useTranslation();
   const [formKey, setFormKey] = useState(0);
   const [saved, setSaved] = useState<Garment | null>(null);
   const home = useHome();
@@ -55,23 +57,23 @@ export function UploadScreen({ navigation }: TabScreenProps<'Upload'>) {
         key={formKey}
         mode="create"
         onSaved={(g) => {
-          toast.show('Dolabına eklendi');
+          toast.show(t('upload.added.toast'));
           setSaved(g);
         }}
         header={
           <View style={styles.titleBlock}>
             <Typography variant="h1" accessibilityRole="header">
-              Kıyafet Yükle
+              {t('upload.title')}
             </Typography>
             <Typography variant="body" color={colors.textSecondary}>
-              Dolabına yeni bir parça ekle, daha güzel kombinler keşfet.
+              {t('upload.subtitle')}
             </Typography>
           </View>
         }
         footer={
           (home.data?.recentGarments.length ?? 0) > 0 ? (
             <View style={styles.recent}>
-              <SectionHeader title="Son Eklenenler" actionLabel="Tümünü Gör →" onAction={() => navigation.navigate('Wardrobe', undefined)} />
+              <SectionHeader title={t('upload.recent')} actionLabel={t('common.seeAll')} onAction={() => navigation.navigate('Wardrobe', undefined)} />
               <FlatList
                 horizontal
                 data={home.data?.recentGarments ?? []}
@@ -88,7 +90,7 @@ export function UploadScreen({ navigation }: TabScreenProps<'Upload'>) {
         }
       />
 
-      <BottomSheet visible={!!saved} onClose={() => { setSaved(null); setFormKey((k) => k + 1); }} title="Dolabına eklendi">
+      <BottomSheet visible={!!saved} onClose={() => { setSaved(null); setFormKey((k) => k + 1); }} title={t('upload.added.title')}>
         {saved ? (
           <View style={styles.savedBody}>
             <View style={styles.savedPhoto}>
@@ -98,17 +100,17 @@ export function UploadScreen({ navigation }: TabScreenProps<'Upload'>) {
               <View style={styles.savedCheck}>
                 <Check size={16} color={colors.success} strokeWidth={2} />
                 <Typography variant="smallMedium" color={colors.success}>
-                  Kaydedildi
+                  {t('common.saved')}
                 </Typography>
               </View>
               <Typography variant="h2">{saved.displayName}</Typography>
-              <Typography variant="small">Harika! Yeni parçan artık kombin önerilerinde.</Typography>
+              <Typography variant="small">{t('upload.added.text')}</Typography>
             </View>
           </View>
         ) : null}
         <View style={styles.savedActions}>
           <PrimaryButton
-            label="Bir parça daha ekle"
+            label={t('upload.added.addAnother')}
             icon={Plus}
             onPress={() => {
               setSaved(null);
@@ -117,7 +119,7 @@ export function UploadScreen({ navigation }: TabScreenProps<'Upload'>) {
             fullWidth
           />
           <SecondaryButton
-            label="Parçayı gör"
+            label={t('upload.added.viewPiece')}
             icon={Eye}
             onPress={() => {
               const id = saved?.id;
@@ -135,11 +137,12 @@ export function UploadScreen({ navigation }: TabScreenProps<'Upload'>) {
 
 /** Stack: edit an existing garment (same form, PUT). */
 export function GarmentEditScreen({ navigation, route }: RootScreenProps<'GarmentEdit'>) {
+  const { t } = useTranslation();
   const garment = useGarment(route.params.id);
   const toast = useToast();
   return (
     <Screen>
-      <ScreenHeader title="Parçayı Düzenle" onBack={() => navigation.goBack()} />
+      <ScreenHeader title={t('upload.edit.title')} onBack={() => navigation.goBack()} />
       {garment.isLoading ? (
         <View style={styles.loadingPad}>
           <Skeleton height={undefined} radius={radius.lg} style={styles.photoSkeleton} />
@@ -151,7 +154,7 @@ export function GarmentEditScreen({ navigation, route }: RootScreenProps<'Garmen
           mode="edit"
           garment={garment.data}
           onSaved={() => {
-            toast.show('Değişiklikler kaydedildi');
+            toast.show(t('upload.edit.savedToast'));
             navigation.goBack();
           }}
         />
@@ -174,6 +177,7 @@ interface GarmentFormProps {
 
 function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProps) {
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   const { meta, labels } = useMeta();
   const create = useCreateGarment();
   const update = useUpdateGarment(garment?.id ?? 0);
@@ -210,10 +214,10 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
           const permission = await ImagePicker.requestCameraPermissionsAsync();
           if (!permission.granted) {
             const openSettings = await confirm({
-              title: 'Kamera izni gerekli',
-              message: 'Kıyafetinin fotoğrafını çekebilmek için Ayarlar’dan kamera iznini açabilirsin.',
-              confirmText: 'Ayarları Aç',
-              cancelText: 'Vazgeç',
+              title: t('upload.cameraPermission.title'),
+              message: t('upload.cameraPermission.message'),
+              confirmText: t('upload.cameraPermission.openSettings'),
+              cancelText: t('common.cancel'),
             });
             if (openSettings) void Linking.openSettings();
             return;
@@ -245,12 +249,10 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
         if (uploaded.detection.patternLikely) setPattern(true);
       } catch (error) {
         setStatus('error');
-        setUploadError(
-          error instanceof ApiError ? error.message : 'Fotoğraf yüklenemedi. Lütfen tekrar dene.',
-        );
+        setUploadError(error instanceof ApiError ? error.message : t('upload.uploadFailed'));
       }
     },
-    [],
+    [t],
   );
 
   const busy = status === 'preparing' || status === 'uploading';
@@ -285,12 +287,13 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
     save.mutate(body, {
       onSuccess: (g) => onSaved(g),
       onError: (e) => {
-        if (!(e instanceof ApiError)) notify('Kaydedilemedi', errorMessage(e));
+        if (!(e instanceof ApiError)) notify(t('upload.saveFailed'), errorMessage(e));
       },
     });
   };
 
   const previewUri = localPreview ?? garment?.imageUrl ?? null;
+  const missingKey = missingHint({ hasPhoto, busy, category, subcategory, color });
   const fieldErrors = save.error instanceof ApiError ? save.error.fieldErrors : {};
 
   return (
@@ -306,8 +309,8 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
           onRetry={lastSource ? () => void pickImage(lastSource) : undefined}
         />
 
-        {/* Kategori */}
-        <FormGroup title="Kategori" required error={fieldErrors.category}>
+        {/* Category */}
+        <FormGroup title={t('upload.form.category')} required error={fieldErrors.category}>
           <View style={styles.wrap}>
             {(meta?.categories ?? []).map((c) => (
               <Chip key={c.code} label={c.label} selected={category === c.code} onPress={() => selectCategory(c.code)} />
@@ -315,8 +318,8 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
           </View>
         </FormGroup>
 
-        {/* Alt kategori */}
-        <FormGroup title="Alt kategori" required error={fieldErrors.subcategory}>
+        {/* Subcategory */}
+        <FormGroup title={t('upload.form.subcategory')} required error={fieldErrors.subcategory}>
           {category ? (
             <View style={styles.wrap}>
               {subcategories.map((s) => (
@@ -324,34 +327,36 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
               ))}
             </View>
           ) : (
-            <Typography variant="small">Önce bir kategori seç.</Typography>
+            <Typography variant="small">{t('upload.form.chooseCategoryFirst')}</Typography>
           )}
         </FormGroup>
 
-        {/* Renk */}
-        <FormGroup title="Renk" required error={fieldErrors.color}>
+        {/* Color */}
+        <FormGroup title={t('upload.form.color')} required error={fieldErrors.color}>
           {detection ? (
             <View style={styles.detectRow}>
               {isAutoColor ? (
                 <View style={styles.autoBadge}>
                   <Typography variant="caption" color={colors.success} style={styles.autoText}>
-                    {`✦ Otomatik algılandı · ${confidenceLabel(detection.confidence)}`}
+                    {t('upload.form.autoDetected', {
+                      confidence: t(`upload.form.confidence.${confidenceLevel(detection.confidence)}`),
+                    })}
                   </Typography>
                 </View>
               ) : (
                 <View style={styles.manualBadge}>
                   <Typography variant="caption" color={colors.brown} style={styles.autoText}>
-                    Manuel seçildi
+                    {t('upload.form.manual')}
                   </Typography>
                 </View>
               )}
               <View style={styles.measured}>
                 <View style={[styles.measuredSwatch, { backgroundColor: detection.hex }]} />
-                <Typography variant="caption">Algılanan ton</Typography>
+                <Typography variant="caption">{t('upload.form.measuredTone')}</Typography>
               </View>
             </View>
           ) : status === 'uploading' ? (
-            <Typography variant="small">Renk analiz ediliyor…</Typography>
+            <Typography variant="small">{t('upload.photo.analyzing')}</Typography>
           ) : null}
           <View style={styles.swatches}>
             {(meta?.colors ?? []).map((c) => (
@@ -367,7 +372,7 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
           </View>
           {candidateHints.length > 0 ? (
             <View style={styles.hints}>
-              <Typography variant="small">Diğer olasılıklar:</Typography>
+              <Typography variant="small">{t('upload.form.otherCandidates')}</Typography>
               {candidateHints.slice(0, 3).map((h) => (
                 <Chip key={h.color} size="sm" tone="outline" label={labels.color(h.color)} onPress={() => setColor(h.color)} />
               ))}
@@ -375,11 +380,11 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
           ) : null}
         </FormGroup>
 
-        {/* Desenli */}
+        {/* Patterned */}
         <View style={styles.switchRow}>
           <View style={styles.flex}>
-            <Typography variant="bodySemiBold">Desenli</Typography>
-            <Typography variant="small">Çizgili, ekose, çiçekli gibi desenler</Typography>
+            <Typography variant="bodySemiBold">{t('garment.patterned')}</Typography>
+            <Typography variant="small">{t('upload.form.patternedHint')}</Typography>
           </View>
           <Switch
             value={pattern}
@@ -387,18 +392,18 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
             trackColor={{ false: colors.beige, true: colors.ink }}
             thumbColor={colors.surface}
             ios_backgroundColor={colors.beige}
-            accessibilityLabel="Desenli"
+            accessibilityLabel={t('garment.patterned')}
           />
         </View>
 
-        {/* Mevsim */}
-        <FormGroup title="Mevsim" hint="Boş bırakırsan parçaya göre otomatik seçilir.">
+        {/* Season */}
+        <FormGroup title={t('upload.form.season')} hint={t('upload.form.seasonHint')}>
           <View style={styles.wrap}>
             {(meta?.seasons ?? []).map((s) => (
               <Chip key={s.code} label={s.label} selected={seasons.includes(s.code)} onPress={() => setSeasons((l) => toggleInList(l, s.code))} />
             ))}
             <Chip
-              label="Tüm Mevsimler"
+              label={t('upload.form.allSeasons')}
               tone="outline"
               selected={allSeasonsSelected}
               onPress={() => setSeasons(allSeasonsSelected ? [] : allSeasonCodes)}
@@ -406,8 +411,8 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
           </View>
         </FormGroup>
 
-        {/* Kullanım alanı */}
-        <FormGroup title="Kullanım alanı" hint="Birden fazla seçebilirsin.">
+        {/* Occasion */}
+        <FormGroup title={t('upload.form.occasion')} hint={t('upload.form.occasionHint')}>
           <View style={styles.wrap}>
             {(meta?.occasions ?? []).map((o) => (
               <Chip key={o.code} label={o.label} selected={occasions.includes(o.code)} onPress={() => setOccasions((l) => toggleInList(l, o.code))} />
@@ -415,11 +420,16 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
           </View>
         </FormGroup>
 
-        {/* İsim */}
+        {/* Name */}
         <TextField
-          label="İsim (isteğe bağlı)"
+          label={t('upload.form.name')}
           placeholder={
-            color && subcategory ? `${labels.color(color)} ${labels.subcategory(subcategory, category ?? undefined)}` : 'Örn. Favori bej blazerım'
+            color && subcategory
+              ? t('upload.form.generatedName', {
+                  color: labels.color(color),
+                  subcategory: labels.subcategory(subcategory, category ?? undefined),
+                })
+              : t('upload.form.namePlaceholder')
           }
           value={name}
           onChangeText={setName}
@@ -439,11 +449,11 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
           </Typography>
         ) : !canSave && !save.isPending ? (
           <Typography variant="caption" align="center">
-            {missingHint({ hasPhoto, busy, category, subcategory, color, mode })}
+            {missingKey ? t(missingKey) : ''}
           </Typography>
         ) : null}
         <PrimaryButton
-          label={mode === 'create' ? 'Dolaba Kaydet' : 'Değişiklikleri Kaydet'}
+          label={mode === 'create' ? t('upload.submit.create') : t('upload.submit.edit')}
           onPress={onSubmit}
           disabled={!canSave}
           loading={save.isPending}
@@ -454,20 +464,27 @@ function GarmentForm({ mode, garment, onSaved, header, footer }: GarmentFormProp
   );
 }
 
+type MissingHintKey =
+  | 'upload.missing.uploading'
+  | 'upload.missing.photo'
+  | 'upload.missing.category'
+  | 'upload.missing.subcategory'
+  | 'upload.missing.color';
+
+/** What still blocks saving (translation key), or null when the form is complete. */
 function missingHint(s: {
   hasPhoto: boolean;
   busy: boolean;
   category: Category | null;
   subcategory: string | null;
   color: ColorName | null;
-  mode: 'create' | 'edit';
-}): string {
-  if (s.busy) return 'Fotoğraf yükleniyor…';
-  if (!s.hasPhoto) return 'Önce kıyafetinin fotoğrafını ekle.';
-  if (!s.category) return 'Bir kategori seç.';
-  if (!s.subcategory) return 'Bir alt kategori seç.';
-  if (!s.color) return 'Bir renk seç.';
-  return '';
+}): MissingHintKey | null {
+  if (s.busy) return 'upload.missing.uploading';
+  if (!s.hasPhoto) return 'upload.missing.photo';
+  if (!s.category) return 'upload.missing.category';
+  if (!s.subcategory) return 'upload.missing.subcategory';
+  if (!s.color) return 'upload.missing.color';
+  return null;
 }
 
 function FormGroup({
@@ -483,11 +500,12 @@ function FormGroup({
   error?: string;
   children: ReactNode;
 }) {
+  const { t } = useTranslation();
   return (
     <View style={styles.group}>
       <View style={styles.groupHead}>
         <Typography variant="h3">{title}</Typography>
-        {required ? <Typography variant="caption">Zorunlu</Typography> : null}
+        {required ? <Typography variant="caption">{t('common.required')}</Typography> : null}
       </View>
       {hint ? <Typography variant="small">{hint}</Typography> : null}
       {children}

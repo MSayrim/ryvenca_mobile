@@ -15,7 +15,7 @@ import type {
 /** Fallback when a code is unknown to meta: "LIGHT_BLUE" → "Light blue". */
 export function humanizeCode(code: string): string {
   const words = code.toLowerCase().split('_').filter(Boolean).join(' ');
-  return words ? words.charAt(0).toLocaleUpperCase('tr-TR') + words.slice(1) : code;
+  return words ? words.charAt(0).toUpperCase() + words.slice(1) : code;
 }
 
 export function labelFrom<C extends string>(list: readonly LabeledCode<C>[] | undefined, code: C | null | undefined): string {
@@ -78,6 +78,7 @@ export function stylesWithDescriptions(meta: Meta | undefined): StyleMeta[] {
   return meta?.styles ?? [];
 }
 
+/** Detection confidence bucket; the UI shows `upload.form.confidence.<level>`. */
 export type ConfidenceLevel = 'high' | 'medium' | 'low';
 
 /** Detection confidence → level. Thresholds: ≥ 0.7 high, ≥ 0.45 medium, otherwise low. */
@@ -88,37 +89,31 @@ export function confidenceLevel(confidence: number): ConfidenceLevel {
   return 'low';
 }
 
-const CONFIDENCE_TEXT: Record<ConfidenceLevel, string> = {
-  high: 'yüksek güven',
-  medium: 'orta güven',
-  low: 'düşük güven',
-};
-
-export function confidenceLabel(confidence: number): string {
-  return CONFIDENCE_TEXT[confidenceLevel(confidence)];
-}
-
-/** "Uyum %92" (score is clamped to 0–100 and rounded). */
-export function scoreLabel(score: number): string {
-  return `Uyum %${clampScore(score)}`;
-}
-
+/** Score clamped to 0–100 and rounded (display is localized with formatPercent / formatNumber). */
 export function clampScore(score: number): number {
   if (!Number.isFinite(score)) return 0;
   return Math.max(0, Math.min(100, Math.round(score)));
 }
 
-/** "Kombin önerileri için 5–10 parça ekle · 3/8" progress fraction (0–1). */
+/** Readiness progress fraction (0–1), e.g. 3 of 8 recommended pieces. */
 export function readinessProgress(garmentCount: number, recommendedMinimum: number): number {
   if (recommendedMinimum <= 0) return 1;
   return Math.max(0, Math.min(1, garmentCount / recommendedMinimum));
 }
 
-/** First letter for the avatar circle (Turkish-aware upper-casing). */
-export function initialOf(name: string | null | undefined, fallback = 'R'): string {
+/**
+ * First letter for the avatar circle, upper-cased with the UI locale (Turkish "i" → "İ").
+ * Uses the first code point so non-BMP characters are not split.
+ */
+export function initialOf(name: string | null | undefined, locale = 'tr', fallback = 'R'): string {
   const trimmed = (name ?? '').trim();
   if (!trimmed) return fallback;
-  return trimmed.charAt(0).toLocaleUpperCase('tr-TR');
+  const first = Array.from(trimmed)[0] ?? fallback;
+  try {
+    return first.toLocaleUpperCase(locale);
+  } catch {
+    return first.toUpperCase();
+  }
 }
 
 /** Toggles a value in a list, returning a new array (keeps original order for existing items). */

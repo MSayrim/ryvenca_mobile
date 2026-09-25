@@ -1,12 +1,20 @@
 import { StyleSheet, View } from 'react-native';
 
+import { useFormatters, useTranslation } from '../i18n';
 import { colors, fonts, radius } from '../theme';
-import { scoreLabel } from '../utils/labels';
+import { clampScore } from '../utils/labels';
 import { Typography } from './Typography';
 
-/** Compact "✦ Uyum %92" pill on successBg. */
+/** "Uyum %92" (tr) / "Match 92%" (en): score clamped to 0–100, percent formatted for the language. */
+function useScoreLabel(score: number): string {
+  const { t } = useTranslation();
+  const format = useFormatters();
+  return t('outfit.scorePill', { percent: format.percent(clampScore(score)) });
+}
+
+/** Compact "✦ Match 92%" pill on successBg. */
 export function ScorePill({ score, size = 'md' }: { score: number; size?: 'md' | 'sm' }) {
-  const label = scoreLabel(score);
+  const label = useScoreLabel(score);
   return (
     <View style={[styles.pill, size === 'sm' && styles.sm]} accessibilityLabel={label}>
       <Typography style={[styles.spark, size === 'sm' && styles.textSm]}>✦</Typography>
@@ -17,9 +25,11 @@ export function ScorePill({ score, size = 'md' }: { score: number; size?: 'md' |
 
 /** Tiny numeric badge used on pairing thumbnails. */
 export function ScoreBadge({ score }: { score: number }) {
+  const label = useScoreLabel(score);
+  const format = useFormatters();
   return (
-    <View style={styles.badge} accessibilityLabel={scoreLabel(score)}>
-      <Typography style={styles.badgeText}>✦ {Math.round(score)}</Typography>
+    <View style={styles.badge} accessibilityLabel={label}>
+      <Typography style={styles.badgeText}>{`✦ ${format.number(clampScore(score))}`}</Typography>
     </View>
   );
 }
@@ -42,7 +52,7 @@ const styles = StyleSheet.create({
   badge: {
     position: 'absolute',
     top: 6,
-    right: 6,
+    end: 6,
     backgroundColor: colors.successBg,
     borderRadius: radius.pill,
     paddingHorizontal: 6,

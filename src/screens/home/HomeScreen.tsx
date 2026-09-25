@@ -1,4 +1,4 @@
-import { ArrowRight, Heart, Layers, Plus } from 'lucide-react-native';
+import { Heart, Layers, Plus } from 'lucide-react-native';
 import { useMemo, useState } from 'react';
 import { FlatList, RefreshControl, ScrollView, StyleSheet, View, useWindowDimensions } from 'react-native';
 
@@ -20,16 +20,20 @@ import {
   Skeleton,
   StatCard,
   Typography,
+  useDirection,
 } from '../../components';
 import { useMeta } from '../../hooks/useMeta';
 import { useHome } from '../../hooks/queries';
 import { usePullToRefresh } from '../../hooks/usePullToRefresh';
+import { useTranslation } from '../../i18n';
 import type { TabScreenProps } from '../../navigation/types';
 import { colors, radius, spacing } from '../../theme';
 import { heroGarments } from '../../utils/hero';
 import { outfitGarmentIds, randomSeed } from '../../utils/outfit';
 
 export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
+  const { t } = useTranslation();
+  const { ForwardArrow } = useDirection();
   const home = useHome();
   const pull = usePullToRefresh(home.refetch);
   const { meta } = useMeta();
@@ -63,14 +67,14 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
         {/* Hero */}
         <View style={styles.hero}>
           <View style={styles.heroText}>
-            <Typography variant="script">Aynı sen, daha iyi kombinler ♡</Typography>
+            <Typography variant="script">{t('accents.sameYouBetterOutfits')}</Typography>
             <Typography variant="display" style={styles.heroTitle}>
-              Bugün ne giysem?
+              {t('home.hero.title')}
             </Typography>
             <Typography variant="small" color={colors.textSecondary}>
-              Dolabındaki gerçek parçalarla sana en uygun kombinleri önerelim.
+              {t('home.hero.text')}
             </Typography>
-            <PrimaryButton label="Kombin Öner" iconRight={ArrowRight} size="sm" onPress={goSuggest} style={styles.heroCta} />
+            <PrimaryButton label={t('home.hero.cta')} iconEnd={ForwardArrow} size="sm" onPress={goSuggest} style={styles.heroCta} />
           </View>
           <View style={styles.heroArt}>
             {home.isLoading ? (
@@ -92,19 +96,19 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
                   <StatCard
                     icon={<HangerIcon size={18} color={colors.brown} />}
                     value={data.stats.garmentCount}
-                    label="Ürünlerim"
+                    label={t('home.stats.garments')}
                     onPress={() => goWardrobe(null)}
                   />
                   <StatCard
                     icon={<Layers size={17} color={colors.brown} strokeWidth={1.5} />}
                     value={data.stats.readyOutfitCount}
-                    label="Hazır Kombin"
+                    label={t('home.stats.readyOutfits')}
                     onPress={() => navigation.navigate('Suggestions', undefined)}
                   />
                   <StatCard
                     icon={<Heart size={17} color={colors.brown} strokeWidth={1.5} />}
                     value={data.stats.favoriteCount}
-                    label="Favoriler"
+                    label={t('home.stats.favorites')}
                     onPress={() => navigation.navigate('Favorites', undefined)}
                   />
                 </>
@@ -119,9 +123,9 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
               </View>
             ) : null}
 
-            {/* Dolabım */}
+            {/* Wardrobe */}
             <View style={styles.section}>
-              <SectionHeader title="Dolabım" actionLabel="Tümünü Gör →" onAction={() => goWardrobe(category)} />
+              <SectionHeader title={t('home.wardrobe.title')} actionLabel={t('common.seeAll')} onAction={() => goWardrobe(category)} />
               <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.bleed} contentContainerStyle={styles.chips}>
                 {(meta?.categories ?? []).map((c) => (
                   <Chip
@@ -153,18 +157,18 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
               ) : (
                 <View style={styles.inlineEmpty}>
                   <Typography variant="small" style={styles.flex}>
-                    {category ? 'Bu kategoride henüz parça yok.' : 'Dolabın henüz boş. İlk parçanı ekleyerek başla.'}
+                    {category ? t('home.wardrobe.emptyCategory') : t('home.wardrobe.empty')}
                   </Typography>
-                  <SecondaryButton label="Parça Ekle" icon={Plus} size="sm" onPress={goUpload} />
+                  <SecondaryButton label={t('common.addPiece')} icon={Plus} size="sm" onPress={goUpload} />
                 </View>
               )}
             </View>
 
-            {/* Bugünün Önerileri */}
+            {/* Today's suggestions */}
             <View style={styles.section}>
               <SectionHeader
-                title="Bugünün Önerileri"
-                actionLabel="Tümünü Gör →"
+                title={t('home.today.title')}
+                actionLabel={t('common.seeAll')}
                 onAction={() => navigation.navigate('Suggestions', undefined)}
               />
               {home.isLoading ? (
@@ -193,8 +197,8 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
                 <View style={styles.inlineEmpty}>
                   <Typography variant="small" style={styles.flex}>
                     {readiness && !readiness.ready
-                      ? 'Kombin önerebilmemiz için birkaç parça daha ekle.'
-                      : 'Bugün için öneri bulunamadı. Yeni öneriler için Öneriler sekmesine göz at.'}
+                      ? t('home.today.notReady')
+                      : t('home.today.empty')}
                   </Typography>
                 </View>
               )}
@@ -221,7 +225,7 @@ const styles = StyleSheet.create({
   heroText: { flex: 1, gap: 6 },
   heroTitle: { marginTop: 2 },
   heroCta: { alignSelf: 'flex-start', marginTop: spacing.xs },
-  heroArt: { width: 116, alignItems: 'center', justifyContent: 'center', marginLeft: spacing.xs },
+  heroArt: { width: 116, alignItems: 'center', justifyContent: 'center', marginStart: spacing.xs },
   inset: { paddingHorizontal: spacing.md },
   stats: { flexDirection: 'row', gap: spacing.xs, paddingHorizontal: spacing.md },
   section: { gap: spacing.sm, paddingHorizontal: spacing.md },

@@ -2,11 +2,12 @@ import { Camera, Check, Shirt, Sparkles } from 'lucide-react-native';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import type { LabeledCode, StyleMeta, StylePreference, WardrobeType } from '../api/types';
+import { useFormatters, useTranslation } from '../i18n';
 import { colors, fonts, radius, spacing } from '../theme';
 import { HangerIcon } from './HangerIcon';
 import { Typography } from './Typography';
 
-/** Large selectable cards: Kadın / Erkek / Unisex (labels from meta). */
+/** Large selectable cards: Women / Men / Unisex (labels from meta). */
 export function WardrobeTypePicker({
   options,
   value,
@@ -85,29 +86,31 @@ export function StylePicker({
 }
 
 const STEPS = [
-  { icon: Camera, title: 'Fotoğrafını çek', text: 'Askıda, yatakta ya da koltukta — normal telefon fotoğrafı yeterli.' },
-  { icon: Shirt, title: 'Dolabın düzenlensin', text: 'Rengi otomatik algılarız; kategori ve mevsimle dolabın kendiliğinden düzenlenir.' },
-  { icon: Sparkles, title: 'Kombinini keşfet', text: 'Sadece kendi parçalarından, Uyum Skoru ve açıklamasıyla kombinler.' },
+  { key: 'photo', icon: Camera },
+  { key: 'organize', icon: Shirt },
+  { key: 'discover', icon: Sparkles },
 ] as const;
 
-/** "Nasıl çalışır?" — 3 short steps. */
+/** "How does it work?" — 3 short steps. */
 export function HowItWorksSteps() {
+  const { t } = useTranslation();
+  const format = useFormatters();
   return (
     <View style={styles.steps}>
       {STEPS.map((step, i) => {
         const Icon = step.icon;
         return (
-          <View key={step.title} style={styles.step}>
+          <View key={step.key} style={styles.step}>
             <View style={styles.stepIcon}>
               <Icon size={22} color={colors.brown} strokeWidth={1.5} />
             </View>
             <View style={styles.flex}>
               <Typography variant="caption" color={colors.softBrown} style={styles.stepNo}>
-                {`ADIM ${i + 1}`}
+                {format.upper(t('howItWorks.stepLabel', { number: i + 1 }))}
               </Typography>
-              <Typography variant="h3">{step.title}</Typography>
+              <Typography variant="h3">{t(`howItWorks.steps.${step.key}.title`)}</Typography>
               <Typography variant="small" style={styles.stepText}>
-                {step.text}
+                {t(`howItWorks.steps.${step.key}.text`)}
               </Typography>
             </View>
           </View>

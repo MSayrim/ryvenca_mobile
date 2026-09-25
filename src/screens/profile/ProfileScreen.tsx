@@ -1,36 +1,50 @@
-import { ChartColumn, ChevronRight, CircleHelp, Heart, LogOut, Pencil, Trash2, type LucideIcon } from 'lucide-react-native';
+import { ChartColumn, CircleHelp, Heart, Languages, LogOut, Pencil, Trash2, type LucideIcon } from 'lucide-react-native';
+import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { errorMessage } from '../../api';
 import { useCurrentUser, useSession } from '../../auth/SessionProvider';
-import { AppHeader, Chip, OutlineButton, Screen, SecondaryButton, Typography } from '../../components';
+import {
+  AppHeader,
+  Chip,
+  LanguageSheet,
+  OutlineButton,
+  Screen,
+  SecondaryButton,
+  Typography,
+  useDirection,
+} from '../../components';
 import { useDeleteAccount } from '../../hooks/mutations';
 import { useMeta } from '../../hooks/useMeta';
+import { languageInfo, useLanguage, useTranslation } from '../../i18n';
 import type { TabScreenProps } from '../../navigation/types';
 import { TOUCH_TARGET, colors, fonts, radius, spacing } from '../../theme';
 import { confirm, notify } from '../../utils/confirm';
 import { initialOf } from '../../utils/labels';
 
 export function ProfileScreen({ navigation }: TabScreenProps<'Profile'>) {
+  const { t } = useTranslation();
+  const { language } = useLanguage();
   const user = useCurrentUser();
   const { signOut } = useSession();
   const { labels } = useMeta();
   const deleteAccount = useDeleteAccount();
+  const [languageOpen, setLanguageOpen] = useState(false);
 
   const onLogout = async () => {
-    const ok = await confirm({ title: 'Çıkış yapmak istiyor musun?', confirmText: 'Çıkış Yap' });
+    const ok = await confirm({ title: t('profile.logout.confirm'), confirmText: t('profile.logout.action') });
     if (ok) await signOut();
   };
 
   const onDelete = async () => {
     const ok = await confirm({
-      title: 'Hesabını silmek istediğine emin misin?',
-      message: 'Hesabın, dolabındaki tüm parçalar, fotoğraflar ve kayıtlı kombinlerin kalıcı olarak silinecek. Bu işlem geri alınamaz.',
-      confirmText: 'Hesabı Sil',
+      title: t('profile.deleteAccount.title'),
+      message: t('profile.deleteAccount.message'),
+      confirmText: t('profile.deleteAccount.action'),
       destructive: true,
     });
     if (!ok) return;
-    deleteAccount.mutate(undefined, { onError: (e) => notify('Hesap silinemedi', errorMessage(e)) });
+    deleteAccount.mutate(undefined, { onError: (e) => notify(t('profile.deleteAccount.failed'), errorMessage(e)) });
   };
 
   return (
@@ -41,8 +55,8 @@ export function ProfileScreen({ navigation }: TabScreenProps<'Profile'>) {
       />
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.identity}>
-          <View style={styles.avatar} accessibilityLabel={`${user.displayName} profil resmi`}>
-            <Typography style={styles.avatarText}>{initialOf(user.displayName)}</Typography>
+          <View style={styles.avatar} accessibilityLabel={t('profile.avatarA11y', { name: user.displayName })}>
+            <Typography style={styles.avatarText}>{initialOf(user.displayName, language)}</Typography>
           </View>
           <View style={styles.flex}>
             <Typography variant="h1" numberOfLines={1}>
@@ -56,35 +70,44 @@ export function ProfileScreen({ navigation }: TabScreenProps<'Profile'>) {
 
         <View style={styles.card}>
           <View style={styles.cardHead}>
-            <Typography variant="h3">Tercihlerim</Typography>
-            <SecondaryButton label="Düzenle" icon={Pencil} size="sm" onPress={() => navigation.navigate('EditPreferences')} />
+            <Typography variant="h3">{t('profile.preferences')}</Typography>
+            <SecondaryButton label={t('common.edit')} icon={Pencil} size="sm" onPress={() => navigation.navigate('EditPreferences')} />
           </View>
           <View style={styles.prefRow}>
-            <Typography variant="eyebrow">Dolap</Typography>
-            <Typography variant="bodyMedium">{user.wardrobeType ? labels.wardrobeType(user.wardrobeType) : 'Seçilmedi'}</Typography>
+            <Typography variant="eyebrow">{t('profile.wardrobeType')}</Typography>
+            <Typography variant="bodyMedium">
+              {user.wardrobeType ? labels.wardrobeType(user.wardrobeType) : t('common.notSelected')}
+            </Typography>
           </View>
           <View style={styles.prefRow}>
-            <Typography variant="eyebrow">Stil</Typography>
+            <Typography variant="eyebrow">{t('profile.style')}</Typography>
             <View style={styles.chips}>
               {user.stylePreferences.length > 0 ? (
                 user.stylePreferences.map((s) => <Chip key={s} static size="sm" label={labels.style(s)} />)
               ) : (
-                <Typography variant="small">Seçilmedi</Typography>
+                <Typography variant="small">{t('common.notSelected')}</Typography>
               )}
             </View>
           </View>
         </View>
 
         <View style={styles.links}>
-          <LinkRow icon={Heart} label="Favorilerim" onPress={() => navigation.navigate('Favorites')} />
-          <LinkRow icon={ChartColumn} label="Dolap istatistikleri" onPress={() => navigation.navigate('WardrobeStats')} />
-          <LinkRow icon={CircleHelp} label="Nasıl çalışır?" onPress={() => navigation.navigate('HowItWorks')} last />
+          <LinkRow icon={Heart} label={t('profile.links.favorites')} onPress={() => navigation.navigate('Favorites')} />
+          <LinkRow icon={ChartColumn} label={t('profile.links.stats')} onPress={() => navigation.navigate('WardrobeStats')} />
+          <LinkRow
+            icon={Languages}
+            label={t('profile.links.language')}
+            value={languageInfo(language).nativeName}
+            valueLang={language}
+            onPress={() => setLanguageOpen(true)}
+          />
+          <LinkRow icon={CircleHelp} label={t('howItWorks.title')} onPress={() => navigation.navigate('HowItWorks')} last />
         </View>
 
         <View style={styles.bottomActions}>
-          <SecondaryButton label="Çıkış Yap" icon={LogOut} onPress={() => void onLogout()} fullWidth />
+          <SecondaryButton label={t('profile.logout.action')} icon={LogOut} onPress={() => void onLogout()} fullWidth />
           <OutlineButton
-            label="Hesabı Sil"
+            label={t('profile.deleteAccount.action')}
             icon={Trash2}
             danger
             onPress={() => void onDelete()}
@@ -93,23 +116,45 @@ export function ProfileScreen({ navigation }: TabScreenProps<'Profile'>) {
           />
         </View>
       </ScrollView>
+      <LanguageSheet visible={languageOpen} onClose={() => setLanguageOpen(false)} />
     </Screen>
   );
 }
 
-function LinkRow({ icon: Icon, label, onPress, last }: { icon: LucideIcon; label: string; onPress: () => void; last?: boolean }) {
+function LinkRow({
+  icon: Icon,
+  label,
+  value,
+  valueLang,
+  onPress,
+  last,
+}: {
+  icon: LucideIcon;
+  label: string;
+  /** Current value shown before the chevron (e.g. the selected language). */
+  value?: string;
+  valueLang?: string;
+  onPress: () => void;
+  last?: boolean;
+}) {
+  const { ForwardChevron } = useDirection();
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
-      accessibilityLabel={label}
+      accessibilityLabel={value ? `${label}: ${value}` : label}
       style={({ pressed }) => [styles.link, !last && styles.linkDivider, pressed && styles.pressed]}
     >
       <Icon size={20} color={colors.brown} strokeWidth={1.5} />
       <Typography variant="bodyMedium" style={styles.flex}>
         {label}
       </Typography>
-      <ChevronRight size={18} color={colors.textMuted} strokeWidth={1.5} />
+      {value ? (
+        <Typography variant="small" lang={valueLang} numberOfLines={1}>
+          {value}
+        </Typography>
+      ) : null}
+      <ForwardChevron size={18} color={colors.textMuted} strokeWidth={1.5} />
     </Pressable>
   );
 }

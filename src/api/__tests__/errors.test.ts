@@ -1,6 +1,11 @@
 import { buildQueryString } from '../client';
-import { ApiError, GENERIC_ERROR_MESSAGE, errorMessage, firstFieldError, parseApiError } from '../errors';
+import { ApiError, errorMessage, firstFieldError, genericErrorMessage, parseApiError } from '../errors';
 import { normalizeBaseUrl } from '../../config';
+import { i18n } from '../../i18n/i18n';
+
+afterEach(async () => {
+  await i18n.changeLanguage('tr');
+});
 
 describe('parseApiError', () => {
   it('parses the documented error body', () => {
@@ -19,7 +24,7 @@ describe('parseApiError', () => {
     expect(firstFieldError(err)).toBe('Geçerli bir e-posta gir');
   });
 
-  it('falls back to Turkish defaults for empty or non-JSON bodies', () => {
+  it('falls back to localized defaults (Turkish source language) for empty or non-JSON bodies', () => {
     const unauthorized = parseApiError(401, '');
     expect(unauthorized.code).toBe('UNAUTHORIZED');
     expect(unauthorized.isUnauthorized).toBe(true);
@@ -32,6 +37,18 @@ describe('parseApiError', () => {
 
     const tooLarge = parseApiError(413, null);
     expect(tooLarge.code).toBe('PAYLOAD_TOO_LARGE');
+    expect(tooLarge.message).toBe('Fotoğraf çok büyük. En fazla 15 MB yükleyebilirsin.');
+  });
+
+  it('uses the current UI language for client-side fallbacks', async () => {
+    await i18n.changeLanguage('en');
+    expect(parseApiError(401, '').message).toBe('Your session has expired. Please sign in again.');
+    expect(parseApiError(413, null).message).toBe('The photo is too large. You can upload up to 15 MB.');
+    expect(errorMessage('boom')).toBe('Something went wrong. Please try again.');
+    // Server messages are already localized and are passed through untouched.
+    expect(parseApiError(404, JSON.stringify({ error: 'NOT_FOUND', message: 'Pièce introuvable' })).message).toBe(
+      'Pièce introuvable',
+    );
   });
 
   it('ignores malformed fields', () => {
@@ -44,8 +61,8 @@ describe('parseApiError', () => {
 
   it('errorMessage returns user-presentable text', () => {
     expect(errorMessage(new ApiError(404, 'NOT_FOUND', 'Parça bulunamadı'))).toBe('Parça bulunamadı');
-    expect(errorMessage(new Error('TypeError: x is undefined'))).toBe(GENERIC_ERROR_MESSAGE);
-    expect(errorMessage('boom')).toBe(GENERIC_ERROR_MESSAGE);
+    expect(errorMessage(new Error('TypeError: x is undefined'))).toBe(genericErrorMessage());
+    expect(errorMessage('boom')).toBe('Bir şeyler ters gitti. Lütfen tekrar dene.');
     expect(firstFieldError(new Error('x'))).toBeNull();
   });
 });

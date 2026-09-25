@@ -3,12 +3,13 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ApiError } from './api/errors';
 import { SessionProvider } from './auth/SessionProvider';
 import { ToastProvider } from './components/Toast';
+import { DirectionRoot, LanguageProvider, bootstrapLanguage } from './i18n';
 import { RootNavigator } from './navigation/RootNavigator';
 import { colors, fontAssets } from './theme';
 
@@ -44,7 +45,14 @@ const navTheme: NavTheme = {
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts(fontAssets);
-  const ready = fontsLoaded || !!fontError;
+  // Resolve the UI language (saved choice → device → en) and layout direction before the first render.
+  const [languageReady, setLanguageReady] = useState(false);
+  useEffect(() => {
+    bootstrapLanguage()
+      .catch(() => undefined)
+      .finally(() => setLanguageReady(true));
+  }, []);
+  const ready = (fontsLoaded || !!fontError) && languageReady;
 
   useEffect(() => {
     if (ready) void SplashScreen.hideAsync().catch(() => undefined);
@@ -54,16 +62,20 @@ export default function App() {
 
   return (
     <SafeAreaProvider style={{ backgroundColor: colors.background }}>
-      <QueryClientProvider client={queryClient}>
-        <SessionProvider>
-          <ToastProvider>
-            <NavigationContainer theme={navTheme}>
-              <StatusBar style="dark" />
-              <RootNavigator />
-            </NavigationContainer>
-          </ToastProvider>
-        </SessionProvider>
-      </QueryClientProvider>
+      <LanguageProvider>
+        <DirectionRoot>
+          <QueryClientProvider client={queryClient}>
+            <SessionProvider>
+              <ToastProvider>
+                <NavigationContainer theme={navTheme}>
+                  <StatusBar style="dark" />
+                  <RootNavigator />
+                </NavigationContainer>
+              </ToastProvider>
+            </SessionProvider>
+          </QueryClientProvider>
+        </DirectionRoot>
+      </LanguageProvider>
     </SafeAreaProvider>
   );
 }

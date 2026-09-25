@@ -27,11 +27,14 @@ import { useGarments } from '../../hooks/queries';
 import { useDebouncedValue } from '../../hooks/useDebouncedValue';
 import { usePullToRefresh } from '../../hooks/usePullToRefresh';
 import { useMeta } from '../../hooks/useMeta';
+import { useLanguage, useTranslation } from '../../i18n';
 import type { TabScreenProps } from '../../navigation/types';
-import { TOUCH_TARGET, colors, fonts, radius, spacing } from '../../theme';
+import { TOUCH_TARGET, colors, fonts, radius, resolveTextStyle, spacing } from '../../theme';
 import { EMPTY_SHEET_FILTERS, WardrobeFilterSheet, countSheetFilters, type SheetFilters } from './WardrobeFilterSheet';
 
 export function WardrobeScreen({ navigation, route }: TabScreenProps<'Wardrobe'>) {
+  const { t } = useTranslation();
+  const { typography } = useLanguage();
   const { meta } = useMeta();
   const { width } = useWindowDimensions();
   const searchRef = useRef<TextInput>(null);
@@ -89,11 +92,11 @@ export function WardrobeScreen({ navigation, route }: TabScreenProps<'Wardrobe'>
       <View style={styles.top}>
         <View style={styles.titleRow}>
           <Typography variant="h1" accessibilityRole="header">
-            Dolabım
+            {t('wardrobe.title')}
           </Typography>
           {garments.data ? (
             <Typography variant="body" color={colors.textMuted} style={styles.count}>
-              {`${list.length} parça`}
+              {t('wardrobe.count', { count: list.length })}
             </Typography>
           ) : null}
         </View>
@@ -105,15 +108,15 @@ export function WardrobeScreen({ navigation, route }: TabScreenProps<'Wardrobe'>
               ref={searchRef}
               value={query}
               onChangeText={setQuery}
-              placeholder="Dolabında ara (ör. blazer)"
+              placeholder={t('wardrobe.searchPlaceholder')}
               placeholderTextColor={colors.textMuted}
-              style={styles.searchInput}
+              style={resolveTextStyle(styles.searchInput, typography)}
               returnKeyType="search"
               autoCorrect={false}
-              accessibilityLabel="Dolabında ara"
+              accessibilityLabel={t('header.searchA11y')}
             />
             {query ? (
-              <Pressable onPress={() => setQuery('')} hitSlop={10} accessibilityRole="button" accessibilityLabel="Aramayı temizle">
+              <Pressable onPress={() => setQuery('')} hitSlop={10} accessibilityRole="button" accessibilityLabel={t('wardrobe.clearSearch')}>
                 <X size={18} color={colors.textMuted} strokeWidth={1.5} />
               </Pressable>
             ) : null}
@@ -121,18 +124,20 @@ export function WardrobeScreen({ navigation, route }: TabScreenProps<'Wardrobe'>
           <Pressable
             onPress={() => setSheetOpen(true)}
             accessibilityRole="button"
-            accessibilityLabel={activeSheetCount ? `Filtrele, ${activeSheetCount} filtre aktif` : 'Filtrele'}
+            accessibilityLabel={
+              activeSheetCount ? t('wardrobe.filterActiveA11y', { count: activeSheetCount }) : t('wardrobe.filter')
+            }
             style={({ pressed }) => [styles.filterButton, activeSheetCount > 0 && styles.filterButtonActive, pressed && styles.pressed]}
           >
             <SlidersHorizontal size={18} color={activeSheetCount ? colors.surface : colors.ink} strokeWidth={1.5} />
             <Typography style={[styles.filterLabel, activeSheetCount > 0 && { color: colors.surface }]}>
-              {activeSheetCount ? `Filtrele · ${activeSheetCount}` : 'Filtrele'}
+              {activeSheetCount ? t('wardrobe.filterWithCount', { count: activeSheetCount }) : t('wardrobe.filter')}
             </Typography>
           </Pressable>
         </View>
 
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipsScroll} contentContainerStyle={styles.chips}>
-          <Chip label="Tümü" selected={category === null} onPress={() => setCategory(null)} />
+          <Chip label={t('common.all')} selected={category === null} onPress={() => setCategory(null)} />
           {(meta?.categories ?? []).map((c) => (
             <Chip key={c.code} label={c.label} selected={category === c.code} onPress={() => setCategory(c.code)} />
           ))}
@@ -164,9 +169,9 @@ export function WardrobeScreen({ navigation, route }: TabScreenProps<'Wardrobe'>
           ListEmptyComponent={
             hasAnyFilter ? (
               <EmptyState
-                title="Sonuç bulunamadı"
-                text="Bu filtrelere uyan bir parça yok. Filtreleri değiştirmeyi dene."
-                actionLabel="Filtreleri Temizle"
+                title={t('wardrobe.noResults.title')}
+                text={t('wardrobe.noResults.text')}
+                actionLabel={t('wardrobe.noResults.action')}
                 onAction={() => {
                   setCategory(null);
                   setQuery('');
@@ -175,9 +180,9 @@ export function WardrobeScreen({ navigation, route }: TabScreenProps<'Wardrobe'>
               />
             ) : (
               <EmptyState
-                title="Dolabın seni bekliyor"
-                text="Kıyafetlerinin fotoğrafını çek, dolabın kendiliğinden düzenlensin."
-                actionLabel="İlk parçanı ekle"
+                title={t('wardrobe.empty.title')}
+                text={t('wardrobe.empty.text')}
+                actionLabel={t('common.addFirstPiece')}
                 onAction={goUpload}
               />
             )
@@ -201,7 +206,7 @@ export function WardrobeScreen({ navigation, route }: TabScreenProps<'Wardrobe'>
 const styles = StyleSheet.create({
   top: { paddingHorizontal: spacing.md, gap: spacing.sm, paddingBottom: spacing.sm },
   titleRow: { flexDirection: 'row', alignItems: 'baseline', gap: spacing.xs },
-  count: { marginLeft: 2 },
+  count: { marginStart: 2 },
   searchRow: { flexDirection: 'row', gap: spacing.xs, alignItems: 'center' },
   search: {
     flex: 1,

@@ -2,14 +2,19 @@ import { Plus } from 'lucide-react-native';
 import { StyleSheet, View } from 'react-native';
 
 import type { Readiness } from '../api/types';
+import { useTranslation } from '../i18n';
 import { colors, radius, spacing } from '../theme';
 import { readinessProgress } from '../utils/labels';
 import { PrimaryButton } from './Buttons';
 import { HangerIcon } from './HangerIcon';
 import { Typography } from './Typography';
 
+/** Suggested wardrobe size shown in the default title ("Add 5–10 pieces…"). */
+const SUGGESTED_RANGE = { min: 5, max: 10 } as const;
+
 /** Friendly progress towards having enough pieces for suggestions. */
 export function ReadinessBanner({ readiness, onAdd, title }: { readiness: Readiness; onAdd: () => void; title?: string }) {
+  const { t } = useTranslation();
   const progress = readinessProgress(readiness.garmentCount, readiness.recommendedMinimum);
   return (
     <View style={styles.card}>
@@ -19,9 +24,9 @@ export function ReadinessBanner({ readiness, onAdd, title }: { readiness: Readin
         </View>
         <View style={styles.flex}>
           <Typography variant="bodySemiBold">
-            {title ?? 'Kombin önerileri için 5–10 parça ekle'}
+            {title ?? t('readiness.title', SUGGESTED_RANGE)}
             <Typography variant="body" color={colors.textSecondary}>
-              {` · ${readiness.garmentCount}/${readiness.recommendedMinimum}`}
+              {` · ${t('readiness.progress', { current: readiness.garmentCount, total: readiness.recommendedMinimum })}`}
             </Typography>
           </Typography>
           <View style={styles.track} accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: readiness.recommendedMinimum, now: readiness.garmentCount }}>
@@ -41,7 +46,7 @@ export function ReadinessBanner({ readiness, onAdd, title }: { readiness: Readin
           ))}
         </View>
       ) : null}
-      <PrimaryButton label="Parça Ekle" icon={Plus} size="sm" onPress={onAdd} style={styles.button} />
+      <PrimaryButton label={t('common.addPiece')} icon={Plus} size="sm" onPress={onAdd} style={styles.button} />
     </View>
   );
 }

@@ -1,5 +1,7 @@
 import { Alert, Platform } from 'react-native';
 
+import { t } from '../i18n/i18n';
+
 export interface ConfirmOptions {
   title: string;
   message?: string;
@@ -8,12 +10,12 @@ export interface ConfirmOptions {
   destructive?: boolean;
 }
 
-/** Cross-platform confirm dialog (Alert on native, window.confirm on web). */
+/** Cross-platform confirm dialog (Alert on native, window.confirm on web). Button texts default to the UI language. */
 export function confirm({
   title,
   message,
-  confirmText = 'Onayla',
-  cancelText = 'Vazgeç',
+  confirmText = t('common.confirm'),
+  cancelText = t('common.cancel'),
   destructive = false,
 }: ConfirmOptions): Promise<boolean> {
   if (Platform.OS === 'web') {

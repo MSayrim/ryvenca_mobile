@@ -1,9 +1,10 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 
 import { useSession } from '../auth/SessionProvider';
 import { ErrorState, Wordmark } from '../components';
 import { useMetaQuery } from '../hooks/useMeta';
+import { useLanguage, useTranslation } from '../i18n';
 import { AuthScreen } from '../screens/auth/AuthScreen';
 import { FavoritesScreen } from '../screens/favorites/FavoritesScreen';
 import { GarmentDetailScreen } from '../screens/garment/GarmentDetailScreen';
@@ -21,6 +22,8 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function RootNavigator() {
   const { status, user, restoreError, retryRestore } = useSession();
+  const { t } = useTranslation();
+  const { isRTL } = useLanguage();
   // Meta is public: start fetching it immediately, once per app session.
   useMetaQuery();
 
@@ -36,7 +39,7 @@ export function RootNavigator() {
     return (
       <View style={styles.center}>
         <Wordmark size={26} />
-        <ErrorState error={null} message={restoreError} title="Bağlantı kurulamadı" onRetry={retryRestore} />
+        <ErrorState error={null} message={restoreError} title={t('errors.connectionFailed')} onRetry={retryRestore} />
       </View>
     );
   }
@@ -48,7 +51,8 @@ export function RootNavigator() {
       screenOptions={{
         headerShown: false,
         contentStyle: { backgroundColor: colors.background },
-        animation: 'slide_from_right',
+        // Pushes come in from the trailing edge (Android needs the explicit mirror; iOS follows RTL natively).
+        animation: isRTL && Platform.OS === 'android' ? 'slide_from_left' : 'slide_from_right',
       }}
     >
       {!signedIn ? (

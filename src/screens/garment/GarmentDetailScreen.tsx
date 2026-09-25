@@ -25,12 +25,14 @@ import {
 import { useDeleteGarment, useToggleGarmentFavorite } from '../../hooks/mutations';
 import { useGarment, usePairings } from '../../hooks/queries';
 import { useMeta } from '../../hooks/useMeta';
+import { useTranslation } from '../../i18n';
 import type { RootScreenProps } from '../../navigation/types';
 import { colors, radius, spacing } from '../../theme';
 import { confirm, notify } from '../../utils/confirm';
 import { outfitGarmentIds } from '../../utils/outfit';
 
 export function GarmentDetailScreen({ navigation, route }: RootScreenProps<'GarmentDetail'>) {
+  const { t } = useTranslation();
   const { id } = route.params;
   const garmentQuery = useGarment(id);
   const garment = garmentQuery.data;
@@ -40,31 +42,31 @@ export function GarmentDetailScreen({ navigation, route }: RootScreenProps<'Garm
 
   const onDelete = async () => {
     const ok = await confirm({
-      title: 'Bu parçayı silmek istiyor musun?',
-      message: 'Bu parçayı içeren kayıtlı kombinler de silinecek.',
-      confirmText: 'Sil',
+      title: t('garment.delete.title'),
+      message: t('garment.delete.message'),
+      confirmText: t('common.delete'),
       destructive: true,
     });
     if (!ok) return;
     remove.mutate(id, {
       onSuccess: () => {
-        toast.show('Parça silindi');
+        toast.show(t('garment.delete.done'));
         navigation.goBack();
       },
-      onError: (e) => notify('Silinemedi', errorMessage(e)),
+      onError: (e) => notify(t('garment.delete.failed'), errorMessage(e)),
     });
   };
 
   return (
     <Screen>
       <ScreenHeader
-        title="Parça Detayı"
+        title={t('garment.detail.title')}
         onBack={() => navigation.goBack()}
         right={
           garment ? (
             <IconButton
               icon={Heart}
-              accessibilityLabel={garment.favorite ? 'Favorilerden çıkar' : 'Favorilere ekle'}
+              accessibilityLabel={garment.favorite ? t('common.removeFromFavorites') : t('common.addToFavorites')}
               selected={garment.favorite}
               color={garment.favorite ? colors.danger : colors.ink}
               fill={garment.favorite ? colors.danger : 'none'}
@@ -88,12 +90,12 @@ export function GarmentDetailScreen({ navigation, route }: RootScreenProps<'Garm
           <GarmentInfo garment={garment} />
           <View style={styles.actions}>
             <SecondaryButton
-              label="Düzenle"
+              label={t('common.edit')}
               icon={Pencil}
               onPress={() => navigation.navigate('GarmentEdit', { id })}
               style={styles.flex}
             />
-            <OutlineButton label="Sil" icon={Trash2} danger onPress={onDelete} loading={remove.isPending} style={styles.flex} />
+            <OutlineButton label={t('common.delete')} icon={Trash2} danger onPress={onDelete} loading={remove.isPending} style={styles.flex} />
           </View>
           <Pairings garmentId={id} onOpenGarment={(g) => navigation.push('GarmentDetail', { id: g.id })} onOpenOutfit={(ids) => navigation.navigate('OutfitDetail', { ids })} onAdd={() => navigation.navigate('Main', { screen: 'Upload' })} />
         </ScrollView>
@@ -103,6 +105,7 @@ export function GarmentDetailScreen({ navigation, route }: RootScreenProps<'Garm
 }
 
 function GarmentInfo({ garment }: { garment: Garment }) {
+  const { t } = useTranslation();
   const { labels } = useMeta();
   return (
     <View style={styles.info}>
@@ -115,7 +118,7 @@ function GarmentInfo({ garment }: { garment: Garment }) {
           <ColorDot hex={garment.colorHex} size={10} />
           <Typography variant="smallMedium">{labels.color(garment.color)}</Typography>
         </View>
-        {garment.pattern ? <Chip static size="sm" label="Desenli" /> : null}
+        {garment.pattern ? <Chip static size="sm" label={t('garment.patterned')} /> : null}
         {garment.seasons.map((s) => (
           <Chip key={s} static size="sm" tone="outline" label={labels.season(s)} />
         ))}
@@ -138,6 +141,7 @@ function Pairings({
   onOpenOutfit: (ids: number[]) => void;
   onAdd: () => void;
 }) {
+  const { t } = useTranslation();
   const pairings = usePairings(garmentId);
   const { width } = useWindowDimensions();
   const cardWidth = Math.min(290, Math.round(width * 0.72));
@@ -146,11 +150,11 @@ function Pairings({
   return (
     <View style={styles.pairings}>
       <View style={styles.pairingsHeader}>
-        <Typography variant="eyebrow">Anahtar özellik</Typography>
+        <Typography variant="eyebrow">{t('garment.pairings.eyebrow')}</Typography>
         <Typography variant="display" accessibilityRole="header">
-          Bununla Ne Gider?
+          {t('garment.pairings.title')}
         </Typography>
-        <Typography variant="small">Dolabındaki parçalardan bu parçayla en iyi eşleşenler.</Typography>
+        <Typography variant="small">{t('garment.pairings.text')}</Typography>
       </View>
 
       {pairings.isLoading ? (
@@ -185,10 +189,10 @@ function Pairings({
           ))}
 
           {data.matches.every((m) => m.items.length === 0) && data.readiness.ready ? (
-            <Typography variant="small">Bu parçaya uygun eşleşme bulunamadı.</Typography>
+            <Typography variant="small">{t('garment.pairings.noMatches')}</Typography>
           ) : null}
 
-          <SectionHeader title="Bu parçayla kombinler" style={styles.outfitsHeader} />
+          <SectionHeader title={t('garment.pairings.outfitsTitle')} style={styles.outfitsHeader} />
           {data.outfits.length > 0 ? (
             <FlatList
               horizontal
@@ -204,8 +208,8 @@ function Pairings({
           ) : (
             <Typography variant="small">
               {data.readiness.ready
-                ? 'Bu parçayla henüz kombin oluşturamadık.'
-                : 'Kombin oluşturabilmemiz için birkaç parça daha ekle.'}
+                ? t('garment.pairings.noOutfits')
+                : t('garment.pairings.notReady')}
             </Typography>
           )}
         </>
@@ -229,8 +233,8 @@ const styles = StyleSheet.create({
     gap: 4,
     backgroundColor: colors.surfaceAlt,
     borderRadius: radius.pill,
-    paddingLeft: 4,
-    paddingRight: spacing.sm,
+    paddingStart: 4,
+    paddingEnd: spacing.sm,
     minHeight: 30,
   },
   actions: { flexDirection: 'row', gap: spacing.sm, paddingHorizontal: spacing.md },

@@ -4,6 +4,7 @@ import { StyleSheet, Switch, View } from 'react-native';
 import type { ColorName, Occasion, Season } from '../../api/types';
 import { BottomSheet, Chip, ColorSwatch, PrimaryButton, SecondaryButton, Typography } from '../../components';
 import { useMeta } from '../../hooks/useMeta';
+import { useTranslation } from '../../i18n';
 import { colors, spacing } from '../../theme';
 import { toggleInList } from '../../utils/labels';
 
@@ -20,7 +21,7 @@ export function countSheetFilters(f: SheetFilters): number {
   return f.colors.length + f.seasons.length + f.occasions.length + (f.favoritesOnly ? 1 : 0);
 }
 
-/** "Filtrele" sheet: color swatches, season, occasion, "Sadece favoriler". */
+/** Filter sheet: color swatches, season, occasion, "favorites only". */
 export function WardrobeFilterSheet({
   visible,
   initial,
@@ -32,6 +33,7 @@ export function WardrobeFilterSheet({
   onClose: () => void;
   onApply: (filters: SheetFilters) => void;
 }) {
+  const { t } = useTranslation();
   const { meta } = useMeta();
   const [draft, setDraft] = useState<SheetFilters>(initial);
 
@@ -46,16 +48,16 @@ export function WardrobeFilterSheet({
     <BottomSheet
       visible={visible}
       onClose={onClose}
-      title="Filtrele"
+      title={t('wardrobe.filterSheet.title')}
       footer={
         <>
-          <SecondaryButton label="Temizle" onPress={() => setDraft(EMPTY_SHEET_FILTERS)} style={styles.flex} />
-          <PrimaryButton label="Uygula" onPress={() => onApply(draft)} style={styles.flex} />
+          <SecondaryButton label={t('wardrobe.filterSheet.clear')} onPress={() => setDraft(EMPTY_SHEET_FILTERS)} style={styles.flex} />
+          <PrimaryButton label={t('wardrobe.filterSheet.apply')} onPress={() => onApply(draft)} style={styles.flex} />
         </>
       }
     >
       <View style={styles.group}>
-        <Typography variant="eyebrow">Renk</Typography>
+        <Typography variant="eyebrow">{t('wardrobe.filterSheet.color')}</Typography>
         <View style={styles.swatches}>
           {(meta?.colors ?? []).map((c) => (
             <ColorSwatch
@@ -71,7 +73,7 @@ export function WardrobeFilterSheet({
       </View>
 
       <View style={styles.group}>
-        <Typography variant="eyebrow">Mevsim</Typography>
+        <Typography variant="eyebrow">{t('wardrobe.filterSheet.season')}</Typography>
         <View style={styles.chips}>
           {(meta?.seasons ?? []).map((s) => (
             <Chip
@@ -85,7 +87,7 @@ export function WardrobeFilterSheet({
       </View>
 
       <View style={styles.group}>
-        <Typography variant="eyebrow">Kullanım alanı</Typography>
+        <Typography variant="eyebrow">{t('wardrobe.filterSheet.occasion')}</Typography>
         <View style={styles.chips}>
           {(meta?.occasions ?? []).map((o) => (
             <Chip
@@ -100,7 +102,7 @@ export function WardrobeFilterSheet({
 
       <View style={styles.switchRow}>
         <Typography variant="bodyMedium" style={styles.flex}>
-          Sadece favoriler
+          {t('wardrobe.filterSheet.favoritesOnly')}
         </Typography>
         <Switch
           value={draft.favoritesOnly}
@@ -108,7 +110,7 @@ export function WardrobeFilterSheet({
           trackColor={{ false: colors.beige, true: colors.ink }}
           thumbColor={colors.surface}
           ios_backgroundColor={colors.beige}
-          accessibilityLabel="Sadece favoriler"
+          accessibilityLabel={t('wardrobe.filterSheet.favoritesOnly')}
         />
       </View>
     </BottomSheet>

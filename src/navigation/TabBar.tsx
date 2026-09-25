@@ -5,22 +5,27 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { HangerIcon } from '../components/HangerIcon';
 import { Typography } from '../components/Typography';
+import { useTranslation } from '../i18n';
 import { colors, fonts, shadow } from '../theme';
 import type { MainTabParamList } from './types';
 
 type TabName = keyof MainTabParamList;
 
-const TABS: Record<TabName, { label: string; icon: LucideIcon | 'hanger' | 'plus' }> = {
-  Home: { label: 'Ana Sayfa', icon: House },
-  Wardrobe: { label: 'Dolabım', icon: 'hanger' },
-  Upload: { label: 'Yükle', icon: 'plus' },
-  Suggestions: { label: 'Öneriler', icon: Lightbulb },
-  Profile: { label: 'Profil', icon: UserRound },
-};
+const TABS = {
+  Home: { label: 'tabs.home', icon: House },
+  Wardrobe: { label: 'tabs.wardrobe', icon: 'hanger' },
+  Upload: { label: 'tabs.upload', icon: 'plus' },
+  Suggestions: { label: 'tabs.suggestions', icon: Lightbulb },
+  Profile: { label: 'tabs.profile', icon: UserRound },
+} as const satisfies Record<TabName, { label: `tabs.${string}`; icon: LucideIcon | 'hanger' | 'plus' }>;
 
-/** 5-tab bar with a raised round ink "+" (Yükle) button in the center. */
+/**
+ * 5-tab bar with a raised round ink "+" (Upload) button in the center. The row follows the layout
+ * direction, so in RTL the tabs are mirrored (Home on the right).
+ */
 export function TabBar({ state, navigation }: BottomTabBarProps) {
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   return (
     <View style={[styles.bar, { paddingBottom: Math.max(insets.bottom, 10) }]} accessibilityRole="tablist">
       {state.routes.map((route, index) => {
@@ -40,13 +45,15 @@ export function TabBar({ state, navigation }: BottomTabBarProps) {
               onPress={onPress}
               accessibilityRole="tab"
               accessibilityState={{ selected: focused }}
-              accessibilityLabel="Kıyafet Yükle"
+              accessibilityLabel={t('tabs.uploadA11y')}
               style={styles.item}
             >
               <View style={styles.raised}>
                 <Plus size={28} color={colors.surface} strokeWidth={1.8} />
               </View>
-              <Typography style={[styles.label, { color }, focused && styles.labelActive]}>{config.label}</Typography>
+              <Typography style={[styles.label, { color }, focused && styles.labelActive]} numberOfLines={1}>
+                {t(config.label)}
+              </Typography>
             </Pressable>
           );
         }
@@ -58,7 +65,7 @@ export function TabBar({ state, navigation }: BottomTabBarProps) {
             onPress={onPress}
             accessibilityRole="tab"
             accessibilityState={{ selected: focused }}
-            accessibilityLabel={config.label}
+            accessibilityLabel={t(config.label)}
             style={styles.item}
           >
             <View style={styles.iconWrap}>
@@ -69,7 +76,7 @@ export function TabBar({ state, navigation }: BottomTabBarProps) {
               )}
             </View>
             <Typography style={[styles.label, { color }, focused && styles.labelActive]} numberOfLines={1}>
-              {config.label}
+              {t(config.label)}
             </Typography>
           </Pressable>
         );

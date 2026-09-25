@@ -14,6 +14,7 @@ import {
 } from '../../components';
 import { useGarments, useSavedOutfits } from '../../hooks/queries';
 import { usePullToRefresh } from '../../hooks/usePullToRefresh';
+import { useTranslation } from '../../i18n';
 import type { RootScreenProps } from '../../navigation/types';
 import { colors, spacing } from '../../theme';
 import { outfitGarmentIds } from '../../utils/outfit';
@@ -23,6 +24,7 @@ type Tab = 'outfits' | 'garments';
 const FAVORITE_FILTER = { favorite: true } as const;
 
 export function FavoritesScreen({ navigation, route }: RootScreenProps<'Favorites'>) {
+  const { t } = useTranslation();
   const [tab, setTab] = useState<Tab>(route.params?.tab ?? 'outfits');
   const saved = useSavedOutfits();
   const garments = useGarments(FAVORITE_FILTER, { enabled: tab === 'garments' });
@@ -33,12 +35,12 @@ export function FavoritesScreen({ navigation, route }: RootScreenProps<'Favorite
 
   return (
     <Screen>
-      <ScreenHeader title="Favoriler" onBack={() => navigation.goBack()} />
+      <ScreenHeader title={t('favorites.title')} onBack={() => navigation.goBack()} />
       <View style={styles.tabs}>
         <Segmented<Tab>
           options={[
-            { value: 'outfits', label: 'Kaydedilen Kombinler' },
-            { value: 'garments', label: 'Favori Parçalar' },
+            { value: 'outfits', label: t('favorites.tabs.outfits') },
+            { value: 'garments', label: t('favorites.tabs.garments') },
           ]}
           value={tab}
           onChange={setTab}
@@ -70,9 +72,9 @@ export function FavoritesScreen({ navigation, route }: RootScreenProps<'Favorite
             )}
             ListEmptyComponent={
               <EmptyState
-                title="Henüz kayıtlı kombin yok"
-                text="Beğendiğin kombinleri kaydet, burada seni beklesin."
-                actionLabel="Önerilere Göz At"
+                title={t('favorites.emptyOutfits.title')}
+                text={t('favorites.emptyOutfits.text')}
+                actionLabel={t('favorites.emptyOutfits.action')}
                 onAction={() => navigation.navigate('Main', { screen: 'Suggestions' })}
               />
             }
@@ -100,9 +102,9 @@ export function FavoritesScreen({ navigation, route }: RootScreenProps<'Favorite
           )}
           ListEmptyComponent={
             <EmptyState
-              title="Favori parçan yok"
-              text="Dolabındaki parçalarda kalbe dokunarak favorilerine ekleyebilirsin."
-              actionLabel="Dolabıma Git"
+              title={t('favorites.emptyGarments.title')}
+              text={t('favorites.emptyGarments.text')}
+              actionLabel={t('favorites.emptyGarments.action')}
               onAction={() => navigation.navigate('Main', { screen: 'Wardrobe' })}
             />
           }
