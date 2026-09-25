@@ -1,0 +1,127 @@
+import { useMutation, useQueryClient, type QueryClient } from '@tanstack/react-query';
+
+import { api, queryKeys } from '../api';
+import type { Garment, GarmentRequest, Outfit, UpdateMeRequest } from '../api/types';
+import { useSession } from '../auth/SessionProvider';
+import { outfitGarmentIds, patchGarmentsInData, patchOutfitsInData } from '../utils/outfit';
+
+/** Invalidate everything derived from the wardrobe (after garment create/update/delete). */
+export function invalidateWardrobe(queryClient: QueryClient) {
+  return Promise.all([
+    queryClient.invalidateQueries({ queryKey: queryKeys.garments.all }),
+    queryClient.invalidateQueries({ queryKey: queryKeys.home }),
+    queryClient.invalidateQueries({ queryKey: queryKeys.outfits.all }),
+  ]);
+}
+
+function patchOutfitEverywhere(queryClient: QueryClient, key: string, patch: Partial<Outfit>) {
+  for (const root of [queryKeys.outfits.all, queryKeys.home, queryKeys.garments.all]) {
+    queryClient.setQueriesData({ queryKey: root }, (data: unknown) => patchOutfitsInData(data, key, patch));
+  }
+}
+
+/** Save / unsave an outfit (POST or DELETE /api/outfits/saved), with instant UI feedback. */
+export function useToggleSaveOutfit() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (outfit: Outfit): Promise<Outfit | null> => {
+      if (outfit.saved && outfit.savedId != null) {
+        await api.deleteSavedOutfit(outfit.savedId);
+        return null;
+      }
+      return api.saveOutfit({ garmentIds: outfitGarmentIds(outfit), title: null });
+    },
+    onMutate: (outfit) => {
+      patchOutfitEverywhere(queryClient, outfit.key, { saved: !outfit.saved });
+    },
+    onSuccess: (result, outfit) => {
+      patchOutfitEverywhere(queryClient, outfit.key, {
+        saved: result !== null,
+        savedId: result ? result.savedId : null,
+      });
+    },
+    onError: (_error, outfit) => {
+      patchOutfitEverywhere(queryClient, outfit.key, { saved: outfit.saved, savedId: outfit.savedId });
+    },
+    onSettled: () => {
+      void queryClient.invalidateQueries({ queryKey: queryKeys.outfits.saved });
+      void queryClient.invalidateQueries({ queryKey: queryKeys.home });
+    },
+  });
+}
+
+/** Toggle a garment's favorite flag (PUT /api/garments/{id}/favorite). */
+export function useToggleGarmentFavorite() {
+  const queryClient = useQueryClient();
+  const patchAll = (id: number, patch: Partial<Garment>) => {
+    for (const root of [queryKeys.garments.all, queryKeys.home, queryKeys.outfits.all]) {
+      queryClient.setQueriesData({ queryKey: root }, (data: unknown) => patchGarmentsInData(data, id, patch));
+    }
+  };
+  return useMutation({
+    mutationFn: (garment: Pick<Garment, 'id' | 'favorite'>) => api.setGarmentFavorite(garment.id, !garment.favorite),
+    onMutate: (garment) => patchAll(garment.id, { favorite: !garment.favorite }),
+    onSuccess: (updated) => patchAll(updated.id, updated),
+    onError: (_e, garment) => patchAll(garment.id, { favorite: garment.favorite }),
+    onSettled: () => {
+      void queryClient.invalidateQueries({ queryKey: queryKeys.home });
+      void queryClient.invalidateQueries({ queryKey: ['garments', 'list'] });
+    },
+  });
+}
+
+export function useCreateGarment() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (body: GarmentRequest) => api.createGarment(body),
+    onSuccess: (garment) => {
+      queryClient.setQueryData(queryKeys.garments.detail(garment.id), garment);
+      void invalidateWardrobe(queryClient);
+    },
+  });
+}
+
+export function useUpdateGarment(id: number) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (body: GarmentRequest) => api.updateGarment(id, body),
+    onSuccess: (garment) => {
+      queryClient.setQueryData(queryKeys.garments.detail(garment.id), garment);
+      void invalidateWardrobe(queryClient);
+    },
+  });
+}
+
+export function useDeleteGarment() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id: number) => api.deleteGarment(id),
+    onSuccess: (_void, id) => {
+      queryClient.removeQueries({ queryKey: queryKeys.garments.detail(id) });
+      queryClient.removeQueries({ queryKey: ['garments', 'pairings', id] });
+      void invalidateWardrobe(queryClient);
+    },
+  });
+}
+
+export function useUpdateMe() {
+  const { setUser } = useSession();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (body: UpdateMeRequest) => api.updateMe(body),
+    onSuccess: (user) => {
+      setUser(user);
+      // Style preferences influence scoring → refresh suggestions.
+      void queryClient.invalidateQueries({ queryKey: queryKeys.outfits.all });
+      void queryClient.invalidateQueries({ queryKey: queryKeys.home });
+    },
+  });
+}
+
+export function useDeleteAccount() {
+  const { signOut } = useSession();
+  return useMutation({
+    mutationFn: () => api.deleteMe(),
+    onSuccess: () => signOut(),
+  });
+}
