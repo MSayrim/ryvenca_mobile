@@ -3,377 +3,377 @@
     "tagline": "Style what you already own"
   },
   "accents": {
-    "sameYouBetterOutfits": "Same you, better outfits ♡",
-    "noStudioNeeded": "No studio shots needed. Your own photo is enough! ♡"
+    "sameYouBetterOutfits": "还是你，搭配更出彩 ♡",
+    "noStudioNeeded": "无需摄影棚，你自己拍的照片就够了！♡"
   },
   "common": {
-    "retry": "Try Again",
-    "confirm": "Confirm",
-    "cancel": "Cancel",
-    "close": "Close",
-    "back": "Back",
-    "save": "Save",
-    "saved": "Saved",
-    "edit": "Edit",
-    "delete": "Delete",
-    "seeAll": "See All",
-    "all": "All",
-    "addPiece": "Add a Piece",
-    "addFirstPiece": "Add your first piece",
-    "required": "Required",
-    "notSelected": "Not selected",
-    "later": "Later",
-    "addToFavorites": "Add to favorites",
-    "removeFromFavorites": "Remove from favorites"
+    "retry": "重试",
+    "confirm": "确认",
+    "cancel": "取消",
+    "close": "关闭",
+    "back": "返回",
+    "save": "保存",
+    "saved": "已保存",
+    "edit": "编辑",
+    "delete": "删除",
+    "seeAll": "查看全部",
+    "all": "全部",
+    "addPiece": "添加单品",
+    "addFirstPiece": "添加你的第一件单品",
+    "required": "必填",
+    "notSelected": "未选择",
+    "later": "以后再说",
+    "addToFavorites": "加入收藏",
+    "removeFromFavorites": "移出收藏"
   },
   "errors": {
-    "title": "Something went wrong",
-    "network": "Couldn't reach the server. Check your internet connection and try again.",
-    "timeout": "The request timed out. Please try again.",
-    "generic": "Something went wrong. Please try again.",
-    "unexpectedResponse": "The server sent an unexpected response.",
-    "validation": "The information you sent is invalid.",
-    "unauthorized": "Your session has expired. Please sign in again.",
-    "forbidden": "You don't have permission to do this.",
-    "notFound": "We couldn't find what you were looking for.",
-    "conflict": "This action conflicts with existing records.",
-    "payloadTooLarge": "The photo is too large. You can upload up to {{maxMb}} MB.",
-    "server": "Something went wrong on the server. Please try again in a moment.",
-    "connectionFailed": "Couldn't connect"
+    "title": "出了点问题",
+    "network": "无法连接服务器，请检查网络后重试。",
+    "timeout": "请求超时，请重试。",
+    "generic": "出了点问题，请重试。",
+    "unexpectedResponse": "服务器返回了意外的响应。",
+    "validation": "你提交的信息无效。",
+    "unauthorized": "登录已过期，请重新登录。",
+    "forbidden": "你没有执行此操作的权限。",
+    "notFound": "找不到你要查找的内容。",
+    "conflict": "此操作与现有记录冲突。",
+    "payloadTooLarge": "照片太大，最多可上传 {{maxMb}} MB。",
+    "server": "服务器出了点问题，请稍后重试。",
+    "connectionFailed": "连接失败"
   },
   "language": {
-    "title": "Language",
-    "choose": "Choose language",
-    "buttonA11y": "Language: {{language}}. Tap to change.",
+    "title": "语言",
+    "choose": "选择语言",
+    "buttonA11y": "语言：{{language}}。轻点即可更改。",
     "restart": {
-      "title": "Restart required",
-      "message": "The app will restart to switch the layout direction.",
-      "confirm": "Restart now"
+      "title": "需要重启",
+      "message": "应用将重启以切换文字方向。",
+      "confirm": "立即重启"
     }
   },
   "tabs": {
-    "home": "Home",
-    "wardrobe": "My Wardrobe",
-    "upload": "Upload",
-    "uploadA11y": "Upload a piece",
-    "suggestions": "Suggestions",
-    "profile": "Profile"
+    "home": "首页",
+    "wardrobe": "衣橱",
+    "upload": "上传",
+    "uploadA11y": "上传单品",
+    "suggestions": "推荐",
+    "profile": "我的"
   },
   "header": {
-    "wardrobeA11y": "My Wardrobe",
-    "searchA11y": "Search your wardrobe"
+    "wardrobeA11y": "我的衣橱",
+    "searchA11y": "搜索衣橱"
   },
   "auth": {
-    "headline": "Before buying new clothes, rediscover what's already in your wardrobe.",
+    "headline": "买新衣服之前，先重新发现你的衣橱。",
     "modes": {
-      "login": "Sign In",
-      "register": "Sign Up"
+      "login": "登录",
+      "register": "注册"
     },
     "fields": {
-      "nameLabel": "Your name",
-      "namePlaceholder": "e.g. Emma",
-      "emailLabel": "Email",
+      "nameLabel": "你的名字",
+      "namePlaceholder": "例如：小雨",
+      "emailLabel": "邮箱",
       "emailPlaceholder": "name@example.com",
-      "passwordLabel": "Password",
-      "passwordPlaceholderRegister": "At least {{min}} characters",
-      "passwordPlaceholderLogin": "Your password",
-      "showPassword": "Show password",
-      "hidePassword": "Hide password"
+      "passwordLabel": "密码",
+      "passwordPlaceholderRegister": "至少 {{min}} 个字符",
+      "passwordPlaceholderLogin": "你的密码",
+      "showPassword": "显示密码",
+      "hidePassword": "隐藏密码"
     },
     "validation": {
-      "nameRequired": "Enter your name",
-      "emailInvalid": "Enter a valid email address",
-      "passwordTooShort": "Password must be at least {{min}} characters",
-      "passwordRequired": "Enter your password"
+      "nameRequired": "请输入你的名字",
+      "emailInvalid": "请输入有效的邮箱地址",
+      "passwordTooShort": "密码至少需要 {{min}} 个字符",
+      "passwordRequired": "请输入密码"
     },
     "submit": {
-      "login": "Sign In",
-      "register": "Create Account"
+      "login": "登录",
+      "register": "注册"
     },
     "switch": {
-      "noAccount": "Don't have an account?",
-      "toRegister": "Sign up",
-      "hasAccount": "Already have an account?",
-      "toLogin": "Sign in"
+      "noAccount": "还没有账号？",
+      "toRegister": "立即注册",
+      "hasAccount": "已有账号？",
+      "toLogin": "登录"
     }
   },
   "onboarding": {
-    "greeting": "Hi {{name}}",
-    "greetingAnonymous": "Hi",
-    "signOut": "Sign out",
-    "stepProgressA11y": "Step {{current}} of {{total}}",
-    "wardrobeTypeText": "Categories and suggestions are tailored to this. You can change it later in your profile.",
-    "stylesText": "You can pick more than one. Choose at least one style.",
-    "continue": "Continue"
+    "greeting": "你好，{{name}}",
+    "greetingAnonymous": "你好",
+    "signOut": "退出登录",
+    "stepProgressA11y": "第 {{current}} 步，共 {{total}} 步",
+    "wardrobeTypeText": "我们会据此调整类别和推荐，之后也可以在个人资料中更改。",
+    "stylesText": "可多选，请至少选择一种风格。",
+    "continue": "继续"
   },
   "preferences": {
-    "wardrobeTypeQuestion": "Who should we organize your wardrobe for?",
-    "styleQuestion": "How would you describe your style?",
-    "atLeastOneStyle": "Choose at least one style."
+    "wardrobeTypeQuestion": "我们要整理谁的衣橱？",
+    "styleQuestion": "你会如何描述自己的风格？",
+    "atLeastOneStyle": "请至少选择一种风格。"
   },
   "howItWorks": {
-    "title": "How does it work?",
-    "stepLabel": "Step {{number}}",
-    "headline": "Make better use of what you own.",
-    "intro": "Before buying new clothes, make better use of the pieces already in your wardrobe. RYVENCA suggests outfits only from your own pieces and explains each one with a Match Score and the reasons behind it.",
+    "title": "如何使用？",
+    "stepLabel": "第 {{number}} 步",
+    "headline": "把已有的衣服穿得更好。",
+    "intro": "买新衣服之前，先把衣橱里现有的单品穿得更好。RYVENCA 只用你自己的单品推荐搭配，并通过匹配度和搭配理由逐一说明。",
     "steps": {
       "photo": {
-        "title": "Take a photo",
-        "text": "On a hanger, on the bed or on the sofa — a regular phone photo is enough."
+        "title": "拍一张照片",
+        "text": "挂在衣架上、铺在床上或沙发上都可以——普通手机照片就够了。"
       },
       "organize": {
-        "title": "Get organized",
-        "text": "We detect the color automatically; with category and season, your wardrobe organizes itself."
+        "title": "自动整理",
+        "text": "我们会自动识别颜色；再加上类别和季节，你的衣橱就会自动整理好。"
       },
       "discover": {
-        "title": "Discover your outfits",
-        "text": "Outfits made only from your own pieces, with a Match Score and an explanation."
+        "title": "发现你的搭配",
+        "text": "只用你自己的单品组成的搭配，附上匹配度和搭配说明。"
       }
     }
   },
   "home": {
     "hero": {
-      "title": "What should I wear today?",
-      "text": "Let us suggest the best outfits from the real pieces in your wardrobe.",
-      "cta": "Suggest an Outfit",
-      "recentA11y": "Your recently added pieces"
+      "title": "今天穿什么？",
+      "text": "用你衣橱里真实的单品，为你推荐最佳搭配。",
+      "cta": "推荐搭配",
+      "recentA11y": "你最近添加的单品"
     },
     "stats": {
-      "garments": "My Pieces",
-      "readyOutfits": "Ready Outfits",
-      "favorites": "Favorites",
-      "a11y": "{{label}}: {{value}}"
+      "garments": "我的单品",
+      "readyOutfits": "现成搭配",
+      "favorites": "收藏",
+      "a11y": "{{label}}：{{value}}"
     },
     "wardrobe": {
-      "title": "My Wardrobe",
-      "emptyCategory": "No pieces in this category yet.",
-      "empty": "Your wardrobe is empty. Start by adding your first piece."
+      "title": "我的衣橱",
+      "emptyCategory": "这个类别中还没有单品。",
+      "empty": "你的衣橱还是空的，先添加第一件单品吧。"
     },
     "today": {
-      "title": "Today's Suggestions",
-      "notReady": "Add a few more pieces so we can suggest outfits.",
-      "empty": "No suggestions for today. Check the Suggestions tab for new ideas."
+      "title": "今日推荐",
+      "notReady": "再添加几件单品，我们就能为你推荐搭配。",
+      "empty": "今天暂无推荐，去“推荐”页看看新灵感吧。"
     }
   },
   "readiness": {
-    "title": "Add {{min}}–{{max}} pieces to get outfit suggestions",
-    "almostThere": "Almost ready for suggestions",
+    "title": "添加 {{min}}–{{max}} 件单品即可获得搭配推荐",
+    "almostThere": "马上就能获得推荐了",
     "progress": "{{current}}/{{total}}"
   },
   "wardrobe": {
-    "title": "My Wardrobe",
-    "count_one": "{{count}} piece",
-    "count_other": "{{count}} pieces",
-    "searchPlaceholder": "Search your wardrobe (e.g. blazer)",
-    "clearSearch": "Clear search",
-    "filter": "Filter",
-    "filterWithCount": "Filter · {{count}}",
-    "filterActiveA11y_one": "Filter, {{count}} filter active",
-    "filterActiveA11y_other": "Filter, {{count}} filters active",
+    "title": "我的衣橱",
+    "count_one": "{{count}} 件单品",
+    "count_other": "{{count}} 件单品",
+    "searchPlaceholder": "搜索衣橱（例如：西装外套）",
+    "clearSearch": "清除搜索",
+    "filter": "筛选",
+    "filterWithCount": "筛选 · {{count}}",
+    "filterActiveA11y_one": "筛选，已启用 {{count}} 个筛选条件",
+    "filterActiveA11y_other": "筛选，已启用 {{count}} 个筛选条件",
     "noResults": {
-      "title": "No results",
-      "text": "No pieces match these filters. Try changing them.",
-      "action": "Clear Filters"
+      "title": "没有结果",
+      "text": "没有符合这些筛选条件的单品，试试更改筛选。",
+      "action": "清除筛选"
     },
     "empty": {
-      "title": "Your wardrobe is waiting",
-      "text": "Take photos of your clothes and your wardrobe organizes itself."
+      "title": "你的衣橱正在等你",
+      "text": "给你的衣服拍照，衣橱就会自动整理好。"
     },
     "filterSheet": {
-      "title": "Filter",
-      "clear": "Clear",
-      "apply": "Apply",
-      "color": "Color",
-      "season": "Season",
-      "occasion": "Occasion",
-      "favoritesOnly": "Favorites only"
+      "title": "筛选",
+      "clear": "清除",
+      "apply": "应用",
+      "color": "颜色",
+      "season": "季节",
+      "occasion": "场合",
+      "favoritesOnly": "仅看收藏"
     }
   },
   "garment": {
     "subtitle": "{{subcategory}} · {{color}}",
-    "cardA11y": "{{name}}, {{details}}",
-    "patterned": "Patterned",
+    "cardA11y": "{{name}}，{{details}}",
+    "patterned": "有图案",
     "detail": {
-      "title": "Piece Details"
+      "title": "单品详情"
     },
     "delete": {
-      "title": "Delete this piece?",
-      "message": "Saved outfits that include this piece will also be deleted.",
-      "done": "Piece deleted",
-      "failed": "Couldn't delete"
+      "title": "删除这件单品？",
+      "message": "包含这件单品的已保存搭配也会被删除。",
+      "done": "单品已删除",
+      "failed": "删除失败"
     },
     "pairings": {
-      "eyebrow": "Key feature",
-      "title": "What Goes With It?",
-      "text": "The pieces in your wardrobe that match this one best.",
-      "noMatches": "No matching pieces found for this one.",
-      "outfitsTitle": "Outfits with this piece",
-      "noOutfits": "We couldn't build an outfit with this piece yet.",
-      "notReady": "Add a few more pieces so we can build outfits."
+      "eyebrow": "核心功能",
+      "title": "它适合搭配什么？",
+      "text": "你衣橱中与它最相配的单品。",
+      "noMatches": "暂时没有与它相配的单品。",
+      "outfitsTitle": "包含这件单品的搭配",
+      "noOutfits": "暂时还无法用这件单品组成搭配。",
+      "notReady": "再添加几件单品，我们就能为你组成搭配。"
     }
   },
   "upload": {
-    "title": "Upload a Piece",
-    "subtitle": "Add a new piece to your wardrobe and discover better outfits.",
-    "recent": "Recently Added",
+    "title": "上传单品",
+    "subtitle": "为衣橱添加新单品，发现更好的搭配。",
+    "recent": "最近添加",
     "added": {
-      "toast": "Added to your wardrobe",
-      "title": "Added to your wardrobe",
-      "text": "Great! Your new piece is now part of your outfit suggestions.",
-      "addAnother": "Add another piece",
-      "viewPiece": "View piece"
+      "toast": "已添加到衣橱",
+      "title": "已添加到衣橱",
+      "text": "太好了！你的新单品已加入搭配推荐。",
+      "addAnother": "再添加一件",
+      "viewPiece": "查看单品"
     },
     "edit": {
-      "title": "Edit Piece",
-      "savedToast": "Changes saved"
+      "title": "编辑单品",
+      "savedToast": "更改已保存"
     },
     "cameraPermission": {
-      "title": "Camera access needed",
-      "message": "To take photos of your clothes, allow camera access in Settings.",
-      "openSettings": "Open Settings"
+      "title": "需要相机权限",
+      "message": "如需拍摄衣物照片，请在“设置”中允许访问相机。",
+      "openSettings": "打开设置"
     },
-    "uploadFailed": "The photo couldn't be uploaded. Please try again.",
-    "saveFailed": "Couldn't save",
+    "uploadFailed": "照片上传失败，请重试。",
+    "saveFailed": "保存失败",
     "photo": {
-      "selectedA11y": "Selected photo",
-      "preparing": "Preparing photo…",
-      "analyzing": "Analyzing color…",
-      "addTitle": "Add a photo of your piece",
-      "helper": "A regular phone photo is enough. Capture the whole piece in good light, ideally on a plain surface.",
-      "camera": "Take Photo",
-      "library": "Choose from Library"
+      "selectedA11y": "已选择的照片",
+      "preparing": "正在准备照片…",
+      "analyzing": "正在分析颜色…",
+      "addTitle": "添加单品照片",
+      "helper": "普通手机照片就够了。在光线充足处拍下整件单品，最好放在素色的平面上。",
+      "camera": "拍照",
+      "library": "从相册选择"
     },
     "form": {
-      "category": "Category",
-      "subcategory": "Subcategory",
-      "chooseCategoryFirst": "Choose a category first.",
-      "color": "Color",
-      "autoDetected": "✦ Auto-detected · {{confidence}}",
+      "category": "类别",
+      "subcategory": "子类别",
+      "chooseCategoryFirst": "请先选择类别。",
+      "color": "颜色",
+      "autoDetected": "✦ 自动识别 · {{confidence}}",
       "confidence": {
-        "high": "high confidence",
-        "medium": "medium confidence",
-        "low": "low confidence"
+        "high": "可信度高",
+        "medium": "可信度中",
+        "low": "可信度低"
       },
-      "manual": "Selected manually",
-      "measuredTone": "Detected tone",
-      "otherCandidates": "Other possibilities:",
-      "patternedHint": "Patterns such as stripes, plaid or florals",
-      "season": "Season",
-      "seasonHint": "Leave empty and we'll choose based on the piece.",
-      "allSeasons": "All Seasons",
-      "occasion": "Occasion",
-      "occasionHint": "You can pick more than one.",
-      "name": "Name (optional)",
-      "namePlaceholder": "e.g. My favorite beige blazer",
-      "generatedName": "{{color}} {{subcategory}}"
+      "manual": "手动选择",
+      "measuredTone": "识别色调",
+      "otherCandidates": "其他可能：",
+      "patternedHint": "条纹、格纹、花卉等图案",
+      "season": "季节",
+      "seasonHint": "留空时，我们会根据单品自动选择。",
+      "allSeasons": "四季皆宜",
+      "occasion": "场合",
+      "occasionHint": "可多选。",
+      "name": "名称（选填）",
+      "namePlaceholder": "例如：我最爱的米色西装外套",
+      "generatedName": "{{color}}{{subcategory}}"
     },
     "submit": {
-      "create": "Save to Wardrobe",
-      "edit": "Save Changes"
+      "create": "保存到衣橱",
+      "edit": "保存更改"
     },
     "missing": {
-      "uploading": "Uploading photo…",
-      "photo": "Add a photo of your piece first.",
-      "category": "Choose a category.",
-      "subcategory": "Choose a subcategory.",
-      "color": "Choose a color."
+      "uploading": "正在上传照片…",
+      "photo": "请先添加单品照片。",
+      "category": "请选择类别。",
+      "subcategory": "请选择子类别。",
+      "color": "请选择颜色。"
     }
   },
   "suggestions": {
-    "title": "Suggestions",
-    "subtitle": "Outfits made from the photos in your wardrobe.",
-    "summary_one": "{{count}} outfit · {{season}}",
-    "summary_other": "{{count}} outfits · {{season}}",
-    "shuffle": "Suggest Again",
-    "shuffleHint": "Fetches new outfit suggestions",
-    "loading": "Preparing outfits…",
+    "title": "搭配推荐",
+    "subtitle": "根据你衣橱中的照片组合而成的搭配。",
+    "summary_one": "{{count}} 套搭配 · {{season}}",
+    "summary_other": "{{count}} 套搭配 · {{season}}",
+    "shuffle": "换一批",
+    "shuffleHint": "获取新的搭配推荐",
+    "loading": "正在准备搭配…",
     "notReady": {
-      "title": "Let's add a few pieces first",
-      "text": "To suggest outfits we need at least one top, one bottom (or a dress) and one pair of shoes."
+      "title": "先添加几件单品吧",
+      "text": "推荐搭配至少需要一件上装、一件下装（或一件连衣裙）和一双鞋。"
     },
     "empty": {
-      "title": "No outfits match these filters",
-      "text": "Try choosing a different occasion or season.",
-      "action": "See All Outfits"
+      "title": "没有符合筛选条件的搭配",
+      "text": "试试选择其他场合或季节。",
+      "action": "查看全部搭配"
     }
   },
   "outfit": {
-    "scorePill": "Match {{percent}}",
-    "scoreRingLabel": "Match Score",
+    "scorePill": "匹配度 {{percent}}",
+    "scoreRingLabel": "匹配度",
     "scoreRingA11y": "{{label}} {{score}}",
-    "cardA11y": "{{title}}, {{score}}",
-    "collageA11y": "{{title}} collage",
-    "collageItemsA11y_one": "Outfit collage, {{count}} piece",
-    "collageItemsA11y_other": "Outfit collage, {{count}} pieces",
-    "save": "Save outfit",
-    "unsave": "Remove from saved",
-    "saveThis": "Save This Outfit",
-    "viewDetail": "View Details",
-    "breakdownA11y": "{{label}}, weight {{weight}}, score {{score}}",
+    "cardA11y": "{{title}}，{{score}}",
+    "collageA11y": "{{title}}拼图",
+    "collageItemsA11y_one": "搭配拼图，{{count}} 件单品",
+    "collageItemsA11y_other": "搭配拼图，{{count}} 件单品",
+    "save": "保存搭配",
+    "unsave": "取消保存",
+    "saveThis": "保存这套搭配",
+    "viewDetail": "查看详情",
+    "breakdownA11y": "{{label}}，权重 {{weight}}，得分 {{score}}",
     "detail": {
-      "title": "Outfit Details",
-      "share": "Share",
-      "loadFailed": "Couldn't load the outfit",
-      "tapHint": "Tap a piece to see its details",
-      "breakdown": "Score Breakdown",
-      "why": "Why It Works",
-      "venues": "Where to Wear It",
-      "palette": "Color Palette",
-      "saveOutfit": "Save Outfit",
-      "similar": "Similar Outfits",
-      "noSimilar": "We couldn't find a similar outfit for now.",
-      "actionFailed": "Couldn't complete the action"
+      "title": "搭配详情",
+      "share": "分享",
+      "loadFailed": "搭配加载失败",
+      "tapHint": "轻点单品查看详情",
+      "breakdown": "评分明细",
+      "why": "为什么好看？",
+      "venues": "适合场景",
+      "palette": "配色",
+      "saveOutfit": "保存搭配",
+      "similar": "相似搭配",
+      "noSimilar": "暂时还没有找到相似的搭配。",
+      "actionFailed": "操作未能完成"
     },
     "share": {
-      "message": "{{title}} — Match Score {{score}}\n{{description}}\n\n{{pieces}}\n\nCreated from my own wardrobe with RYVENCA."
+      "message": "{{title}} — 匹配度 {{score}}\n{{description}}\n\n{{pieces}}\n\n用 RYVENCA 从我自己的衣橱里搭配而成。"
     }
   },
   "favorites": {
-    "title": "Favorites",
+    "title": "收藏",
     "tabs": {
-      "outfits": "Saved Outfits",
-      "garments": "Favorite Pieces"
+      "outfits": "已存搭配",
+      "garments": "收藏单品"
     },
     "emptyOutfits": {
-      "title": "No saved outfits yet",
-      "text": "Save the outfits you like and they'll be waiting for you here.",
-      "action": "Browse Suggestions"
+      "title": "还没有保存的搭配",
+      "text": "保存你喜欢的搭配，它们会在这里等你。",
+      "action": "浏览推荐"
     },
     "emptyGarments": {
-      "title": "No favorite pieces",
-      "text": "Tap the heart on pieces in your wardrobe to add them to your favorites.",
-      "action": "Go to My Wardrobe"
+      "title": "还没有收藏的单品",
+      "text": "点一下衣橱中单品上的爱心，即可加入收藏。",
+      "action": "前往我的衣橱"
     }
   },
   "profile": {
-    "avatarA11y": "Profile picture of {{name}}",
-    "preferences": "My Preferences",
-    "wardrobeType": "Wardrobe",
-    "style": "Style",
+    "avatarA11y": "{{name}}的头像",
+    "preferences": "我的偏好",
+    "wardrobeType": "衣橱",
+    "style": "风格",
     "links": {
-      "favorites": "My Favorites",
-      "stats": "Wardrobe statistics",
-      "language": "Language"
+      "favorites": "我的收藏",
+      "stats": "衣橱统计",
+      "language": "语言"
     },
     "logout": {
-      "action": "Sign Out",
-      "confirm": "Do you want to sign out?"
+      "action": "退出登录",
+      "confirm": "确定要退出登录吗？"
     },
     "deleteAccount": {
-      "action": "Delete Account",
-      "title": "Are you sure you want to delete your account?",
-      "message": "Your account, all pieces in your wardrobe, photos and saved outfits will be permanently deleted. This can't be undone.",
-      "failed": "Couldn't delete the account"
+      "action": "注销账号",
+      "title": "确定要注销你的账号吗？",
+      "message": "你的账号、衣橱中的所有单品、照片和已保存的搭配都将被永久删除，且无法恢复。",
+      "failed": "账号注销失败"
     },
     "editPreferences": {
-      "title": "My Preferences",
-      "updatedToast": "Your preferences were updated"
+      "title": "我的偏好",
+      "updatedToast": "偏好已更新"
     },
     "stats": {
-      "title": "Wardrobe Statistics",
-      "total": "Total pieces",
-      "favorites": "Favorite pieces",
-      "categoryA11y": "{{category}}: {{count}}"
+      "title": "衣橱统计",
+      "total": "单品总数",
+      "favorites": "收藏单品",
+      "categoryA11y": "{{category}}：{{count}}"
     }
   }
 }

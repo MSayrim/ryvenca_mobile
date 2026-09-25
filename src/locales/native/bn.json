@@ -1,4 +1,4 @@
 {
-  "NSCameraUsageDescription": "RYVENCA uses your camera so you can photograph your clothes and add them to your wardrobe.",
-  "NSPhotoLibraryUsageDescription": "RYVENCA accesses your photos so you can choose pictures of your clothes and add them to your wardrobe."
+  "NSCameraUsageDescription": "RYVENCA আপনার ক্যামেরা ব্যবহার করে, যাতে আপনি নিজের পোশাকের ছবি তুলে ওয়ার্ডরোবে যোগ করতে পারেন।",
+  "NSPhotoLibraryUsageDescription": "RYVENCA আপনার ছবিগুলো দেখার অনুমতি চায়, যাতে আপনি নিজের পোশাকের ছবি বেছে নিয়ে ওয়ার্ডরোবে যোগ করতে পারেন।"
 }

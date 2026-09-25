@@ -3,376 +3,376 @@
     "tagline": "Style what you already own"
   },
   "accents": {
-    "sameYouBetterOutfits": "Same you, better outfits ♡",
-    "noStudioNeeded": "No studio shots needed. Your own photo is enough! ♡"
+    "sameYouBetterOutfits": "Vẫn là bạn, phối đồ đẹp hơn ♡",
+    "noStudioNeeded": "Không cần chụp studio. Ảnh của bạn là đủ rồi! ♡"
   },
   "common": {
-    "retry": "Try Again",
-    "confirm": "Confirm",
-    "cancel": "Cancel",
-    "close": "Close",
-    "back": "Back",
-    "save": "Save",
-    "saved": "Saved",
-    "edit": "Edit",
-    "delete": "Delete",
-    "seeAll": "See All",
-    "all": "All",
-    "addPiece": "Add a Piece",
-    "addFirstPiece": "Add your first piece",
-    "required": "Required",
-    "notSelected": "Not selected",
-    "later": "Later",
-    "addToFavorites": "Add to favorites",
-    "removeFromFavorites": "Remove from favorites"
+    "retry": "Thử lại",
+    "confirm": "Xác nhận",
+    "cancel": "Hủy",
+    "close": "Đóng",
+    "back": "Quay lại",
+    "save": "Lưu",
+    "saved": "Đã lưu",
+    "edit": "Sửa",
+    "delete": "Xóa",
+    "seeAll": "Xem tất cả",
+    "all": "Tất cả",
+    "addPiece": "Thêm món đồ",
+    "addFirstPiece": "Thêm món đồ đầu tiên",
+    "required": "Bắt buộc",
+    "notSelected": "Chưa chọn",
+    "later": "Để sau",
+    "addToFavorites": "Thêm vào yêu thích",
+    "removeFromFavorites": "Bỏ khỏi yêu thích"
   },
   "errors": {
-    "title": "Something went wrong",
-    "network": "Couldn't reach the server. Check your internet connection and try again.",
-    "timeout": "The request timed out. Please try again.",
-    "generic": "Something went wrong. Please try again.",
-    "unexpectedResponse": "The server sent an unexpected response.",
-    "validation": "The information you sent is invalid.",
-    "unauthorized": "Your session has expired. Please sign in again.",
-    "forbidden": "You don't have permission to do this.",
-    "notFound": "We couldn't find what you were looking for.",
-    "conflict": "This action conflicts with existing records.",
-    "payloadTooLarge": "The photo is too large. You can upload up to {{maxMb}} MB.",
-    "server": "Something went wrong on the server. Please try again in a moment.",
-    "connectionFailed": "Couldn't connect"
+    "title": "Đã xảy ra lỗi",
+    "network": "Không thể kết nối tới máy chủ. Hãy kiểm tra kết nối internet và thử lại.",
+    "timeout": "Yêu cầu đã quá thời gian chờ. Vui lòng thử lại.",
+    "generic": "Đã xảy ra lỗi. Vui lòng thử lại.",
+    "unexpectedResponse": "Máy chủ trả về phản hồi không mong muốn.",
+    "validation": "Thông tin bạn gửi không hợp lệ.",
+    "unauthorized": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.",
+    "forbidden": "Bạn không có quyền thực hiện thao tác này.",
+    "notFound": "Chúng tôi không tìm thấy nội dung bạn cần.",
+    "conflict": "Thao tác này xung đột với dữ liệu hiện có.",
+    "payloadTooLarge": "Ảnh quá lớn. Bạn có thể tải lên tối đa {{maxMb}} MB.",
+    "server": "Máy chủ gặp sự cố. Vui lòng thử lại sau ít phút.",
+    "connectionFailed": "Không thể kết nối"
   },
   "language": {
-    "title": "Language",
-    "choose": "Choose language",
-    "buttonA11y": "Language: {{language}}. Tap to change.",
+    "title": "Ngôn ngữ",
+    "choose": "Chọn ngôn ngữ",
+    "buttonA11y": "Ngôn ngữ: {{language}}. Chạm để thay đổi.",
     "restart": {
-      "title": "Restart required",
-      "message": "The app will restart to switch the layout direction.",
-      "confirm": "Restart now"
+      "title": "Cần khởi động lại",
+      "message": "Ứng dụng sẽ khởi động lại để đổi hướng bố cục.",
+      "confirm": "Khởi động lại ngay"
     }
   },
   "tabs": {
-    "home": "Home",
-    "wardrobe": "My Wardrobe",
-    "upload": "Upload",
-    "uploadA11y": "Upload a piece",
-    "suggestions": "Suggestions",
-    "profile": "Profile"
+    "home": "Trang chủ",
+    "wardrobe": "Tủ đồ",
+    "upload": "Tải lên",
+    "uploadA11y": "Tải lên món đồ",
+    "suggestions": "Gợi ý",
+    "profile": "Cá nhân"
   },
   "header": {
-    "wardrobeA11y": "My Wardrobe",
-    "searchA11y": "Search your wardrobe"
+    "wardrobeA11y": "Tủ đồ của tôi",
+    "searchA11y": "Tìm trong tủ đồ"
   },
   "auth": {
-    "headline": "Before buying new clothes, rediscover what's already in your wardrobe.",
+    "headline": "Trước khi mua đồ mới, hãy khám phá lại tủ đồ của bạn.",
     "modes": {
-      "login": "Sign In",
-      "register": "Sign Up"
+      "login": "Đăng nhập",
+      "register": "Đăng ký"
     },
     "fields": {
-      "nameLabel": "Your name",
-      "namePlaceholder": "e.g. Emma",
+      "nameLabel": "Tên của bạn",
+      "namePlaceholder": "VD: Minh Anh",
       "emailLabel": "Email",
-      "emailPlaceholder": "name@example.com",
-      "passwordLabel": "Password",
-      "passwordPlaceholderRegister": "At least {{min}} characters",
-      "passwordPlaceholderLogin": "Your password",
-      "showPassword": "Show password",
-      "hidePassword": "Hide password"
+      "emailPlaceholder": "ten@example.com",
+      "passwordLabel": "Mật khẩu",
+      "passwordPlaceholderRegister": "Ít nhất {{min}} ký tự",
+      "passwordPlaceholderLogin": "Mật khẩu của bạn",
+      "showPassword": "Hiện mật khẩu",
+      "hidePassword": "Ẩn mật khẩu"
     },
     "validation": {
-      "nameRequired": "Enter your name",
-      "emailInvalid": "Enter a valid email address",
-      "passwordTooShort": "Password must be at least {{min}} characters",
-      "passwordRequired": "Enter your password"
+      "nameRequired": "Nhập tên của bạn",
+      "emailInvalid": "Nhập địa chỉ email hợp lệ",
+      "passwordTooShort": "Mật khẩu phải có ít nhất {{min}} ký tự",
+      "passwordRequired": "Nhập mật khẩu của bạn"
     },
     "submit": {
-      "login": "Sign In",
-      "register": "Create Account"
+      "login": "Đăng nhập",
+      "register": "Tạo tài khoản"
     },
     "switch": {
-      "noAccount": "Don't have an account?",
-      "toRegister": "Sign up",
-      "hasAccount": "Already have an account?",
-      "toLogin": "Sign in"
+      "noAccount": "Chưa có tài khoản?",
+      "toRegister": "Đăng ký",
+      "hasAccount": "Đã có tài khoản?",
+      "toLogin": "Đăng nhập"
     }
   },
   "onboarding": {
-    "greeting": "Hi {{name}}",
-    "greetingAnonymous": "Hi",
-    "signOut": "Sign out",
-    "stepProgressA11y": "Step {{current}} of {{total}}",
-    "wardrobeTypeText": "Categories and suggestions are tailored to this. You can change it later in your profile.",
-    "stylesText": "You can pick more than one. Choose at least one style.",
-    "continue": "Continue"
+    "greeting": "Chào {{name}}",
+    "greetingAnonymous": "Xin chào",
+    "signOut": "Đăng xuất",
+    "stepProgressA11y": "Bước {{current}} trên {{total}}",
+    "wardrobeTypeText": "Danh mục và gợi ý sẽ được điều chỉnh theo lựa chọn này. Bạn có thể đổi lại sau trong trang cá nhân.",
+    "stylesText": "Bạn có thể chọn nhiều phong cách. Hãy chọn ít nhất một.",
+    "continue": "Tiếp tục"
   },
   "preferences": {
-    "wardrobeTypeQuestion": "Who should we organize your wardrobe for?",
-    "styleQuestion": "How would you describe your style?",
-    "atLeastOneStyle": "Choose at least one style."
+    "wardrobeTypeQuestion": "Chúng ta sẽ sắp xếp tủ đồ của ai?",
+    "styleQuestion": "Phong cách của bạn là gì?",
+    "atLeastOneStyle": "Hãy chọn ít nhất một phong cách."
   },
   "howItWorks": {
-    "title": "How does it work?",
-    "stepLabel": "Step {{number}}",
-    "headline": "Make better use of what you own.",
-    "intro": "Before buying new clothes, make better use of the pieces already in your wardrobe. RYVENCA suggests outfits only from your own pieces and explains each one with a Match Score and the reasons behind it.",
+    "title": "Hoạt động như thế nào?",
+    "stepLabel": "Bước {{number}}",
+    "headline": "Tận dụng tốt hơn những gì bạn đang có.",
+    "intro": "Trước khi mua đồ mới, hãy tận dụng tốt hơn những món đồ sẵn có trong tủ. RYVENCA chỉ gợi ý trang phục từ chính món đồ của bạn và giải thích từng bộ bằng Điểm phù hợp cùng lý do đằng sau.",
     "steps": {
       "photo": {
-        "title": "Take a photo",
-        "text": "On a hanger, on the bed or on the sofa — a regular phone photo is enough."
+        "title": "Chụp ảnh",
+        "text": "Trên móc, trên giường hay trên sofa — chỉ cần một bức ảnh chụp bằng điện thoại."
       },
       "organize": {
-        "title": "Get organized",
-        "text": "We detect the color automatically; with category and season, your wardrobe organizes itself."
+        "title": "Tự động sắp xếp",
+        "text": "Chúng tôi tự động nhận diện màu sắc; cùng với danh mục và mùa, tủ đồ sẽ tự sắp xếp gọn gàng."
       },
       "discover": {
-        "title": "Discover your outfits",
-        "text": "Outfits made only from your own pieces, with a Match Score and an explanation."
+        "title": "Khám phá trang phục",
+        "text": "Trang phục chỉ từ chính món đồ của bạn, kèm Điểm phù hợp và lời giải thích."
       }
     }
   },
   "home": {
     "hero": {
-      "title": "What should I wear today?",
-      "text": "Let us suggest the best outfits from the real pieces in your wardrobe.",
-      "cta": "Suggest an Outfit",
-      "recentA11y": "Your recently added pieces"
+      "title": "Hôm nay mặc gì đây?",
+      "text": "Để chúng tôi gợi ý những bộ trang phục đẹp nhất từ chính các món đồ trong tủ của bạn.",
+      "cta": "Gợi ý trang phục",
+      "recentA11y": "Các món đồ bạn mới thêm gần đây"
     },
     "stats": {
-      "garments": "My Pieces",
-      "readyOutfits": "Ready Outfits",
-      "favorites": "Favorites",
+      "garments": "Món đồ",
+      "readyOutfits": "Trang phục sẵn sàng",
+      "favorites": "Yêu thích",
       "a11y": "{{label}}: {{value}}"
     },
     "wardrobe": {
-      "title": "My Wardrobe",
-      "emptyCategory": "No pieces in this category yet.",
-      "empty": "Your wardrobe is empty. Start by adding your first piece."
+      "title": "Tủ đồ của tôi",
+      "emptyCategory": "Chưa có món đồ nào trong danh mục này.",
+      "empty": "Tủ đồ của bạn đang trống. Hãy bắt đầu bằng món đồ đầu tiên."
     },
     "today": {
-      "title": "Today's Suggestions",
-      "notReady": "Add a few more pieces so we can suggest outfits.",
-      "empty": "No suggestions for today. Check the Suggestions tab for new ideas."
+      "title": "Gợi ý hôm nay",
+      "notReady": "Hãy thêm vài món đồ nữa để chúng tôi gợi ý trang phục.",
+      "empty": "Hôm nay chưa có gợi ý. Hãy xem tab Gợi ý để tìm ý tưởng mới."
     }
   },
   "readiness": {
-    "title": "Add {{min}}–{{max}} pieces to get outfit suggestions",
-    "almostThere": "Almost ready for suggestions",
+    "title": "Thêm {{min}}–{{max}} món đồ để nhận gợi ý trang phục",
+    "almostThere": "Sắp sẵn sàng để nhận gợi ý",
     "progress": "{{current}}/{{total}}"
   },
   "wardrobe": {
-    "title": "My Wardrobe",
-    "count_one": "{{count}} piece",
-    "count_other": "{{count}} pieces",
-    "searchPlaceholder": "Search your wardrobe (e.g. blazer)",
-    "clearSearch": "Clear search",
-    "filter": "Filter",
-    "filterWithCount": "Filter · {{count}}",
-    "filterActiveA11y_one": "Filter, {{count}} filter active",
-    "filterActiveA11y_other": "Filter, {{count}} filters active",
+    "title": "Tủ đồ của tôi",
+    "count_one": "{{count}} món đồ",
+    "count_other": "{{count}} món đồ",
+    "searchPlaceholder": "Tìm trong tủ đồ (VD: blazer)",
+    "clearSearch": "Xóa tìm kiếm",
+    "filter": "Lọc",
+    "filterWithCount": "Lọc · {{count}}",
+    "filterActiveA11y_one": "Lọc, {{count}} bộ lọc đang bật",
+    "filterActiveA11y_other": "Lọc, {{count}} bộ lọc đang bật",
     "noResults": {
-      "title": "No results",
-      "text": "No pieces match these filters. Try changing them.",
-      "action": "Clear Filters"
+      "title": "Không có kết quả",
+      "text": "Không có món đồ nào khớp với bộ lọc. Hãy thử thay đổi bộ lọc.",
+      "action": "Xóa bộ lọc"
     },
     "empty": {
-      "title": "Your wardrobe is waiting",
-      "text": "Take photos of your clothes and your wardrobe organizes itself."
+      "title": "Tủ đồ đang chờ bạn",
+      "text": "Chụp ảnh quần áo, tủ đồ sẽ tự sắp xếp gọn gàng."
     },
     "filterSheet": {
-      "title": "Filter",
-      "clear": "Clear",
-      "apply": "Apply",
-      "color": "Color",
-      "season": "Season",
-      "occasion": "Occasion",
-      "favoritesOnly": "Favorites only"
+      "title": "Bộ lọc",
+      "clear": "Xóa",
+      "apply": "Áp dụng",
+      "color": "Màu sắc",
+      "season": "Mùa",
+      "occasion": "Dịp",
+      "favoritesOnly": "Chỉ mục yêu thích"
     }
   },
   "garment": {
     "subtitle": "{{subcategory}} · {{color}}",
     "cardA11y": "{{name}}, {{details}}",
-    "patterned": "Patterned",
+    "patterned": "Có họa tiết",
     "detail": {
-      "title": "Piece Details"
+      "title": "Chi tiết món đồ"
     },
     "delete": {
-      "title": "Delete this piece?",
-      "message": "Saved outfits that include this piece will also be deleted.",
-      "done": "Piece deleted",
-      "failed": "Couldn't delete"
+      "title": "Xóa món đồ này?",
+      "message": "Các trang phục đã lưu có món đồ này cũng sẽ bị xóa.",
+      "done": "Đã xóa món đồ",
+      "failed": "Không thể xóa"
     },
     "pairings": {
-      "eyebrow": "Key feature",
-      "title": "What Goes With It?",
-      "text": "The pieces in your wardrobe that match this one best.",
-      "noMatches": "No matching pieces found for this one.",
-      "outfitsTitle": "Outfits with this piece",
-      "noOutfits": "We couldn't build an outfit with this piece yet.",
-      "notReady": "Add a few more pieces so we can build outfits."
+      "eyebrow": "Tính năng nổi bật",
+      "title": "Phối với gì đây?",
+      "text": "Những món đồ trong tủ hợp với món này nhất.",
+      "noMatches": "Chưa tìm thấy món đồ nào hợp với món này.",
+      "outfitsTitle": "Trang phục có món đồ này",
+      "noOutfits": "Chúng tôi chưa thể tạo trang phục với món đồ này.",
+      "notReady": "Hãy thêm vài món đồ nữa để chúng tôi tạo trang phục."
     }
   },
   "upload": {
-    "title": "Upload a Piece",
-    "subtitle": "Add a new piece to your wardrobe and discover better outfits.",
-    "recent": "Recently Added",
+    "title": "Tải lên món đồ",
+    "subtitle": "Thêm món đồ mới vào tủ và khám phá những cách phối đẹp hơn.",
+    "recent": "Mới thêm gần đây",
     "added": {
-      "toast": "Added to your wardrobe",
-      "title": "Added to your wardrobe",
-      "text": "Great! Your new piece is now part of your outfit suggestions.",
-      "addAnother": "Add another piece",
-      "viewPiece": "View piece"
+      "toast": "Đã thêm vào tủ đồ",
+      "title": "Đã thêm vào tủ đồ",
+      "text": "Tuyệt vời! Món đồ mới của bạn đã có mặt trong các gợi ý trang phục.",
+      "addAnother": "Thêm món khác",
+      "viewPiece": "Xem món đồ"
     },
     "edit": {
-      "title": "Edit Piece",
-      "savedToast": "Changes saved"
+      "title": "Sửa món đồ",
+      "savedToast": "Đã lưu thay đổi"
     },
     "cameraPermission": {
-      "title": "Camera access needed",
-      "message": "To take photos of your clothes, allow camera access in Settings.",
-      "openSettings": "Open Settings"
+      "title": "Cần quyền truy cập camera",
+      "message": "Để chụp ảnh quần áo, hãy cho phép truy cập camera trong Cài đặt.",
+      "openSettings": "Mở Cài đặt"
     },
-    "uploadFailed": "The photo couldn't be uploaded. Please try again.",
-    "saveFailed": "Couldn't save",
+    "uploadFailed": "Không thể tải ảnh lên. Vui lòng thử lại.",
+    "saveFailed": "Không thể lưu",
     "photo": {
-      "selectedA11y": "Selected photo",
-      "preparing": "Preparing photo…",
-      "analyzing": "Analyzing color…",
-      "addTitle": "Add a photo of your piece",
-      "helper": "A regular phone photo is enough. Capture the whole piece in good light, ideally on a plain surface.",
-      "camera": "Take Photo",
-      "library": "Choose from Library"
+      "selectedA11y": "Ảnh đã chọn",
+      "preparing": "Đang chuẩn bị ảnh…",
+      "analyzing": "Đang phân tích màu…",
+      "addTitle": "Thêm ảnh món đồ",
+      "helper": "Chỉ cần một bức ảnh chụp bằng điện thoại. Hãy chụp trọn món đồ trong điều kiện đủ sáng, tốt nhất là trên nền trơn.",
+      "camera": "Chụp ảnh",
+      "library": "Chọn từ thư viện"
     },
     "form": {
-      "category": "Category",
-      "subcategory": "Subcategory",
-      "chooseCategoryFirst": "Choose a category first.",
-      "color": "Color",
-      "autoDetected": "✦ Auto-detected · {{confidence}}",
+      "category": "Danh mục",
+      "subcategory": "Danh mục con",
+      "chooseCategoryFirst": "Hãy chọn danh mục trước.",
+      "color": "Màu sắc",
+      "autoDetected": "✦ Tự động nhận diện · {{confidence}}",
       "confidence": {
-        "high": "high confidence",
-        "medium": "medium confidence",
-        "low": "low confidence"
+        "high": "độ tin cậy cao",
+        "medium": "độ tin cậy trung bình",
+        "low": "độ tin cậy thấp"
       },
-      "manual": "Selected manually",
-      "measuredTone": "Detected tone",
-      "otherCandidates": "Other possibilities:",
-      "patternedHint": "Patterns such as stripes, plaid or florals",
-      "season": "Season",
-      "seasonHint": "Leave empty and we'll choose based on the piece.",
-      "allSeasons": "All Seasons",
-      "occasion": "Occasion",
-      "occasionHint": "You can pick more than one.",
-      "name": "Name (optional)",
-      "namePlaceholder": "e.g. My favorite beige blazer",
-      "generatedName": "{{color}} {{subcategory}}"
+      "manual": "Chọn thủ công",
+      "measuredTone": "Tông màu nhận diện",
+      "otherCandidates": "Các khả năng khác:",
+      "patternedHint": "Họa tiết như kẻ sọc, kẻ caro hoặc hoa",
+      "season": "Mùa",
+      "seasonHint": "Để trống, chúng tôi sẽ chọn theo món đồ.",
+      "allSeasons": "Mọi mùa",
+      "occasion": "Dịp",
+      "occasionHint": "Bạn có thể chọn nhiều dịp.",
+      "name": "Tên (không bắt buộc)",
+      "namePlaceholder": "VD: Áo blazer be yêu thích",
+      "generatedName": "{{subcategory}} {{color, lowercase}}"
     },
     "submit": {
-      "create": "Save to Wardrobe",
-      "edit": "Save Changes"
+      "create": "Lưu vào tủ đồ",
+      "edit": "Lưu thay đổi"
     },
     "missing": {
-      "uploading": "Uploading photo…",
-      "photo": "Add a photo of your piece first.",
-      "category": "Choose a category.",
-      "subcategory": "Choose a subcategory.",
-      "color": "Choose a color."
+      "uploading": "Đang tải ảnh lên…",
+      "photo": "Hãy thêm ảnh món đồ trước.",
+      "category": "Hãy chọn danh mục.",
+      "subcategory": "Hãy chọn danh mục con.",
+      "color": "Hãy chọn màu."
     }
   },
   "suggestions": {
-    "title": "Suggestions",
-    "subtitle": "Outfits made from the photos in your wardrobe.",
-    "summary_one": "{{count}} outfit · {{season}}",
-    "summary_other": "{{count}} outfits · {{season}}",
-    "shuffle": "Suggest Again",
-    "shuffleHint": "Fetches new outfit suggestions",
-    "loading": "Preparing outfits…",
+    "title": "Gợi ý",
+    "subtitle": "Những bộ trang phục được phối từ ảnh trong tủ đồ của bạn.",
+    "summary_one": "{{count}} trang phục · {{season}}",
+    "summary_other": "{{count}} trang phục · {{season}}",
+    "shuffle": "Gợi ý lại",
+    "shuffleHint": "Tải các gợi ý trang phục mới",
+    "loading": "Đang chuẩn bị trang phục…",
     "notReady": {
-      "title": "Let's add a few pieces first",
-      "text": "To suggest outfits we need at least one top, one bottom (or a dress) and one pair of shoes."
+      "title": "Hãy thêm vài món đồ trước nhé",
+      "text": "Để gợi ý trang phục, chúng tôi cần ít nhất một áo, một quần/chân váy (hoặc một chiếc đầm) và một đôi giày."
     },
     "empty": {
-      "title": "No outfits match these filters",
-      "text": "Try choosing a different occasion or season.",
-      "action": "See All Outfits"
+      "title": "Không có trang phục phù hợp với bộ lọc",
+      "text": "Hãy thử chọn dịp hoặc mùa khác.",
+      "action": "Xem tất cả trang phục"
     }
   },
   "outfit": {
-    "scorePill": "Match {{percent}}",
-    "scoreRingLabel": "Match Score",
+    "scorePill": "Phù hợp {{percent}}",
+    "scoreRingLabel": "Điểm phù hợp",
     "scoreRingA11y": "{{label}} {{score}}",
     "cardA11y": "{{title}}, {{score}}",
-    "collageA11y": "{{title}} collage",
-    "collageItemsA11y_one": "Outfit collage, {{count}} piece",
-    "collageItemsA11y_other": "Outfit collage, {{count}} pieces",
-    "save": "Save outfit",
-    "unsave": "Remove from saved",
-    "saveThis": "Save This Outfit",
-    "viewDetail": "View Details",
-    "breakdownA11y": "{{label}}, weight {{weight}}, score {{score}}",
+    "collageA11y": "Ảnh ghép {{title}}",
+    "collageItemsA11y_one": "Ảnh ghép trang phục, {{count}} món đồ",
+    "collageItemsA11y_other": "Ảnh ghép trang phục, {{count}} món đồ",
+    "save": "Lưu trang phục",
+    "unsave": "Bỏ lưu",
+    "saveThis": "Lưu bộ trang phục này",
+    "viewDetail": "Xem chi tiết",
+    "breakdownA11y": "{{label}}, trọng số {{weight}}, điểm {{score}}",
     "detail": {
-      "title": "Outfit Details",
-      "share": "Share",
-      "loadFailed": "Couldn't load the outfit",
-      "tapHint": "Tap a piece to see its details",
-      "breakdown": "Score Breakdown",
-      "why": "Why It Works",
-      "venues": "Where to Wear It",
-      "palette": "Color Palette",
-      "saveOutfit": "Save Outfit",
-      "similar": "Similar Outfits",
-      "noSimilar": "We couldn't find a similar outfit for now.",
-      "actionFailed": "Couldn't complete the action"
+      "title": "Chi tiết trang phục",
+      "share": "Chia sẻ",
+      "loadFailed": "Không thể tải trang phục",
+      "tapHint": "Chạm vào một món đồ để xem chi tiết",
+      "breakdown": "Chi tiết điểm",
+      "why": "Vì sao hợp",
+      "venues": "Mặc đi đâu",
+      "palette": "Bảng màu",
+      "saveOutfit": "Lưu trang phục",
+      "similar": "Trang phục tương tự",
+      "noSimilar": "Hiện chưa tìm thấy trang phục tương tự.",
+      "actionFailed": "Không thể hoàn tất thao tác"
     },
     "share": {
-      "message": "{{title}} — Match Score {{score}}\n{{description}}\n\n{{pieces}}\n\nCreated from my own wardrobe with RYVENCA."
+      "message": "{{title}} — Điểm phù hợp {{score}}\n{{description}}\n\n{{pieces}}\n\nPhối từ chính tủ đồ của tôi cùng RYVENCA."
     }
   },
   "favorites": {
-    "title": "Favorites",
+    "title": "Yêu thích",
     "tabs": {
-      "outfits": "Saved Outfits",
-      "garments": "Favorite Pieces"
+      "outfits": "Trang phục đã lưu",
+      "garments": "Món đồ yêu thích"
     },
     "emptyOutfits": {
-      "title": "No saved outfits yet",
-      "text": "Save the outfits you like and they'll be waiting for you here.",
-      "action": "Browse Suggestions"
+      "title": "Chưa có trang phục nào được lưu",
+      "text": "Lưu những bộ trang phục bạn thích, chúng sẽ chờ bạn ở đây.",
+      "action": "Xem gợi ý"
     },
     "emptyGarments": {
-      "title": "No favorite pieces",
-      "text": "Tap the heart on pieces in your wardrobe to add them to your favorites.",
-      "action": "Go to My Wardrobe"
+      "title": "Chưa có món đồ yêu thích",
+      "text": "Chạm vào biểu tượng trái tim trên món đồ trong tủ để thêm vào yêu thích.",
+      "action": "Đến tủ đồ"
     }
   },
   "profile": {
-    "avatarA11y": "Profile picture of {{name}}",
-    "preferences": "My Preferences",
-    "wardrobeType": "Wardrobe",
-    "style": "Style",
+    "avatarA11y": "Ảnh đại diện của {{name}}",
+    "preferences": "Tùy chọn của tôi",
+    "wardrobeType": "Tủ đồ",
+    "style": "Phong cách",
     "links": {
-      "favorites": "My Favorites",
-      "stats": "Wardrobe statistics",
-      "language": "Language"
+      "favorites": "Yêu thích của tôi",
+      "stats": "Thống kê tủ đồ",
+      "language": "Ngôn ngữ"
     },
     "logout": {
-      "action": "Sign Out",
-      "confirm": "Do you want to sign out?"
+      "action": "Đăng xuất",
+      "confirm": "Bạn có muốn đăng xuất không?"
     },
     "deleteAccount": {
-      "action": "Delete Account",
-      "title": "Are you sure you want to delete your account?",
-      "message": "Your account, all pieces in your wardrobe, photos and saved outfits will be permanently deleted. This can't be undone.",
-      "failed": "Couldn't delete the account"
+      "action": "Xóa tài khoản",
+      "title": "Bạn có chắc muốn xóa tài khoản?",
+      "message": "Tài khoản, toàn bộ món đồ trong tủ, ảnh và trang phục đã lưu của bạn sẽ bị xóa vĩnh viễn. Không thể hoàn tác thao tác này.",
+      "failed": "Không thể xóa tài khoản"
     },
     "editPreferences": {
-      "title": "My Preferences",
-      "updatedToast": "Your preferences were updated"
+      "title": "Tùy chọn của tôi",
+      "updatedToast": "Đã cập nhật tùy chọn của bạn"
     },
     "stats": {
-      "title": "Wardrobe Statistics",
-      "total": "Total pieces",
-      "favorites": "Favorite pieces",
+      "title": "Thống kê tủ đồ",
+      "total": "Tổng số món đồ",
+      "favorites": "Món đồ yêu thích",
       "categoryA11y": "{{category}}: {{count}}"
     }
   }

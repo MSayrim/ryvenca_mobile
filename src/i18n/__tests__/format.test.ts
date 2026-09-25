@@ -67,9 +67,20 @@ describe('t() interpolation', () => {
     expect(i18n.t('readiness.title', { min: 5, max: 10 })).toBe('Kombin önerileri için 5–10 parça ekle');
   });
 
-  it('falls back to English for keys a translation does not have', async () => {
+  it('uses the translated copy and the language\'s plural rules', async () => {
     await i18n.changeLanguage('ja');
-    // ja.json is currently an English copy; numbers still use the ja locale formatter.
-    expect(i18n.t('suggestions.summary', { count: 2, season: 'Spring' })).toBe('2 outfits · Spring');
+    expect(i18n.t('suggestions.summary', { count: 2, season: '春' })).toContain('2');
+    await i18n.changeLanguage('ru');
+    expect(i18n.t('wardrobe.count', { count: 3 })).toMatch(/^3 \S+/);
+    expect(i18n.t('wardrobe.count', { count: 5 })).not.toBe(i18n.t('wardrobe.count', { count: 3 }).replace('3', '5'));
+  });
+
+  it('lowercases labels inside generated names like the server does', async () => {
+    await i18n.changeLanguage('en');
+    expect(i18n.t('upload.form.generatedName', { color: 'Beige', subcategory: 'Blazer' })).toBe('Beige blazer');
+    await i18n.changeLanguage('fr');
+    expect(i18n.t('upload.form.generatedName', { color: 'Beige', subcategory: 'Blazer' })).toBe('Blazer coloris beige');
+    await i18n.changeLanguage('tr');
+    expect(i18n.t('upload.form.generatedName', { color: 'Bej', subcategory: 'Blazer' })).toBe('Bej Blazer');
   });
 });

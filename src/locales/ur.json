@@ -3,376 +3,376 @@
     "tagline": "Style what you already own"
   },
   "accents": {
-    "sameYouBetterOutfits": "Same you, better outfits ♡",
-    "noStudioNeeded": "No studio shots needed. Your own photo is enough! ♡"
+    "sameYouBetterOutfits": "وہی آپ، بہتر آؤٹ فٹس ♡",
+    "noStudioNeeded": "اسٹوڈیو شوٹ کی ضرورت نہیں۔ آپ کی اپنی تصویر ہی کافی ہے! ♡"
   },
   "common": {
-    "retry": "Try Again",
-    "confirm": "Confirm",
-    "cancel": "Cancel",
-    "close": "Close",
-    "back": "Back",
-    "save": "Save",
-    "saved": "Saved",
-    "edit": "Edit",
-    "delete": "Delete",
-    "seeAll": "See All",
-    "all": "All",
-    "addPiece": "Add a Piece",
-    "addFirstPiece": "Add your first piece",
-    "required": "Required",
-    "notSelected": "Not selected",
-    "later": "Later",
-    "addToFavorites": "Add to favorites",
-    "removeFromFavorites": "Remove from favorites"
+    "retry": "دوبارہ کوشش کریں",
+    "confirm": "تصدیق کریں",
+    "cancel": "منسوخ کریں",
+    "close": "بند کریں",
+    "back": "واپس",
+    "save": "محفوظ کریں",
+    "saved": "محفوظ ہو گیا",
+    "edit": "ترمیم کریں",
+    "delete": "حذف کریں",
+    "seeAll": "سب دیکھیں",
+    "all": "تمام",
+    "addPiece": "پیس شامل کریں",
+    "addFirstPiece": "اپنا پہلا پیس شامل کریں",
+    "required": "لازمی",
+    "notSelected": "منتخب نہیں",
+    "later": "بعد میں",
+    "addToFavorites": "پسندیدہ میں شامل کریں",
+    "removeFromFavorites": "پسندیدہ سے ہٹائیں"
   },
   "errors": {
-    "title": "Something went wrong",
-    "network": "Couldn't reach the server. Check your internet connection and try again.",
-    "timeout": "The request timed out. Please try again.",
-    "generic": "Something went wrong. Please try again.",
-    "unexpectedResponse": "The server sent an unexpected response.",
-    "validation": "The information you sent is invalid.",
-    "unauthorized": "Your session has expired. Please sign in again.",
-    "forbidden": "You don't have permission to do this.",
-    "notFound": "We couldn't find what you were looking for.",
-    "conflict": "This action conflicts with existing records.",
-    "payloadTooLarge": "The photo is too large. You can upload up to {{maxMb}} MB.",
-    "server": "Something went wrong on the server. Please try again in a moment.",
-    "connectionFailed": "Couldn't connect"
+    "title": "کچھ غلط ہو گیا",
+    "network": "سرور تک رسائی نہیں ہو سکی۔ اپنا انٹرنیٹ کنکشن چیک کریں اور دوبارہ کوشش کریں۔",
+    "timeout": "درخواست کا وقت ختم ہو گیا۔ براہِ کرم دوبارہ کوشش کریں۔",
+    "generic": "کچھ غلط ہو گیا۔ براہِ کرم دوبارہ کوشش کریں۔",
+    "unexpectedResponse": "سرور سے غیر متوقع جواب موصول ہوا۔",
+    "validation": "بھیجی گئی معلومات درست نہیں ہیں۔",
+    "unauthorized": "آپ کا سیشن ختم ہو گیا ہے۔ براہِ کرم دوبارہ سائن ان کریں۔",
+    "forbidden": "آپ کو یہ کرنے کی اجازت نہیں ہے۔",
+    "notFound": "آپ جو تلاش کر رہے تھے وہ ہمیں نہیں ملا۔",
+    "conflict": "یہ عمل موجودہ ریکارڈ سے متصادم ہے۔",
+    "payloadTooLarge": "تصویر بہت بڑی ہے۔ آپ زیادہ سے زیادہ {{maxMb}} MB تک اپ لوڈ کر سکتے ہیں۔",
+    "server": "سرور پر کچھ غلط ہو گیا۔ براہِ کرم تھوڑی دیر بعد دوبارہ کوشش کریں۔",
+    "connectionFailed": "کنکشن نہیں ہو سکا"
   },
   "language": {
-    "title": "Language",
-    "choose": "Choose language",
-    "buttonA11y": "Language: {{language}}. Tap to change.",
+    "title": "زبان",
+    "choose": "زبان منتخب کریں",
+    "buttonA11y": "زبان: {{language}}۔ تبدیل کرنے کے لیے ٹیپ کریں۔",
     "restart": {
-      "title": "Restart required",
-      "message": "The app will restart to switch the layout direction.",
-      "confirm": "Restart now"
+      "title": "ری اسٹارٹ ضروری ہے",
+      "message": "لے آؤٹ کی سمت بدلنے کے لیے ایپ ری اسٹارٹ ہو گی۔",
+      "confirm": "ابھی ری اسٹارٹ کریں"
     }
   },
   "tabs": {
-    "home": "Home",
-    "wardrobe": "My Wardrobe",
-    "upload": "Upload",
-    "uploadA11y": "Upload a piece",
-    "suggestions": "Suggestions",
-    "profile": "Profile"
+    "home": "ہوم",
+    "wardrobe": "وارڈروب",
+    "upload": "اپ لوڈ",
+    "uploadA11y": "پیس اپ لوڈ کریں",
+    "suggestions": "تجاویز",
+    "profile": "پروفائل"
   },
   "header": {
-    "wardrobeA11y": "My Wardrobe",
-    "searchA11y": "Search your wardrobe"
+    "wardrobeA11y": "میرا وارڈروب",
+    "searchA11y": "اپنے وارڈروب میں تلاش کریں"
   },
   "auth": {
-    "headline": "Before buying new clothes, rediscover what's already in your wardrobe.",
+    "headline": "نئے کپڑے خریدنے سے پہلے اپنے وارڈروب میں پہلے سے موجود کپڑوں کو نئے سرے سے دریافت کریں۔",
     "modes": {
-      "login": "Sign In",
-      "register": "Sign Up"
+      "login": "سائن ان",
+      "register": "سائن اپ"
     },
     "fields": {
-      "nameLabel": "Your name",
-      "namePlaceholder": "e.g. Emma",
-      "emailLabel": "Email",
+      "nameLabel": "آپ کا نام",
+      "namePlaceholder": "مثلاً عائشہ",
+      "emailLabel": "ای میل",
       "emailPlaceholder": "name@example.com",
-      "passwordLabel": "Password",
-      "passwordPlaceholderRegister": "At least {{min}} characters",
-      "passwordPlaceholderLogin": "Your password",
-      "showPassword": "Show password",
-      "hidePassword": "Hide password"
+      "passwordLabel": "پاس ورڈ",
+      "passwordPlaceholderRegister": "کم از کم {{min}} حروف",
+      "passwordPlaceholderLogin": "آپ کا پاس ورڈ",
+      "showPassword": "پاس ورڈ دکھائیں",
+      "hidePassword": "پاس ورڈ چھپائیں"
     },
     "validation": {
-      "nameRequired": "Enter your name",
-      "emailInvalid": "Enter a valid email address",
-      "passwordTooShort": "Password must be at least {{min}} characters",
-      "passwordRequired": "Enter your password"
+      "nameRequired": "اپنا نام درج کریں",
+      "emailInvalid": "درست ای میل ایڈریس درج کریں",
+      "passwordTooShort": "پاس ورڈ کم از کم {{min}} حروف کا ہونا چاہیے",
+      "passwordRequired": "اپنا پاس ورڈ درج کریں"
     },
     "submit": {
-      "login": "Sign In",
-      "register": "Create Account"
+      "login": "سائن ان کریں",
+      "register": "اکاؤنٹ بنائیں"
     },
     "switch": {
-      "noAccount": "Don't have an account?",
-      "toRegister": "Sign up",
-      "hasAccount": "Already have an account?",
-      "toLogin": "Sign in"
+      "noAccount": "اکاؤنٹ نہیں ہے؟",
+      "toRegister": "سائن اپ کریں",
+      "hasAccount": "پہلے سے اکاؤنٹ ہے؟",
+      "toLogin": "سائن ان کریں"
     }
   },
   "onboarding": {
-    "greeting": "Hi {{name}}",
-    "greetingAnonymous": "Hi",
-    "signOut": "Sign out",
-    "stepProgressA11y": "Step {{current}} of {{total}}",
-    "wardrobeTypeText": "Categories and suggestions are tailored to this. You can change it later in your profile.",
-    "stylesText": "You can pick more than one. Choose at least one style.",
-    "continue": "Continue"
+    "greeting": "ہیلو {{name}}",
+    "greetingAnonymous": "ہیلو",
+    "signOut": "سائن آؤٹ",
+    "stepProgressA11y": "مرحلہ {{current}} از {{total}}",
+    "wardrobeTypeText": "زمرے اور تجاویز اسی کے مطابق ترتیب دی جاتی ہیں۔ آپ اسے بعد میں پروفائل سے بدل سکتے ہیں۔",
+    "stylesText": "آپ ایک سے زیادہ منتخب کر سکتے ہیں۔ کم از کم ایک اسٹائل منتخب کریں۔",
+    "continue": "جاری رکھیں"
   },
   "preferences": {
-    "wardrobeTypeQuestion": "Who should we organize your wardrobe for?",
-    "styleQuestion": "How would you describe your style?",
-    "atLeastOneStyle": "Choose at least one style."
+    "wardrobeTypeQuestion": "ہم کس کے لیے وارڈروب ترتیب دیں؟",
+    "styleQuestion": "آپ اپنا اسٹائل کیسے بیان کریں گے؟",
+    "atLeastOneStyle": "کم از کم ایک اسٹائل منتخب کریں۔"
   },
   "howItWorks": {
-    "title": "How does it work?",
-    "stepLabel": "Step {{number}}",
-    "headline": "Make better use of what you own.",
-    "intro": "Before buying new clothes, make better use of the pieces already in your wardrobe. RYVENCA suggests outfits only from your own pieces and explains each one with a Match Score and the reasons behind it.",
+    "title": "یہ کیسے کام کرتا ہے؟",
+    "stepLabel": "مرحلہ {{number}}",
+    "headline": "جو آپ کے پاس ہے، اس کا بہتر استعمال کریں۔",
+    "intro": "نئے کپڑے خریدنے سے پہلے اپنے وارڈروب میں موجود پیسز کا بہتر استعمال کریں۔ RYVENCA صرف آپ کے اپنے پیسز سے آؤٹ فٹس تجویز کرتا ہے اور ہر ایک کو میچ اسکور اور اس کی وجوہات کے ساتھ سمجھاتا ہے۔",
     "steps": {
       "photo": {
-        "title": "Take a photo",
-        "text": "On a hanger, on the bed or on the sofa — a regular phone photo is enough."
+        "title": "تصویر لیں",
+        "text": "ہینگر پر، بستر پر یا صوفے پر — فون کی عام سی تصویر ہی کافی ہے۔"
       },
       "organize": {
-        "title": "Get organized",
-        "text": "We detect the color automatically; with category and season, your wardrobe organizes itself."
+        "title": "ترتیب پائیں",
+        "text": "ہم رنگ خود بخود پہچان لیتے ہیں؛ زمرے اور موسم کے ساتھ آپ کا وارڈروب خود ترتیب پا جاتا ہے۔"
       },
       "discover": {
-        "title": "Discover your outfits",
-        "text": "Outfits made only from your own pieces, with a Match Score and an explanation."
+        "title": "اپنے آؤٹ فٹس دریافت کریں",
+        "text": "صرف آپ کے اپنے پیسز سے بنے آؤٹ فٹس، میچ اسکور اور وضاحت کے ساتھ۔"
       }
     }
   },
   "home": {
     "hero": {
-      "title": "What should I wear today?",
-      "text": "Let us suggest the best outfits from the real pieces in your wardrobe.",
-      "cta": "Suggest an Outfit",
-      "recentA11y": "Your recently added pieces"
+      "title": "آج کیا پہنوں؟",
+      "text": "آپ کے وارڈروب کے اصل پیسز سے بنے بہترین آؤٹ فٹس ہم تجویز کریں گے۔",
+      "cta": "آؤٹ فٹ تجویز کریں",
+      "recentA11y": "آپ کے حال ہی میں شامل کیے گئے پیسز"
     },
     "stats": {
-      "garments": "My Pieces",
-      "readyOutfits": "Ready Outfits",
-      "favorites": "Favorites",
+      "garments": "میرے پیسز",
+      "readyOutfits": "تیار آؤٹ فٹس",
+      "favorites": "پسندیدہ",
       "a11y": "{{label}}: {{value}}"
     },
     "wardrobe": {
-      "title": "My Wardrobe",
-      "emptyCategory": "No pieces in this category yet.",
-      "empty": "Your wardrobe is empty. Start by adding your first piece."
+      "title": "میرا وارڈروب",
+      "emptyCategory": "اس زمرے میں ابھی کوئی پیس نہیں۔",
+      "empty": "آپ کا وارڈروب خالی ہے۔ اپنا پہلا پیس شامل کر کے آغاز کریں۔"
     },
     "today": {
-      "title": "Today's Suggestions",
-      "notReady": "Add a few more pieces so we can suggest outfits.",
-      "empty": "No suggestions for today. Check the Suggestions tab for new ideas."
+      "title": "آج کی تجاویز",
+      "notReady": "کچھ اور پیسز شامل کریں تاکہ ہم آؤٹ فٹس تجویز کر سکیں۔",
+      "empty": "آج کے لیے کوئی تجویز نہیں۔ نئے آئیڈیاز کے لیے تجاویز والا ٹیب دیکھیں۔"
     }
   },
   "readiness": {
-    "title": "Add {{min}}–{{max}} pieces to get outfit suggestions",
-    "almostThere": "Almost ready for suggestions",
+    "title": "آؤٹ فٹ تجاویز کے لیے {{min}}–{{max}} پیسز شامل کریں",
+    "almostThere": "تجاویز کے لیے تقریباً تیار",
     "progress": "{{current}}/{{total}}"
   },
   "wardrobe": {
-    "title": "My Wardrobe",
-    "count_one": "{{count}} piece",
-    "count_other": "{{count}} pieces",
-    "searchPlaceholder": "Search your wardrobe (e.g. blazer)",
-    "clearSearch": "Clear search",
-    "filter": "Filter",
-    "filterWithCount": "Filter · {{count}}",
-    "filterActiveA11y_one": "Filter, {{count}} filter active",
-    "filterActiveA11y_other": "Filter, {{count}} filters active",
+    "title": "میرا وارڈروب",
+    "count_one": "{{count}} پیس",
+    "count_other": "{{count}} پیسز",
+    "searchPlaceholder": "اپنے وارڈروب میں تلاش کریں (مثلاً بلیزر)",
+    "clearSearch": "تلاش صاف کریں",
+    "filter": "فلٹر",
+    "filterWithCount": "فلٹر · {{count}}",
+    "filterActiveA11y_one": "فلٹر، {{count}} فلٹر فعال",
+    "filterActiveA11y_other": "فلٹر، {{count}} فلٹرز فعال",
     "noResults": {
-      "title": "No results",
-      "text": "No pieces match these filters. Try changing them.",
-      "action": "Clear Filters"
+      "title": "کوئی نتیجہ نہیں",
+      "text": "ان فلٹرز سے کوئی پیس میل نہیں کھاتا۔ انہیں بدل کر دیکھیں۔",
+      "action": "فلٹرز صاف کریں"
     },
     "empty": {
-      "title": "Your wardrobe is waiting",
-      "text": "Take photos of your clothes and your wardrobe organizes itself."
+      "title": "آپ کا وارڈروب منتظر ہے",
+      "text": "اپنے کپڑوں کی تصاویر لیں، آپ کا وارڈروب خود ترتیب پا جائے گا۔"
     },
     "filterSheet": {
-      "title": "Filter",
-      "clear": "Clear",
-      "apply": "Apply",
-      "color": "Color",
-      "season": "Season",
-      "occasion": "Occasion",
-      "favoritesOnly": "Favorites only"
+      "title": "فلٹر",
+      "clear": "صاف کریں",
+      "apply": "لاگو کریں",
+      "color": "رنگ",
+      "season": "موسم",
+      "occasion": "موقع",
+      "favoritesOnly": "صرف پسندیدہ"
     }
   },
   "garment": {
     "subtitle": "{{subcategory}} · {{color}}",
-    "cardA11y": "{{name}}, {{details}}",
-    "patterned": "Patterned",
+    "cardA11y": "{{name}}، {{details}}",
+    "patterned": "پیٹرن والا",
     "detail": {
-      "title": "Piece Details"
+      "title": "پیس کی تفصیل"
     },
     "delete": {
-      "title": "Delete this piece?",
-      "message": "Saved outfits that include this piece will also be deleted.",
-      "done": "Piece deleted",
-      "failed": "Couldn't delete"
+      "title": "یہ پیس حذف کریں؟",
+      "message": "اس پیس والے محفوظ آؤٹ فٹس بھی حذف ہو جائیں گے۔",
+      "done": "پیس حذف ہو گیا",
+      "failed": "حذف نہیں ہو سکا"
     },
     "pairings": {
-      "eyebrow": "Key feature",
-      "title": "What Goes With It?",
-      "text": "The pieces in your wardrobe that match this one best.",
-      "noMatches": "No matching pieces found for this one.",
-      "outfitsTitle": "Outfits with this piece",
-      "noOutfits": "We couldn't build an outfit with this piece yet.",
-      "notReady": "Add a few more pieces so we can build outfits."
+      "eyebrow": "خاص فیچر",
+      "title": "اس کے ساتھ کیا جچے گا؟",
+      "text": "آپ کے وارڈروب کے وہ پیسز جو اس کے ساتھ سب سے زیادہ جچتے ہیں۔",
+      "noMatches": "اس کے ساتھ جچنے والا کوئی پیس نہیں ملا۔",
+      "outfitsTitle": "اس پیس والے آؤٹ فٹس",
+      "noOutfits": "اس پیس سے ابھی کوئی آؤٹ فٹ نہیں بن سکا۔",
+      "notReady": "کچھ اور پیسز شامل کریں تاکہ ہم آؤٹ فٹس بنا سکیں۔"
     }
   },
   "upload": {
-    "title": "Upload a Piece",
-    "subtitle": "Add a new piece to your wardrobe and discover better outfits.",
-    "recent": "Recently Added",
+    "title": "پیس اپ لوڈ کریں",
+    "subtitle": "اپنے وارڈروب میں نیا پیس شامل کریں اور بہتر آؤٹ فٹس دریافت کریں۔",
+    "recent": "حال ہی میں شامل کیے گئے",
     "added": {
-      "toast": "Added to your wardrobe",
-      "title": "Added to your wardrobe",
-      "text": "Great! Your new piece is now part of your outfit suggestions.",
-      "addAnother": "Add another piece",
-      "viewPiece": "View piece"
+      "toast": "آپ کے وارڈروب میں شامل ہو گیا",
+      "title": "آپ کے وارڈروب میں شامل ہو گیا",
+      "text": "زبردست! آپ کا نیا پیس اب آؤٹ فٹ تجاویز کا حصہ ہے۔",
+      "addAnother": "ایک اور پیس شامل کریں",
+      "viewPiece": "پیس دیکھیں"
     },
     "edit": {
-      "title": "Edit Piece",
-      "savedToast": "Changes saved"
+      "title": "پیس میں ترمیم",
+      "savedToast": "تبدیلیاں محفوظ ہو گئیں"
     },
     "cameraPermission": {
-      "title": "Camera access needed",
-      "message": "To take photos of your clothes, allow camera access in Settings.",
-      "openSettings": "Open Settings"
+      "title": "کیمرے تک رسائی درکار ہے",
+      "message": "اپنے کپڑوں کی تصاویر لینے کے لیے سیٹنگز میں کیمرے تک رسائی کی اجازت دیں۔",
+      "openSettings": "سیٹنگز کھولیں"
     },
-    "uploadFailed": "The photo couldn't be uploaded. Please try again.",
-    "saveFailed": "Couldn't save",
+    "uploadFailed": "تصویر اپ لوڈ نہیں ہو سکی۔ براہِ کرم دوبارہ کوشش کریں۔",
+    "saveFailed": "محفوظ نہیں ہو سکا",
     "photo": {
-      "selectedA11y": "Selected photo",
-      "preparing": "Preparing photo…",
-      "analyzing": "Analyzing color…",
-      "addTitle": "Add a photo of your piece",
-      "helper": "A regular phone photo is enough. Capture the whole piece in good light, ideally on a plain surface.",
-      "camera": "Take Photo",
-      "library": "Choose from Library"
+      "selectedA11y": "منتخب کردہ تصویر",
+      "preparing": "تصویر تیار ہو رہی ہے…",
+      "analyzing": "رنگ کا تجزیہ ہو رہا ہے…",
+      "addTitle": "اپنے پیس کی تصویر شامل کریں",
+      "helper": "فون کی عام سی تصویر ہی کافی ہے۔ اچھی روشنی میں پورا پیس فریم میں لیں، ہو سکے تو سادہ سطح پر۔",
+      "camera": "تصویر لیں",
+      "library": "گیلری سے منتخب کریں"
     },
     "form": {
-      "category": "Category",
-      "subcategory": "Subcategory",
-      "chooseCategoryFirst": "Choose a category first.",
-      "color": "Color",
-      "autoDetected": "✦ Auto-detected · {{confidence}}",
+      "category": "زمرہ",
+      "subcategory": "ذیلی زمرہ",
+      "chooseCategoryFirst": "پہلے زمرہ منتخب کریں۔",
+      "color": "رنگ",
+      "autoDetected": "✦ خود بخود پہچانا گیا · {{confidence}}",
       "confidence": {
-        "high": "high confidence",
-        "medium": "medium confidence",
-        "low": "low confidence"
+        "high": "زیادہ یقین",
+        "medium": "درمیانہ یقین",
+        "low": "کم یقین"
       },
-      "manual": "Selected manually",
-      "measuredTone": "Detected tone",
-      "otherCandidates": "Other possibilities:",
-      "patternedHint": "Patterns such as stripes, plaid or florals",
-      "season": "Season",
-      "seasonHint": "Leave empty and we'll choose based on the piece.",
-      "allSeasons": "All Seasons",
-      "occasion": "Occasion",
-      "occasionHint": "You can pick more than one.",
-      "name": "Name (optional)",
-      "namePlaceholder": "e.g. My favorite beige blazer",
+      "manual": "خود منتخب کیا گیا",
+      "measuredTone": "پہچانا گیا ٹون",
+      "otherCandidates": "دیگر ممکنہ رنگ:",
+      "patternedHint": "دھاریوں، چیک یا پھولوں جیسے پیٹرن",
+      "season": "موسم",
+      "seasonHint": "خالی چھوڑ دیں، ہم پیس کے مطابق منتخب کر لیں گے۔",
+      "allSeasons": "تمام موسم",
+      "occasion": "موقع",
+      "occasionHint": "آپ ایک سے زیادہ منتخب کر سکتے ہیں۔",
+      "name": "نام (اختیاری)",
+      "namePlaceholder": "مثلاً میرا پسندیدہ بیج بلیزر",
       "generatedName": "{{color}} {{subcategory}}"
     },
     "submit": {
-      "create": "Save to Wardrobe",
-      "edit": "Save Changes"
+      "create": "وارڈروب میں محفوظ کریں",
+      "edit": "تبدیلیاں محفوظ کریں"
     },
     "missing": {
-      "uploading": "Uploading photo…",
-      "photo": "Add a photo of your piece first.",
-      "category": "Choose a category.",
-      "subcategory": "Choose a subcategory.",
-      "color": "Choose a color."
+      "uploading": "تصویر اپ لوڈ ہو رہی ہے…",
+      "photo": "پہلے اپنے پیس کی تصویر شامل کریں۔",
+      "category": "زمرہ منتخب کریں۔",
+      "subcategory": "ذیلی زمرہ منتخب کریں۔",
+      "color": "رنگ منتخب کریں۔"
     }
   },
   "suggestions": {
-    "title": "Suggestions",
-    "subtitle": "Outfits made from the photos in your wardrobe.",
-    "summary_one": "{{count}} outfit · {{season}}",
-    "summary_other": "{{count}} outfits · {{season}}",
-    "shuffle": "Suggest Again",
-    "shuffleHint": "Fetches new outfit suggestions",
-    "loading": "Preparing outfits…",
+    "title": "تجاویز",
+    "subtitle": "آپ کے وارڈروب کی تصاویر سے بنے آؤٹ فٹس۔",
+    "summary_one": "{{count}} آؤٹ فٹ · {{season}}",
+    "summary_other": "{{count}} آؤٹ فٹس · {{season}}",
+    "shuffle": "دوبارہ تجویز کریں",
+    "shuffleHint": "آؤٹ فٹ کی نئی تجاویز لاتا ہے",
+    "loading": "آؤٹ فٹس تیار ہو رہے ہیں…",
     "notReady": {
-      "title": "Let's add a few pieces first",
-      "text": "To suggest outfits we need at least one top, one bottom (or a dress) and one pair of shoes."
+      "title": "آئیے، پہلے کچھ پیسز شامل کریں",
+      "text": "آؤٹ فٹس تجویز کرنے کے لیے ہمیں کم از کم ایک ٹاپ، ایک باٹم (یا ایک ڈریس) اور ایک جوڑی جوتے درکار ہیں۔"
     },
     "empty": {
-      "title": "No outfits match these filters",
-      "text": "Try choosing a different occasion or season.",
-      "action": "See All Outfits"
+      "title": "ان فلٹرز سے کوئی آؤٹ فٹ میل نہیں کھاتا",
+      "text": "کوئی اور موقع یا موسم منتخب کر کے دیکھیں۔",
+      "action": "تمام آؤٹ فٹس دیکھیں"
     }
   },
   "outfit": {
-    "scorePill": "Match {{percent}}",
-    "scoreRingLabel": "Match Score",
+    "scorePill": "میچ {{percent}}",
+    "scoreRingLabel": "میچ اسکور",
     "scoreRingA11y": "{{label}} {{score}}",
-    "cardA11y": "{{title}}, {{score}}",
-    "collageA11y": "{{title}} collage",
-    "collageItemsA11y_one": "Outfit collage, {{count}} piece",
-    "collageItemsA11y_other": "Outfit collage, {{count}} pieces",
-    "save": "Save outfit",
-    "unsave": "Remove from saved",
-    "saveThis": "Save This Outfit",
-    "viewDetail": "View Details",
-    "breakdownA11y": "{{label}}, weight {{weight}}, score {{score}}",
+    "cardA11y": "{{title}}، {{score}}",
+    "collageA11y": "{{title}} کولاج",
+    "collageItemsA11y_one": "آؤٹ فٹ کولاج، {{count}} پیس",
+    "collageItemsA11y_other": "آؤٹ فٹ کولاج، {{count}} پیسز",
+    "save": "آؤٹ فٹ محفوظ کریں",
+    "unsave": "محفوظ سے ہٹائیں",
+    "saveThis": "یہ آؤٹ فٹ محفوظ کریں",
+    "viewDetail": "تفصیل دیکھیں",
+    "breakdownA11y": "{{label}}، وزن {{weight}}، اسکور {{score}}",
     "detail": {
-      "title": "Outfit Details",
-      "share": "Share",
-      "loadFailed": "Couldn't load the outfit",
-      "tapHint": "Tap a piece to see its details",
-      "breakdown": "Score Breakdown",
-      "why": "Why It Works",
-      "venues": "Where to Wear It",
-      "palette": "Color Palette",
-      "saveOutfit": "Save Outfit",
-      "similar": "Similar Outfits",
-      "noSimilar": "We couldn't find a similar outfit for now.",
-      "actionFailed": "Couldn't complete the action"
+      "title": "آؤٹ فٹ کی تفصیل",
+      "share": "شیئر کریں",
+      "loadFailed": "آؤٹ فٹ لوڈ نہیں ہو سکا",
+      "tapHint": "تفصیل دیکھنے کے لیے کسی پیس پر ٹیپ کریں",
+      "breakdown": "اسکور کی تفصیل",
+      "why": "یہ کیوں جچتا ہے",
+      "venues": "کہاں پہنیں",
+      "palette": "رنگوں کا پیلیٹ",
+      "saveOutfit": "آؤٹ فٹ محفوظ کریں",
+      "similar": "ملتے جلتے آؤٹ فٹس",
+      "noSimilar": "فی الحال کوئی ملتا جلتا آؤٹ فٹ نہیں ملا۔",
+      "actionFailed": "یہ عمل مکمل نہیں ہو سکا"
     },
     "share": {
-      "message": "{{title}} — Match Score {{score}}\n{{description}}\n\n{{pieces}}\n\nCreated from my own wardrobe with RYVENCA."
+      "message": "{{title}} — میچ اسکور {{score}}\n{{description}}\n\n{{pieces}}\n\nمیرے اپنے وارڈروب سے، RYVENCA کے ساتھ تیار کیا گیا۔"
     }
   },
   "favorites": {
-    "title": "Favorites",
+    "title": "پسندیدہ",
     "tabs": {
-      "outfits": "Saved Outfits",
-      "garments": "Favorite Pieces"
+      "outfits": "محفوظ آؤٹ فٹس",
+      "garments": "پسندیدہ پیسز"
     },
     "emptyOutfits": {
-      "title": "No saved outfits yet",
-      "text": "Save the outfits you like and they'll be waiting for you here.",
-      "action": "Browse Suggestions"
+      "title": "ابھی کوئی محفوظ آؤٹ فٹ نہیں",
+      "text": "پسند آنے والے آؤٹ فٹس محفوظ کریں، وہ یہاں آپ کے منتظر رہیں گے۔",
+      "action": "تجاویز دیکھیں"
     },
     "emptyGarments": {
-      "title": "No favorite pieces",
-      "text": "Tap the heart on pieces in your wardrobe to add them to your favorites.",
-      "action": "Go to My Wardrobe"
+      "title": "کوئی پسندیدہ پیس نہیں",
+      "text": "اپنے وارڈروب کے پیسز پر دل کو ٹیپ کر کے انہیں پسندیدہ میں شامل کریں۔",
+      "action": "میرے وارڈروب پر جائیں"
     }
   },
   "profile": {
-    "avatarA11y": "Profile picture of {{name}}",
-    "preferences": "My Preferences",
-    "wardrobeType": "Wardrobe",
-    "style": "Style",
+    "avatarA11y": "{{name}} کی پروفائل تصویر",
+    "preferences": "میری ترجیحات",
+    "wardrobeType": "وارڈروب",
+    "style": "اسٹائل",
     "links": {
-      "favorites": "My Favorites",
-      "stats": "Wardrobe statistics",
-      "language": "Language"
+      "favorites": "میرے پسندیدہ",
+      "stats": "وارڈروب کے اعداد و شمار",
+      "language": "زبان"
     },
     "logout": {
-      "action": "Sign Out",
-      "confirm": "Do you want to sign out?"
+      "action": "سائن آؤٹ",
+      "confirm": "کیا آپ سائن آؤٹ کرنا چاہتے ہیں؟"
     },
     "deleteAccount": {
-      "action": "Delete Account",
-      "title": "Are you sure you want to delete your account?",
-      "message": "Your account, all pieces in your wardrobe, photos and saved outfits will be permanently deleted. This can't be undone.",
-      "failed": "Couldn't delete the account"
+      "action": "اکاؤنٹ حذف کریں",
+      "title": "کیا آپ واقعی اپنا اکاؤنٹ حذف کرنا چاہتے ہیں؟",
+      "message": "آپ کا اکاؤنٹ، وارڈروب کے تمام پیسز، تصاویر اور محفوظ آؤٹ فٹس ہمیشہ کے لیے حذف ہو جائیں گے۔ یہ عمل واپس نہیں ہو سکتا۔",
+      "failed": "اکاؤنٹ حذف نہیں ہو سکا"
     },
     "editPreferences": {
-      "title": "My Preferences",
-      "updatedToast": "Your preferences were updated"
+      "title": "میری ترجیحات",
+      "updatedToast": "آپ کی ترجیحات اپ ڈیٹ ہو گئیں"
     },
     "stats": {
-      "title": "Wardrobe Statistics",
-      "total": "Total pieces",
-      "favorites": "Favorite pieces",
+      "title": "وارڈروب کے اعداد و شمار",
+      "total": "کل پیسز",
+      "favorites": "پسندیدہ پیسز",
       "categoryA11y": "{{category}}: {{count}}"
     }
   }

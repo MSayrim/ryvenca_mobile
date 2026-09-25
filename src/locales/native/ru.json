@@ -1,4 +1,4 @@
 {
-  "NSCameraUsageDescription": "RYVENCA uses your camera so you can photograph your clothes and add them to your wardrobe.",
-  "NSPhotoLibraryUsageDescription": "RYVENCA accesses your photos so you can choose pictures of your clothes and add them to your wardrobe."
+  "NSCameraUsageDescription": "RYVENCA использует камеру, чтобы можно было сфотографировать одежду и добавить её в гардероб.",
+  "NSPhotoLibraryUsageDescription": "RYVENCA запрашивает доступ к фото, чтобы можно было выбрать снимки одежды и добавить их в гардероб."
 }

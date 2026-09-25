@@ -265,7 +265,7 @@
       "occasionHint": "You can pick more than one.",
       "name": "Name (optional)",
       "namePlaceholder": "e.g. My favorite beige blazer",
-      "generatedName": "{{color}} {{subcategory}}"
+      "generatedName": "{{color}} {{subcategory, lowercase}}"
     },
     "submit": {
       "create": "Save to Wardrobe",

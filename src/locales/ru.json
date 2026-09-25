@@ -3,376 +3,384 @@
     "tagline": "Style what you already own"
   },
   "accents": {
-    "sameYouBetterOutfits": "Same you, better outfits ♡",
-    "noStudioNeeded": "No studio shots needed. Your own photo is enough! ♡"
+    "sameYouBetterOutfits": "Остаёшься собой — выглядишь лучше ♡",
+    "noStudioNeeded": "Никакой студийной съёмки. Твоего фото вполне достаточно! ♡"
   },
   "common": {
-    "retry": "Try Again",
-    "confirm": "Confirm",
-    "cancel": "Cancel",
-    "close": "Close",
-    "back": "Back",
-    "save": "Save",
-    "saved": "Saved",
-    "edit": "Edit",
-    "delete": "Delete",
-    "seeAll": "See All",
-    "all": "All",
-    "addPiece": "Add a Piece",
-    "addFirstPiece": "Add your first piece",
-    "required": "Required",
-    "notSelected": "Not selected",
-    "later": "Later",
-    "addToFavorites": "Add to favorites",
-    "removeFromFavorites": "Remove from favorites"
+    "retry": "Повторить",
+    "confirm": "Подтвердить",
+    "cancel": "Отмена",
+    "close": "Закрыть",
+    "back": "Назад",
+    "save": "Сохранить",
+    "saved": "Сохранено",
+    "edit": "Изменить",
+    "delete": "Удалить",
+    "seeAll": "Смотреть все",
+    "all": "Все",
+    "addPiece": "Добавить вещь",
+    "addFirstPiece": "Добавь первую вещь",
+    "required": "Обязательно",
+    "notSelected": "Не выбрано",
+    "later": "Позже",
+    "addToFavorites": "Добавить в избранное",
+    "removeFromFavorites": "Убрать из избранного"
   },
   "errors": {
-    "title": "Something went wrong",
-    "network": "Couldn't reach the server. Check your internet connection and try again.",
-    "timeout": "The request timed out. Please try again.",
-    "generic": "Something went wrong. Please try again.",
-    "unexpectedResponse": "The server sent an unexpected response.",
-    "validation": "The information you sent is invalid.",
-    "unauthorized": "Your session has expired. Please sign in again.",
-    "forbidden": "You don't have permission to do this.",
-    "notFound": "We couldn't find what you were looking for.",
-    "conflict": "This action conflicts with existing records.",
-    "payloadTooLarge": "The photo is too large. You can upload up to {{maxMb}} MB.",
-    "server": "Something went wrong on the server. Please try again in a moment.",
-    "connectionFailed": "Couldn't connect"
+    "title": "Что-то пошло не так",
+    "network": "Не удалось связаться с сервером. Проверь подключение к интернету и попробуй ещё раз.",
+    "timeout": "Время ожидания истекло. Попробуй ещё раз.",
+    "generic": "Что-то пошло не так. Попробуй ещё раз.",
+    "unexpectedResponse": "Сервер прислал неожиданный ответ.",
+    "validation": "Отправлены некорректные данные.",
+    "unauthorized": "Сеанс истёк. Войди снова.",
+    "forbidden": "У тебя нет прав на это действие.",
+    "notFound": "Мы не нашли то, что ты ищешь.",
+    "conflict": "Это действие конфликтует с уже существующими данными.",
+    "payloadTooLarge": "Фото слишком большое. Можно загрузить до {{maxMb}} МБ.",
+    "server": "На сервере что-то пошло не так. Попробуй ещё раз чуть позже.",
+    "connectionFailed": "Нет подключения"
   },
   "language": {
-    "title": "Language",
-    "choose": "Choose language",
-    "buttonA11y": "Language: {{language}}. Tap to change.",
+    "title": "Язык",
+    "choose": "Выбрать язык",
+    "buttonA11y": "Язык: {{language}}. Нажми, чтобы изменить.",
     "restart": {
-      "title": "Restart required",
-      "message": "The app will restart to switch the layout direction.",
-      "confirm": "Restart now"
+      "title": "Нужен перезапуск",
+      "message": "Приложение перезапустится, чтобы сменить направление интерфейса.",
+      "confirm": "Перезапустить"
     }
   },
   "tabs": {
-    "home": "Home",
-    "wardrobe": "My Wardrobe",
-    "upload": "Upload",
-    "uploadA11y": "Upload a piece",
-    "suggestions": "Suggestions",
-    "profile": "Profile"
+    "home": "Главная",
+    "wardrobe": "Гардероб",
+    "upload": "Добавить",
+    "uploadA11y": "Добавить вещь",
+    "suggestions": "Подборки",
+    "profile": "Профиль"
   },
   "header": {
-    "wardrobeA11y": "My Wardrobe",
-    "searchA11y": "Search your wardrobe"
+    "wardrobeA11y": "Мой гардероб",
+    "searchA11y": "Поиск по гардеробу"
   },
   "auth": {
-    "headline": "Before buying new clothes, rediscover what's already in your wardrobe.",
+    "headline": "Прежде чем покупать новое, загляни в свой гардероб по-новому.",
     "modes": {
-      "login": "Sign In",
-      "register": "Sign Up"
+      "login": "Вход",
+      "register": "Регистрация"
     },
     "fields": {
-      "nameLabel": "Your name",
-      "namePlaceholder": "e.g. Emma",
-      "emailLabel": "Email",
+      "nameLabel": "Твоё имя",
+      "namePlaceholder": "например, Анна",
+      "emailLabel": "Эл. почта",
       "emailPlaceholder": "name@example.com",
-      "passwordLabel": "Password",
-      "passwordPlaceholderRegister": "At least {{min}} characters",
-      "passwordPlaceholderLogin": "Your password",
-      "showPassword": "Show password",
-      "hidePassword": "Hide password"
+      "passwordLabel": "Пароль",
+      "passwordPlaceholderRegister": "Не менее {{min}} символов",
+      "passwordPlaceholderLogin": "Твой пароль",
+      "showPassword": "Показать пароль",
+      "hidePassword": "Скрыть пароль"
     },
     "validation": {
-      "nameRequired": "Enter your name",
-      "emailInvalid": "Enter a valid email address",
-      "passwordTooShort": "Password must be at least {{min}} characters",
-      "passwordRequired": "Enter your password"
+      "nameRequired": "Введи имя",
+      "emailInvalid": "Введи корректный адрес эл. почты",
+      "passwordTooShort": "Пароль должен содержать не менее {{min}} символов",
+      "passwordRequired": "Введи пароль"
     },
     "submit": {
-      "login": "Sign In",
-      "register": "Create Account"
+      "login": "Войти",
+      "register": "Создать аккаунт"
     },
     "switch": {
-      "noAccount": "Don't have an account?",
-      "toRegister": "Sign up",
-      "hasAccount": "Already have an account?",
-      "toLogin": "Sign in"
+      "noAccount": "Нет аккаунта?",
+      "toRegister": "Зарегистрироваться",
+      "hasAccount": "Уже есть аккаунт?",
+      "toLogin": "Войти"
     }
   },
   "onboarding": {
-    "greeting": "Hi {{name}}",
-    "greetingAnonymous": "Hi",
-    "signOut": "Sign out",
-    "stepProgressA11y": "Step {{current}} of {{total}}",
-    "wardrobeTypeText": "Categories and suggestions are tailored to this. You can change it later in your profile.",
-    "stylesText": "You can pick more than one. Choose at least one style.",
-    "continue": "Continue"
+    "greeting": "Привет, {{name}}",
+    "greetingAnonymous": "Привет",
+    "signOut": "Выйти",
+    "stepProgressA11y": "Шаг {{current}} из {{total}}",
+    "wardrobeTypeText": "Под это подстроятся категории и подборки. Изменить можно позже в профиле.",
+    "stylesText": "Можно выбрать несколько. Выбери хотя бы один стиль.",
+    "continue": "Продолжить"
   },
   "preferences": {
-    "wardrobeTypeQuestion": "Who should we organize your wardrobe for?",
-    "styleQuestion": "How would you describe your style?",
-    "atLeastOneStyle": "Choose at least one style."
+    "wardrobeTypeQuestion": "Для кого будем разбирать гардероб?",
+    "styleQuestion": "Как ты опишешь свой стиль?",
+    "atLeastOneStyle": "Выбери хотя бы один стиль."
   },
   "howItWorks": {
-    "title": "How does it work?",
-    "stepLabel": "Step {{number}}",
-    "headline": "Make better use of what you own.",
-    "intro": "Before buying new clothes, make better use of the pieces already in your wardrobe. RYVENCA suggests outfits only from your own pieces and explains each one with a Match Score and the reasons behind it.",
+    "title": "Как это работает?",
+    "stepLabel": "Шаг {{number}}",
+    "headline": "Используй по максимуму то, что у тебя уже есть.",
+    "intro": "Прежде чем покупать новое, используй по максимуму вещи, которые уже есть в гардеробе. RYVENCA предлагает образы только из твоих вещей и объясняет каждый: оценка сочетаемости и причины, почему он работает.",
     "steps": {
       "photo": {
-        "title": "Take a photo",
-        "text": "On a hanger, on the bed or on the sofa — a regular phone photo is enough."
+        "title": "Сфотографируй",
+        "text": "На вешалке, на кровати или на диване — хватит обычного фото на телефон."
       },
       "organize": {
-        "title": "Get organized",
-        "text": "We detect the color automatically; with category and season, your wardrobe organizes itself."
+        "title": "Всё по полочкам",
+        "text": "Мы определяем цвет автоматически, а с категорией и сезоном гардероб сам раскладывается по полочкам."
       },
       "discover": {
-        "title": "Discover your outfits",
-        "text": "Outfits made only from your own pieces, with a Match Score and an explanation."
+        "title": "Открой свои образы",
+        "text": "Образы только из твоих вещей — с оценкой сочетаемости и пояснением."
       }
     }
   },
   "home": {
     "hero": {
-      "title": "What should I wear today?",
-      "text": "Let us suggest the best outfits from the real pieces in your wardrobe.",
-      "cta": "Suggest an Outfit",
-      "recentA11y": "Your recently added pieces"
+      "title": "Что надеть сегодня?",
+      "text": "Мы подберём лучшие образы из реальных вещей твоего гардероба.",
+      "cta": "Подобрать образ",
+      "recentA11y": "Недавно добавленные вещи"
     },
     "stats": {
-      "garments": "My Pieces",
-      "readyOutfits": "Ready Outfits",
-      "favorites": "Favorites",
+      "garments": "Мои вещи",
+      "readyOutfits": "Готовые образы",
+      "favorites": "Избранное",
       "a11y": "{{label}}: {{value}}"
     },
     "wardrobe": {
-      "title": "My Wardrobe",
-      "emptyCategory": "No pieces in this category yet.",
-      "empty": "Your wardrobe is empty. Start by adding your first piece."
+      "title": "Мой гардероб",
+      "emptyCategory": "В этой категории пока нет вещей.",
+      "empty": "Гардероб пока пуст. Начни с первой вещи."
     },
     "today": {
-      "title": "Today's Suggestions",
-      "notReady": "Add a few more pieces so we can suggest outfits.",
-      "empty": "No suggestions for today. Check the Suggestions tab for new ideas."
+      "title": "Подборки на сегодня",
+      "notReady": "Добавь ещё несколько вещей, чтобы мы могли подобрать образы.",
+      "empty": "На сегодня подборок нет. Загляни во вкладку «Подборки» за новыми идеями."
     }
   },
   "readiness": {
-    "title": "Add {{min}}–{{max}} pieces to get outfit suggestions",
-    "almostThere": "Almost ready for suggestions",
+    "title": "Добавь {{min}}–{{max}} вещей, чтобы получить подборки образов",
+    "almostThere": "Подборки почти готовы",
     "progress": "{{current}}/{{total}}"
   },
   "wardrobe": {
-    "title": "My Wardrobe",
-    "count_one": "{{count}} piece",
-    "count_other": "{{count}} pieces",
-    "searchPlaceholder": "Search your wardrobe (e.g. blazer)",
-    "clearSearch": "Clear search",
-    "filter": "Filter",
-    "filterWithCount": "Filter · {{count}}",
-    "filterActiveA11y_one": "Filter, {{count}} filter active",
-    "filterActiveA11y_other": "Filter, {{count}} filters active",
+    "title": "Мой гардероб",
+    "count_one": "{{count}} вещь",
+    "count_few": "{{count}} вещи",
+    "count_many": "{{count}} вещей",
+    "count_other": "{{count}} вещи",
+    "searchPlaceholder": "Поиск по гардеробу (например, блейзер)",
+    "clearSearch": "Очистить поиск",
+    "filter": "Фильтр",
+    "filterWithCount": "Фильтр · {{count}}",
+    "filterActiveA11y_one": "Фильтр, активен {{count}} фильтр",
+    "filterActiveA11y_few": "Фильтр, активно {{count}} фильтра",
+    "filterActiveA11y_many": "Фильтр, активно {{count}} фильтров",
+    "filterActiveA11y_other": "Фильтр, активно {{count}} фильтра",
     "noResults": {
-      "title": "No results",
-      "text": "No pieces match these filters. Try changing them.",
-      "action": "Clear Filters"
+      "title": "Ничего не найдено",
+      "text": "Нет вещей, подходящих под эти фильтры. Попробуй их изменить.",
+      "action": "Сбросить фильтры"
     },
     "empty": {
-      "title": "Your wardrobe is waiting",
-      "text": "Take photos of your clothes and your wardrobe organizes itself."
+      "title": "Гардероб ждёт тебя",
+      "text": "Сфотографируй свою одежду — и гардероб упорядочится сам."
     },
     "filterSheet": {
-      "title": "Filter",
-      "clear": "Clear",
-      "apply": "Apply",
-      "color": "Color",
-      "season": "Season",
-      "occasion": "Occasion",
-      "favoritesOnly": "Favorites only"
+      "title": "Фильтр",
+      "clear": "Сбросить",
+      "apply": "Применить",
+      "color": "Цвет",
+      "season": "Сезон",
+      "occasion": "Повод",
+      "favoritesOnly": "Только избранное"
     }
   },
   "garment": {
     "subtitle": "{{subcategory}} · {{color}}",
     "cardA11y": "{{name}}, {{details}}",
-    "patterned": "Patterned",
+    "patterned": "С принтом",
     "detail": {
-      "title": "Piece Details"
+      "title": "О вещи"
     },
     "delete": {
-      "title": "Delete this piece?",
-      "message": "Saved outfits that include this piece will also be deleted.",
-      "done": "Piece deleted",
-      "failed": "Couldn't delete"
+      "title": "Удалить эту вещь?",
+      "message": "Сохранённые образы с этой вещью тоже будут удалены.",
+      "done": "Вещь удалена",
+      "failed": "Не удалось удалить"
     },
     "pairings": {
-      "eyebrow": "Key feature",
-      "title": "What Goes With It?",
-      "text": "The pieces in your wardrobe that match this one best.",
-      "noMatches": "No matching pieces found for this one.",
-      "outfitsTitle": "Outfits with this piece",
-      "noOutfits": "We couldn't build an outfit with this piece yet.",
-      "notReady": "Add a few more pieces so we can build outfits."
+      "eyebrow": "Главная функция",
+      "title": "С чем это носить?",
+      "text": "Вещи из твоего гардероба, которые лучше всего сочетаются с этой.",
+      "noMatches": "Подходящих к этой вещи пока не нашлось.",
+      "outfitsTitle": "Образы с этой вещью",
+      "noOutfits": "Пока не получается собрать образ с этой вещью.",
+      "notReady": "Добавь ещё несколько вещей, чтобы мы могли собрать образы."
     }
   },
   "upload": {
-    "title": "Upload a Piece",
-    "subtitle": "Add a new piece to your wardrobe and discover better outfits.",
-    "recent": "Recently Added",
+    "title": "Добавить вещь",
+    "subtitle": "Добавь новую вещь в гардероб и открой для себя новые образы.",
+    "recent": "Недавно добавленные",
     "added": {
-      "toast": "Added to your wardrobe",
-      "title": "Added to your wardrobe",
-      "text": "Great! Your new piece is now part of your outfit suggestions.",
-      "addAnother": "Add another piece",
-      "viewPiece": "View piece"
+      "toast": "Добавлено в гардероб",
+      "title": "Добавлено в гардероб",
+      "text": "Отлично! Новая вещь уже участвует в подборках образов.",
+      "addAnother": "Добавить ещё вещь",
+      "viewPiece": "Открыть вещь"
     },
     "edit": {
-      "title": "Edit Piece",
-      "savedToast": "Changes saved"
+      "title": "Изменить вещь",
+      "savedToast": "Изменения сохранены"
     },
     "cameraPermission": {
-      "title": "Camera access needed",
-      "message": "To take photos of your clothes, allow camera access in Settings.",
-      "openSettings": "Open Settings"
+      "title": "Нужен доступ к камере",
+      "message": "Чтобы фотографировать одежду, разреши доступ к камере в Настройках.",
+      "openSettings": "Открыть Настройки"
     },
-    "uploadFailed": "The photo couldn't be uploaded. Please try again.",
-    "saveFailed": "Couldn't save",
+    "uploadFailed": "Не удалось загрузить фото. Попробуй ещё раз.",
+    "saveFailed": "Не удалось сохранить",
     "photo": {
-      "selectedA11y": "Selected photo",
-      "preparing": "Preparing photo…",
-      "analyzing": "Analyzing color…",
-      "addTitle": "Add a photo of your piece",
-      "helper": "A regular phone photo is enough. Capture the whole piece in good light, ideally on a plain surface.",
-      "camera": "Take Photo",
-      "library": "Choose from Library"
+      "selectedA11y": "Выбранное фото",
+      "preparing": "Готовим фото…",
+      "analyzing": "Определяем цвет…",
+      "addTitle": "Добавь фото вещи",
+      "helper": "Хватит обычного фото на телефон. Сними вещь целиком при хорошем свете, лучше на однотонном фоне.",
+      "camera": "Сделать фото",
+      "library": "Выбрать из галереи"
     },
     "form": {
-      "category": "Category",
-      "subcategory": "Subcategory",
-      "chooseCategoryFirst": "Choose a category first.",
-      "color": "Color",
-      "autoDetected": "✦ Auto-detected · {{confidence}}",
+      "category": "Категория",
+      "subcategory": "Подкатегория",
+      "chooseCategoryFirst": "Сначала выбери категорию.",
+      "color": "Цвет",
+      "autoDetected": "✦ Определён автоматически · {{confidence}}",
       "confidence": {
-        "high": "high confidence",
-        "medium": "medium confidence",
-        "low": "low confidence"
+        "high": "высокая точность",
+        "medium": "средняя точность",
+        "low": "низкая точность"
       },
-      "manual": "Selected manually",
-      "measuredTone": "Detected tone",
-      "otherCandidates": "Other possibilities:",
-      "patternedHint": "Patterns such as stripes, plaid or florals",
-      "season": "Season",
-      "seasonHint": "Leave empty and we'll choose based on the piece.",
-      "allSeasons": "All Seasons",
-      "occasion": "Occasion",
-      "occasionHint": "You can pick more than one.",
-      "name": "Name (optional)",
-      "namePlaceholder": "e.g. My favorite beige blazer",
-      "generatedName": "{{color}} {{subcategory}}"
+      "manual": "Выбран вручную",
+      "measuredTone": "Определённый оттенок",
+      "otherCandidates": "Другие варианты:",
+      "patternedHint": "Узоры: полоска, клетка, цветы",
+      "season": "Сезон",
+      "seasonHint": "Оставь пустым — выберем по самой вещи.",
+      "allSeasons": "Все сезоны",
+      "occasion": "Повод",
+      "occasionHint": "Можно выбрать несколько.",
+      "name": "Название (необязательно)",
+      "namePlaceholder": "например, Мой любимый бежевый блейзер",
+      "generatedName": "{{subcategory}} ({{color, lowercase}} цвет)"
     },
     "submit": {
-      "create": "Save to Wardrobe",
-      "edit": "Save Changes"
+      "create": "Сохранить в гардероб",
+      "edit": "Сохранить изменения"
     },
     "missing": {
-      "uploading": "Uploading photo…",
-      "photo": "Add a photo of your piece first.",
-      "category": "Choose a category.",
-      "subcategory": "Choose a subcategory.",
-      "color": "Choose a color."
+      "uploading": "Загружаем фото…",
+      "photo": "Сначала добавь фото вещи.",
+      "category": "Выбери категорию.",
+      "subcategory": "Выбери подкатегорию.",
+      "color": "Выбери цвет."
     }
   },
   "suggestions": {
-    "title": "Suggestions",
-    "subtitle": "Outfits made from the photos in your wardrobe.",
-    "summary_one": "{{count}} outfit · {{season}}",
-    "summary_other": "{{count}} outfits · {{season}}",
-    "shuffle": "Suggest Again",
-    "shuffleHint": "Fetches new outfit suggestions",
-    "loading": "Preparing outfits…",
+    "title": "Подборки",
+    "subtitle": "Образы, собранные из фото твоего гардероба.",
+    "summary_one": "{{count}} образ · {{season}}",
+    "summary_few": "{{count}} образа · {{season}}",
+    "summary_many": "{{count}} образов · {{season}}",
+    "summary_other": "{{count}} образа · {{season}}",
+    "shuffle": "Подобрать ещё",
+    "shuffleHint": "Загружает новые варианты образов",
+    "loading": "Собираем образы…",
     "notReady": {
-      "title": "Let's add a few pieces first",
-      "text": "To suggest outfits we need at least one top, one bottom (or a dress) and one pair of shoes."
+      "title": "Сначала добавим несколько вещей",
+      "text": "Чтобы подобрать образы, нужны хотя бы один верх, один низ (или платье) и одна пара обуви."
     },
     "empty": {
-      "title": "No outfits match these filters",
-      "text": "Try choosing a different occasion or season.",
-      "action": "See All Outfits"
+      "title": "Под эти фильтры образов нет",
+      "text": "Попробуй выбрать другой повод или сезон.",
+      "action": "Все образы"
     }
   },
   "outfit": {
-    "scorePill": "Match {{percent}}",
-    "scoreRingLabel": "Match Score",
+    "scorePill": "Сочетаемость {{percent}}",
+    "scoreRingLabel": "Оценка сочетаемости",
     "scoreRingA11y": "{{label}} {{score}}",
     "cardA11y": "{{title}}, {{score}}",
-    "collageA11y": "{{title}} collage",
-    "collageItemsA11y_one": "Outfit collage, {{count}} piece",
-    "collageItemsA11y_other": "Outfit collage, {{count}} pieces",
-    "save": "Save outfit",
-    "unsave": "Remove from saved",
-    "saveThis": "Save This Outfit",
-    "viewDetail": "View Details",
-    "breakdownA11y": "{{label}}, weight {{weight}}, score {{score}}",
+    "collageA11y": "Коллаж образа «{{title}}»",
+    "collageItemsA11y_one": "Коллаж образа, {{count}} вещь",
+    "collageItemsA11y_few": "Коллаж образа, {{count}} вещи",
+    "collageItemsA11y_many": "Коллаж образа, {{count}} вещей",
+    "collageItemsA11y_other": "Коллаж образа, {{count}} вещи",
+    "save": "Сохранить образ",
+    "unsave": "Убрать из сохранённых",
+    "saveThis": "Сохранить этот образ",
+    "viewDetail": "Подробнее",
+    "breakdownA11y": "{{label}}, вес {{weight}}, оценка {{score}}",
     "detail": {
-      "title": "Outfit Details",
-      "share": "Share",
-      "loadFailed": "Couldn't load the outfit",
-      "tapHint": "Tap a piece to see its details",
-      "breakdown": "Score Breakdown",
-      "why": "Why It Works",
-      "venues": "Where to Wear It",
-      "palette": "Color Palette",
-      "saveOutfit": "Save Outfit",
-      "similar": "Similar Outfits",
-      "noSimilar": "We couldn't find a similar outfit for now.",
-      "actionFailed": "Couldn't complete the action"
+      "title": "Об образе",
+      "share": "Поделиться",
+      "loadFailed": "Не удалось загрузить образ",
+      "tapHint": "Нажми на вещь, чтобы открыть подробности",
+      "breakdown": "Из чего складывается оценка",
+      "why": "Почему это работает",
+      "venues": "Куда надеть",
+      "palette": "Цветовая палитра",
+      "saveOutfit": "Сохранить образ",
+      "similar": "Похожие образы",
+      "noSimilar": "Похожих образов пока не нашлось.",
+      "actionFailed": "Не удалось выполнить действие"
     },
     "share": {
-      "message": "{{title}} — Match Score {{score}}\n{{description}}\n\n{{pieces}}\n\nCreated from my own wardrobe with RYVENCA."
+      "message": "{{title}} — оценка сочетаемости {{score}}\n{{description}}\n\n{{pieces}}\n\nСобрано из моего гардероба с помощью RYVENCA."
     }
   },
   "favorites": {
-    "title": "Favorites",
+    "title": "Избранное",
     "tabs": {
-      "outfits": "Saved Outfits",
-      "garments": "Favorite Pieces"
+      "outfits": "Сохранённые образы",
+      "garments": "Любимые вещи"
     },
     "emptyOutfits": {
-      "title": "No saved outfits yet",
-      "text": "Save the outfits you like and they'll be waiting for you here.",
-      "action": "Browse Suggestions"
+      "title": "Сохранённых образов пока нет",
+      "text": "Сохраняй понравившиеся образы — они будут ждать тебя здесь.",
+      "action": "Смотреть подборки"
     },
     "emptyGarments": {
-      "title": "No favorite pieces",
-      "text": "Tap the heart on pieces in your wardrobe to add them to your favorites.",
-      "action": "Go to My Wardrobe"
+      "title": "Любимых вещей пока нет",
+      "text": "Нажми на сердечко у вещей в гардеробе, чтобы добавить их в избранное.",
+      "action": "В гардероб"
     }
   },
   "profile": {
-    "avatarA11y": "Profile picture of {{name}}",
-    "preferences": "My Preferences",
-    "wardrobeType": "Wardrobe",
-    "style": "Style",
+    "avatarA11y": "Фото профиля: {{name}}",
+    "preferences": "Мои предпочтения",
+    "wardrobeType": "Гардероб",
+    "style": "Стиль",
     "links": {
-      "favorites": "My Favorites",
-      "stats": "Wardrobe statistics",
-      "language": "Language"
+      "favorites": "Избранное",
+      "stats": "Статистика гардероба",
+      "language": "Язык"
     },
     "logout": {
-      "action": "Sign Out",
-      "confirm": "Do you want to sign out?"
+      "action": "Выйти",
+      "confirm": "Выйти из аккаунта?"
     },
     "deleteAccount": {
-      "action": "Delete Account",
-      "title": "Are you sure you want to delete your account?",
-      "message": "Your account, all pieces in your wardrobe, photos and saved outfits will be permanently deleted. This can't be undone.",
-      "failed": "Couldn't delete the account"
+      "action": "Удалить аккаунт",
+      "title": "Точно удалить аккаунт?",
+      "message": "Аккаунт, все вещи из гардероба, фото и сохранённые образы будут удалены навсегда. Это действие нельзя отменить.",
+      "failed": "Не удалось удалить аккаунт"
     },
     "editPreferences": {
-      "title": "My Preferences",
-      "updatedToast": "Your preferences were updated"
+      "title": "Мои предпочтения",
+      "updatedToast": "Предпочтения обновлены"
     },
     "stats": {
-      "title": "Wardrobe Statistics",
-      "total": "Total pieces",
-      "favorites": "Favorite pieces",
+      "title": "Статистика гардероба",
+      "total": "Всего вещей",
+      "favorites": "Любимые вещи",
       "categoryA11y": "{{category}}: {{count}}"
     }
   }

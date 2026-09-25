@@ -3,376 +3,376 @@
     "tagline": "Style what you already own"
   },
   "accents": {
-    "sameYouBetterOutfits": "Same you, better outfits ♡",
-    "noStudioNeeded": "No studio shots needed. Your own photo is enough! ♡"
+    "sameYouBetterOutfits": "그대로의 나, 더 멋진 코디 ♡",
+    "noStudioNeeded": "스튜디오 촬영은 필요 없어요. 내가 찍은 사진이면 충분해요! ♡"
   },
   "common": {
-    "retry": "Try Again",
-    "confirm": "Confirm",
-    "cancel": "Cancel",
-    "close": "Close",
-    "back": "Back",
-    "save": "Save",
-    "saved": "Saved",
-    "edit": "Edit",
-    "delete": "Delete",
-    "seeAll": "See All",
-    "all": "All",
-    "addPiece": "Add a Piece",
-    "addFirstPiece": "Add your first piece",
-    "required": "Required",
-    "notSelected": "Not selected",
-    "later": "Later",
-    "addToFavorites": "Add to favorites",
-    "removeFromFavorites": "Remove from favorites"
+    "retry": "다시 시도",
+    "confirm": "확인",
+    "cancel": "취소",
+    "close": "닫기",
+    "back": "뒤로",
+    "save": "저장",
+    "saved": "저장됨",
+    "edit": "편집",
+    "delete": "삭제",
+    "seeAll": "전체 보기",
+    "all": "전체",
+    "addPiece": "아이템 추가",
+    "addFirstPiece": "첫 아이템 추가하기",
+    "required": "필수",
+    "notSelected": "선택 안 함",
+    "later": "나중에",
+    "addToFavorites": "즐겨찾기에 추가",
+    "removeFromFavorites": "즐겨찾기에서 삭제"
   },
   "errors": {
-    "title": "Something went wrong",
-    "network": "Couldn't reach the server. Check your internet connection and try again.",
-    "timeout": "The request timed out. Please try again.",
-    "generic": "Something went wrong. Please try again.",
-    "unexpectedResponse": "The server sent an unexpected response.",
-    "validation": "The information you sent is invalid.",
-    "unauthorized": "Your session has expired. Please sign in again.",
-    "forbidden": "You don't have permission to do this.",
-    "notFound": "We couldn't find what you were looking for.",
-    "conflict": "This action conflicts with existing records.",
-    "payloadTooLarge": "The photo is too large. You can upload up to {{maxMb}} MB.",
-    "server": "Something went wrong on the server. Please try again in a moment.",
-    "connectionFailed": "Couldn't connect"
+    "title": "문제가 발생했어요",
+    "network": "서버에 연결할 수 없어요. 인터넷 연결을 확인하고 다시 시도해 주세요.",
+    "timeout": "요청 시간이 초과되었어요. 다시 시도해 주세요.",
+    "generic": "문제가 발생했어요. 다시 시도해 주세요.",
+    "unexpectedResponse": "서버에서 예상하지 못한 응답을 받았어요.",
+    "validation": "입력한 정보가 올바르지 않아요.",
+    "unauthorized": "세션이 만료되었어요. 다시 로그인해 주세요.",
+    "forbidden": "이 작업을 수행할 권한이 없어요.",
+    "notFound": "찾으시는 내용을 찾을 수 없어요.",
+    "conflict": "기존 기록과 충돌하는 작업이에요.",
+    "payloadTooLarge": "사진 용량이 너무 커요. 최대 {{maxMb}}MB까지 업로드할 수 있어요.",
+    "server": "서버에 문제가 발생했어요. 잠시 후 다시 시도해 주세요.",
+    "connectionFailed": "연결할 수 없어요"
   },
   "language": {
-    "title": "Language",
-    "choose": "Choose language",
-    "buttonA11y": "Language: {{language}}. Tap to change.",
+    "title": "언어",
+    "choose": "언어 선택",
+    "buttonA11y": "언어: {{language}}. 탭하여 변경할 수 있어요.",
     "restart": {
-      "title": "Restart required",
-      "message": "The app will restart to switch the layout direction.",
-      "confirm": "Restart now"
+      "title": "재시작 필요",
+      "message": "글자 방향을 바꾸기 위해 앱이 재시작돼요.",
+      "confirm": "지금 재시작"
     }
   },
   "tabs": {
-    "home": "Home",
-    "wardrobe": "My Wardrobe",
-    "upload": "Upload",
-    "uploadA11y": "Upload a piece",
-    "suggestions": "Suggestions",
-    "profile": "Profile"
+    "home": "홈",
+    "wardrobe": "내 옷장",
+    "upload": "등록",
+    "uploadA11y": "아이템 등록하기",
+    "suggestions": "추천",
+    "profile": "프로필"
   },
   "header": {
-    "wardrobeA11y": "My Wardrobe",
-    "searchA11y": "Search your wardrobe"
+    "wardrobeA11y": "내 옷장",
+    "searchA11y": "옷장 검색"
   },
   "auth": {
-    "headline": "Before buying new clothes, rediscover what's already in your wardrobe.",
+    "headline": "새 옷을 사기 전에, 옷장 속 아이템을 다시 발견해 보세요.",
     "modes": {
-      "login": "Sign In",
-      "register": "Sign Up"
+      "login": "로그인",
+      "register": "회원가입"
     },
     "fields": {
-      "nameLabel": "Your name",
-      "namePlaceholder": "e.g. Emma",
-      "emailLabel": "Email",
+      "nameLabel": "이름",
+      "namePlaceholder": "예: 지민",
+      "emailLabel": "이메일",
       "emailPlaceholder": "name@example.com",
-      "passwordLabel": "Password",
-      "passwordPlaceholderRegister": "At least {{min}} characters",
-      "passwordPlaceholderLogin": "Your password",
-      "showPassword": "Show password",
-      "hidePassword": "Hide password"
+      "passwordLabel": "비밀번호",
+      "passwordPlaceholderRegister": "{{min}}자 이상",
+      "passwordPlaceholderLogin": "비밀번호",
+      "showPassword": "비밀번호 표시",
+      "hidePassword": "비밀번호 숨기기"
     },
     "validation": {
-      "nameRequired": "Enter your name",
-      "emailInvalid": "Enter a valid email address",
-      "passwordTooShort": "Password must be at least {{min}} characters",
-      "passwordRequired": "Enter your password"
+      "nameRequired": "이름을 입력해 주세요",
+      "emailInvalid": "올바른 이메일 주소를 입력해 주세요",
+      "passwordTooShort": "비밀번호는 {{min}}자 이상이어야 해요",
+      "passwordRequired": "비밀번호를 입력해 주세요"
     },
     "submit": {
-      "login": "Sign In",
-      "register": "Create Account"
+      "login": "로그인",
+      "register": "계정 만들기"
     },
     "switch": {
-      "noAccount": "Don't have an account?",
-      "toRegister": "Sign up",
-      "hasAccount": "Already have an account?",
-      "toLogin": "Sign in"
+      "noAccount": "계정이 없으신가요?",
+      "toRegister": "가입하기",
+      "hasAccount": "이미 계정이 있으신가요?",
+      "toLogin": "로그인"
     }
   },
   "onboarding": {
-    "greeting": "Hi {{name}}",
-    "greetingAnonymous": "Hi",
-    "signOut": "Sign out",
-    "stepProgressA11y": "Step {{current}} of {{total}}",
-    "wardrobeTypeText": "Categories and suggestions are tailored to this. You can change it later in your profile.",
-    "stylesText": "You can pick more than one. Choose at least one style.",
-    "continue": "Continue"
+    "greeting": "안녕하세요, {{name}}님",
+    "greetingAnonymous": "안녕하세요",
+    "signOut": "로그아웃",
+    "stepProgressA11y": "{{total}}단계 중 {{current}}단계",
+    "wardrobeTypeText": "여기에 맞춰 카테고리와 추천을 조정해 드려요. 나중에 프로필에서 바꿀 수 있어요.",
+    "stylesText": "여러 개를 고를 수 있어요. 스타일을 하나 이상 선택해 주세요.",
+    "continue": "계속"
   },
   "preferences": {
-    "wardrobeTypeQuestion": "Who should we organize your wardrobe for?",
-    "styleQuestion": "How would you describe your style?",
-    "atLeastOneStyle": "Choose at least one style."
+    "wardrobeTypeQuestion": "누구의 옷장을 정리할까요?",
+    "styleQuestion": "나의 스타일은 어떤가요?",
+    "atLeastOneStyle": "스타일을 하나 이상 선택해 주세요."
   },
   "howItWorks": {
-    "title": "How does it work?",
-    "stepLabel": "Step {{number}}",
-    "headline": "Make better use of what you own.",
-    "intro": "Before buying new clothes, make better use of the pieces already in your wardrobe. RYVENCA suggests outfits only from your own pieces and explains each one with a Match Score and the reasons behind it.",
+    "title": "어떻게 작동하나요?",
+    "stepLabel": "{{number}}단계",
+    "headline": "가진 옷을 더 잘 활용해 보세요.",
+    "intro": "새 옷을 사기 전에, 옷장 속 아이템을 더 잘 활용해 보세요. RYVENCA는 내 아이템으로만 코디를 추천하고, 매칭 점수와 그 이유로 하나하나 설명해 드려요.",
     "steps": {
       "photo": {
-        "title": "Take a photo",
-        "text": "On a hanger, on the bed or on the sofa — a regular phone photo is enough."
+        "title": "사진 찍기",
+        "text": "옷걸이에 걸거나 침대, 소파 위에 두고 찍어도 돼요. 평범한 휴대폰 사진이면 충분해요."
       },
       "organize": {
-        "title": "Get organized",
-        "text": "We detect the color automatically; with category and season, your wardrobe organizes itself."
+        "title": "자동 정리",
+        "text": "컬러는 자동으로 인식해요. 카테고리와 계절까지 더하면 옷장이 알아서 정리돼요."
       },
       "discover": {
-        "title": "Discover your outfits",
-        "text": "Outfits made only from your own pieces, with a Match Score and an explanation."
+        "title": "나만의 코디 발견",
+        "text": "내 아이템으로만 만든 코디를 매칭 점수와 설명과 함께 보여 드려요."
       }
     }
   },
   "home": {
     "hero": {
-      "title": "What should I wear today?",
-      "text": "Let us suggest the best outfits from the real pieces in your wardrobe.",
-      "cta": "Suggest an Outfit",
-      "recentA11y": "Your recently added pieces"
+      "title": "오늘 뭐 입지?",
+      "text": "옷장 속 실제 아이템으로 가장 잘 어울리는 코디를 추천해 드려요.",
+      "cta": "코디 추천받기",
+      "recentA11y": "최근 추가한 아이템"
     },
     "stats": {
-      "garments": "My Pieces",
-      "readyOutfits": "Ready Outfits",
-      "favorites": "Favorites",
+      "garments": "내 아이템",
+      "readyOutfits": "추천 코디",
+      "favorites": "즐겨찾기",
       "a11y": "{{label}}: {{value}}"
     },
     "wardrobe": {
-      "title": "My Wardrobe",
-      "emptyCategory": "No pieces in this category yet.",
-      "empty": "Your wardrobe is empty. Start by adding your first piece."
+      "title": "내 옷장",
+      "emptyCategory": "이 카테고리에는 아직 아이템이 없어요.",
+      "empty": "옷장이 비어 있어요. 첫 아이템을 추가해 보세요."
     },
     "today": {
-      "title": "Today's Suggestions",
-      "notReady": "Add a few more pieces so we can suggest outfits.",
-      "empty": "No suggestions for today. Check the Suggestions tab for new ideas."
+      "title": "오늘의 추천",
+      "notReady": "코디를 추천받으려면 아이템을 몇 개 더 추가해 주세요.",
+      "empty": "오늘은 추천이 없어요. 추천 탭에서 새로운 아이디어를 확인해 보세요."
     }
   },
   "readiness": {
-    "title": "Add {{min}}–{{max}} pieces to get outfit suggestions",
-    "almostThere": "Almost ready for suggestions",
+    "title": "코디 추천을 받으려면 아이템을 {{min}}–{{max}}개 추가해 주세요",
+    "almostThere": "추천까지 거의 다 왔어요",
     "progress": "{{current}}/{{total}}"
   },
   "wardrobe": {
-    "title": "My Wardrobe",
-    "count_one": "{{count}} piece",
-    "count_other": "{{count}} pieces",
-    "searchPlaceholder": "Search your wardrobe (e.g. blazer)",
-    "clearSearch": "Clear search",
-    "filter": "Filter",
-    "filterWithCount": "Filter · {{count}}",
-    "filterActiveA11y_one": "Filter, {{count}} filter active",
-    "filterActiveA11y_other": "Filter, {{count}} filters active",
+    "title": "내 옷장",
+    "count_one": "아이템 {{count}}개",
+    "count_other": "아이템 {{count}}개",
+    "searchPlaceholder": "옷장 검색 (예: 블레이저)",
+    "clearSearch": "검색어 지우기",
+    "filter": "필터",
+    "filterWithCount": "필터 · {{count}}",
+    "filterActiveA11y_one": "필터, {{count}}개 적용 중",
+    "filterActiveA11y_other": "필터, {{count}}개 적용 중",
     "noResults": {
-      "title": "No results",
-      "text": "No pieces match these filters. Try changing them.",
-      "action": "Clear Filters"
+      "title": "결과 없음",
+      "text": "필터에 맞는 아이템이 없어요. 필터를 바꿔 보세요.",
+      "action": "필터 초기화"
     },
     "empty": {
-      "title": "Your wardrobe is waiting",
-      "text": "Take photos of your clothes and your wardrobe organizes itself."
+      "title": "옷장이 기다리고 있어요",
+      "text": "옷 사진을 찍으면 옷장이 알아서 정리돼요."
     },
     "filterSheet": {
-      "title": "Filter",
-      "clear": "Clear",
-      "apply": "Apply",
-      "color": "Color",
-      "season": "Season",
-      "occasion": "Occasion",
-      "favoritesOnly": "Favorites only"
+      "title": "필터",
+      "clear": "초기화",
+      "apply": "적용",
+      "color": "컬러",
+      "season": "계절",
+      "occasion": "착용 상황",
+      "favoritesOnly": "즐겨찾기만"
     }
   },
   "garment": {
     "subtitle": "{{subcategory}} · {{color}}",
     "cardA11y": "{{name}}, {{details}}",
-    "patterned": "Patterned",
+    "patterned": "패턴 있음",
     "detail": {
-      "title": "Piece Details"
+      "title": "아이템 상세"
     },
     "delete": {
-      "title": "Delete this piece?",
-      "message": "Saved outfits that include this piece will also be deleted.",
-      "done": "Piece deleted",
-      "failed": "Couldn't delete"
+      "title": "이 아이템을 삭제할까요?",
+      "message": "이 아이템이 포함된 저장 코디도 함께 삭제돼요.",
+      "done": "아이템을 삭제했어요",
+      "failed": "삭제하지 못했어요"
     },
     "pairings": {
-      "eyebrow": "Key feature",
-      "title": "What Goes With It?",
-      "text": "The pieces in your wardrobe that match this one best.",
-      "noMatches": "No matching pieces found for this one.",
-      "outfitsTitle": "Outfits with this piece",
-      "noOutfits": "We couldn't build an outfit with this piece yet.",
-      "notReady": "Add a few more pieces so we can build outfits."
+      "eyebrow": "핵심 기능",
+      "title": "무엇과 어울릴까요?",
+      "text": "내 옷장에서 이 아이템과 가장 잘 어울리는 아이템이에요.",
+      "noMatches": "이 아이템과 어울리는 아이템을 찾지 못했어요.",
+      "outfitsTitle": "이 아이템이 들어간 코디",
+      "noOutfits": "아직 이 아이템으로 코디를 만들 수 없어요.",
+      "notReady": "코디를 만들려면 아이템을 몇 개 더 추가해 주세요."
     }
   },
   "upload": {
-    "title": "Upload a Piece",
-    "subtitle": "Add a new piece to your wardrobe and discover better outfits.",
-    "recent": "Recently Added",
+    "title": "아이템 등록",
+    "subtitle": "옷장에 새 아이템을 추가하고 더 멋진 코디를 발견해 보세요.",
+    "recent": "최근 추가한 아이템",
     "added": {
-      "toast": "Added to your wardrobe",
-      "title": "Added to your wardrobe",
-      "text": "Great! Your new piece is now part of your outfit suggestions.",
-      "addAnother": "Add another piece",
-      "viewPiece": "View piece"
+      "toast": "옷장에 추가했어요",
+      "title": "옷장에 추가했어요",
+      "text": "좋아요! 새 아이템이 이제 코디 추천에 활용돼요.",
+      "addAnother": "아이템 더 추가하기",
+      "viewPiece": "아이템 보기"
     },
     "edit": {
-      "title": "Edit Piece",
-      "savedToast": "Changes saved"
+      "title": "아이템 편집",
+      "savedToast": "변경 사항을 저장했어요"
     },
     "cameraPermission": {
-      "title": "Camera access needed",
-      "message": "To take photos of your clothes, allow camera access in Settings.",
-      "openSettings": "Open Settings"
+      "title": "카메라 접근 권한이 필요해요",
+      "message": "옷 사진을 찍으려면 설정에서 카메라 접근을 허용해 주세요.",
+      "openSettings": "설정 열기"
     },
-    "uploadFailed": "The photo couldn't be uploaded. Please try again.",
-    "saveFailed": "Couldn't save",
+    "uploadFailed": "사진을 업로드하지 못했어요. 다시 시도해 주세요.",
+    "saveFailed": "저장하지 못했어요",
     "photo": {
-      "selectedA11y": "Selected photo",
-      "preparing": "Preparing photo…",
-      "analyzing": "Analyzing color…",
-      "addTitle": "Add a photo of your piece",
-      "helper": "A regular phone photo is enough. Capture the whole piece in good light, ideally on a plain surface.",
-      "camera": "Take Photo",
-      "library": "Choose from Library"
+      "selectedA11y": "선택한 사진",
+      "preparing": "사진 준비 중…",
+      "analyzing": "컬러 분석 중…",
+      "addTitle": "아이템 사진 추가하기",
+      "helper": "평범한 휴대폰 사진이면 충분해요. 밝은 곳에서, 가능하면 단색 바탕 위에 아이템 전체가 나오게 찍어 주세요.",
+      "camera": "사진 찍기",
+      "library": "사진 보관함에서 선택"
     },
     "form": {
-      "category": "Category",
-      "subcategory": "Subcategory",
-      "chooseCategoryFirst": "Choose a category first.",
-      "color": "Color",
-      "autoDetected": "✦ Auto-detected · {{confidence}}",
+      "category": "카테고리",
+      "subcategory": "세부 카테고리",
+      "chooseCategoryFirst": "먼저 카테고리를 선택해 주세요.",
+      "color": "컬러",
+      "autoDetected": "✦ 자동 인식 · {{confidence}}",
       "confidence": {
-        "high": "high confidence",
-        "medium": "medium confidence",
-        "low": "low confidence"
+        "high": "정확도 높음",
+        "medium": "정확도 보통",
+        "low": "정확도 낮음"
       },
-      "manual": "Selected manually",
-      "measuredTone": "Detected tone",
-      "otherCandidates": "Other possibilities:",
-      "patternedHint": "Patterns such as stripes, plaid or florals",
-      "season": "Season",
-      "seasonHint": "Leave empty and we'll choose based on the piece.",
-      "allSeasons": "All Seasons",
-      "occasion": "Occasion",
-      "occasionHint": "You can pick more than one.",
-      "name": "Name (optional)",
-      "namePlaceholder": "e.g. My favorite beige blazer",
+      "manual": "직접 선택",
+      "measuredTone": "인식된 톤",
+      "otherCandidates": "다른 후보:",
+      "patternedHint": "스트라이프, 체크, 플라워 등의 패턴",
+      "season": "계절",
+      "seasonHint": "비워 두면 아이템에 맞춰 자동으로 선택해요.",
+      "allSeasons": "사계절",
+      "occasion": "착용 상황",
+      "occasionHint": "여러 개를 고를 수 있어요.",
+      "name": "이름 (선택)",
+      "namePlaceholder": "예: 가장 아끼는 베이지 블레이저",
       "generatedName": "{{color}} {{subcategory}}"
     },
     "submit": {
-      "create": "Save to Wardrobe",
-      "edit": "Save Changes"
+      "create": "옷장에 저장",
+      "edit": "변경 사항 저장"
     },
     "missing": {
-      "uploading": "Uploading photo…",
-      "photo": "Add a photo of your piece first.",
-      "category": "Choose a category.",
-      "subcategory": "Choose a subcategory.",
-      "color": "Choose a color."
+      "uploading": "사진 업로드 중…",
+      "photo": "먼저 아이템 사진을 추가해 주세요.",
+      "category": "카테고리를 선택해 주세요.",
+      "subcategory": "세부 카테고리를 선택해 주세요.",
+      "color": "컬러를 선택해 주세요."
     }
   },
   "suggestions": {
-    "title": "Suggestions",
-    "subtitle": "Outfits made from the photos in your wardrobe.",
-    "summary_one": "{{count}} outfit · {{season}}",
-    "summary_other": "{{count}} outfits · {{season}}",
-    "shuffle": "Suggest Again",
-    "shuffleHint": "Fetches new outfit suggestions",
-    "loading": "Preparing outfits…",
+    "title": "코디 추천",
+    "subtitle": "옷장 속 사진으로 조합한 코디예요.",
+    "summary_one": "코디 {{count}}개 · {{season}}",
+    "summary_other": "코디 {{count}}개 · {{season}}",
+    "shuffle": "다시 추천받기",
+    "shuffleHint": "새로운 코디 추천을 불러와요",
+    "loading": "코디 준비 중…",
     "notReady": {
-      "title": "Let's add a few pieces first",
-      "text": "To suggest outfits we need at least one top, one bottom (or a dress) and one pair of shoes."
+      "title": "먼저 아이템을 몇 개 추가해 볼까요?",
+      "text": "코디를 추천하려면 상의, 하의(또는 원피스), 신발이 각각 하나 이상 필요해요."
     },
     "empty": {
-      "title": "No outfits match these filters",
-      "text": "Try choosing a different occasion or season.",
-      "action": "See All Outfits"
+      "title": "이 조건에 맞는 코디가 없어요",
+      "text": "다른 착용 상황이나 계절을 선택해 보세요.",
+      "action": "전체 코디 보기"
     }
   },
   "outfit": {
-    "scorePill": "Match {{percent}}",
-    "scoreRingLabel": "Match Score",
+    "scorePill": "매칭 {{percent}}",
+    "scoreRingLabel": "매칭 점수",
     "scoreRingA11y": "{{label}} {{score}}",
     "cardA11y": "{{title}}, {{score}}",
-    "collageA11y": "{{title}} collage",
-    "collageItemsA11y_one": "Outfit collage, {{count}} piece",
-    "collageItemsA11y_other": "Outfit collage, {{count}} pieces",
-    "save": "Save outfit",
-    "unsave": "Remove from saved",
-    "saveThis": "Save This Outfit",
-    "viewDetail": "View Details",
-    "breakdownA11y": "{{label}}, weight {{weight}}, score {{score}}",
+    "collageA11y": "{{title}} 콜라주",
+    "collageItemsA11y_one": "코디 콜라주, 아이템 {{count}}개",
+    "collageItemsA11y_other": "코디 콜라주, 아이템 {{count}}개",
+    "save": "코디 저장",
+    "unsave": "저장 취소",
+    "saveThis": "이 코디 저장하기",
+    "viewDetail": "상세 보기",
+    "breakdownA11y": "{{label}}, 가중치 {{weight}}, 점수 {{score}}",
     "detail": {
-      "title": "Outfit Details",
-      "share": "Share",
-      "loadFailed": "Couldn't load the outfit",
-      "tapHint": "Tap a piece to see its details",
-      "breakdown": "Score Breakdown",
-      "why": "Why It Works",
-      "venues": "Where to Wear It",
-      "palette": "Color Palette",
-      "saveOutfit": "Save Outfit",
-      "similar": "Similar Outfits",
-      "noSimilar": "We couldn't find a similar outfit for now.",
-      "actionFailed": "Couldn't complete the action"
+      "title": "코디 상세",
+      "share": "공유",
+      "loadFailed": "코디를 불러오지 못했어요",
+      "tapHint": "아이템을 탭하면 상세 정보를 볼 수 있어요",
+      "breakdown": "점수 상세",
+      "why": "왜 잘 어울릴까요?",
+      "venues": "어디에 입을까",
+      "palette": "컬러 팔레트",
+      "saveOutfit": "코디 저장",
+      "similar": "비슷한 코디",
+      "noSimilar": "아직 비슷한 코디를 찾지 못했어요.",
+      "actionFailed": "작업을 완료하지 못했어요"
     },
     "share": {
-      "message": "{{title}} — Match Score {{score}}\n{{description}}\n\n{{pieces}}\n\nCreated from my own wardrobe with RYVENCA."
+      "message": "{{title}} — 매칭 점수 {{score}}\n{{description}}\n\n{{pieces}}\n\nRYVENCA로 내 옷장 속 아이템만으로 완성했어요."
     }
   },
   "favorites": {
-    "title": "Favorites",
+    "title": "즐겨찾기",
     "tabs": {
-      "outfits": "Saved Outfits",
-      "garments": "Favorite Pieces"
+      "outfits": "저장한 코디",
+      "garments": "즐겨찾는 아이템"
     },
     "emptyOutfits": {
-      "title": "No saved outfits yet",
-      "text": "Save the outfits you like and they'll be waiting for you here.",
-      "action": "Browse Suggestions"
+      "title": "아직 저장한 코디가 없어요",
+      "text": "마음에 드는 코디를 저장하면 여기에서 기다리고 있을게요.",
+      "action": "추천 둘러보기"
     },
     "emptyGarments": {
-      "title": "No favorite pieces",
-      "text": "Tap the heart on pieces in your wardrobe to add them to your favorites.",
-      "action": "Go to My Wardrobe"
+      "title": "즐겨찾는 아이템이 없어요",
+      "text": "옷장 속 아이템의 하트를 탭하면 즐겨찾기에 추가돼요.",
+      "action": "내 옷장으로 가기"
     }
   },
   "profile": {
-    "avatarA11y": "Profile picture of {{name}}",
-    "preferences": "My Preferences",
-    "wardrobeType": "Wardrobe",
-    "style": "Style",
+    "avatarA11y": "{{name}}님의 프로필 사진",
+    "preferences": "내 취향",
+    "wardrobeType": "옷장",
+    "style": "스타일",
     "links": {
-      "favorites": "My Favorites",
-      "stats": "Wardrobe statistics",
-      "language": "Language"
+      "favorites": "즐겨찾기",
+      "stats": "옷장 통계",
+      "language": "언어"
     },
     "logout": {
-      "action": "Sign Out",
-      "confirm": "Do you want to sign out?"
+      "action": "로그아웃",
+      "confirm": "로그아웃할까요?"
     },
     "deleteAccount": {
-      "action": "Delete Account",
-      "title": "Are you sure you want to delete your account?",
-      "message": "Your account, all pieces in your wardrobe, photos and saved outfits will be permanently deleted. This can't be undone.",
-      "failed": "Couldn't delete the account"
+      "action": "계정 삭제",
+      "title": "정말 계정을 삭제할까요?",
+      "message": "계정과 옷장 속 모든 아이템, 사진, 저장한 코디가 영구적으로 삭제돼요. 삭제 후에는 되돌릴 수 없어요.",
+      "failed": "계정을 삭제하지 못했어요"
     },
     "editPreferences": {
-      "title": "My Preferences",
-      "updatedToast": "Your preferences were updated"
+      "title": "내 취향",
+      "updatedToast": "취향을 업데이트했어요"
     },
     "stats": {
-      "title": "Wardrobe Statistics",
-      "total": "Total pieces",
-      "favorites": "Favorite pieces",
+      "title": "옷장 통계",
+      "total": "전체 아이템",
+      "favorites": "즐겨찾는 아이템",
       "categoryA11y": "{{category}}: {{count}}"
     }
   }

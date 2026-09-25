@@ -51,15 +51,22 @@ export const resources = {
 } as const satisfies Record<LanguageCode, { translation: object }>;
 
 /**
- * Interpolation formatter: numbers passed to t() ({{count}}, {{current}}/{{total}}, …) are rendered
- * with the language's digits and grouping (e.g. Arabic-Indic digits for `ar`). Other values pass through.
+ * Interpolation formatter:
+ * - numbers passed to t() ({{count}}, {{current}}/{{total}}, …) are rendered with the language's digits and
+ *   grouping (e.g. Arabic-Indic digits for `ar`);
+ * - `{{value, lowercase}}` lowercases a label with the language's casing rules, so client-side names (the
+ *   suggested garment name) match what the server generates ("Beige blazer").
+ * Other values pass through.
  */
 const numberFormatter: FormatterModule = {
   type: 'formatter',
   init: () => undefined,
   add: () => undefined,
   addCached: () => undefined,
-  format: (value, _format, lng) => (typeof value === 'number' && lng ? formatNumber(value, lng) : value),
+  format: (value, format, lng) => {
+    if (format === 'lowercase' && typeof value === 'string') return value.toLocaleLowerCase(lng);
+    return typeof value === 'number' && lng ? formatNumber(value, lng) : value;
+  },
 };
 
 export const i18n = createInstance();

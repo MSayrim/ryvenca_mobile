@@ -3,376 +3,392 @@
     "tagline": "Style what you already own"
   },
   "accents": {
-    "sameYouBetterOutfits": "Same you, better outfits ♡",
-    "noStudioNeeded": "No studio shots needed. Your own photo is enough! ♡"
+    "sameYouBetterOutfits": "أنت كما أنت، بإطلالات أجمل ♡",
+    "noStudioNeeded": "لا حاجة إلى جلسة تصوير في استوديو. صورتك تكفي! ♡"
   },
   "common": {
-    "retry": "Try Again",
-    "confirm": "Confirm",
-    "cancel": "Cancel",
-    "close": "Close",
-    "back": "Back",
-    "save": "Save",
-    "saved": "Saved",
-    "edit": "Edit",
-    "delete": "Delete",
-    "seeAll": "See All",
-    "all": "All",
-    "addPiece": "Add a Piece",
-    "addFirstPiece": "Add your first piece",
-    "required": "Required",
-    "notSelected": "Not selected",
-    "later": "Later",
-    "addToFavorites": "Add to favorites",
-    "removeFromFavorites": "Remove from favorites"
+    "retry": "إعادة المحاولة",
+    "confirm": "تأكيد",
+    "cancel": "إلغاء",
+    "close": "إغلاق",
+    "back": "رجوع",
+    "save": "حفظ",
+    "saved": "تم الحفظ",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "seeAll": "عرض الكل",
+    "all": "الكل",
+    "addPiece": "أضف قطعة",
+    "addFirstPiece": "أضف قطعتك الأولى",
+    "required": "مطلوب",
+    "notSelected": "غير محدد",
+    "later": "لاحقًا",
+    "addToFavorites": "أضف إلى المفضّلة",
+    "removeFromFavorites": "أزل من المفضّلة"
   },
   "errors": {
-    "title": "Something went wrong",
-    "network": "Couldn't reach the server. Check your internet connection and try again.",
-    "timeout": "The request timed out. Please try again.",
-    "generic": "Something went wrong. Please try again.",
-    "unexpectedResponse": "The server sent an unexpected response.",
-    "validation": "The information you sent is invalid.",
-    "unauthorized": "Your session has expired. Please sign in again.",
-    "forbidden": "You don't have permission to do this.",
-    "notFound": "We couldn't find what you were looking for.",
-    "conflict": "This action conflicts with existing records.",
-    "payloadTooLarge": "The photo is too large. You can upload up to {{maxMb}} MB.",
-    "server": "Something went wrong on the server. Please try again in a moment.",
-    "connectionFailed": "Couldn't connect"
+    "title": "حدث خطأ ما",
+    "network": "تعذّر الوصول إلى الخادم. تحقّق من اتصالك بالإنترنت وحاول مرة أخرى.",
+    "timeout": "انتهت مهلة الطلب. يرجى المحاولة مرة أخرى.",
+    "generic": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "unexpectedResponse": "أرسل الخادم استجابة غير متوقعة.",
+    "validation": "البيانات المُرسلة غير صالحة.",
+    "unauthorized": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى.",
+    "forbidden": "ليس لديك إذن للقيام بذلك.",
+    "notFound": "لم نعثر على ما تبحث عنه.",
+    "conflict": "يتعارض هذا الإجراء مع بيانات موجودة.",
+    "payloadTooLarge": "حجم الصورة كبير جدًا. الحد الأقصى {{maxMb}} ميغابايت.",
+    "server": "حدث خطأ في الخادم. يرجى المحاولة بعد قليل.",
+    "connectionFailed": "تعذّر الاتصال"
   },
   "language": {
-    "title": "Language",
-    "choose": "Choose language",
-    "buttonA11y": "Language: {{language}}. Tap to change.",
+    "title": "اللغة",
+    "choose": "اختر اللغة",
+    "buttonA11y": "اللغة: {{language}}. اضغط للتغيير.",
     "restart": {
-      "title": "Restart required",
-      "message": "The app will restart to switch the layout direction.",
-      "confirm": "Restart now"
+      "title": "يلزم إعادة التشغيل",
+      "message": "سيُعاد تشغيل التطبيق لتغيير اتجاه العرض.",
+      "confirm": "إعادة التشغيل الآن"
     }
   },
   "tabs": {
-    "home": "Home",
-    "wardrobe": "My Wardrobe",
-    "upload": "Upload",
-    "uploadA11y": "Upload a piece",
-    "suggestions": "Suggestions",
-    "profile": "Profile"
+    "home": "الرئيسية",
+    "wardrobe": "خزانتي",
+    "upload": "إضافة",
+    "uploadA11y": "أضف قطعة",
+    "suggestions": "الاقتراحات",
+    "profile": "حسابي"
   },
   "header": {
-    "wardrobeA11y": "My Wardrobe",
-    "searchA11y": "Search your wardrobe"
+    "wardrobeA11y": "خزانتي",
+    "searchA11y": "ابحث في خزانتك"
   },
   "auth": {
-    "headline": "Before buying new clothes, rediscover what's already in your wardrobe.",
+    "headline": "قبل شراء ملابس جديدة، أعد اكتشاف ما في خزانتك بالفعل.",
     "modes": {
-      "login": "Sign In",
-      "register": "Sign Up"
+      "login": "تسجيل الدخول",
+      "register": "إنشاء حساب"
     },
     "fields": {
-      "nameLabel": "Your name",
-      "namePlaceholder": "e.g. Emma",
-      "emailLabel": "Email",
+      "nameLabel": "اسمك",
+      "namePlaceholder": "مثال: سارة",
+      "emailLabel": "البريد الإلكتروني",
       "emailPlaceholder": "name@example.com",
-      "passwordLabel": "Password",
-      "passwordPlaceholderRegister": "At least {{min}} characters",
-      "passwordPlaceholderLogin": "Your password",
-      "showPassword": "Show password",
-      "hidePassword": "Hide password"
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholderRegister": "{{min}} أحرف على الأقل",
+      "passwordPlaceholderLogin": "كلمة المرور",
+      "showPassword": "إظهار كلمة المرور",
+      "hidePassword": "إخفاء كلمة المرور"
     },
     "validation": {
-      "nameRequired": "Enter your name",
-      "emailInvalid": "Enter a valid email address",
-      "passwordTooShort": "Password must be at least {{min}} characters",
-      "passwordRequired": "Enter your password"
+      "nameRequired": "أدخل اسمك",
+      "emailInvalid": "أدخل عنوان بريد إلكتروني صالحًا",
+      "passwordTooShort": "يجب أن تتكون كلمة المرور من {{min}} أحرف على الأقل",
+      "passwordRequired": "أدخل كلمة المرور"
     },
     "submit": {
-      "login": "Sign In",
-      "register": "Create Account"
+      "login": "تسجيل الدخول",
+      "register": "إنشاء حساب"
     },
     "switch": {
-      "noAccount": "Don't have an account?",
-      "toRegister": "Sign up",
-      "hasAccount": "Already have an account?",
-      "toLogin": "Sign in"
+      "noAccount": "ليس لديك حساب؟",
+      "toRegister": "أنشئ حسابًا",
+      "hasAccount": "لديك حساب بالفعل؟",
+      "toLogin": "سجّل الدخول"
     }
   },
   "onboarding": {
-    "greeting": "Hi {{name}}",
-    "greetingAnonymous": "Hi",
-    "signOut": "Sign out",
-    "stepProgressA11y": "Step {{current}} of {{total}}",
-    "wardrobeTypeText": "Categories and suggestions are tailored to this. You can change it later in your profile.",
-    "stylesText": "You can pick more than one. Choose at least one style.",
-    "continue": "Continue"
+    "greeting": "مرحبًا {{name}}",
+    "greetingAnonymous": "مرحبًا",
+    "signOut": "تسجيل الخروج",
+    "stepProgressA11y": "الخطوة {{current}} من {{total}}",
+    "wardrobeTypeText": "نكيّف الفئات والاقتراحات وفقًا لاختيارك. يمكنك تغييره لاحقًا من ملفك الشخصي.",
+    "stylesText": "يمكنك اختيار أكثر من أسلوب. اختر أسلوبًا واحدًا على الأقل.",
+    "continue": "متابعة"
   },
   "preferences": {
-    "wardrobeTypeQuestion": "Who should we organize your wardrobe for?",
-    "styleQuestion": "How would you describe your style?",
-    "atLeastOneStyle": "Choose at least one style."
+    "wardrobeTypeQuestion": "لمن الخزانة التي سننظّمها؟",
+    "styleQuestion": "كيف تصف أسلوبك؟",
+    "atLeastOneStyle": "اختر أسلوبًا واحدًا على الأقل."
   },
   "howItWorks": {
-    "title": "How does it work?",
-    "stepLabel": "Step {{number}}",
-    "headline": "Make better use of what you own.",
-    "intro": "Before buying new clothes, make better use of the pieces already in your wardrobe. RYVENCA suggests outfits only from your own pieces and explains each one with a Match Score and the reasons behind it.",
+    "title": "كيف يعمل؟",
+    "stepLabel": "الخطوة {{number}}",
+    "headline": "استفد أكثر مما تملكه.",
+    "intro": "قبل شراء ملابس جديدة، استفد أكثر من القطع الموجودة في خزانتك. يقترح عليك RYVENCA إطلالات من قطعك الخاصة فقط، ويشرح كل إطلالة بدرجة توافق وأسبابها.",
     "steps": {
       "photo": {
-        "title": "Take a photo",
-        "text": "On a hanger, on the bed or on the sofa — a regular phone photo is enough."
+        "title": "التقط صورة",
+        "text": "على شمّاعة أو على السرير أو على الأريكة — تكفي صورة عادية بالهاتف."
       },
       "organize": {
-        "title": "Get organized",
-        "text": "We detect the color automatically; with category and season, your wardrobe organizes itself."
+        "title": "نظّم خزانتك",
+        "text": "نكتشف اللون تلقائيًا؛ ومع الفئة والموسم، تنظّم خزانتك نفسها بنفسها."
       },
       "discover": {
-        "title": "Discover your outfits",
-        "text": "Outfits made only from your own pieces, with a Match Score and an explanation."
+        "title": "اكتشف إطلالاتك",
+        "text": "إطلالات من قطعك الخاصة فقط، مع درجة توافق وشرح."
       }
     }
   },
   "home": {
     "hero": {
-      "title": "What should I wear today?",
-      "text": "Let us suggest the best outfits from the real pieces in your wardrobe.",
-      "cta": "Suggest an Outfit",
-      "recentA11y": "Your recently added pieces"
+      "title": "ماذا أرتدي اليوم؟",
+      "text": "دعنا نقترح عليك أفضل الإطلالات من القطع الحقيقية في خزانتك.",
+      "cta": "اقترح إطلالة",
+      "recentA11y": "القطع التي أضفتها مؤخرًا"
     },
     "stats": {
-      "garments": "My Pieces",
-      "readyOutfits": "Ready Outfits",
-      "favorites": "Favorites",
+      "garments": "قطعي",
+      "readyOutfits": "إطلالات جاهزة",
+      "favorites": "المفضّلة",
       "a11y": "{{label}}: {{value}}"
     },
     "wardrobe": {
-      "title": "My Wardrobe",
-      "emptyCategory": "No pieces in this category yet.",
-      "empty": "Your wardrobe is empty. Start by adding your first piece."
+      "title": "خزانتي",
+      "emptyCategory": "لا توجد قطع في هذه الفئة بعد.",
+      "empty": "خزانتك فارغة. ابدأ بإضافة قطعتك الأولى."
     },
     "today": {
-      "title": "Today's Suggestions",
-      "notReady": "Add a few more pieces so we can suggest outfits.",
-      "empty": "No suggestions for today. Check the Suggestions tab for new ideas."
+      "title": "اقتراحات اليوم",
+      "notReady": "أضف بضع قطع أخرى لنتمكّن من اقتراح إطلالات لك.",
+      "empty": "لا توجد اقتراحات لليوم. تفقّد تبويب الاقتراحات للحصول على أفكار جديدة."
     }
   },
   "readiness": {
-    "title": "Add {{min}}–{{max}} pieces to get outfit suggestions",
-    "almostThere": "Almost ready for suggestions",
+    "title": "أضف من {{min}} إلى {{max}} قطع لتحصل على اقتراحات إطلالات",
+    "almostThere": "اقتربت من الحصول على الاقتراحات",
     "progress": "{{current}}/{{total}}"
   },
   "wardrobe": {
-    "title": "My Wardrobe",
-    "count_one": "{{count}} piece",
-    "count_other": "{{count}} pieces",
-    "searchPlaceholder": "Search your wardrobe (e.g. blazer)",
-    "clearSearch": "Clear search",
-    "filter": "Filter",
-    "filterWithCount": "Filter · {{count}}",
-    "filterActiveA11y_one": "Filter, {{count}} filter active",
-    "filterActiveA11y_other": "Filter, {{count}} filters active",
+    "title": "خزانتي",
+    "count_zero": "لا توجد قطع",
+    "count_one": "قطعة واحدة",
+    "count_two": "قطعتان",
+    "count_few": "{{count}} قطع",
+    "count_many": "{{count}} قطعة",
+    "count_other": "{{count}} قطعة",
+    "searchPlaceholder": "ابحث في خزانتك (مثل: بليزر)",
+    "clearSearch": "مسح البحث",
+    "filter": "تصفية",
+    "filterWithCount": "تصفية · {{count}}",
+    "filterActiveA11y_zero": "تصفية، لا توجد عوامل تصفية مفعّلة",
+    "filterActiveA11y_one": "تصفية، عامل تصفية واحد مفعّل",
+    "filterActiveA11y_two": "تصفية، عاملا تصفية مفعّلان",
+    "filterActiveA11y_few": "تصفية، {{count}} عوامل تصفية مفعّلة",
+    "filterActiveA11y_many": "تصفية، {{count}} عامل تصفية مفعّلًا",
+    "filterActiveA11y_other": "تصفية، {{count}} عامل تصفية مفعّل",
     "noResults": {
-      "title": "No results",
-      "text": "No pieces match these filters. Try changing them.",
-      "action": "Clear Filters"
+      "title": "لا توجد نتائج",
+      "text": "لا توجد قطع تطابق عوامل التصفية هذه. جرّب تغييرها.",
+      "action": "مسح عوامل التصفية"
     },
     "empty": {
-      "title": "Your wardrobe is waiting",
-      "text": "Take photos of your clothes and your wardrobe organizes itself."
+      "title": "خزانتك في انتظارك",
+      "text": "التقط صورًا لملابسك وستنظّم خزانتك نفسها بنفسها."
     },
     "filterSheet": {
-      "title": "Filter",
-      "clear": "Clear",
-      "apply": "Apply",
-      "color": "Color",
-      "season": "Season",
-      "occasion": "Occasion",
-      "favoritesOnly": "Favorites only"
+      "title": "تصفية",
+      "clear": "مسح",
+      "apply": "تطبيق",
+      "color": "اللون",
+      "season": "الموسم",
+      "occasion": "المناسبة",
+      "favoritesOnly": "المفضّلة فقط"
     }
   },
   "garment": {
     "subtitle": "{{subcategory}} · {{color}}",
-    "cardA11y": "{{name}}, {{details}}",
-    "patterned": "Patterned",
+    "cardA11y": "{{name}}، {{details}}",
+    "patterned": "منقوشة",
     "detail": {
-      "title": "Piece Details"
+      "title": "تفاصيل القطعة"
     },
     "delete": {
-      "title": "Delete this piece?",
-      "message": "Saved outfits that include this piece will also be deleted.",
-      "done": "Piece deleted",
-      "failed": "Couldn't delete"
+      "title": "هل تريد حذف هذه القطعة؟",
+      "message": "سيتم أيضًا حذف الإطلالات المحفوظة التي تتضمن هذه القطعة.",
+      "done": "تم حذف القطعة",
+      "failed": "تعذّر الحذف"
     },
     "pairings": {
-      "eyebrow": "Key feature",
-      "title": "What Goes With It?",
-      "text": "The pieces in your wardrobe that match this one best.",
-      "noMatches": "No matching pieces found for this one.",
-      "outfitsTitle": "Outfits with this piece",
-      "noOutfits": "We couldn't build an outfit with this piece yet.",
-      "notReady": "Add a few more pieces so we can build outfits."
+      "eyebrow": "ميزة رئيسية",
+      "title": "ما الذي يناسبها؟",
+      "text": "القطع في خزانتك الأكثر تناسقًا مع هذه القطعة.",
+      "noMatches": "لم نعثر على قطع تناسب هذه القطعة.",
+      "outfitsTitle": "إطلالات بهذه القطعة",
+      "noOutfits": "لم نتمكّن بعد من تكوين إطلالة بهذه القطعة.",
+      "notReady": "أضف بضع قطع أخرى لنتمكّن من تكوين إطلالات."
     }
   },
   "upload": {
-    "title": "Upload a Piece",
-    "subtitle": "Add a new piece to your wardrobe and discover better outfits.",
-    "recent": "Recently Added",
+    "title": "أضف قطعة",
+    "subtitle": "أضف قطعة جديدة إلى خزانتك واكتشف إطلالات أفضل.",
+    "recent": "المضافة حديثًا",
     "added": {
-      "toast": "Added to your wardrobe",
-      "title": "Added to your wardrobe",
-      "text": "Great! Your new piece is now part of your outfit suggestions.",
-      "addAnother": "Add another piece",
-      "viewPiece": "View piece"
+      "toast": "تمت الإضافة إلى خزانتك",
+      "title": "تمت الإضافة إلى خزانتك",
+      "text": "رائع! أصبحت قطعتك الجديدة جزءًا من اقتراحات إطلالاتك.",
+      "addAnother": "أضف قطعة أخرى",
+      "viewPiece": "عرض القطعة"
     },
     "edit": {
-      "title": "Edit Piece",
-      "savedToast": "Changes saved"
+      "title": "تعديل القطعة",
+      "savedToast": "تم حفظ التغييرات"
     },
     "cameraPermission": {
-      "title": "Camera access needed",
-      "message": "To take photos of your clothes, allow camera access in Settings.",
-      "openSettings": "Open Settings"
+      "title": "يلزم الوصول إلى الكاميرا",
+      "message": "لالتقاط صور لملابسك، اسمح بالوصول إلى الكاميرا من الإعدادات.",
+      "openSettings": "فتح الإعدادات"
     },
-    "uploadFailed": "The photo couldn't be uploaded. Please try again.",
-    "saveFailed": "Couldn't save",
+    "uploadFailed": "تعذّر رفع الصورة. يرجى المحاولة مرة أخرى.",
+    "saveFailed": "تعذّر الحفظ",
     "photo": {
-      "selectedA11y": "Selected photo",
-      "preparing": "Preparing photo…",
-      "analyzing": "Analyzing color…",
-      "addTitle": "Add a photo of your piece",
-      "helper": "A regular phone photo is enough. Capture the whole piece in good light, ideally on a plain surface.",
-      "camera": "Take Photo",
-      "library": "Choose from Library"
+      "selectedA11y": "الصورة المختارة",
+      "preparing": "جارٍ تجهيز الصورة…",
+      "analyzing": "جارٍ تحليل اللون…",
+      "addTitle": "أضف صورة لقطعتك",
+      "helper": "تكفي صورة عادية بالهاتف. التقط القطعة كاملة في إضاءة جيدة، ويفضَّل على سطح بلون واحد.",
+      "camera": "التقط صورة",
+      "library": "اختر من المعرض"
     },
     "form": {
-      "category": "Category",
-      "subcategory": "Subcategory",
-      "chooseCategoryFirst": "Choose a category first.",
-      "color": "Color",
-      "autoDetected": "✦ Auto-detected · {{confidence}}",
+      "category": "الفئة",
+      "subcategory": "الفئة الفرعية",
+      "chooseCategoryFirst": "اختر فئة أولًا.",
+      "color": "اللون",
+      "autoDetected": "✦ تم اكتشافه تلقائيًا · {{confidence}}",
       "confidence": {
-        "high": "high confidence",
-        "medium": "medium confidence",
-        "low": "low confidence"
+        "high": "ثقة عالية",
+        "medium": "ثقة متوسطة",
+        "low": "ثقة منخفضة"
       },
-      "manual": "Selected manually",
-      "measuredTone": "Detected tone",
-      "otherCandidates": "Other possibilities:",
-      "patternedHint": "Patterns such as stripes, plaid or florals",
-      "season": "Season",
-      "seasonHint": "Leave empty and we'll choose based on the piece.",
-      "allSeasons": "All Seasons",
-      "occasion": "Occasion",
-      "occasionHint": "You can pick more than one.",
-      "name": "Name (optional)",
-      "namePlaceholder": "e.g. My favorite beige blazer",
-      "generatedName": "{{color}} {{subcategory}}"
+      "manual": "تم اختياره يدويًا",
+      "measuredTone": "الدرجة المكتشفة",
+      "otherCandidates": "احتمالات أخرى:",
+      "patternedHint": "نقشات مثل المخططة أو المربعات أو الزهور",
+      "season": "الموسم",
+      "seasonHint": "اتركه فارغًا وسنختاره بحسب القطعة.",
+      "allSeasons": "كل المواسم",
+      "occasion": "المناسبة",
+      "occasionHint": "يمكنك اختيار أكثر من مناسبة.",
+      "name": "الاسم (اختياري)",
+      "namePlaceholder": "مثال: بليزري البيج المفضّل",
+      "generatedName": "{{subcategory}} بلون {{color}}"
     },
     "submit": {
-      "create": "Save to Wardrobe",
-      "edit": "Save Changes"
+      "create": "احفظ في الخزانة",
+      "edit": "احفظ التغييرات"
     },
     "missing": {
-      "uploading": "Uploading photo…",
-      "photo": "Add a photo of your piece first.",
-      "category": "Choose a category.",
-      "subcategory": "Choose a subcategory.",
-      "color": "Choose a color."
+      "uploading": "جارٍ رفع الصورة…",
+      "photo": "أضف صورة لقطعتك أولًا.",
+      "category": "اختر فئة.",
+      "subcategory": "اختر فئة فرعية.",
+      "color": "اختر لونًا."
     }
   },
   "suggestions": {
-    "title": "Suggestions",
-    "subtitle": "Outfits made from the photos in your wardrobe.",
-    "summary_one": "{{count}} outfit · {{season}}",
-    "summary_other": "{{count}} outfits · {{season}}",
-    "shuffle": "Suggest Again",
-    "shuffleHint": "Fetches new outfit suggestions",
-    "loading": "Preparing outfits…",
+    "title": "الاقتراحات",
+    "subtitle": "إطلالات منسّقة من الصور الموجودة في خزانتك.",
+    "summary_zero": "لا توجد إطلالات · {{season}}",
+    "summary_one": "إطلالة واحدة · {{season}}",
+    "summary_two": "إطلالتان · {{season}}",
+    "summary_few": "{{count}} إطلالات · {{season}}",
+    "summary_many": "{{count}} إطلالة · {{season}}",
+    "summary_other": "{{count}} إطلالة · {{season}}",
+    "shuffle": "اقترح من جديد",
+    "shuffleHint": "يجلب اقتراحات إطلالات جديدة",
+    "loading": "جارٍ تجهيز الإطلالات…",
     "notReady": {
-      "title": "Let's add a few pieces first",
-      "text": "To suggest outfits we need at least one top, one bottom (or a dress) and one pair of shoes."
+      "title": "لنبدأ بإضافة بضع قطع",
+      "text": "لنقترح عليك إطلالات، نحتاج على الأقل إلى قطعة علوية وقطعة سفلية (أو فستان) وزوج أحذية."
     },
     "empty": {
-      "title": "No outfits match these filters",
-      "text": "Try choosing a different occasion or season.",
-      "action": "See All Outfits"
+      "title": "لا توجد إطلالات تطابق عوامل التصفية هذه",
+      "text": "جرّب اختيار مناسبة أو موسم مختلف.",
+      "action": "عرض كل الإطلالات"
     }
   },
   "outfit": {
-    "scorePill": "Match {{percent}}",
-    "scoreRingLabel": "Match Score",
+    "scorePill": "توافق {{percent}}",
+    "scoreRingLabel": "درجة التوافق",
     "scoreRingA11y": "{{label}} {{score}}",
-    "cardA11y": "{{title}}, {{score}}",
-    "collageA11y": "{{title}} collage",
-    "collageItemsA11y_one": "Outfit collage, {{count}} piece",
-    "collageItemsA11y_other": "Outfit collage, {{count}} pieces",
-    "save": "Save outfit",
-    "unsave": "Remove from saved",
-    "saveThis": "Save This Outfit",
-    "viewDetail": "View Details",
-    "breakdownA11y": "{{label}}, weight {{weight}}, score {{score}}",
+    "cardA11y": "{{title}}، {{score}}",
+    "collageA11y": "كولاج {{title}}",
+    "collageItemsA11y_zero": "كولاج الإطلالة، بلا قطع",
+    "collageItemsA11y_one": "كولاج الإطلالة، قطعة واحدة",
+    "collageItemsA11y_two": "كولاج الإطلالة، قطعتان",
+    "collageItemsA11y_few": "كولاج الإطلالة، {{count}} قطع",
+    "collageItemsA11y_many": "كولاج الإطلالة، {{count}} قطعة",
+    "collageItemsA11y_other": "كولاج الإطلالة، {{count}} قطعة",
+    "save": "احفظ الإطلالة",
+    "unsave": "إزالة من المحفوظات",
+    "saveThis": "احفظ هذه الإطلالة",
+    "viewDetail": "عرض التفاصيل",
+    "breakdownA11y": "{{label}}، الوزن {{weight}}، الدرجة {{score}}",
     "detail": {
-      "title": "Outfit Details",
-      "share": "Share",
-      "loadFailed": "Couldn't load the outfit",
-      "tapHint": "Tap a piece to see its details",
-      "breakdown": "Score Breakdown",
-      "why": "Why It Works",
-      "venues": "Where to Wear It",
-      "palette": "Color Palette",
-      "saveOutfit": "Save Outfit",
-      "similar": "Similar Outfits",
-      "noSimilar": "We couldn't find a similar outfit for now.",
-      "actionFailed": "Couldn't complete the action"
+      "title": "تفاصيل الإطلالة",
+      "share": "مشاركة",
+      "loadFailed": "تعذّر تحميل الإطلالة",
+      "tapHint": "اضغط على قطعة لعرض تفاصيلها",
+      "breakdown": "تفاصيل الدرجة",
+      "why": "لماذا تنجح",
+      "venues": "أين ترتديها",
+      "palette": "لوحة الألوان",
+      "saveOutfit": "احفظ الإطلالة",
+      "similar": "إطلالات مشابهة",
+      "noSimilar": "لم نجد إطلالة مشابهة حتى الآن.",
+      "actionFailed": "تعذّر إتمام الإجراء"
     },
     "share": {
-      "message": "{{title}} — Match Score {{score}}\n{{description}}\n\n{{pieces}}\n\nCreated from my own wardrobe with RYVENCA."
+      "message": "{{title}} — درجة التوافق {{score}}\n{{description}}\n\n{{pieces}}\n\nمنسّقة من خزانتي الخاصة مع RYVENCA."
     }
   },
   "favorites": {
-    "title": "Favorites",
+    "title": "المفضّلة",
     "tabs": {
-      "outfits": "Saved Outfits",
-      "garments": "Favorite Pieces"
+      "outfits": "إطلالات محفوظة",
+      "garments": "قطع مفضّلة"
     },
     "emptyOutfits": {
-      "title": "No saved outfits yet",
-      "text": "Save the outfits you like and they'll be waiting for you here.",
-      "action": "Browse Suggestions"
+      "title": "لا توجد إطلالات محفوظة بعد",
+      "text": "احفظ الإطلالات التي تعجبك وستجدها هنا في انتظارك.",
+      "action": "تصفّح الاقتراحات"
     },
     "emptyGarments": {
-      "title": "No favorite pieces",
-      "text": "Tap the heart on pieces in your wardrobe to add them to your favorites.",
-      "action": "Go to My Wardrobe"
+      "title": "لا توجد قطع مفضّلة",
+      "text": "اضغط على القلب في قطع خزانتك لإضافتها إلى المفضّلة.",
+      "action": "انتقل إلى خزانتي"
     }
   },
   "profile": {
-    "avatarA11y": "Profile picture of {{name}}",
-    "preferences": "My Preferences",
-    "wardrobeType": "Wardrobe",
-    "style": "Style",
+    "avatarA11y": "صورة الملف الشخصي لـ {{name}}",
+    "preferences": "تفضيلاتي",
+    "wardrobeType": "الخزانة",
+    "style": "الأسلوب",
     "links": {
-      "favorites": "My Favorites",
-      "stats": "Wardrobe statistics",
-      "language": "Language"
+      "favorites": "مفضّلاتي",
+      "stats": "إحصاءات الخزانة",
+      "language": "اللغة"
     },
     "logout": {
-      "action": "Sign Out",
-      "confirm": "Do you want to sign out?"
+      "action": "تسجيل الخروج",
+      "confirm": "هل تريد تسجيل الخروج؟"
     },
     "deleteAccount": {
-      "action": "Delete Account",
-      "title": "Are you sure you want to delete your account?",
-      "message": "Your account, all pieces in your wardrobe, photos and saved outfits will be permanently deleted. This can't be undone.",
-      "failed": "Couldn't delete the account"
+      "action": "حذف الحساب",
+      "title": "هل أنت متأكد من أنك تريد حذف حسابك؟",
+      "message": "سيتم حذف حسابك وجميع القطع في خزانتك وصورك وإطلالاتك المحفوظة نهائيًا. لا يمكن التراجع عن ذلك.",
+      "failed": "تعذّر حذف الحساب"
     },
     "editPreferences": {
-      "title": "My Preferences",
-      "updatedToast": "Your preferences were updated"
+      "title": "تفضيلاتي",
+      "updatedToast": "تم تحديث تفضيلاتك"
     },
     "stats": {
-      "title": "Wardrobe Statistics",
-      "total": "Total pieces",
-      "favorites": "Favorite pieces",
+      "title": "إحصاءات الخزانة",
+      "total": "إجمالي القطع",
+      "favorites": "القطع المفضّلة",
       "categoryA11y": "{{category}}: {{count}}"
     }
   }
