@@ -1,94 +1,53 @@
 import { useMutation } from '@tanstack/react-query';
-import { Eye, EyeOff } from 'lucide-react-native';
-import { useRef, useState } from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View, type TextInput } from 'react-native';
+import { Mail, X } from 'lucide-react-native';
+import { useState } from 'react';
+import { ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { ApiError, api, errorMessage } from '../../api';
+import { api } from '../../api';
 import type { AuthResponse } from '../../api/types';
+import { useAppConfig, useAuthOptions } from '../../appConfig/useAppConfig';
+import { authErrorMessage } from '../../auth/firebase/errors';
+import { signInWithApple, signInWithGoogle } from '../../auth/firebase/firebaseAuth';
 import { useSession } from '../../auth/SessionProvider';
+import { useFirebaseSignIn } from '../../auth/useFirebaseSignIn';
 import {
   FannedStack,
   IconButton,
   LanguageButton,
-  PrimaryButton,
-  Segmented,
-  TextField,
+  LegalLinks,
+  OutlineButton,
   Typography,
   Wordmark,
 } from '../../components';
-import { t as translate, useTranslation } from '../../i18n';
+import { useTranslation } from '../../i18n';
+import type { RootScreenProps } from '../../navigation/types';
 import { colors, radius, spacing } from '../../theme';
+import { AppleSignInButton } from './AppleSignInButton';
+import { EmailPasswordForm, ErrorBox, type EmailFormValues, type EmailMode } from './EmailPasswordForm';
+import { GoogleSignInButton } from './GoogleSignInButton';
 
-type Mode = 'login' | 'register';
+type Pending = 'apple' | 'google' | null;
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MIN_PASSWORD_LENGTH = 8;
-
-interface FormErrors {
-  displayName?: string;
-  email?: string;
-  password?: string;
-}
-
-function validate(mode: Mode, displayName: string, email: string, password: string): FormErrors {
-  const errors: FormErrors = {};
-  if (mode === 'register' && !displayName.trim()) errors.displayName = translate('auth.validation.nameRequired');
-  if (!EMAIL_RE.test(email.trim())) errors.email = translate('auth.validation.emailInvalid');
-  if (mode === 'register' && password.length < MIN_PASSWORD_LENGTH) {
-    errors.password = translate('auth.validation.passwordTooShort', { min: MIN_PASSWORD_LENGTH });
-  }
-  if (mode === 'login' && !password) errors.password = translate('auth.validation.passwordRequired');
-  return errors;
-}
-
-export function AuthScreen() {
+/**
+ * Sign-in entry. Firebase builds show the enabled providers (Sign in with Apple on iOS, Google, e-mail);
+ * builds/servers without Firebase fall back to the legacy local e-mail/password form (`config.auth.local`).
+ */
+export function AuthScreen({ navigation }: RootScreenProps<'Auth'>) {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
-  const { signIn } = useSession();
-  const [mode, setMode] = useState<Mode>('login');
-  const [displayName, setDisplayName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [errors, setErrors] = useState<FormErrors>({});
-  const emailRef = useRef<TextInput>(null);
-  const passwordRef = useRef<TextInput>(null);
-
-  const mutation = useMutation<AuthResponse, unknown, void>({
-    mutationFn: () =>
-      mode === 'register'
-        ? api.register({ email: email.trim(), password, displayName: displayName.trim() })
-        : api.login({ email: email.trim(), password }),
-    onSuccess: (auth) => signIn(auth),
-    onError: (error) => {
-      if (error instanceof ApiError) {
-        setErrors({
-          displayName: error.fieldErrors.displayName,
-          email: error.fieldErrors.email,
-          password: error.fieldErrors.password,
-        });
-      }
-    },
-  });
-
-  const submit = () => {
-    const nextErrors = validate(mode, displayName, email, password);
-    setErrors(nextErrors);
-    if (Object.keys(nextErrors).length === 0) mutation.mutate();
-  };
-
-  const switchMode = (next: Mode) => {
-    setMode(next);
-    setErrors({});
-    mutation.reset();
-  };
+  const config = useAppConfig();
+  const options = useAuthOptions();
+  const { notice, dismissNotice } = useSession();
 
   return (
     <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView
         style={styles.flex}
-        contentContainerStyle={[styles.content, { paddingTop: insets.top + spacing.sm, paddingBottom: insets.bottom + spacing.xl }]}
+        contentContainerStyle={[
+          styles.content,
+          { paddingTop: insets.top + spacing.sm, paddingBottom: insets.bottom + spacing.xl },
+        ]}
         keyboardShouldPersistTaps="handled"
       >
         <LanguageButton style={styles.language} />
@@ -107,100 +66,52 @@ export function AuthScreen() {
           </View>
         </View>
 
-        <View style={styles.card}>
-          <Segmented<Mode>
-            options={[
-              { value: 'login', label: t('auth.modes.login') },
-              { value: 'register', label: t('auth.modes.register') },
-            ]}
-            value={mode}
-            onChange={switchMode}
-          />
-
-          <View style={styles.fields}>
-            {mode === 'register' ? (
-              <TextField
-                label={t('auth.fields.nameLabel')}
-                placeholder={t('auth.fields.namePlaceholder')}
-                value={displayName}
-                onChangeText={setDisplayName}
-                autoCapitalize="words"
-                autoComplete="name"
-                textContentType="name"
-                returnKeyType="next"
-                onSubmitEditing={() => emailRef.current?.focus()}
-                error={errors.displayName}
-              />
-            ) : null}
-            <TextField
-              ref={emailRef}
-              label={t('auth.fields.emailLabel')}
-              placeholder={t('auth.fields.emailPlaceholder')}
-              value={email}
-              onChangeText={setEmail}
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="email-address"
-              autoComplete="email"
-              textContentType="emailAddress"
-              returnKeyType="next"
-              onSubmitEditing={() => passwordRef.current?.focus()}
-              error={errors.email}
-            />
-            <TextField
-              ref={passwordRef}
-              label={t('auth.fields.passwordLabel')}
-              placeholder={
-                mode === 'register'
-                  ? t('auth.fields.passwordPlaceholderRegister', { min: MIN_PASSWORD_LENGTH })
-                  : t('auth.fields.passwordPlaceholderLogin')
-              }
-              value={password}
-              onChangeText={setPassword}
-              secureTextEntry={!showPassword}
-              autoCapitalize="none"
-              autoComplete={mode === 'register' ? 'new-password' : 'current-password'}
-              textContentType={mode === 'register' ? 'newPassword' : 'password'}
-              returnKeyType="go"
-              onSubmitEditing={submit}
-              error={errors.password}
-              right={
-                <IconButton
-                  icon={showPassword ? EyeOff : Eye}
-                  iconSize={20}
-                  color={colors.textSecondary}
-                  accessibilityLabel={showPassword ? t('auth.fields.hidePassword') : t('auth.fields.showPassword')}
-                  onPress={() => setShowPassword((v) => !v)}
-                  style={styles.eye}
-                />
-              }
-            />
-          </View>
-
-          {mutation.isError ? (
-            <View style={styles.errorBox} accessibilityRole="alert">
-              <Typography variant="small" color={colors.danger}>
-                {errorMessage(mutation.error)}
-              </Typography>
+        {notice?.kind === 'disabled' ? (
+          <View style={styles.notice}>
+            <View style={styles.flex}>
+              <ErrorBox title={t('auth.disabledTitle')} message={notice.message} />
             </View>
-          ) : null}
+            <IconButton icon={X} iconSize={18} color={colors.danger} accessibilityLabel={t('common.close')} onPress={dismissNotice} />
+          </View>
+        ) : null}
 
-          <PrimaryButton
-            label={mode === 'register' ? t('auth.submit.register') : t('auth.submit.login')}
-            onPress={submit}
-            loading={mutation.isPending}
-            fullWidth
-          />
-          <Typography variant="small" align="center">
-            {mode === 'login' ? t('auth.switch.noAccount') : t('auth.switch.hasAccount')}{' '}
+        <View style={styles.card}>
+          {options === null ? (
+            <ActivityIndicator color={colors.ink} style={styles.loading} />
+          ) : options.mode === 'firebase' ? (
+            <ProviderButtons
+              apple={options.apple}
+              google={options.google}
+              email={options.email}
+              onEmail={() => navigation.navigate('EmailAuth')}
+            />
+          ) : options.mode === 'local' ? (
+            <LocalSignIn />
+          ) : (
+            <View style={styles.unavailable} accessibilityRole="alert">
+              <Typography variant="h3">{t('auth.unavailable.title')}</Typography>
+              <Typography variant="small">{t('auth.unavailable.message')}</Typography>
+            </View>
+          )}
+        </View>
+
+        <View style={styles.footer}>
+          {config.links.terms || config.links.privacyPolicy ? (
+            <Typography variant="caption" align="center" color={colors.textMuted}>
+              {t('auth.agreement')}
+            </Typography>
+          ) : null}
+          <LegalLinks links={config.links} />
+          <Typography variant="small" align="center" color={colors.textSecondary}>
+            {t('auth.cantAccess')}{' '}
             <Typography
               variant="smallMedium"
               color={colors.ink}
-              onPress={() => switchMode(mode === 'login' ? 'register' : 'login')}
-              accessibilityRole="link"
               style={styles.underline}
+              accessibilityRole="link"
+              onPress={() => navigation.navigate('DeletionRequest')}
             >
-              {mode === 'login' ? t('auth.switch.toRegister') : t('auth.switch.toLogin')}
+              {t('auth.cantAccessAction')}
             </Typography>
           </Typography>
         </View>
@@ -213,6 +124,80 @@ export function AuthScreen() {
   );
 }
 
+function ProviderButtons({
+  apple,
+  google,
+  email,
+  onEmail,
+}: {
+  apple: boolean;
+  google: boolean;
+  email: boolean;
+  onEmail: () => void;
+}) {
+  const { t } = useTranslation();
+  const signIn = useFirebaseSignIn();
+  const [pending, setPending] = useState<Pending>(null);
+
+  const run = (provider: Exclude<Pending, null>, flow: typeof signInWithApple) => {
+    setPending(provider);
+    signIn.mutate(flow, { onSettled: () => setPending(null) });
+  };
+
+  const busy = signIn.isPending;
+
+  return (
+    <View style={styles.providers}>
+      <Typography variant="body" color={colors.textSecondary}>
+        {t('auth.intro')}
+      </Typography>
+      {apple ? (
+        <AppleSignInButton onPress={() => run('apple', signInWithApple)} loading={pending === 'apple'} disabled={busy} />
+      ) : null}
+      {google ? (
+        <GoogleSignInButton
+          label={t('auth.providers.google')}
+          onPress={() => run('google', signInWithGoogle)}
+          loading={pending === 'google'}
+          disabled={busy}
+        />
+      ) : null}
+      {email && (apple || google) ? (
+        <View style={styles.divider} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+          <View style={styles.rule} />
+          <Typography variant="caption" color={colors.textMuted}>
+            {t('auth.providers.or')}
+          </Typography>
+          <View style={styles.rule} />
+        </View>
+      ) : null}
+      {email ? <OutlineButton label={t('auth.providers.email')} icon={Mail} onPress={onEmail} disabled={busy} fullWidth /> : null}
+      {signIn.isError ? <ErrorBox message={authErrorMessage(signIn.error)} /> : null}
+    </View>
+  );
+}
+
+/** Legacy local e-mail/password (development / servers without Firebase). */
+function LocalSignIn() {
+  const { signIn } = useSession();
+  const mutation = useMutation<AuthResponse, unknown, { mode: EmailMode; values: EmailFormValues }>({
+    mutationFn: ({ mode, values }) =>
+      mode === 'register'
+        ? api.register({ email: values.email, password: values.password, displayName: values.displayName })
+        : api.login({ email: values.email, password: values.password }),
+    onSuccess: (auth) => signIn(auth),
+  });
+
+  return (
+    <EmailPasswordForm
+      onSubmit={(mode, values) => mutation.mutate({ mode, values })}
+      submitting={mutation.isPending}
+      error={mutation.error}
+      onModeChange={() => mutation.reset()}
+    />
+  );
+}
+
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.background },
   content: { paddingHorizontal: spacing.lg, gap: spacing.xl, flexGrow: 1, maxWidth: 520, width: '100%', alignSelf: 'center' },
@@ -222,6 +207,7 @@ const styles = StyleSheet.create({
   tagline: { marginTop: 2 },
   headline: { marginTop: spacing.md, fontSize: 30, lineHeight: 35 },
   heroArt: { marginTop: spacing.xxl, opacity: 0.95 },
+  notice: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.xxs, marginBottom: -spacing.sm },
   card: {
     backgroundColor: colors.surface,
     borderRadius: radius.xl,
@@ -230,9 +216,12 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
     gap: spacing.lg,
   },
-  fields: { gap: spacing.md },
-  eye: { marginEnd: -spacing.xs },
-  errorBox: { backgroundColor: '#F6E6E2', borderRadius: radius.sm, padding: spacing.sm },
+  loading: { paddingVertical: spacing.xl },
+  providers: { gap: spacing.sm },
+  divider: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginVertical: spacing.xxs },
+  rule: { flex: 1, height: 1, backgroundColor: colors.divider },
+  unavailable: { gap: spacing.xs },
+  footer: { gap: spacing.sm, alignItems: 'center' },
   underline: { textDecorationLine: 'underline' },
   script: { marginTop: 'auto' },
 });

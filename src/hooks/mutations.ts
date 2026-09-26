@@ -2,6 +2,7 @@ import { useMutation, useQueryClient, type QueryClient } from '@tanstack/react-q
 
 import { api, queryKeys } from '../api';
 import type { Garment, GarmentRequest, Outfit, UpdateMeRequest } from '../api/types';
+import { prepareAccountDeletion } from '../auth/firebase/firebaseAuth';
 import { useSession } from '../auth/SessionProvider';
 import { useLanguage } from '../i18n';
 import { outfitGarmentIds, patchGarmentsInData, patchOutfitsInData } from '../utils/outfit';
@@ -121,10 +122,29 @@ export function useUpdateMe() {
   });
 }
 
+/**
+ * In-app account deletion (App Store 5.1.1(v) / Google Play): provider cleanup (Apple re-auth + token
+ * revocation, Google revoke) → `DELETE /api/me { reason }` → sign out with the "account deleted" notice.
+ * Resolves `false` when the user cancelled the Apple re-authentication (nothing was deleted).
+ */
 export function useDeleteAccount() {
-  const { signOut } = useSession();
+  const { signOut, user } = useSession();
+  return useMutation<boolean, unknown, { reason: string | null }>({
+    mutationFn: async ({ reason }) => {
+      const proceed = await prepareAccountDeletion(user?.authProvider ?? null);
+      if (!proceed) return false;
+      await api.deleteMe(reason);
+      return true;
+    },
+    onSuccess: async (deleted) => {
+      if (deleted) await signOut({ notice: { kind: 'deleted' } });
+    },
+  });
+}
+
+/** Public deletion request for users who cannot sign in (`POST /api/account-deletion-requests`). */
+export function useDeletionRequest() {
   return useMutation({
-    mutationFn: () => api.deleteMe(),
-    onSuccess: () => signOut(),
+    mutationFn: (body: { email: string; message: string | null }) => api.createDeletionRequest(body),
   });
 }

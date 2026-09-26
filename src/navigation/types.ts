@@ -15,6 +15,10 @@ export type MainTabParamList = {
 
 export type RootStackParamList = {
   Auth: undefined;
+  EmailAuth: undefined;
+  /** Public "can't access your account" deletion request (also reachable when signed in). */
+  DeletionRequest: { email?: string } | undefined;
+  DeleteAccount: undefined;
   Onboarding: undefined;
   Main: NavigatorScreenParams<MainTabParamList> | undefined;
   GarmentDetail: { id: number };

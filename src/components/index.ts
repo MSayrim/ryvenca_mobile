@@ -12,6 +12,7 @@ export * from './GarmentPhoto';
 export * from './HangerIcon';
 export * from './HangerIllustration';
 export * from './LanguagePicker';
+export * from './LegalLinks';
 export * from './OutfitCard';
 export * from './OutfitCollage';
 export * from './PreferencePickers';

@@ -1,9 +1,18 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 
-import { ApiError, api, errorMessage, queryKeys, setAuthToken, setUnauthorizedHandler } from '../api';
+import {
+  ApiError,
+  api,
+  errorMessage,
+  queryKeys,
+  setAccountDisabledHandler,
+  setAuthToken,
+  setUnauthorizedHandler,
+} from '../api';
 import type { AuthResponse, User } from '../api/types';
-import { useLanguage } from '../i18n';
+import { t, useLanguage } from '../i18n';
+import { signOutFirebase } from './firebase/firebaseAuth';
 import { clearSession, loadSession, saveSession } from './tokenStorage';
 
 export type SessionStatus = 'restoring' | 'signedOut' | 'signedIn' | 'error';
@@ -11,13 +20,23 @@ export type SessionStatus = 'restoring' | 'signedOut' | 'signedIn' | 'error';
 /** Tab to open right after onboarding ("Add your first piece" → Upload). */
 export type LandingTab = 'Home' | 'Upload';
 
+/** Why the user was signed out, shown once on the signed-out side. */
+export type SignOutNotice = { kind: 'deleted' } | { kind: 'disabled'; message: string };
+
+export interface SignOutOptions {
+  notice?: SignOutNotice;
+}
+
 interface SessionContextValue {
   status: SessionStatus;
   user: User | null;
   restoreError: string | null;
   landingTab: LandingTab;
+  notice: SignOutNotice | null;
   signIn: (auth: AuthResponse) => Promise<void>;
-  signOut: () => Promise<void>;
+  /** Clears the RYVENCA session and signs out of Firebase / Google on this device. */
+  signOut: (options?: SignOutOptions) => Promise<void>;
+  dismissNotice: () => void;
   setUser: (user: User) => void;
   setLandingTab: (tab: LandingTab) => void;
   retryRestore: () => void;
@@ -38,23 +57,26 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   const [restoreError, setRestoreError] = useState<string | null>(null);
   const [landingTab, setLandingTab] = useState<LandingTab>('Home');
   const [restoreAttempt, setRestoreAttempt] = useState(0);
+  const [notice, setNotice] = useState<SignOutNotice | null>(null);
   const signingOut = useRef(false);
   const { applyAccountLanguage } = useLanguage();
 
   const clearUserQueries = useCallback(() => {
-    // Keep the public meta cache; drop everything user-specific.
-    queryClient.removeQueries({ predicate: (q) => q.queryKey[0] !== 'meta' });
+    // Keep the public meta / app config caches; drop everything user-specific.
+    queryClient.removeQueries({ predicate: (q) => q.queryKey[0] !== 'meta' && q.queryKey[0] !== 'appConfig' });
   }, [queryClient]);
 
-  const signOut = useCallback(async () => {
+  const signOut = useCallback(async (options: SignOutOptions = {}) => {
     if (signingOut.current) return;
     signingOut.current = true;
     try {
       setAuthToken(null);
       await clearSession();
+      await signOutFirebase();
       clearUserQueries();
       setUserState(null);
       setLandingTab('Home');
+      setNotice(options.notice ?? null);
       setStatus('signedOut');
     } finally {
       signingOut.current = false;
@@ -94,6 +116,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       queryClient.setQueryData(queryKeys.me, auth.user);
       setUserState(auth.user);
       setRestoreError(null);
+      setNotice(null);
       setStatus('signedIn');
       void syncLanguage(auth.user, true);
     },
@@ -101,11 +124,18 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   );
 
   // Any 401 on an authenticated request → log out (navigation falls back to the auth screen).
+  // 403 ACCOUNT_DISABLED → log out and show the server's message on the auth screen.
   useEffect(() => {
     setUnauthorizedHandler(() => {
       void signOut();
     });
-    return () => setUnauthorizedHandler(null);
+    setAccountDisabledHandler((message) => {
+      void signOut({ notice: { kind: 'disabled', message } });
+    });
+    return () => {
+      setUnauthorizedHandler(null);
+      setAccountDisabledHandler(null);
+    };
   }, [signOut]);
 
   // Restore a stored session on launch.
@@ -133,6 +163,10 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         if (error instanceof ApiError && (error.status === 401 || error.status === 403 || error.status === 404)) {
           setAuthToken(null);
           await clearSession();
+          await signOutFirebase();
+          if (error.code === 'ACCOUNT_DISABLED') {
+            setNotice({ kind: 'disabled', message: error.message || t('errors.accountDisabled') });
+          }
           setStatus('signedOut');
         } else {
           setRestoreError(errorMessage(error));
@@ -147,10 +181,23 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   }, [queryClient, restoreAttempt, syncLanguage]);
 
   const retryRestore = useCallback(() => setRestoreAttempt((n) => n + 1), []);
+  const dismissNotice = useCallback(() => setNotice(null), []);
 
   const value = useMemo<SessionContextValue>(
-    () => ({ status, user, restoreError, landingTab, signIn, signOut, setUser, setLandingTab, retryRestore }),
-    [status, user, restoreError, landingTab, signIn, signOut, setUser, retryRestore],
+    () => ({
+      status,
+      user,
+      restoreError,
+      landingTab,
+      notice,
+      signIn,
+      signOut,
+      dismissNotice,
+      setUser,
+      setLandingTab,
+      retryRestore,
+    }),
+    [status, user, restoreError, landingTab, notice, signIn, signOut, dismissNotice, setUser, retryRestore],
   );
 
   return <SessionContext.Provider value={value}>{children}</SessionContext.Provider>;

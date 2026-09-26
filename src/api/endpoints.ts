@@ -3,7 +3,11 @@ import { Platform } from 'react-native';
 import { UPLOAD_TIMEOUT_MS } from '../config';
 import { request } from './client';
 import type {
+  AppConfig,
   AuthResponse,
+  DeletionRequestBody,
+  DeletionRequestResponse,
+  FirebaseSignInRequest,
   Garment,
   GarmentFilters,
   GarmentRequest,
@@ -27,7 +31,14 @@ import type {
 // ---------- Meta ----------
 export const getMeta = () => request<Meta>('/api/meta', { auth: false });
 
+// ---------- Public app configuration ----------
+/** Raw payload; normalize with `normalizeAppConfig` (src/appConfig). */
+export const getAppConfig = () => request<Partial<AppConfig> | null>('/api/config', { auth: false });
+
 // ---------- Auth ----------
+export const firebaseSignIn = (body: FirebaseSignInRequest) =>
+  request<AuthResponse>('/api/auth/firebase', { method: 'POST', body, auth: false });
+
 export const register = (body: RegisterRequest) =>
   request<AuthResponse>('/api/auth/register', { method: 'POST', body, auth: false });
 
@@ -37,7 +48,13 @@ export const login = (body: LoginRequest) =>
 // ---------- Me ----------
 export const getMe = () => request<User>('/api/me');
 export const updateMe = (body: UpdateMeRequest) => request<User>('/api/me', { method: 'PUT', body });
-export const deleteMe = () => request<void>('/api/me', { method: 'DELETE' });
+/** Deletes the account and all its data immediately (see API.md "Account deletion"). */
+export const deleteMe = (reason: string | null = null) =>
+  request<void>('/api/me', { method: 'DELETE', body: { reason } });
+
+/** Public: deletion request for users who cannot sign in. Always 202 with a reference. */
+export const createDeletionRequest = (body: DeletionRequestBody) =>
+  request<DeletionRequestResponse>('/api/account-deletion-requests', { method: 'POST', body, auth: false });
 
 // ---------- Images ----------
 export interface LocalImageFile {

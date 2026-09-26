@@ -1,9 +1,10 @@
 import { DefaultTheme, NavigationContainer, type Theme as NavTheme } from '@react-navigation/native';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider, focusManager } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
+import { AppState, Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ApiError } from './api/errors';
@@ -53,6 +54,14 @@ export default function App() {
       .finally(() => setLanguageReady(true));
   }, []);
   const ready = (fontsLoaded || !!fontError) && languageReady;
+
+  // "Window focus" = app in the foreground: queries that opt in (the public app config → maintenance /
+  // minimum version) refetch when the user comes back. All other queries keep refetchOnWindowFocus off.
+  useEffect(() => {
+    if (Platform.OS === 'web') return;
+    const subscription = AppState.addEventListener('change', (state) => focusManager.setFocused(state === 'active'));
+    return () => subscription.remove();
+  }, []);
 
   useEffect(() => {
     if (ready) void SplashScreen.hideAsync().catch(() => undefined);

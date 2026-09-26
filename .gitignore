@@ -47,3 +47,8 @@ yarn-error.*
 
 # test / tooling
 coverage/
+
+# Firebase config files — dropped in by the owner, never committed (see firebase/README.md).
+# .easignore does NOT ignore them, so `eas build` still uploads them.
+firebase/google-services.json
+firebase/GoogleService-Info.plist

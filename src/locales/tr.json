@@ -39,7 +39,8 @@
     "conflict": "Bu işlem mevcut kayıtlarla çakışıyor.",
     "payloadTooLarge": "Fotoğraf çok büyük. En fazla {{maxMb}} MB yükleyebilirsin.",
     "server": "Sunucuda bir sorun oluştu. Lütfen biraz sonra tekrar dene.",
-    "connectionFailed": "Bağlantı kurulamadı"
+    "connectionFailed": "Bağlantı kurulamadı",
+    "accountDisabled": "Hesabın devre dışı bırakıldı. Yardım için destek ekibiyle iletişime geç."
   },
   "language": {
     "title": "Dil",
@@ -95,6 +96,45 @@
       "toRegister": "Kayıt ol",
       "hasAccount": "Zaten hesabın var mı?",
       "toLogin": "Giriş yap"
+    },
+    "intro": "Giriş yap ya da birkaç saniyede yeni bir hesap oluştur.",
+    "providers": {
+      "google": "Google ile devam et",
+      "email": "E-posta ile devam et",
+      "or": "veya"
+    },
+    "unavailable": {
+      "title": "Giriş şu anda kullanılamıyor",
+      "message": "Bu sürümde kullanılabilir bir giriş yöntemi yok. Lütfen biraz sonra tekrar dene ya da destek ekibiyle iletişime geç."
+    },
+    "disabledTitle": "Hesabın devre dışı",
+    "agreement": "Devam ederek Kullanım Koşulları'nı ve Gizlilik Politikası'nı kabul etmiş olursun.",
+    "cantAccess": "Hesabına erişemiyor musun?",
+    "cantAccessAction": "Hesap silme talebi gönder",
+    "email": {
+      "title": "E-posta ile devam et",
+      "forgot": "Şifremi unuttum",
+      "resetTitle": "Şifreni sıfırla",
+      "resetIntro": "Hesabına bağlı e-posta adresini yaz; sana bir şifre sıfırlama bağlantısı gönderelim.",
+      "resetSubmit": "Bağlantıyı Gönder",
+      "resetSent": "{{email}} adresine bir şifre sıfırlama bağlantısı gönderdik. Gelen kutunu ve istenmeyen klasörünü kontrol et.",
+      "backToSignIn": "Girişe dön",
+      "verificationSent": "{{email}} adresine bir doğrulama e-postası gönderdik."
+    },
+    "errors": {
+      "invalidEmail": "Geçerli bir e-posta adresi gir.",
+      "userDisabled": "Bu hesap devre dışı bırakılmış.",
+      "wrongCredentials": "E-posta veya şifre hatalı.",
+      "emailInUse": "Bu e-posta ile zaten bir hesap var. Giriş yapmayı dene.",
+      "weakPassword": "Şifre çok zayıf. Daha uzun ve tahmin edilmesi zor bir şifre seç.",
+      "tooManyRequests": "Çok fazla deneme yapıldı. Lütfen biraz bekleyip tekrar dene.",
+      "providerDisabled": "Bu giriş yöntemi şu anda kapalı.",
+      "accountExists": "Bu e-posta başka bir giriş yöntemiyle kayıtlı. Lütfen o yöntemle giriş yap.",
+      "recentLogin": "Güvenliğin için lütfen tekrar giriş yap ve yeniden dene.",
+      "playServices": "Google ile giriş için Google Play Hizmetleri gerekli.",
+      "appleFailed": "Apple ile giriş tamamlanamadı. Lütfen tekrar dene.",
+      "googleFailed": "Google ile giriş tamamlanamadı. Lütfen tekrar dene.",
+      "generic": "Giriş tamamlanamadı. Lütfen tekrar dene."
     }
   },
   "onboarding": {
@@ -360,10 +400,7 @@
       "confirm": "Çıkış yapmak istiyor musun?"
     },
     "deleteAccount": {
-      "action": "Hesabı Sil",
-      "title": "Hesabını silmek istediğine emin misin?",
-      "message": "Hesabın, dolabındaki tüm parçalar, fotoğraflar ve kayıtlı kombinlerin kalıcı olarak silinecek. Bu işlem geri alınamaz.",
-      "failed": "Hesap silinemedi"
+      "action": "Hesabı Sil"
     },
     "editPreferences": {
       "title": "Tercihlerim",
@@ -374,6 +411,67 @@
       "total": "Toplam parça",
       "favorites": "Favori parça",
       "categoryA11y": "{{category}}: {{count}}"
+    },
+    "help": "Yardım ve yasal",
+    "version": "Sürüm {{version}}"
+  },
+  "legal": {
+    "terms": "Kullanım Koşulları",
+    "privacy": "Gizlilik Politikası",
+    "support": "Destek",
+    "openFailed": "Bağlantı açılamadı"
+  },
+  "gate": {
+    "maintenance": {
+      "title": "Kısa bir bakım molası",
+      "message": "RYVENCA'yı senin için iyileştiriyoruz. Lütfen biraz sonra tekrar dene."
+    },
+    "update": {
+      "title": "Yeni bir sürüm hazır",
+      "message": "Devam etmek için RYVENCA'yı güncellemen gerekiyor. Yeni sürüm önemli iyileştirmeler içeriyor.",
+      "action": "Uygulamayı Güncelle",
+      "versions": "Yüklü sürüm {{installed}} · Gereken sürüm {{required}}",
+      "noStoreLink": "Uygulama mağazasından RYVENCA'nın son sürümünü yükle."
     }
+  },
+  "deleteAccount": {
+    "title": "Hesabı Sil",
+    "headline": "Hesabını kalıcı olarak sil",
+    "intro": "Hesabını sildiğinde aşağıdakiler hemen ve kalıcı olarak silinir:",
+    "items": {
+      "photos": "Yüklediğin tüm kıyafet fotoğrafları",
+      "garments": "Dolabındaki tüm parçalar ve bilgileri",
+      "outfits": "Kayıtlı kombinlerin ve favorilerin",
+      "account": "Hesabın, profilin, tercihlerin ve giriş bilgilerin"
+    },
+    "permanent": "Bu işlem geri alınamaz. Silinen veriler kurtarılamaz.",
+    "reasonLabel": "Neden ayrılıyorsun? (isteğe bağlı)",
+    "reasonPlaceholder": "Görüşün RYVENCA'yı geliştirmemize yardımcı olur.",
+    "confirmCheck": "Hesabımın ve tüm verilerimin kalıcı olarak silineceğini anlıyorum.",
+    "appleNote": "Güvenliğin için Apple ile bir kez daha doğrulaman istenecek; ardından RYVENCA'nın Apple ile giriş erişimi de kaldırılır.",
+    "googleNote": "RYVENCA'nın Google hesabına erişimi de kaldırılacak.",
+    "action": "Hesabımı Kalıcı Olarak Sil",
+    "confirmTitle": "Son onay",
+    "confirmMessage": "Hesabın ve tüm verilerin şimdi silinecek. Emin misin?",
+    "confirmAction": "Evet, sil",
+    "failed": "Hesap silinemedi",
+    "otherOptions": "Başka bir yol mu arıyorsun?",
+    "webPage": "Hesap silme sayfasını aç",
+    "deleted": {
+      "title": "Hesabın silindi",
+      "message": "Hesabın ve tüm verilerin kalıcı olarak silindi. RYVENCA'yı denediğin için teşekkür ederiz.",
+      "action": "Tamam"
+    }
+  },
+  "deletionRequest": {
+    "title": "Hesap Silme Talebi",
+    "intro": "Hesabına giriş yapamıyorsan, hesabına bağlı e-posta adresini yaz. Talebini inceleyip hesabını ve tüm verilerini sileceğiz; sonucu bu adrese bildireceğiz.",
+    "messageLabel": "Not (isteğe bağlı)",
+    "messagePlaceholder": "Örn. Hesabıma giriş yapamıyorum.",
+    "submit": "Talebi Gönder",
+    "sentTitle": "Talebin alındı",
+    "sentMessage": "Talebini inceleyip sonucu e-posta ile bildireceğiz. Bu referans numarasını sakla:",
+    "referenceA11y": "Referans numarası {{reference}}",
+    "webPage": "Web'deki hesap silme sayfasını aç"
   }
 }

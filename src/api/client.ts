@@ -1,3 +1,4 @@
+import { installedAppVersion } from '../appConfig/buildInfo';
 import { API_BASE_URL, REQUEST_TIMEOUT_MS } from '../config';
 import { currentLanguage } from '../i18n/i18n';
 import { ApiError, networkErrorMessage, parseApiError, timeoutMessage, unexpectedResponseMessage } from './errors';
@@ -17,8 +18,15 @@ export interface RequestOptions {
   signal?: AbortSignal;
 }
 
+/**
+ * `X-Client: mobile/<app version>` on every request: the server logs in-app account deletions
+ * (`DELETE /api/me`) as IN_APP only when it is present (see API.md "Account deletion").
+ */
+export const CLIENT_HEADER = `mobile/${installedAppVersion() ?? 'unknown'}`;
+
 let authToken: string | null = null;
 let unauthorizedHandler: (() => void) | null = null;
+let accountDisabledHandler: ((message: string) => void) | null = null;
 
 export function setAuthToken(token: string | null): void {
   authToken = token;
@@ -31,6 +39,11 @@ export function getAuthToken(): string | null {
 /** Called once for any 401 on an authenticated request (clears session → auth screen). */
 export function setUnauthorizedHandler(handler: (() => void) | null): void {
   unauthorizedHandler = handler;
+}
+
+/** Called for `403 ACCOUNT_DISABLED` on an authenticated request (sign out + show the server message). */
+export function setAccountDisabledHandler(handler: ((message: string) => void) | null): void {
+  accountDisabledHandler = handler;
 }
 
 /** Serializes query params; arrays become comma separated lists, empty values are skipped. */
@@ -57,7 +70,11 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
   const { method = 'GET', query, body, formData, auth = true, timeoutMs = REQUEST_TIMEOUT_MS } = options;
 
   // The server localizes everything it renders (labels, outfit texts, error messages) for this language.
-  const headers: Record<string, string> = { Accept: 'application/json', 'Accept-Language': currentLanguage() };
+  const headers: Record<string, string> = {
+    Accept: 'application/json',
+    'Accept-Language': currentLanguage(),
+    'X-Client': CLIENT_HEADER,
+  };
   if (auth && authToken) headers.Authorization = `Bearer ${authToken}`;
 
   let payload: BodyInit | undefined;
@@ -99,6 +116,8 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
     const error = parseApiError(response.status, text);
     if (response.status === 401 && auth && authToken) {
       unauthorizedHandler?.();
+    } else if (error.code === 'ACCOUNT_DISABLED' && auth && authToken) {
+      accountDisabledHandler?.(error.message);
     }
     throw error;
   }

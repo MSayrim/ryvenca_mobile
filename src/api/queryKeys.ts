@@ -10,6 +10,8 @@ import type { GarmentFilters, Occasion, Season, SuggestionsParams } from './type
  */
 export const queryKeys = {
   meta: (lang: string) => ['meta', lang] as const,
+  /** Public app configuration (maintenance message may be localized → language segment). */
+  appConfig: (lang: string) => ['appConfig', lang] as const,
   me: ['me'] as const,
   home: (lang: string) => ['home', lang] as const,
   homeAll: ['home'] as const,

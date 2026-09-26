@@ -1,8 +1,22 @@
-import { ChartColumn, CircleHelp, Heart, Languages, LogOut, Pencil, Trash2, type LucideIcon } from 'lucide-react-native';
+import {
+  ChartColumn,
+  CircleHelp,
+  ExternalLink,
+  FileText,
+  Heart,
+  Languages,
+  LifeBuoy,
+  LogOut,
+  Pencil,
+  ShieldCheck,
+  Trash2,
+  type LucideIcon,
+} from 'lucide-react-native';
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
-import { errorMessage } from '../../api';
+import { installedAppVersion, installedBuildNumber } from '../../appConfig/buildInfo';
+import { useAppConfig } from '../../appConfig/useAppConfig';
 import { useCurrentUser, useSession } from '../../auth/SessionProvider';
 import {
   AppHeader,
@@ -14,13 +28,13 @@ import {
   Typography,
   useDirection,
 } from '../../components';
-import { useDeleteAccount } from '../../hooks/mutations';
 import { useMeta } from '../../hooks/useMeta';
 import { languageInfo, useLanguage, useTranslation } from '../../i18n';
 import type { TabScreenProps } from '../../navigation/types';
 import { TOUCH_TARGET, colors, fonts, radius, spacing } from '../../theme';
-import { confirm, notify } from '../../utils/confirm';
+import { confirm } from '../../utils/confirm';
 import { initialOf } from '../../utils/labels';
+import { openLink, supportUrl } from '../../utils/openLink';
 
 export function ProfileScreen({ navigation }: TabScreenProps<'Profile'>) {
   const { t } = useTranslation();
@@ -28,23 +42,20 @@ export function ProfileScreen({ navigation }: TabScreenProps<'Profile'>) {
   const user = useCurrentUser();
   const { signOut } = useSession();
   const { labels } = useMeta();
-  const deleteAccount = useDeleteAccount();
+  const { links } = useAppConfig();
   const [languageOpen, setLanguageOpen] = useState(false);
+  const support = supportUrl(links);
+  const legalRows = [
+    links.privacyPolicy ? { key: 'privacy', icon: ShieldCheck, label: t('legal.privacy'), url: links.privacyPolicy } : null,
+    links.terms ? { key: 'terms', icon: FileText, label: t('legal.terms'), url: links.terms } : null,
+    support ? { key: 'support', icon: LifeBuoy, label: t('legal.support'), url: support } : null,
+  ].filter((row): row is { key: string; icon: LucideIcon; label: string; url: string } => row !== null);
+  const version = installedAppVersion();
+  const build = installedBuildNumber();
 
   const onLogout = async () => {
     const ok = await confirm({ title: t('profile.logout.confirm'), confirmText: t('profile.logout.action') });
     if (ok) await signOut();
-  };
-
-  const onDelete = async () => {
-    const ok = await confirm({
-      title: t('profile.deleteAccount.title'),
-      message: t('profile.deleteAccount.message'),
-      confirmText: t('profile.deleteAccount.action'),
-      destructive: true,
-    });
-    if (!ok) return;
-    deleteAccount.mutate(undefined, { onError: (e) => notify(t('profile.deleteAccount.failed'), errorMessage(e)) });
   };
 
   return (
@@ -104,17 +115,41 @@ export function ProfileScreen({ navigation }: TabScreenProps<'Profile'>) {
           <LinkRow icon={CircleHelp} label={t('howItWorks.title')} onPress={() => navigation.navigate('HowItWorks')} last />
         </View>
 
+        {legalRows.length > 0 ? (
+          <View style={styles.section}>
+            <Typography variant="eyebrow" style={styles.sectionTitle}>
+              {t('profile.help')}
+            </Typography>
+            <View style={styles.links}>
+              {legalRows.map((row, index) => (
+                <LinkRow
+                  key={row.key}
+                  icon={row.icon}
+                  label={row.label}
+                  external
+                  onPress={() => void openLink(row.url)}
+                  last={index === legalRows.length - 1}
+                />
+              ))}
+            </View>
+          </View>
+        ) : null}
+
         <View style={styles.bottomActions}>
           <SecondaryButton label={t('profile.logout.action')} icon={LogOut} onPress={() => void onLogout()} fullWidth />
           <OutlineButton
             label={t('profile.deleteAccount.action')}
             icon={Trash2}
             danger
-            onPress={() => void onDelete()}
-            loading={deleteAccount.isPending}
+            onPress={() => navigation.navigate('DeleteAccount')}
             fullWidth
           />
         </View>
+        {version ? (
+          <Typography variant="caption" align="center" color={colors.textMuted}>
+            {t('profile.version', { version: build ? `${version} (${build})` : version })}
+          </Typography>
+        ) : null}
       </ScrollView>
       <LanguageSheet visible={languageOpen} onClose={() => setLanguageOpen(false)} />
     </Screen>
@@ -128,9 +163,12 @@ function LinkRow({
   valueLang,
   onPress,
   last,
+  external,
 }: {
   icon: LucideIcon;
   label: string;
+  /** Opens a web page (shows an external-link icon instead of the chevron). */
+  external?: boolean;
   /** Current value shown before the chevron (e.g. the selected language). */
   value?: string;
   valueLang?: string;
@@ -141,7 +179,7 @@ function LinkRow({
   return (
     <Pressable
       onPress={onPress}
-      accessibilityRole="button"
+      accessibilityRole={external ? 'link' : 'button'}
       accessibilityLabel={value ? `${label}: ${value}` : label}
       style={({ pressed }) => [styles.link, !last && styles.linkDivider, pressed && styles.pressed]}
     >
@@ -154,7 +192,11 @@ function LinkRow({
           {value}
         </Typography>
       ) : null}
-      <ForwardChevron size={18} color={colors.textMuted} strokeWidth={1.5} />
+      {external ? (
+        <ExternalLink size={16} color={colors.textMuted} strokeWidth={1.5} />
+      ) : (
+        <ForwardChevron size={18} color={colors.textMuted} strokeWidth={1.5} />
+      )}
     </Pressable>
   );
 }
@@ -194,4 +236,6 @@ const styles = StyleSheet.create({
   linkDivider: { borderBottomWidth: 1, borderBottomColor: colors.divider },
   pressed: { opacity: 0.7 },
   bottomActions: { gap: spacing.sm, marginTop: spacing.xs },
+  section: { gap: spacing.xs },
+  sectionTitle: { paddingHorizontal: spacing.xxs },
 });

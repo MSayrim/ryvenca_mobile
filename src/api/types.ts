@@ -55,6 +55,9 @@ export type ApiErrorCode =
   | 'CONFLICT'
   | 'INVALID_IMAGE'
   | 'PAYLOAD_TOO_LARGE'
+  | 'ACCOUNT_DISABLED'
+  | 'LOCAL_AUTH_DISABLED'
+  | 'AUTH_UNAVAILABLE'
   | 'INTERNAL_ERROR';
 
 // ---------- Errors ----------
@@ -105,6 +108,11 @@ export interface Meta {
 
 // ---------- Auth / User ----------
 
+export type UserRole = 'USER' | 'ADMIN';
+
+/** How the account signs in (server side). `LOCAL` = legacy e-mail/password against the backend. */
+export type AuthProviderType = 'APPLE' | 'GOOGLE' | 'PASSWORD' | 'LOCAL';
+
 export interface User {
   id: number;
   email: string;
@@ -115,6 +123,10 @@ export interface User {
   stylePreferences: StylePreference[];
   onboardingCompleted: boolean;
   createdAt: string;
+  /** Optional: older servers do not send these. */
+  role?: UserRole;
+  authProvider?: AuthProviderType;
+  emailVerified?: boolean;
 }
 
 export interface AuthResponse {
@@ -134,6 +146,27 @@ export interface LoginRequest {
   password: string;
 }
 
+/** `POST /api/auth/firebase` — exchanges a Firebase ID token for a RYVENCA token. */
+export interface FirebaseSignInRequest {
+  idToken: string;
+  /** Only used when the server creates the user and the token carries no name (Apple first sign-in). */
+  displayName: string | null;
+}
+
+export interface DeleteMeRequest {
+  reason: string | null;
+}
+
+/** `POST /api/account-deletion-requests` (public). */
+export interface DeletionRequestBody {
+  email: string;
+  message: string | null;
+}
+
+export interface DeletionRequestResponse {
+  reference: string;
+}
+
 /** Only non-null fields are applied by the backend. */
 export interface UpdateMeRequest {
   displayName?: string | null;
@@ -141,6 +174,47 @@ export interface UpdateMeRequest {
   stylePreferences?: StylePreference[] | null;
   onboardingCompleted?: boolean | null;
   language?: string | null;
+}
+
+// ---------- Public app configuration (`GET /api/config`) ----------
+
+export interface AuthProviderFlags {
+  apple: boolean;
+  google: boolean;
+  email: boolean;
+}
+
+export interface FirebaseWebConfig {
+  apiKey: string;
+  authDomain: string;
+  projectId: string;
+  appId: string;
+  messagingSenderId: string;
+  storageBucket: string;
+}
+
+export interface AppLinks {
+  privacyPolicy: string | null;
+  terms: string | null;
+  support: string | null;
+  supportEmail: string | null;
+  accountDeletion: string | null;
+  appStore: string | null;
+  playStore: string | null;
+}
+
+export interface AppConfig {
+  auth: {
+    /** The server can verify Firebase ID tokens. */
+    firebase: boolean;
+    /** Legacy e-mail/password (`/api/auth/login|register`) is allowed. */
+    local: boolean;
+    providers: AuthProviderFlags;
+  };
+  firebaseWeb: FirebaseWebConfig | null;
+  links: AppLinks;
+  maintenance: { enabled: boolean; message: string | null };
+  minVersion: { ios: string | null; android: string | null };
 }
 
 // ---------- Images ----------
