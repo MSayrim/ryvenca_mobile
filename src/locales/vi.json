@@ -40,7 +40,7 @@
     "payloadTooLarge": "Ảnh quá lớn. Bạn có thể tải lên tối đa {{maxMb}} MB.",
     "server": "Máy chủ gặp sự cố. Vui lòng thử lại sau ít phút.",
     "connectionFailed": "Không thể kết nối",
-    "accountDisabled": "Your account has been disabled. Please contact support for help."
+    "accountDisabled": "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ bộ phận hỗ trợ để được giúp đỡ."
   },
   "language": {
     "title": "Ngôn ngữ",
@@ -97,44 +97,44 @@
       "hasAccount": "Đã có tài khoản?",
       "toLogin": "Đăng nhập"
     },
-    "intro": "Sign in or create a new account in a few seconds.",
+    "intro": "Đăng nhập hoặc tạo tài khoản mới chỉ trong vài giây.",
     "providers": {
-      "google": "Continue with Google",
-      "email": "Continue with email",
-      "or": "or"
+      "google": "Tiếp tục với Google",
+      "email": "Tiếp tục với email",
+      "or": "hoặc"
     },
     "unavailable": {
-      "title": "Sign-in is unavailable right now",
-      "message": "No sign-in method is available in this version. Please try again later or contact support."
+      "title": "Hiện chưa thể đăng nhập",
+      "message": "Phiên bản này chưa có phương thức đăng nhập nào khả dụng. Vui lòng thử lại sau hoặc liên hệ bộ phận hỗ trợ."
     },
-    "disabledTitle": "Your account is disabled",
-    "agreement": "By continuing you agree to the Terms of Use and the Privacy Policy.",
-    "cantAccess": "Can't access your account?",
-    "cantAccessAction": "Request account deletion",
+    "disabledTitle": "Tài khoản của bạn đã bị vô hiệu hóa",
+    "agreement": "Khi tiếp tục, bạn đồng ý với Điều khoản sử dụng và Chính sách quyền riêng tư.",
+    "cantAccess": "Không thể truy cập tài khoản?",
+    "cantAccessAction": "Yêu cầu xóa tài khoản",
     "email": {
-      "title": "Continue with email",
-      "forgot": "Forgot password",
-      "resetTitle": "Reset your password",
-      "resetIntro": "Enter the email address of your account and we'll send you a link to reset your password.",
-      "resetSubmit": "Send Link",
-      "resetSent": "We sent a password reset link to {{email}}. Check your inbox and spam folder.",
-      "backToSignIn": "Back to sign in",
-      "verificationSent": "We sent a verification email to {{email}}."
+      "title": "Tiếp tục với email",
+      "forgot": "Quên mật khẩu",
+      "resetTitle": "Đặt lại mật khẩu của bạn",
+      "resetIntro": "Nhập địa chỉ email của tài khoản, chúng tôi sẽ gửi liên kết để đặt lại mật khẩu.",
+      "resetSubmit": "Gửi liên kết",
+      "resetSent": "Chúng tôi đã gửi liên kết đặt lại mật khẩu tới {{email}}. Hãy kiểm tra hộp thư đến và thư mục spam.",
+      "backToSignIn": "Quay lại đăng nhập",
+      "verificationSent": "Chúng tôi đã gửi email xác minh tới {{email}}."
     },
     "errors": {
-      "invalidEmail": "Enter a valid email address.",
-      "userDisabled": "This account has been disabled.",
-      "wrongCredentials": "Incorrect email or password.",
-      "emailInUse": "An account with this email already exists. Try signing in.",
-      "weakPassword": "This password is too weak. Choose a longer one that is hard to guess.",
-      "tooManyRequests": "Too many attempts. Please wait a moment and try again.",
-      "providerDisabled": "This sign-in method is currently turned off.",
-      "accountExists": "This email is registered with another sign-in method. Please sign in with that method.",
-      "recentLogin": "For your security, please sign in again and retry.",
-      "playServices": "Google Play services are required to sign in with Google.",
-      "appleFailed": "Sign in with Apple could not be completed. Please try again.",
-      "googleFailed": "Google sign-in could not be completed. Please try again.",
-      "generic": "Sign-in could not be completed. Please try again."
+      "invalidEmail": "Nhập địa chỉ email hợp lệ.",
+      "userDisabled": "Tài khoản này đã bị vô hiệu hóa.",
+      "wrongCredentials": "Email hoặc mật khẩu không đúng.",
+      "emailInUse": "Đã có tài khoản với email này. Hãy thử đăng nhập.",
+      "weakPassword": "Mật khẩu này quá yếu. Hãy chọn mật khẩu dài hơn và khó đoán.",
+      "tooManyRequests": "Bạn đã thử quá nhiều lần. Vui lòng đợi một lát rồi thử lại.",
+      "providerDisabled": "Phương thức đăng nhập này hiện đang tắt.",
+      "accountExists": "Email này đã được đăng ký bằng phương thức đăng nhập khác. Vui lòng đăng nhập bằng phương thức đó.",
+      "recentLogin": "Để bảo mật, vui lòng đăng nhập lại rồi thử lại.",
+      "playServices": "Cần có Dịch vụ Google Play để đăng nhập bằng Google.",
+      "appleFailed": "Không thể hoàn tất Đăng nhập bằng Apple. Vui lòng thử lại.",
+      "googleFailed": "Không thể hoàn tất đăng nhập bằng Google. Vui lòng thử lại.",
+      "generic": "Không thể hoàn tất đăng nhập. Vui lòng thử lại."
     }
   },
   "onboarding": {
@@ -412,66 +412,66 @@
       "favorites": "Món đồ yêu thích",
       "categoryA11y": "{{category}}: {{count}}"
     },
-    "help": "Help & legal",
-    "version": "Version {{version}}"
+    "help": "Trợ giúp & pháp lý",
+    "version": "Phiên bản {{version}}"
   },
   "legal": {
-    "terms": "Terms of Use",
-    "privacy": "Privacy Policy",
-    "support": "Support",
-    "openFailed": "Couldn't open the link"
+    "terms": "Điều khoản sử dụng",
+    "privacy": "Chính sách quyền riêng tư",
+    "support": "Hỗ trợ",
+    "openFailed": "Không thể mở liên kết"
   },
   "gate": {
     "maintenance": {
-      "title": "A short maintenance break",
-      "message": "We're improving RYVENCA for you. Please try again in a little while."
+      "title": "Bảo trì trong giây lát",
+      "message": "Chúng tôi đang cải thiện RYVENCA cho bạn. Vui lòng thử lại sau ít phút."
     },
     "update": {
-      "title": "A new version is ready",
-      "message": "Please update RYVENCA to continue. The new version includes important improvements.",
-      "action": "Update the App",
-      "versions": "Installed version {{installed}} · Required version {{required}}",
-      "noStoreLink": "Install the latest version of RYVENCA from your app store."
+      "title": "Đã có phiên bản mới",
+      "message": "Vui lòng cập nhật RYVENCA để tiếp tục. Phiên bản mới có những cải tiến quan trọng.",
+      "action": "Cập nhật ứng dụng",
+      "versions": "Phiên bản đã cài {{installed}} · Phiên bản yêu cầu {{required}}",
+      "noStoreLink": "Hãy cài phiên bản RYVENCA mới nhất từ cửa hàng ứng dụng."
     }
   },
   "deleteAccount": {
-    "title": "Delete Account",
-    "headline": "Permanently delete your account",
-    "intro": "When you delete your account, the following is removed immediately and permanently:",
+    "title": "Xóa tài khoản",
+    "headline": "Xóa vĩnh viễn tài khoản của bạn",
+    "intro": "Khi bạn xóa tài khoản, những dữ liệu sau sẽ bị xóa ngay lập tức và vĩnh viễn:",
     "items": {
-      "photos": "All clothing photos you uploaded",
-      "garments": "Every piece in your wardrobe and its details",
-      "outfits": "Your saved outfits and favorites",
-      "account": "Your account, profile, preferences and sign-in details"
+      "photos": "Tất cả ảnh quần áo bạn đã tải lên",
+      "garments": "Mọi món đồ trong tủ cùng thông tin chi tiết",
+      "outfits": "Các trang phục đã lưu và mục yêu thích",
+      "account": "Tài khoản, hồ sơ, tùy chọn và thông tin đăng nhập của bạn"
     },
-    "permanent": "This cannot be undone. Deleted data cannot be recovered.",
-    "reasonLabel": "Why are you leaving? (optional)",
-    "reasonPlaceholder": "Your feedback helps us improve RYVENCA.",
-    "confirmCheck": "I understand that my account and all my data will be permanently deleted.",
-    "appleNote": "For your security you'll be asked to confirm with Apple once more; RYVENCA's Sign in with Apple access is then revoked as well.",
-    "googleNote": "RYVENCA's access to your Google account will be removed as well.",
-    "action": "Permanently Delete My Account",
-    "confirmTitle": "Final confirmation",
-    "confirmMessage": "Your account and all your data will be deleted now. Are you sure?",
-    "confirmAction": "Yes, delete",
-    "failed": "Account could not be deleted",
-    "otherOptions": "Looking for another way?",
-    "webPage": "Open the account deletion page",
+    "permanent": "Không thể hoàn tác thao tác này. Dữ liệu đã xóa không thể khôi phục.",
+    "reasonLabel": "Vì sao bạn rời đi? (không bắt buộc)",
+    "reasonPlaceholder": "Góp ý của bạn giúp chúng tôi cải thiện RYVENCA.",
+    "confirmCheck": "Tôi hiểu rằng tài khoản và toàn bộ dữ liệu của tôi sẽ bị xóa vĩnh viễn.",
+    "appleNote": "Để bảo mật, bạn sẽ được yêu cầu xác nhận thêm một lần với Apple; sau đó quyền Đăng nhập bằng Apple của RYVENCA cũng sẽ bị thu hồi.",
+    "googleNote": "Quyền truy cập của RYVENCA vào tài khoản Google của bạn cũng sẽ bị gỡ bỏ.",
+    "action": "Xóa vĩnh viễn tài khoản",
+    "confirmTitle": "Xác nhận lần cuối",
+    "confirmMessage": "Tài khoản và toàn bộ dữ liệu của bạn sẽ bị xóa ngay bây giờ. Bạn có chắc không?",
+    "confirmAction": "Có, xóa",
+    "failed": "Không thể xóa tài khoản",
+    "otherOptions": "Bạn muốn dùng cách khác?",
+    "webPage": "Mở trang xóa tài khoản",
     "deleted": {
-      "title": "Your account was deleted",
-      "message": "Your account and all your data have been permanently deleted. Thank you for trying RYVENCA.",
+      "title": "Tài khoản của bạn đã được xóa",
+      "message": "Tài khoản và toàn bộ dữ liệu của bạn đã bị xóa vĩnh viễn. Cảm ơn bạn đã dùng thử RYVENCA.",
       "action": "OK"
     }
   },
   "deletionRequest": {
-    "title": "Account Deletion Request",
-    "intro": "If you can't sign in, enter the email address of your account. We'll review your request, delete your account and all its data, and let you know at this address.",
-    "messageLabel": "Note (optional)",
-    "messagePlaceholder": "e.g. I can't sign in to my account.",
-    "submit": "Send Request",
-    "sentTitle": "Request received",
-    "sentMessage": "We'll review your request and let you know by email. Keep this reference number:",
-    "referenceA11y": "Reference number {{reference}}",
-    "webPage": "Open the account deletion page on the web"
+    "title": "Yêu cầu xóa tài khoản",
+    "intro": "Nếu không thể đăng nhập, hãy nhập địa chỉ email của tài khoản. Chúng tôi sẽ xem xét yêu cầu, xóa tài khoản cùng toàn bộ dữ liệu và thông báo cho bạn qua địa chỉ này.",
+    "messageLabel": "Ghi chú (không bắt buộc)",
+    "messagePlaceholder": "VD: Tôi không thể đăng nhập vào tài khoản.",
+    "submit": "Gửi yêu cầu",
+    "sentTitle": "Đã nhận yêu cầu",
+    "sentMessage": "Chúng tôi sẽ xem xét yêu cầu và thông báo kết quả qua email. Hãy lưu lại mã tham chiếu này:",
+    "referenceA11y": "Mã tham chiếu {{reference}}",
+    "webPage": "Mở trang xóa tài khoản trên web"
   }
 }

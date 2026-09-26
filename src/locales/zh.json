@@ -40,7 +40,7 @@
     "payloadTooLarge": "照片太大，最多可上传 {{maxMb}} MB。",
     "server": "服务器出了点问题，请稍后重试。",
     "connectionFailed": "连接失败",
-    "accountDisabled": "Your account has been disabled. Please contact support for help."
+    "accountDisabled": "你的账号已被停用，如需帮助请联系客服。"
   },
   "language": {
     "title": "语言",
@@ -97,44 +97,44 @@
       "hasAccount": "已有账号？",
       "toLogin": "登录"
     },
-    "intro": "Sign in or create a new account in a few seconds.",
+    "intro": "几秒钟即可登录或创建新账号。",
     "providers": {
-      "google": "Continue with Google",
-      "email": "Continue with email",
-      "or": "or"
+      "google": "使用 Google 账号继续",
+      "email": "使用邮箱继续",
+      "or": "或"
     },
     "unavailable": {
-      "title": "Sign-in is unavailable right now",
-      "message": "No sign-in method is available in this version. Please try again later or contact support."
+      "title": "暂时无法登录",
+      "message": "此版本中暂无可用的登录方式，请稍后重试或联系客服。"
     },
-    "disabledTitle": "Your account is disabled",
-    "agreement": "By continuing you agree to the Terms of Use and the Privacy Policy.",
-    "cantAccess": "Can't access your account?",
-    "cantAccessAction": "Request account deletion",
+    "disabledTitle": "你的账号已被停用",
+    "agreement": "继续即表示你同意使用条款和隐私政策。",
+    "cantAccess": "无法登录你的账号？",
+    "cantAccessAction": "申请删除账号",
     "email": {
-      "title": "Continue with email",
-      "forgot": "Forgot password",
-      "resetTitle": "Reset your password",
-      "resetIntro": "Enter the email address of your account and we'll send you a link to reset your password.",
-      "resetSubmit": "Send Link",
-      "resetSent": "We sent a password reset link to {{email}}. Check your inbox and spam folder.",
-      "backToSignIn": "Back to sign in",
-      "verificationSent": "We sent a verification email to {{email}}."
+      "title": "使用邮箱继续",
+      "forgot": "忘记密码",
+      "resetTitle": "重置你的密码",
+      "resetIntro": "输入你账号的邮箱地址，我们会向你发送重置密码的链接。",
+      "resetSubmit": "发送链接",
+      "resetSent": "我们已向 {{email}} 发送重置密码的链接。请查看收件箱和垃圾邮件文件夹。",
+      "backToSignIn": "返回登录",
+      "verificationSent": "我们已向 {{email}} 发送验证邮件。"
     },
     "errors": {
-      "invalidEmail": "Enter a valid email address.",
-      "userDisabled": "This account has been disabled.",
-      "wrongCredentials": "Incorrect email or password.",
-      "emailInUse": "An account with this email already exists. Try signing in.",
-      "weakPassword": "This password is too weak. Choose a longer one that is hard to guess.",
-      "tooManyRequests": "Too many attempts. Please wait a moment and try again.",
-      "providerDisabled": "This sign-in method is currently turned off.",
-      "accountExists": "This email is registered with another sign-in method. Please sign in with that method.",
-      "recentLogin": "For your security, please sign in again and retry.",
-      "playServices": "Google Play services are required to sign in with Google.",
-      "appleFailed": "Sign in with Apple could not be completed. Please try again.",
-      "googleFailed": "Google sign-in could not be completed. Please try again.",
-      "generic": "Sign-in could not be completed. Please try again."
+      "invalidEmail": "请输入有效的邮箱地址。",
+      "userDisabled": "此账号已被停用。",
+      "wrongCredentials": "邮箱或密码错误。",
+      "emailInUse": "此邮箱已注册账号，请直接登录。",
+      "weakPassword": "密码强度太弱，请设置更长、不易被猜到的密码。",
+      "tooManyRequests": "尝试次数过多，请稍等片刻后重试。",
+      "providerDisabled": "此登录方式目前已关闭。",
+      "accountExists": "此邮箱已通过其他登录方式注册，请使用该方式登录。",
+      "recentLogin": "为了你的账号安全，请重新登录后再试。",
+      "playServices": "使用 Google 登录需要 Google Play 服务。",
+      "appleFailed": "通过 Apple 登录未能完成，请重试。",
+      "googleFailed": "Google 登录未能完成，请重试。",
+      "generic": "登录未能完成，请重试。"
     }
   },
   "onboarding": {
@@ -412,66 +412,66 @@
       "favorites": "收藏单品",
       "categoryA11y": "{{category}}：{{count}}"
     },
-    "help": "Help & legal",
-    "version": "Version {{version}}"
+    "help": "帮助与法律信息",
+    "version": "版本 {{version}}"
   },
   "legal": {
-    "terms": "Terms of Use",
-    "privacy": "Privacy Policy",
-    "support": "Support",
-    "openFailed": "Couldn't open the link"
+    "terms": "使用条款",
+    "privacy": "隐私政策",
+    "support": "支持",
+    "openFailed": "无法打开链接"
   },
   "gate": {
     "maintenance": {
-      "title": "A short maintenance break",
-      "message": "We're improving RYVENCA for you. Please try again in a little while."
+      "title": "短暂维护中",
+      "message": "我们正在为你优化 RYVENCA，请稍后重试。"
     },
     "update": {
-      "title": "A new version is ready",
-      "message": "Please update RYVENCA to continue. The new version includes important improvements.",
-      "action": "Update the App",
-      "versions": "Installed version {{installed}} · Required version {{required}}",
-      "noStoreLink": "Install the latest version of RYVENCA from your app store."
+      "title": "新版本已就绪",
+      "message": "请更新 RYVENCA 以继续使用。新版本包含重要改进。",
+      "action": "更新应用",
+      "versions": "已安装版本 {{installed}} · 所需版本 {{required}}",
+      "noStoreLink": "请从应用商店安装最新版本的 RYVENCA。"
     }
   },
   "deleteAccount": {
-    "title": "Delete Account",
-    "headline": "Permanently delete your account",
-    "intro": "When you delete your account, the following is removed immediately and permanently:",
+    "title": "注销账号",
+    "headline": "永久注销你的账号",
+    "intro": "注销账号后，以下内容将被立即永久删除：",
     "items": {
-      "photos": "All clothing photos you uploaded",
-      "garments": "Every piece in your wardrobe and its details",
-      "outfits": "Your saved outfits and favorites",
-      "account": "Your account, profile, preferences and sign-in details"
+      "photos": "你上传的所有衣物照片",
+      "garments": "衣橱中的每件单品及其信息",
+      "outfits": "你保存的搭配和收藏",
+      "account": "你的账号、个人资料、偏好和登录信息"
     },
-    "permanent": "This cannot be undone. Deleted data cannot be recovered.",
-    "reasonLabel": "Why are you leaving? (optional)",
-    "reasonPlaceholder": "Your feedback helps us improve RYVENCA.",
-    "confirmCheck": "I understand that my account and all my data will be permanently deleted.",
-    "appleNote": "For your security you'll be asked to confirm with Apple once more; RYVENCA's Sign in with Apple access is then revoked as well.",
-    "googleNote": "RYVENCA's access to your Google account will be removed as well.",
-    "action": "Permanently Delete My Account",
-    "confirmTitle": "Final confirmation",
-    "confirmMessage": "Your account and all your data will be deleted now. Are you sure?",
-    "confirmAction": "Yes, delete",
-    "failed": "Account could not be deleted",
-    "otherOptions": "Looking for another way?",
-    "webPage": "Open the account deletion page",
+    "permanent": "此操作无法撤销，已删除的数据无法恢复。",
+    "reasonLabel": "你为什么要离开？（选填）",
+    "reasonPlaceholder": "你的反馈能帮助我们改进 RYVENCA。",
+    "confirmCheck": "我了解我的账号及所有数据将被永久删除。",
+    "appleNote": "为了你的账号安全，系统会要求你再向 Apple 确认一次；随后 RYVENCA 的“通过 Apple 登录”访问权限也将被撤销。",
+    "googleNote": "RYVENCA 对你 Google 账号的访问权限也将被移除。",
+    "action": "永久注销我的账号",
+    "confirmTitle": "最终确认",
+    "confirmMessage": "你的账号及所有数据将立即被删除。确定要继续吗？",
+    "confirmAction": "确定删除",
+    "failed": "账号注销失败",
+    "otherOptions": "想用其他方式？",
+    "webPage": "打开注销账号页面",
     "deleted": {
-      "title": "Your account was deleted",
-      "message": "Your account and all your data have been permanently deleted. Thank you for trying RYVENCA.",
-      "action": "OK"
+      "title": "你的账号已注销",
+      "message": "你的账号及所有数据已被永久删除。感谢你使用 RYVENCA。",
+      "action": "好的"
     }
   },
   "deletionRequest": {
-    "title": "Account Deletion Request",
-    "intro": "If you can't sign in, enter the email address of your account. We'll review your request, delete your account and all its data, and let you know at this address.",
-    "messageLabel": "Note (optional)",
-    "messagePlaceholder": "e.g. I can't sign in to my account.",
-    "submit": "Send Request",
-    "sentTitle": "Request received",
-    "sentMessage": "We'll review your request and let you know by email. Keep this reference number:",
-    "referenceA11y": "Reference number {{reference}}",
-    "webPage": "Open the account deletion page on the web"
+    "title": "账号删除申请",
+    "intro": "如果你无法登录，请输入你账号的邮箱地址。我们会审核你的申请，删除你的账号及其所有数据，并通过该邮箱通知你。",
+    "messageLabel": "备注（选填）",
+    "messagePlaceholder": "例如：我无法登录我的账号。",
+    "submit": "提交申请",
+    "sentTitle": "已收到申请",
+    "sentMessage": "我们会审核你的申请并通过邮件通知你。请保存以下参考编号：",
+    "referenceA11y": "参考编号 {{reference}}",
+    "webPage": "在网页上打开注销账号页面"
   }
 }

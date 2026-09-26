@@ -52,6 +52,8 @@ Camera and photo-library permission texts are set in `app.config.ts` (English ba
 
 ## Firebase & giriş kurulumu
 
+> **Tek sayfalık kurulum listesi (backend + web + mobil + mağazalar):** `ryvenca_backend/docs/KURULUM.md`
+
 Giriş: **Sign in with Apple** (yalnız iOS), **Google** ve **e-posta + şifre** Firebase Authentication ile yapılır;
 uygulama Firebase ID token'ını `POST /api/auth/firebase` ile RYVENCA token'ına çevirir (bkz. `docs/API.md`).
 Kod ve yapılandırma hazır — ürün sahibinin yapması gereken yalnızca aşağıdaki kontrol listesi ve iki dosyayı

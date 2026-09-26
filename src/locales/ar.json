@@ -40,7 +40,7 @@
     "payloadTooLarge": "حجم الصورة كبير جدًا. الحد الأقصى {{maxMb}} ميغابايت.",
     "server": "حدث خطأ في الخادم. يرجى المحاولة بعد قليل.",
     "connectionFailed": "تعذّر الاتصال",
-    "accountDisabled": "Your account has been disabled. Please contact support for help."
+    "accountDisabled": "تم تعطيل حسابك. يرجى التواصل مع الدعم للحصول على المساعدة."
   },
   "language": {
     "title": "اللغة",
@@ -97,44 +97,44 @@
       "hasAccount": "لديك حساب بالفعل؟",
       "toLogin": "سجّل الدخول"
     },
-    "intro": "Sign in or create a new account in a few seconds.",
+    "intro": "سجّل الدخول أو أنشئ حسابًا جديدًا في ثوانٍ.",
     "providers": {
-      "google": "Continue with Google",
-      "email": "Continue with email",
-      "or": "or"
+      "google": "المتابعة باستخدام Google",
+      "email": "المتابعة بالبريد الإلكتروني",
+      "or": "أو"
     },
     "unavailable": {
-      "title": "Sign-in is unavailable right now",
-      "message": "No sign-in method is available in this version. Please try again later or contact support."
+      "title": "تسجيل الدخول غير متاح حاليًا",
+      "message": "لا تتوفر أي طريقة لتسجيل الدخول في هذا الإصدار. يرجى المحاولة لاحقًا أو التواصل مع الدعم."
     },
-    "disabledTitle": "Your account is disabled",
-    "agreement": "By continuing you agree to the Terms of Use and the Privacy Policy.",
-    "cantAccess": "Can't access your account?",
-    "cantAccessAction": "Request account deletion",
+    "disabledTitle": "حسابك معطّل",
+    "agreement": "بالمتابعة، فإنك توافق على شروط الاستخدام وسياسة الخصوصية.",
+    "cantAccess": "لا تستطيع الوصول إلى حسابك؟",
+    "cantAccessAction": "طلب حذف الحساب",
     "email": {
-      "title": "Continue with email",
-      "forgot": "Forgot password",
-      "resetTitle": "Reset your password",
-      "resetIntro": "Enter the email address of your account and we'll send you a link to reset your password.",
-      "resetSubmit": "Send Link",
-      "resetSent": "We sent a password reset link to {{email}}. Check your inbox and spam folder.",
-      "backToSignIn": "Back to sign in",
-      "verificationSent": "We sent a verification email to {{email}}."
+      "title": "المتابعة بالبريد الإلكتروني",
+      "forgot": "نسيت كلمة المرور",
+      "resetTitle": "أعد تعيين كلمة المرور",
+      "resetIntro": "أدخل البريد الإلكتروني المرتبط بحسابك وسنرسل إليك رابطًا لإعادة تعيين كلمة المرور.",
+      "resetSubmit": "إرسال الرابط",
+      "resetSent": "أرسلنا رابطًا لإعادة تعيين كلمة المرور إلى {{email}}. تحقّق من صندوق الوارد ومجلد الرسائل غير المرغوب فيها.",
+      "backToSignIn": "العودة إلى تسجيل الدخول",
+      "verificationSent": "أرسلنا رسالة تحقق إلى {{email}}."
     },
     "errors": {
-      "invalidEmail": "Enter a valid email address.",
-      "userDisabled": "This account has been disabled.",
-      "wrongCredentials": "Incorrect email or password.",
-      "emailInUse": "An account with this email already exists. Try signing in.",
-      "weakPassword": "This password is too weak. Choose a longer one that is hard to guess.",
-      "tooManyRequests": "Too many attempts. Please wait a moment and try again.",
-      "providerDisabled": "This sign-in method is currently turned off.",
-      "accountExists": "This email is registered with another sign-in method. Please sign in with that method.",
-      "recentLogin": "For your security, please sign in again and retry.",
-      "playServices": "Google Play services are required to sign in with Google.",
-      "appleFailed": "Sign in with Apple could not be completed. Please try again.",
-      "googleFailed": "Google sign-in could not be completed. Please try again.",
-      "generic": "Sign-in could not be completed. Please try again."
+      "invalidEmail": "أدخل عنوان بريد إلكتروني صالحًا.",
+      "userDisabled": "تم تعطيل هذا الحساب.",
+      "wrongCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+      "emailInUse": "يوجد حساب بهذا البريد الإلكتروني بالفعل. جرّب تسجيل الدخول.",
+      "weakPassword": "كلمة المرور هذه ضعيفة جدًا. اختر كلمة مرور أطول يصعب تخمينها.",
+      "tooManyRequests": "محاولات كثيرة جدًا. انتظر قليلًا ثم حاول مرة أخرى.",
+      "providerDisabled": "طريقة تسجيل الدخول هذه متوقفة حاليًا.",
+      "accountExists": "هذا البريد الإلكتروني مسجّل بطريقة تسجيل دخول أخرى. يرجى تسجيل الدخول بتلك الطريقة.",
+      "recentLogin": "حفاظًا على أمانك، سجّل الدخول مرة أخرى ثم أعد المحاولة.",
+      "playServices": "يلزم توفّر خدمات Google Play لتسجيل الدخول باستخدام Google.",
+      "appleFailed": "تعذّر إكمال تسجيل الدخول باستخدام Apple. يرجى المحاولة مرة أخرى.",
+      "googleFailed": "تعذّر إكمال تسجيل الدخول باستخدام Google. يرجى المحاولة مرة أخرى.",
+      "generic": "تعذّر إكمال تسجيل الدخول. يرجى المحاولة مرة أخرى."
     }
   },
   "onboarding": {
@@ -428,66 +428,66 @@
       "favorites": "القطع المفضّلة",
       "categoryA11y": "{{category}}: {{count}}"
     },
-    "help": "Help & legal",
-    "version": "Version {{version}}"
+    "help": "المساعدة والمعلومات القانونية",
+    "version": "الإصدار {{version}}"
   },
   "legal": {
-    "terms": "Terms of Use",
-    "privacy": "Privacy Policy",
-    "support": "Support",
-    "openFailed": "Couldn't open the link"
+    "terms": "شروط الاستخدام",
+    "privacy": "سياسة الخصوصية",
+    "support": "الدعم",
+    "openFailed": "تعذّر فتح الرابط"
   },
   "gate": {
     "maintenance": {
-      "title": "A short maintenance break",
-      "message": "We're improving RYVENCA for you. Please try again in a little while."
+      "title": "استراحة قصيرة للصيانة",
+      "message": "نعمل على تحسين RYVENCA من أجلك. يرجى المحاولة بعد قليل."
     },
     "update": {
-      "title": "A new version is ready",
-      "message": "Please update RYVENCA to continue. The new version includes important improvements.",
-      "action": "Update the App",
-      "versions": "Installed version {{installed}} · Required version {{required}}",
-      "noStoreLink": "Install the latest version of RYVENCA from your app store."
+      "title": "إصدار جديد جاهز",
+      "message": "يرجى تحديث RYVENCA للمتابعة. يتضمن الإصدار الجديد تحسينات مهمة.",
+      "action": "تحديث التطبيق",
+      "versions": "الإصدار المثبّت {{installed}} · الإصدار المطلوب {{required}}",
+      "noStoreLink": "ثبّت أحدث إصدار من RYVENCA من متجر التطبيقات."
     }
   },
   "deleteAccount": {
-    "title": "Delete Account",
-    "headline": "Permanently delete your account",
-    "intro": "When you delete your account, the following is removed immediately and permanently:",
+    "title": "حذف الحساب",
+    "headline": "احذف حسابك نهائيًا",
+    "intro": "عند حذف حسابك، يُحذف ما يلي فورًا وبشكل نهائي:",
     "items": {
-      "photos": "All clothing photos you uploaded",
-      "garments": "Every piece in your wardrobe and its details",
-      "outfits": "Your saved outfits and favorites",
-      "account": "Your account, profile, preferences and sign-in details"
+      "photos": "جميع صور الملابس التي رفعتها",
+      "garments": "جميع القطع في خزانتك وتفاصيلها",
+      "outfits": "إطلالاتك المحفوظة ومفضّلاتك",
+      "account": "حسابك وملفك الشخصي وتفضيلاتك وبيانات تسجيل الدخول"
     },
-    "permanent": "This cannot be undone. Deleted data cannot be recovered.",
-    "reasonLabel": "Why are you leaving? (optional)",
-    "reasonPlaceholder": "Your feedback helps us improve RYVENCA.",
-    "confirmCheck": "I understand that my account and all my data will be permanently deleted.",
-    "appleNote": "For your security you'll be asked to confirm with Apple once more; RYVENCA's Sign in with Apple access is then revoked as well.",
-    "googleNote": "RYVENCA's access to your Google account will be removed as well.",
-    "action": "Permanently Delete My Account",
-    "confirmTitle": "Final confirmation",
-    "confirmMessage": "Your account and all your data will be deleted now. Are you sure?",
-    "confirmAction": "Yes, delete",
-    "failed": "Account could not be deleted",
-    "otherOptions": "Looking for another way?",
-    "webPage": "Open the account deletion page",
+    "permanent": "لا يمكن التراجع عن ذلك. ولا يمكن استعادة البيانات المحذوفة.",
+    "reasonLabel": "لماذا تغادر؟ (اختياري)",
+    "reasonPlaceholder": "تساعدنا ملاحظاتك على تحسين RYVENCA.",
+    "confirmCheck": "أفهم أن حسابي وجميع بياناتي ستُحذف نهائيًا.",
+    "appleNote": "حفاظًا على أمانك، سيُطلب منك التأكيد مع Apple مرة أخرى؛ وبعد ذلك يُلغى أيضًا وصول RYVENCA عبر تسجيل الدخول باستخدام Apple.",
+    "googleNote": "سيُزال أيضًا وصول RYVENCA إلى حسابك في Google.",
+    "action": "احذف حسابي نهائيًا",
+    "confirmTitle": "التأكيد النهائي",
+    "confirmMessage": "سيُحذف حسابك وجميع بياناتك الآن. هل أنت متأكد؟",
+    "confirmAction": "نعم، احذف",
+    "failed": "تعذّر حذف الحساب",
+    "otherOptions": "هل تبحث عن طريقة أخرى؟",
+    "webPage": "فتح صفحة حذف الحساب",
     "deleted": {
-      "title": "Your account was deleted",
-      "message": "Your account and all your data have been permanently deleted. Thank you for trying RYVENCA.",
-      "action": "OK"
+      "title": "تم حذف حسابك",
+      "message": "تم حذف حسابك وجميع بياناتك نهائيًا. شكرًا لتجربتك RYVENCA.",
+      "action": "حسنًا"
     }
   },
   "deletionRequest": {
-    "title": "Account Deletion Request",
-    "intro": "If you can't sign in, enter the email address of your account. We'll review your request, delete your account and all its data, and let you know at this address.",
-    "messageLabel": "Note (optional)",
-    "messagePlaceholder": "e.g. I can't sign in to my account.",
-    "submit": "Send Request",
-    "sentTitle": "Request received",
-    "sentMessage": "We'll review your request and let you know by email. Keep this reference number:",
-    "referenceA11y": "Reference number {{reference}}",
-    "webPage": "Open the account deletion page on the web"
+    "title": "طلب حذف الحساب",
+    "intro": "إذا لم تتمكّن من تسجيل الدخول، أدخل البريد الإلكتروني المرتبط بحسابك. سنراجع طلبك ونحذف حسابك وجميع بياناته، ثم نُعلمك على هذا العنوان.",
+    "messageLabel": "ملاحظة (اختياري)",
+    "messagePlaceholder": "مثال: لا أستطيع تسجيل الدخول إلى حسابي.",
+    "submit": "إرسال الطلب",
+    "sentTitle": "تم استلام الطلب",
+    "sentMessage": "سنراجع طلبك ونُعلمك عبر البريد الإلكتروني. احتفظ بهذا الرقم المرجعي:",
+    "referenceA11y": "الرقم المرجعي {{reference}}",
+    "webPage": "فتح صفحة حذف الحساب على الويب"
   }
 }

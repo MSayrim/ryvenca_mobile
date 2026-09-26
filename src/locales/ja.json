@@ -40,7 +40,7 @@
     "payloadTooLarge": "写真のサイズが大きすぎます。アップロードできるのは{{maxMb}} MBまでです。",
     "server": "サーバーで問題が発生しました。しばらくしてからもう一度お試しください。",
     "connectionFailed": "接続できませんでした",
-    "accountDisabled": "Your account has been disabled. Please contact support for help."
+    "accountDisabled": "アカウントが無効になっています。サポートにお問い合わせください。"
   },
   "language": {
     "title": "言語",
@@ -97,44 +97,44 @@
       "hasAccount": "すでにアカウントをお持ちですか？",
       "toLogin": "ログイン"
     },
-    "intro": "Sign in or create a new account in a few seconds.",
+    "intro": "ログインも新規アカウントの作成も、数秒で完了します。",
     "providers": {
-      "google": "Continue with Google",
-      "email": "Continue with email",
-      "or": "or"
+      "google": "Google で続ける",
+      "email": "メールアドレスで続ける",
+      "or": "または"
     },
     "unavailable": {
-      "title": "Sign-in is unavailable right now",
-      "message": "No sign-in method is available in this version. Please try again later or contact support."
+      "title": "現在ログインできません",
+      "message": "このバージョンでは利用できるログイン方法がありません。しばらくしてからもう一度お試しいただくか、サポートにお問い合わせください。"
     },
-    "disabledTitle": "Your account is disabled",
-    "agreement": "By continuing you agree to the Terms of Use and the Privacy Policy.",
-    "cantAccess": "Can't access your account?",
-    "cantAccessAction": "Request account deletion",
+    "disabledTitle": "アカウントが無効になっています",
+    "agreement": "続けることで、利用規約とプライバシーポリシーに同意したものとみなされます。",
+    "cantAccess": "アカウントにアクセスできない場合",
+    "cantAccessAction": "アカウントの削除をリクエスト",
     "email": {
-      "title": "Continue with email",
-      "forgot": "Forgot password",
-      "resetTitle": "Reset your password",
-      "resetIntro": "Enter the email address of your account and we'll send you a link to reset your password.",
-      "resetSubmit": "Send Link",
-      "resetSent": "We sent a password reset link to {{email}}. Check your inbox and spam folder.",
-      "backToSignIn": "Back to sign in",
-      "verificationSent": "We sent a verification email to {{email}}."
+      "title": "メールアドレスで続ける",
+      "forgot": "パスワードをお忘れの場合",
+      "resetTitle": "パスワードを再設定",
+      "resetIntro": "アカウントのメールアドレスを入力すると、パスワード再設定用のリンクをお送りします。",
+      "resetSubmit": "リンクを送信",
+      "resetSent": "{{email}} にパスワード再設定用のリンクを送信しました。受信トレイと迷惑メールフォルダをご確認ください。",
+      "backToSignIn": "ログインに戻る",
+      "verificationSent": "{{email}} に確認メールを送信しました。"
     },
     "errors": {
-      "invalidEmail": "Enter a valid email address.",
-      "userDisabled": "This account has been disabled.",
-      "wrongCredentials": "Incorrect email or password.",
-      "emailInUse": "An account with this email already exists. Try signing in.",
-      "weakPassword": "This password is too weak. Choose a longer one that is hard to guess.",
-      "tooManyRequests": "Too many attempts. Please wait a moment and try again.",
-      "providerDisabled": "This sign-in method is currently turned off.",
-      "accountExists": "This email is registered with another sign-in method. Please sign in with that method.",
-      "recentLogin": "For your security, please sign in again and retry.",
-      "playServices": "Google Play services are required to sign in with Google.",
-      "appleFailed": "Sign in with Apple could not be completed. Please try again.",
-      "googleFailed": "Google sign-in could not be completed. Please try again.",
-      "generic": "Sign-in could not be completed. Please try again."
+      "invalidEmail": "有効なメールアドレスを入力してください。",
+      "userDisabled": "このアカウントは無効になっています。",
+      "wrongCredentials": "メールアドレスまたはパスワードが正しくありません。",
+      "emailInUse": "このメールアドレスのアカウントはすでに存在します。ログインをお試しください。",
+      "weakPassword": "パスワードが弱すぎます。もっと長く、推測されにくいパスワードを設定してください。",
+      "tooManyRequests": "試行回数が多すぎます。少し待ってからもう一度お試しください。",
+      "providerDisabled": "このログイン方法は現在オフになっています。",
+      "accountExists": "このメールアドレスは別のログイン方法で登録されています。その方法でログインしてください。",
+      "recentLogin": "セキュリティのため、もう一度ログインしてからお試しください。",
+      "playServices": "Google でログインするには、Google Play 開発者サービスが必要です。",
+      "appleFailed": "Appleでサインインを完了できませんでした。もう一度お試しください。",
+      "googleFailed": "Google でのログインを完了できませんでした。もう一度お試しください。",
+      "generic": "ログインを完了できませんでした。もう一度お試しください。"
     }
   },
   "onboarding": {
@@ -412,66 +412,66 @@
       "favorites": "お気に入りアイテム",
       "categoryA11y": "{{category}}：{{count}}"
     },
-    "help": "Help & legal",
-    "version": "Version {{version}}"
+    "help": "ヘルプと規約",
+    "version": "バージョン {{version}}"
   },
   "legal": {
-    "terms": "Terms of Use",
-    "privacy": "Privacy Policy",
-    "support": "Support",
-    "openFailed": "Couldn't open the link"
+    "terms": "利用規約",
+    "privacy": "プライバシーポリシー",
+    "support": "サポート",
+    "openFailed": "リンクを開けませんでした"
   },
   "gate": {
     "maintenance": {
-      "title": "A short maintenance break",
-      "message": "We're improving RYVENCA for you. Please try again in a little while."
+      "title": "ただいまメンテナンス中です",
+      "message": "RYVENCAをより良くするための作業を行っています。しばらくしてからもう一度お試しください。"
     },
     "update": {
-      "title": "A new version is ready",
-      "message": "Please update RYVENCA to continue. The new version includes important improvements.",
-      "action": "Update the App",
-      "versions": "Installed version {{installed}} · Required version {{required}}",
-      "noStoreLink": "Install the latest version of RYVENCA from your app store."
+      "title": "新しいバージョンがあります",
+      "message": "引き続きご利用いただくには、RYVENCAをアップデートしてください。新しいバージョンには重要な改善が含まれています。",
+      "action": "アプリをアップデート",
+      "versions": "インストール済み {{installed}} · 必要なバージョン {{required}}",
+      "noStoreLink": "アプリストアからRYVENCAの最新バージョンをインストールしてください。"
     }
   },
   "deleteAccount": {
-    "title": "Delete Account",
-    "headline": "Permanently delete your account",
-    "intro": "When you delete your account, the following is removed immediately and permanently:",
+    "title": "アカウントを削除",
+    "headline": "アカウントを完全に削除",
+    "intro": "アカウントを削除すると、以下のデータがただちに完全に削除されます。",
     "items": {
-      "photos": "All clothing photos you uploaded",
-      "garments": "Every piece in your wardrobe and its details",
-      "outfits": "Your saved outfits and favorites",
-      "account": "Your account, profile, preferences and sign-in details"
+      "photos": "アップロードしたすべての服の写真",
+      "garments": "ワードローブのすべてのアイテムとその情報",
+      "outfits": "保存したコーデとお気に入り",
+      "account": "アカウント、プロフィール、好みの設定、ログイン情報"
     },
-    "permanent": "This cannot be undone. Deleted data cannot be recovered.",
-    "reasonLabel": "Why are you leaving? (optional)",
-    "reasonPlaceholder": "Your feedback helps us improve RYVENCA.",
-    "confirmCheck": "I understand that my account and all my data will be permanently deleted.",
-    "appleNote": "For your security you'll be asked to confirm with Apple once more; RYVENCA's Sign in with Apple access is then revoked as well.",
-    "googleNote": "RYVENCA's access to your Google account will be removed as well.",
-    "action": "Permanently Delete My Account",
-    "confirmTitle": "Final confirmation",
-    "confirmMessage": "Your account and all your data will be deleted now. Are you sure?",
-    "confirmAction": "Yes, delete",
-    "failed": "Account could not be deleted",
-    "otherOptions": "Looking for another way?",
-    "webPage": "Open the account deletion page",
+    "permanent": "この操作は取り消せません。削除したデータは復元できません。",
+    "reasonLabel": "退会の理由を教えてください（任意）",
+    "reasonPlaceholder": "いただいたご意見は、RYVENCAの改善に役立てます。",
+    "confirmCheck": "アカウントとすべてのデータが完全に削除されることを理解しました。",
+    "appleNote": "セキュリティのため、Appleでもう一度確認が求められます。その後、RYVENCAの「Appleでサインイン」によるアクセスも取り消されます。",
+    "googleNote": "RYVENCAによるGoogleアカウントへのアクセスも削除されます。",
+    "action": "アカウントを完全に削除する",
+    "confirmTitle": "最終確認",
+    "confirmMessage": "アカウントとすべてのデータを今すぐ削除します。よろしいですか？",
+    "confirmAction": "削除する",
+    "failed": "アカウントを削除できませんでした",
+    "otherOptions": "ほかの方法をお探しですか？",
+    "webPage": "アカウント削除ページを開く",
     "deleted": {
-      "title": "Your account was deleted",
-      "message": "Your account and all your data have been permanently deleted. Thank you for trying RYVENCA.",
+      "title": "アカウントを削除しました",
+      "message": "アカウントとすべてのデータは完全に削除されました。RYVENCAをお試しいただき、ありがとうございました。",
       "action": "OK"
     }
   },
   "deletionRequest": {
-    "title": "Account Deletion Request",
-    "intro": "If you can't sign in, enter the email address of your account. We'll review your request, delete your account and all its data, and let you know at this address.",
-    "messageLabel": "Note (optional)",
-    "messagePlaceholder": "e.g. I can't sign in to my account.",
-    "submit": "Send Request",
-    "sentTitle": "Request received",
-    "sentMessage": "We'll review your request and let you know by email. Keep this reference number:",
-    "referenceA11y": "Reference number {{reference}}",
-    "webPage": "Open the account deletion page on the web"
+    "title": "アカウント削除のリクエスト",
+    "intro": "ログインできない場合は、アカウントのメールアドレスを入力してください。リクエストを確認のうえ、アカウントとすべてのデータを削除し、このアドレスにお知らせします。",
+    "messageLabel": "メモ（任意）",
+    "messagePlaceholder": "例：アカウントにログインできません。",
+    "submit": "リクエストを送信",
+    "sentTitle": "リクエストを受け付けました",
+    "sentMessage": "リクエストを確認し、メールでお知らせします。この受付番号を控えておいてください：",
+    "referenceA11y": "受付番号 {{reference}}",
+    "webPage": "ウェブでアカウント削除ページを開く"
   }
 }

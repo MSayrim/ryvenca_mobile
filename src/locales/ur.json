@@ -40,7 +40,7 @@
     "payloadTooLarge": "تصویر بہت بڑی ہے۔ آپ زیادہ سے زیادہ {{maxMb}} MB تک اپ لوڈ کر سکتے ہیں۔",
     "server": "سرور پر کچھ غلط ہو گیا۔ براہِ کرم تھوڑی دیر بعد دوبارہ کوشش کریں۔",
     "connectionFailed": "کنکشن نہیں ہو سکا",
-    "accountDisabled": "Your account has been disabled. Please contact support for help."
+    "accountDisabled": "آپ کا اکاؤنٹ غیر فعال کر دیا گیا ہے۔ مدد کے لیے براہِ کرم سپورٹ سے رابطہ کریں۔"
   },
   "language": {
     "title": "زبان",
@@ -97,44 +97,44 @@
       "hasAccount": "پہلے سے اکاؤنٹ ہے؟",
       "toLogin": "سائن ان کریں"
     },
-    "intro": "Sign in or create a new account in a few seconds.",
+    "intro": "چند سیکنڈ میں سائن ان کریں یا نیا اکاؤنٹ بنائیں۔",
     "providers": {
-      "google": "Continue with Google",
-      "email": "Continue with email",
-      "or": "or"
+      "google": "Google کے ساتھ جاری رکھیں",
+      "email": "ای میل کے ساتھ جاری رکھیں",
+      "or": "یا"
     },
     "unavailable": {
-      "title": "Sign-in is unavailable right now",
-      "message": "No sign-in method is available in this version. Please try again later or contact support."
+      "title": "سائن ان فی الحال دستیاب نہیں",
+      "message": "اس ورژن میں سائن ان کا کوئی طریقہ دستیاب نہیں۔ براہِ کرم بعد میں دوبارہ کوشش کریں یا سپورٹ سے رابطہ کریں۔"
     },
-    "disabledTitle": "Your account is disabled",
-    "agreement": "By continuing you agree to the Terms of Use and the Privacy Policy.",
-    "cantAccess": "Can't access your account?",
-    "cantAccessAction": "Request account deletion",
+    "disabledTitle": "آپ کا اکاؤنٹ غیر فعال ہے",
+    "agreement": "جاری رکھ کر آپ استعمال کی شرائط اور پرائیویسی پالیسی سے اتفاق کرتے ہیں۔",
+    "cantAccess": "اپنے اکاؤنٹ تک رسائی نہیں ہو رہی؟",
+    "cantAccessAction": "اکاؤنٹ حذف کرنے کی درخواست دیں",
     "email": {
-      "title": "Continue with email",
-      "forgot": "Forgot password",
-      "resetTitle": "Reset your password",
-      "resetIntro": "Enter the email address of your account and we'll send you a link to reset your password.",
-      "resetSubmit": "Send Link",
-      "resetSent": "We sent a password reset link to {{email}}. Check your inbox and spam folder.",
-      "backToSignIn": "Back to sign in",
-      "verificationSent": "We sent a verification email to {{email}}."
+      "title": "ای میل کے ساتھ جاری رکھیں",
+      "forgot": "پاس ورڈ بھول گئے",
+      "resetTitle": "اپنا پاس ورڈ ری سیٹ کریں",
+      "resetIntro": "اپنے اکاؤنٹ کا ای میل ایڈریس درج کریں، ہم آپ کو پاس ورڈ ری سیٹ کرنے کا لنک بھیج دیں گے۔",
+      "resetSubmit": "لنک بھیجیں",
+      "resetSent": "ہم نے {{email}} پر پاس ورڈ ری سیٹ کرنے کا لنک بھیج دیا ہے۔ اپنا ان باکس اور اسپام فولڈر دیکھیں۔",
+      "backToSignIn": "سائن ان پر واپس جائیں",
+      "verificationSent": "ہم نے {{email}} پر تصدیقی ای میل بھیج دی ہے۔"
     },
     "errors": {
-      "invalidEmail": "Enter a valid email address.",
-      "userDisabled": "This account has been disabled.",
-      "wrongCredentials": "Incorrect email or password.",
-      "emailInUse": "An account with this email already exists. Try signing in.",
-      "weakPassword": "This password is too weak. Choose a longer one that is hard to guess.",
-      "tooManyRequests": "Too many attempts. Please wait a moment and try again.",
-      "providerDisabled": "This sign-in method is currently turned off.",
-      "accountExists": "This email is registered with another sign-in method. Please sign in with that method.",
-      "recentLogin": "For your security, please sign in again and retry.",
-      "playServices": "Google Play services are required to sign in with Google.",
-      "appleFailed": "Sign in with Apple could not be completed. Please try again.",
-      "googleFailed": "Google sign-in could not be completed. Please try again.",
-      "generic": "Sign-in could not be completed. Please try again."
+      "invalidEmail": "درست ای میل ایڈریس درج کریں۔",
+      "userDisabled": "یہ اکاؤنٹ غیر فعال کر دیا گیا ہے۔",
+      "wrongCredentials": "ای میل یا پاس ورڈ غلط ہے۔",
+      "emailInUse": "اس ای میل سے ایک اکاؤنٹ پہلے سے موجود ہے۔ سائن ان کر کے دیکھیں۔",
+      "weakPassword": "یہ پاس ورڈ بہت کمزور ہے۔ کوئی لمبا پاس ورڈ چنیں جس کا اندازہ لگانا مشکل ہو۔",
+      "tooManyRequests": "بہت زیادہ کوششیں ہو گئیں۔ براہِ کرم تھوڑا انتظار کر کے دوبارہ کوشش کریں۔",
+      "providerDisabled": "سائن ان کا یہ طریقہ فی الحال بند ہے۔",
+      "accountExists": "یہ ای میل سائن ان کے کسی اور طریقے سے رجسٹرڈ ہے۔ براہِ کرم اسی طریقے سے سائن ان کریں۔",
+      "recentLogin": "آپ کی حفاظت کے لیے براہِ کرم دوبارہ سائن ان کر کے پھر کوشش کریں۔",
+      "playServices": "Google کے ساتھ سائن ان کرنے کے لیے Google Play سروسز درکار ہیں۔",
+      "appleFailed": "Apple کے ساتھ سائن ان مکمل نہیں ہو سکا۔ براہِ کرم دوبارہ کوشش کریں۔",
+      "googleFailed": "Google کے ساتھ سائن ان مکمل نہیں ہو سکا۔ براہِ کرم دوبارہ کوشش کریں۔",
+      "generic": "سائن ان مکمل نہیں ہو سکا۔ براہِ کرم دوبارہ کوشش کریں۔"
     }
   },
   "onboarding": {
@@ -412,66 +412,66 @@
       "favorites": "پسندیدہ پیسز",
       "categoryA11y": "{{category}}: {{count}}"
     },
-    "help": "Help & legal",
-    "version": "Version {{version}}"
+    "help": "مدد اور قانونی معلومات",
+    "version": "ورژن {{version}}"
   },
   "legal": {
-    "terms": "Terms of Use",
-    "privacy": "Privacy Policy",
-    "support": "Support",
-    "openFailed": "Couldn't open the link"
+    "terms": "استعمال کی شرائط",
+    "privacy": "پرائیویسی پالیسی",
+    "support": "سپورٹ",
+    "openFailed": "لنک نہیں کھل سکا"
   },
   "gate": {
     "maintenance": {
-      "title": "A short maintenance break",
-      "message": "We're improving RYVENCA for you. Please try again in a little while."
+      "title": "مختصر مینٹیننس وقفہ",
+      "message": "ہم آپ کے لیے RYVENCA کو بہتر بنا رہے ہیں۔ براہِ کرم تھوڑی دیر بعد دوبارہ کوشش کریں۔"
     },
     "update": {
-      "title": "A new version is ready",
-      "message": "Please update RYVENCA to continue. The new version includes important improvements.",
-      "action": "Update the App",
-      "versions": "Installed version {{installed}} · Required version {{required}}",
-      "noStoreLink": "Install the latest version of RYVENCA from your app store."
+      "title": "نیا ورژن تیار ہے",
+      "message": "جاری رکھنے کے لیے براہِ کرم RYVENCA اپ ڈیٹ کریں۔ نئے ورژن میں اہم بہتریاں شامل ہیں۔",
+      "action": "ایپ اپ ڈیٹ کریں",
+      "versions": "انسٹال شدہ ورژن {{installed}} · مطلوبہ ورژن {{required}}",
+      "noStoreLink": "اپنے ایپ اسٹور سے RYVENCA کا تازہ ترین ورژن انسٹال کریں۔"
     }
   },
   "deleteAccount": {
-    "title": "Delete Account",
-    "headline": "Permanently delete your account",
-    "intro": "When you delete your account, the following is removed immediately and permanently:",
+    "title": "اکاؤنٹ حذف کریں",
+    "headline": "اپنا اکاؤنٹ مستقل طور پر حذف کریں",
+    "intro": "اکاؤنٹ حذف کرنے پر درج ذیل چیزیں فوراً اور مستقل طور پر ہٹا دی جاتی ہیں:",
     "items": {
-      "photos": "All clothing photos you uploaded",
-      "garments": "Every piece in your wardrobe and its details",
-      "outfits": "Your saved outfits and favorites",
-      "account": "Your account, profile, preferences and sign-in details"
+      "photos": "آپ کی اپ لوڈ کی گئی کپڑوں کی تمام تصاویر",
+      "garments": "آپ کے وارڈروب کا ہر پیس اور اس کی تفصیلات",
+      "outfits": "آپ کے محفوظ آؤٹ فٹس اور پسندیدہ",
+      "account": "آپ کا اکاؤنٹ، پروفائل، ترجیحات اور سائن ان کی تفصیلات"
     },
-    "permanent": "This cannot be undone. Deleted data cannot be recovered.",
-    "reasonLabel": "Why are you leaving? (optional)",
-    "reasonPlaceholder": "Your feedback helps us improve RYVENCA.",
-    "confirmCheck": "I understand that my account and all my data will be permanently deleted.",
-    "appleNote": "For your security you'll be asked to confirm with Apple once more; RYVENCA's Sign in with Apple access is then revoked as well.",
-    "googleNote": "RYVENCA's access to your Google account will be removed as well.",
-    "action": "Permanently Delete My Account",
-    "confirmTitle": "Final confirmation",
-    "confirmMessage": "Your account and all your data will be deleted now. Are you sure?",
-    "confirmAction": "Yes, delete",
-    "failed": "Account could not be deleted",
-    "otherOptions": "Looking for another way?",
-    "webPage": "Open the account deletion page",
+    "permanent": "یہ عمل واپس نہیں ہو سکتا۔ حذف شدہ ڈیٹا بحال نہیں کیا جا سکتا۔",
+    "reasonLabel": "آپ کیوں جا رہے ہیں؟ (اختیاری)",
+    "reasonPlaceholder": "آپ کی رائے RYVENCA کو بہتر بنانے میں ہماری مدد کرتی ہے۔",
+    "confirmCheck": "مجھے معلوم ہے کہ میرا اکاؤنٹ اور میرا تمام ڈیٹا مستقل طور پر حذف ہو جائے گا۔",
+    "appleNote": "آپ کی حفاظت کے لیے آپ سے ایک بار پھر Apple کے ساتھ تصدیق کرنے کو کہا جائے گا؛ اس کے بعد RYVENCA کی \"Apple کے ساتھ سائن ان\" والی رسائی بھی ختم کر دی جائے گی۔",
+    "googleNote": "آپ کے Google اکاؤنٹ تک RYVENCA کی رسائی بھی ختم کر دی جائے گی۔",
+    "action": "میرا اکاؤنٹ مستقل طور پر حذف کریں",
+    "confirmTitle": "حتمی تصدیق",
+    "confirmMessage": "آپ کا اکاؤنٹ اور آپ کا تمام ڈیٹا ابھی حذف کر دیا جائے گا۔ کیا آپ کو یقین ہے؟",
+    "confirmAction": "ہاں، حذف کریں",
+    "failed": "اکاؤنٹ حذف نہیں ہو سکا",
+    "otherOptions": "کوئی اور طریقہ چاہیے؟",
+    "webPage": "اکاؤنٹ حذف کرنے کا صفحہ کھولیں",
     "deleted": {
-      "title": "Your account was deleted",
-      "message": "Your account and all your data have been permanently deleted. Thank you for trying RYVENCA.",
-      "action": "OK"
+      "title": "آپ کا اکاؤنٹ حذف کر دیا گیا",
+      "message": "آپ کا اکاؤنٹ اور آپ کا تمام ڈیٹا مستقل طور پر حذف کر دیا گیا ہے۔ RYVENCA آزمانے کا شکریہ۔",
+      "action": "ٹھیک ہے"
     }
   },
   "deletionRequest": {
-    "title": "Account Deletion Request",
-    "intro": "If you can't sign in, enter the email address of your account. We'll review your request, delete your account and all its data, and let you know at this address.",
-    "messageLabel": "Note (optional)",
-    "messagePlaceholder": "e.g. I can't sign in to my account.",
-    "submit": "Send Request",
-    "sentTitle": "Request received",
-    "sentMessage": "We'll review your request and let you know by email. Keep this reference number:",
-    "referenceA11y": "Reference number {{reference}}",
-    "webPage": "Open the account deletion page on the web"
+    "title": "اکاؤنٹ حذف کرنے کی درخواست",
+    "intro": "اگر آپ سائن ان نہیں کر پا رہے تو اپنے اکاؤنٹ کا ای میل ایڈریس درج کریں۔ ہم آپ کی درخواست کا جائزہ لیں گے، آپ کا اکاؤنٹ اور اس کا تمام ڈیٹا حذف کریں گے اور اسی ایڈریس پر آپ کو مطلع کریں گے۔",
+    "messageLabel": "نوٹ (اختیاری)",
+    "messagePlaceholder": "مثلاً مجھ سے اپنے اکاؤنٹ میں سائن ان نہیں ہو پا رہا۔",
+    "submit": "درخواست بھیجیں",
+    "sentTitle": "درخواست موصول ہو گئی",
+    "sentMessage": "ہم آپ کی درخواست کا جائزہ لے کر آپ کو ای میل کے ذریعے مطلع کریں گے۔ یہ حوالہ نمبر محفوظ رکھیں:",
+    "referenceA11y": "حوالہ نمبر {{reference}}",
+    "webPage": "ویب پر اکاؤنٹ حذف کرنے کا صفحہ کھولیں"
   }
 }

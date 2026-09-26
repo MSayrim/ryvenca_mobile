@@ -40,7 +40,7 @@
     "payloadTooLarge": "A foto é grande demais. Você pode enviar até {{maxMb}} MB.",
     "server": "Algo deu errado no servidor. Tente novamente em instantes.",
     "connectionFailed": "Sem conexão",
-    "accountDisabled": "Your account has been disabled. Please contact support for help."
+    "accountDisabled": "Sua conta foi desativada. Entre em contato com o suporte para receber ajuda."
   },
   "language": {
     "title": "Idioma",
@@ -97,44 +97,44 @@
       "hasAccount": "Já tem uma conta?",
       "toLogin": "Entrar"
     },
-    "intro": "Sign in or create a new account in a few seconds.",
+    "intro": "Entre ou crie uma conta nova em poucos segundos.",
     "providers": {
-      "google": "Continue with Google",
-      "email": "Continue with email",
-      "or": "or"
+      "google": "Continuar com o Google",
+      "email": "Continuar com e-mail",
+      "or": "ou"
     },
     "unavailable": {
-      "title": "Sign-in is unavailable right now",
-      "message": "No sign-in method is available in this version. Please try again later or contact support."
+      "title": "O login não está disponível no momento",
+      "message": "Nenhum método de login está disponível nesta versão. Tente novamente mais tarde ou fale com o suporte."
     },
-    "disabledTitle": "Your account is disabled",
-    "agreement": "By continuing you agree to the Terms of Use and the Privacy Policy.",
-    "cantAccess": "Can't access your account?",
-    "cantAccessAction": "Request account deletion",
+    "disabledTitle": "Sua conta está desativada",
+    "agreement": "Ao continuar, você concorda com os Termos de Uso e a Política de Privacidade.",
+    "cantAccess": "Não consegue acessar sua conta?",
+    "cantAccessAction": "Solicitar exclusão da conta",
     "email": {
-      "title": "Continue with email",
-      "forgot": "Forgot password",
-      "resetTitle": "Reset your password",
-      "resetIntro": "Enter the email address of your account and we'll send you a link to reset your password.",
-      "resetSubmit": "Send Link",
-      "resetSent": "We sent a password reset link to {{email}}. Check your inbox and spam folder.",
-      "backToSignIn": "Back to sign in",
-      "verificationSent": "We sent a verification email to {{email}}."
+      "title": "Continuar com e-mail",
+      "forgot": "Esqueci minha senha",
+      "resetTitle": "Redefina sua senha",
+      "resetIntro": "Informe o e-mail da sua conta e enviaremos um link para você redefinir sua senha.",
+      "resetSubmit": "Enviar link",
+      "resetSent": "Enviamos um link para redefinir a senha para {{email}}. Confira sua caixa de entrada e a pasta de spam.",
+      "backToSignIn": "Voltar ao login",
+      "verificationSent": "Enviamos um e-mail de verificação para {{email}}."
     },
     "errors": {
-      "invalidEmail": "Enter a valid email address.",
-      "userDisabled": "This account has been disabled.",
-      "wrongCredentials": "Incorrect email or password.",
-      "emailInUse": "An account with this email already exists. Try signing in.",
-      "weakPassword": "This password is too weak. Choose a longer one that is hard to guess.",
-      "tooManyRequests": "Too many attempts. Please wait a moment and try again.",
-      "providerDisabled": "This sign-in method is currently turned off.",
-      "accountExists": "This email is registered with another sign-in method. Please sign in with that method.",
-      "recentLogin": "For your security, please sign in again and retry.",
-      "playServices": "Google Play services are required to sign in with Google.",
-      "appleFailed": "Sign in with Apple could not be completed. Please try again.",
-      "googleFailed": "Google sign-in could not be completed. Please try again.",
-      "generic": "Sign-in could not be completed. Please try again."
+      "invalidEmail": "Informe um e-mail válido.",
+      "userDisabled": "Esta conta foi desativada.",
+      "wrongCredentials": "E-mail ou senha incorretos.",
+      "emailInUse": "Já existe uma conta com este e-mail. Tente entrar.",
+      "weakPassword": "Esta senha é fraca demais. Escolha uma mais longa e difícil de adivinhar.",
+      "tooManyRequests": "Muitas tentativas. Aguarde um pouco e tente de novo.",
+      "providerDisabled": "Este método de login está desativado no momento.",
+      "accountExists": "Este e-mail está cadastrado com outro método de login. Entre usando esse método.",
+      "recentLogin": "Por segurança, entre novamente e tente de novo.",
+      "playServices": "O Google Play Services é necessário para entrar com o Google.",
+      "appleFailed": "Não foi possível concluir o login com a Apple. Tente novamente.",
+      "googleFailed": "Não foi possível concluir o login com o Google. Tente novamente.",
+      "generic": "Não foi possível concluir o login. Tente novamente."
     }
   },
   "onboarding": {
@@ -416,66 +416,66 @@
       "favorites": "Peças favoritas",
       "categoryA11y": "{{category}}: {{count}}"
     },
-    "help": "Help & legal",
-    "version": "Version {{version}}"
+    "help": "Ajuda e informações legais",
+    "version": "Versão {{version}}"
   },
   "legal": {
-    "terms": "Terms of Use",
-    "privacy": "Privacy Policy",
-    "support": "Support",
-    "openFailed": "Couldn't open the link"
+    "terms": "Termos de Uso",
+    "privacy": "Política de Privacidade",
+    "support": "Suporte",
+    "openFailed": "Não foi possível abrir o link"
   },
   "gate": {
     "maintenance": {
-      "title": "A short maintenance break",
-      "message": "We're improving RYVENCA for you. Please try again in a little while."
+      "title": "Uma breve pausa para manutenção",
+      "message": "Estamos melhorando a RYVENCA para você. Tente novamente daqui a pouco."
     },
     "update": {
-      "title": "A new version is ready",
-      "message": "Please update RYVENCA to continue. The new version includes important improvements.",
-      "action": "Update the App",
-      "versions": "Installed version {{installed}} · Required version {{required}}",
-      "noStoreLink": "Install the latest version of RYVENCA from your app store."
+      "title": "Uma nova versão está disponível",
+      "message": "Atualize a RYVENCA para continuar. A nova versão traz melhorias importantes.",
+      "action": "Atualizar o app",
+      "versions": "Versão instalada {{installed}} · Versão necessária {{required}}",
+      "noStoreLink": "Instale a versão mais recente da RYVENCA pela loja de apps."
     }
   },
   "deleteAccount": {
-    "title": "Delete Account",
-    "headline": "Permanently delete your account",
-    "intro": "When you delete your account, the following is removed immediately and permanently:",
+    "title": "Excluir conta",
+    "headline": "Excluir sua conta permanentemente",
+    "intro": "Ao excluir sua conta, os seguintes dados são removidos imediata e permanentemente:",
     "items": {
-      "photos": "All clothing photos you uploaded",
-      "garments": "Every piece in your wardrobe and its details",
-      "outfits": "Your saved outfits and favorites",
-      "account": "Your account, profile, preferences and sign-in details"
+      "photos": "Todas as fotos de roupas que você enviou",
+      "garments": "Todas as peças do seu guarda-roupa e seus detalhes",
+      "outfits": "Seus looks salvos e favoritos",
+      "account": "Sua conta, seu perfil, suas preferências e seus dados de login"
     },
-    "permanent": "This cannot be undone. Deleted data cannot be recovered.",
-    "reasonLabel": "Why are you leaving? (optional)",
-    "reasonPlaceholder": "Your feedback helps us improve RYVENCA.",
-    "confirmCheck": "I understand that my account and all my data will be permanently deleted.",
-    "appleNote": "For your security you'll be asked to confirm with Apple once more; RYVENCA's Sign in with Apple access is then revoked as well.",
-    "googleNote": "RYVENCA's access to your Google account will be removed as well.",
-    "action": "Permanently Delete My Account",
-    "confirmTitle": "Final confirmation",
-    "confirmMessage": "Your account and all your data will be deleted now. Are you sure?",
-    "confirmAction": "Yes, delete",
-    "failed": "Account could not be deleted",
-    "otherOptions": "Looking for another way?",
-    "webPage": "Open the account deletion page",
+    "permanent": "Isso não pode ser desfeito. Os dados excluídos não podem ser recuperados.",
+    "reasonLabel": "Por que você está saindo? (opcional)",
+    "reasonPlaceholder": "Sua opinião nos ajuda a melhorar a RYVENCA.",
+    "confirmCheck": "Entendo que minha conta e todos os meus dados serão excluídos permanentemente.",
+    "appleNote": "Por segurança, será necessário confirmar mais uma vez com a Apple; depois disso, o acesso da RYVENCA pelo recurso “Iniciar sessão com a Apple” também é revogado.",
+    "googleNote": "O acesso da RYVENCA à sua Conta do Google também será removido.",
+    "action": "Excluir minha conta permanentemente",
+    "confirmTitle": "Confirmação final",
+    "confirmMessage": "Sua conta e todos os seus dados serão excluídos agora. Tem certeza?",
+    "confirmAction": "Sim, excluir",
+    "failed": "Não foi possível excluir a conta",
+    "otherOptions": "Procurando outra forma?",
+    "webPage": "Abrir a página de exclusão de conta",
     "deleted": {
-      "title": "Your account was deleted",
-      "message": "Your account and all your data have been permanently deleted. Thank you for trying RYVENCA.",
+      "title": "Sua conta foi excluída",
+      "message": "Sua conta e todos os seus dados foram excluídos permanentemente. Obrigado por experimentar a RYVENCA.",
       "action": "OK"
     }
   },
   "deletionRequest": {
-    "title": "Account Deletion Request",
-    "intro": "If you can't sign in, enter the email address of your account. We'll review your request, delete your account and all its data, and let you know at this address.",
-    "messageLabel": "Note (optional)",
-    "messagePlaceholder": "e.g. I can't sign in to my account.",
-    "submit": "Send Request",
-    "sentTitle": "Request received",
-    "sentMessage": "We'll review your request and let you know by email. Keep this reference number:",
-    "referenceA11y": "Reference number {{reference}}",
-    "webPage": "Open the account deletion page on the web"
+    "title": "Solicitação de exclusão de conta",
+    "intro": "Se você não consegue entrar, informe o e-mail da sua conta. Vamos analisar sua solicitação, excluir sua conta e todos os dados dela e avisar você por esse endereço.",
+    "messageLabel": "Observação (opcional)",
+    "messagePlaceholder": "ex.: Não consigo entrar na minha conta.",
+    "submit": "Enviar solicitação",
+    "sentTitle": "Solicitação recebida",
+    "sentMessage": "Vamos analisar sua solicitação e avisar você por e-mail. Guarde este número de referência:",
+    "referenceA11y": "Número de referência {{reference}}",
+    "webPage": "Abrir a página de exclusão de conta na web"
   }
 }

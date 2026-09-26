@@ -40,7 +40,7 @@
     "payloadTooLarge": "사진 용량이 너무 커요. 최대 {{maxMb}}MB까지 업로드할 수 있어요.",
     "server": "서버에 문제가 발생했어요. 잠시 후 다시 시도해 주세요.",
     "connectionFailed": "연결할 수 없어요",
-    "accountDisabled": "Your account has been disabled. Please contact support for help."
+    "accountDisabled": "계정이 비활성화되었어요. 도움이 필요하면 고객 지원팀에 문의해 주세요."
   },
   "language": {
     "title": "언어",
@@ -97,44 +97,44 @@
       "hasAccount": "이미 계정이 있으신가요?",
       "toLogin": "로그인"
     },
-    "intro": "Sign in or create a new account in a few seconds.",
+    "intro": "몇 초 만에 로그인하거나 새 계정을 만들 수 있어요.",
     "providers": {
-      "google": "Continue with Google",
-      "email": "Continue with email",
-      "or": "or"
+      "google": "Google 계정으로 계속하기",
+      "email": "이메일로 계속하기",
+      "or": "또는"
     },
     "unavailable": {
-      "title": "Sign-in is unavailable right now",
-      "message": "No sign-in method is available in this version. Please try again later or contact support."
+      "title": "지금은 로그인할 수 없어요",
+      "message": "이 버전에서는 사용할 수 있는 로그인 방법이 없어요. 잠시 후 다시 시도하거나 고객 지원팀에 문의해 주세요."
     },
-    "disabledTitle": "Your account is disabled",
-    "agreement": "By continuing you agree to the Terms of Use and the Privacy Policy.",
-    "cantAccess": "Can't access your account?",
-    "cantAccessAction": "Request account deletion",
+    "disabledTitle": "비활성화된 계정이에요",
+    "agreement": "계속하면 이용약관과 개인정보 처리방침에 동의하는 것으로 간주돼요.",
+    "cantAccess": "계정에 접근할 수 없나요?",
+    "cantAccessAction": "계정 삭제 요청하기",
     "email": {
-      "title": "Continue with email",
-      "forgot": "Forgot password",
-      "resetTitle": "Reset your password",
-      "resetIntro": "Enter the email address of your account and we'll send you a link to reset your password.",
-      "resetSubmit": "Send Link",
-      "resetSent": "We sent a password reset link to {{email}}. Check your inbox and spam folder.",
-      "backToSignIn": "Back to sign in",
-      "verificationSent": "We sent a verification email to {{email}}."
+      "title": "이메일로 계속하기",
+      "forgot": "비밀번호 찾기",
+      "resetTitle": "비밀번호 재설정하기",
+      "resetIntro": "계정의 이메일 주소를 입력하면 비밀번호 재설정 링크를 보내 드려요.",
+      "resetSubmit": "링크 보내기",
+      "resetSent": "{{email}}(으)로 비밀번호 재설정 링크를 보냈어요. 받은편지함과 스팸함을 확인해 주세요.",
+      "backToSignIn": "로그인으로 돌아가기",
+      "verificationSent": "{{email}}(으)로 인증 메일을 보냈어요."
     },
     "errors": {
-      "invalidEmail": "Enter a valid email address.",
-      "userDisabled": "This account has been disabled.",
-      "wrongCredentials": "Incorrect email or password.",
-      "emailInUse": "An account with this email already exists. Try signing in.",
-      "weakPassword": "This password is too weak. Choose a longer one that is hard to guess.",
-      "tooManyRequests": "Too many attempts. Please wait a moment and try again.",
-      "providerDisabled": "This sign-in method is currently turned off.",
-      "accountExists": "This email is registered with another sign-in method. Please sign in with that method.",
-      "recentLogin": "For your security, please sign in again and retry.",
-      "playServices": "Google Play services are required to sign in with Google.",
-      "appleFailed": "Sign in with Apple could not be completed. Please try again.",
-      "googleFailed": "Google sign-in could not be completed. Please try again.",
-      "generic": "Sign-in could not be completed. Please try again."
+      "invalidEmail": "올바른 이메일 주소를 입력해 주세요.",
+      "userDisabled": "비활성화된 계정이에요.",
+      "wrongCredentials": "이메일 또는 비밀번호가 올바르지 않아요.",
+      "emailInUse": "이 이메일로 가입된 계정이 이미 있어요. 로그인해 보세요.",
+      "weakPassword": "비밀번호가 너무 약해요. 더 길고 추측하기 어려운 비밀번호를 설정해 주세요.",
+      "tooManyRequests": "시도 횟수가 너무 많아요. 잠시 기다린 후 다시 시도해 주세요.",
+      "providerDisabled": "이 로그인 방법은 현재 꺼져 있어요.",
+      "accountExists": "이 이메일은 다른 로그인 방법으로 가입되어 있어요. 해당 방법으로 로그인해 주세요.",
+      "recentLogin": "보안을 위해 다시 로그인한 후 시도해 주세요.",
+      "playServices": "Google로 로그인하려면 Google Play 서비스가 필요해요.",
+      "appleFailed": "Apple로 로그인을 완료하지 못했어요. 다시 시도해 주세요.",
+      "googleFailed": "Google 로그인을 완료하지 못했어요. 다시 시도해 주세요.",
+      "generic": "로그인을 완료하지 못했어요. 다시 시도해 주세요."
     }
   },
   "onboarding": {
@@ -412,66 +412,66 @@
       "favorites": "즐겨찾는 아이템",
       "categoryA11y": "{{category}}: {{count}}"
     },
-    "help": "Help & legal",
-    "version": "Version {{version}}"
+    "help": "도움말 및 약관",
+    "version": "버전 {{version}}"
   },
   "legal": {
-    "terms": "Terms of Use",
-    "privacy": "Privacy Policy",
-    "support": "Support",
-    "openFailed": "Couldn't open the link"
+    "terms": "이용약관",
+    "privacy": "개인정보 처리방침",
+    "support": "고객 지원",
+    "openFailed": "링크를 열 수 없어요"
   },
   "gate": {
     "maintenance": {
-      "title": "A short maintenance break",
-      "message": "We're improving RYVENCA for you. Please try again in a little while."
+      "title": "잠시 점검 중이에요",
+      "message": "더 나은 RYVENCA를 위해 개선하고 있어요. 잠시 후 다시 시도해 주세요."
     },
     "update": {
-      "title": "A new version is ready",
-      "message": "Please update RYVENCA to continue. The new version includes important improvements.",
-      "action": "Update the App",
-      "versions": "Installed version {{installed}} · Required version {{required}}",
-      "noStoreLink": "Install the latest version of RYVENCA from your app store."
+      "title": "새 버전이 준비되었어요",
+      "message": "계속 이용하려면 RYVENCA를 업데이트해 주세요. 새 버전에는 중요한 개선 사항이 포함되어 있어요.",
+      "action": "앱 업데이트",
+      "versions": "설치된 버전 {{installed}} · 필요한 버전 {{required}}",
+      "noStoreLink": "앱 스토어에서 RYVENCA 최신 버전을 설치해 주세요."
     }
   },
   "deleteAccount": {
-    "title": "Delete Account",
-    "headline": "Permanently delete your account",
-    "intro": "When you delete your account, the following is removed immediately and permanently:",
+    "title": "계정 삭제",
+    "headline": "계정 영구 삭제",
+    "intro": "계정을 삭제하면 다음 정보가 즉시 영구적으로 삭제돼요.",
     "items": {
-      "photos": "All clothing photos you uploaded",
-      "garments": "Every piece in your wardrobe and its details",
-      "outfits": "Your saved outfits and favorites",
-      "account": "Your account, profile, preferences and sign-in details"
+      "photos": "업로드한 모든 옷 사진",
+      "garments": "옷장 속 모든 아이템과 상세 정보",
+      "outfits": "저장한 코디와 즐겨찾기",
+      "account": "계정, 프로필, 취향 설정, 로그인 정보"
     },
-    "permanent": "This cannot be undone. Deleted data cannot be recovered.",
-    "reasonLabel": "Why are you leaving? (optional)",
-    "reasonPlaceholder": "Your feedback helps us improve RYVENCA.",
-    "confirmCheck": "I understand that my account and all my data will be permanently deleted.",
-    "appleNote": "For your security you'll be asked to confirm with Apple once more; RYVENCA's Sign in with Apple access is then revoked as well.",
-    "googleNote": "RYVENCA's access to your Google account will be removed as well.",
-    "action": "Permanently Delete My Account",
-    "confirmTitle": "Final confirmation",
-    "confirmMessage": "Your account and all your data will be deleted now. Are you sure?",
-    "confirmAction": "Yes, delete",
-    "failed": "Account could not be deleted",
-    "otherOptions": "Looking for another way?",
-    "webPage": "Open the account deletion page",
+    "permanent": "삭제 후에는 되돌릴 수 없어요. 삭제된 데이터는 복구할 수 없어요.",
+    "reasonLabel": "떠나시는 이유가 있나요? (선택)",
+    "reasonPlaceholder": "보내 주신 의견은 RYVENCA를 개선하는 데 도움이 돼요.",
+    "confirmCheck": "내 계정과 모든 데이터가 영구적으로 삭제된다는 것을 이해했어요.",
+    "appleNote": "보안을 위해 Apple에서 한 번 더 확인을 요청해요. 이후 RYVENCA의 'Apple로 로그인' 접근 권한도 해제돼요.",
+    "googleNote": "RYVENCA의 Google 계정 접근 권한도 함께 삭제돼요.",
+    "action": "계정 영구 삭제하기",
+    "confirmTitle": "최종 확인",
+    "confirmMessage": "계정과 모든 데이터가 지금 삭제돼요. 정말 삭제할까요?",
+    "confirmAction": "네, 삭제할게요",
+    "failed": "계정을 삭제하지 못했어요",
+    "otherOptions": "다른 방법을 찾고 있나요?",
+    "webPage": "계정 삭제 페이지 열기",
     "deleted": {
-      "title": "Your account was deleted",
-      "message": "Your account and all your data have been permanently deleted. Thank you for trying RYVENCA.",
-      "action": "OK"
+      "title": "계정이 삭제되었어요",
+      "message": "계정과 모든 데이터가 영구적으로 삭제되었어요. RYVENCA를 이용해 주셔서 감사해요.",
+      "action": "확인"
     }
   },
   "deletionRequest": {
-    "title": "Account Deletion Request",
-    "intro": "If you can't sign in, enter the email address of your account. We'll review your request, delete your account and all its data, and let you know at this address.",
-    "messageLabel": "Note (optional)",
-    "messagePlaceholder": "e.g. I can't sign in to my account.",
-    "submit": "Send Request",
-    "sentTitle": "Request received",
-    "sentMessage": "We'll review your request and let you know by email. Keep this reference number:",
-    "referenceA11y": "Reference number {{reference}}",
-    "webPage": "Open the account deletion page on the web"
+    "title": "계정 삭제 요청",
+    "intro": "로그인할 수 없다면 계정의 이메일 주소를 입력해 주세요. 요청을 검토한 후 계정과 모든 데이터를 삭제하고 이 주소로 알려 드려요.",
+    "messageLabel": "메모 (선택)",
+    "messagePlaceholder": "예: 계정에 로그인할 수 없어요.",
+    "submit": "요청 보내기",
+    "sentTitle": "요청이 접수되었어요",
+    "sentMessage": "요청을 검토한 후 이메일로 알려 드릴게요. 이 접수 번호를 보관해 주세요:",
+    "referenceA11y": "접수 번호 {{reference}}",
+    "webPage": "웹에서 계정 삭제 페이지 열기"
   }
 }
